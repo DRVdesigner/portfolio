@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>David Rios — Product Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#06070f;--cream:#f2f0eb;
+  --blue:#2121A9;
+  --w60:rgba(255,255,255,.6);--w40:rgba(255,255,255,.4);
+  --w20:rgba(255,255,255,.2);--w10:rgba(255,255,255,.1);
+  --font:'Plus Jakarta Sans',sans-serif;
+  --max:1200px;--pad:5rem;--nav:80px;
+}
+body{font-family:var(--font);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ════════════════════════════
+   NAV
+════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:900;
+  padding:0 var(--pad);display:flex;align-items:center;
+  border-bottom:1px solid transparent;transition:background .4s,border-color .4s;
+}
+nav.sc{
+  background:#fafafa;
+  border-bottom:1px solid rgba(6,7,15,.08);
+}
+nav.sc .nl a{color:rgba(6,7,15,.45)}
+nav.sc .nl a:hover,nav.sc .nl a.act{color:var(--ink)}
+nav.sc .ncta{background:var(--ink);color:#fff}
+.ni{width:100%;max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{width:36px;height:36px;background:#1a1a2a;border-radius:50%;border:1.5px solid var(--w20);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--w60)}
+nav.sc .logo{background:#e8e6e0;border-color:rgba(6,7,15,.15);color:rgba(6,7,15,.5)}
+.nl{display:flex;gap:2rem;list-style:none;align-items:center}
+.nl a{font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--w40);transition:color .2s}
+.nl a:hover,.nl a.act{color:#fff}
+.lang{
+  display:flex;position:relative;align-items:center;
+  background:#e0ded8;border-radius:100px;padding:3px;
+  box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6);
+}
+.lang-knob{
+  position:absolute;top:3px;left:3px;
+  width:calc(50% - 3px);height:calc(100% - 6px);
+  border-radius:100px;background:#fff;
+  box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);
+  transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0;
+}
+.lang.es .lang-knob{transform:translateX(100%)}
+.lb{
+  padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;
+  font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;
+  min-width:2.2rem;text-align:center;
+}
+.lb.on{color:rgba(30,30,33,.82)}
+.ncta{
+  padding:.5rem 1.25rem;border-radius:100px;background:#fff;color:var(--ink);
+  font-size:.78rem;font-weight:700;font-family:var(--font);cursor:pointer;border:none;transition:all .2s;
+}
+.ncta:hover{background:rgba(255,255,255,.88)}
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero{
+  position:relative;
+  width:100%;min-height:100vh;
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 0% 40%,   #260DBF 0%, rgba(38,13,191,.6) 45%, transparent 68%),
+    radial-gradient(ellipse 45% 60% at 8%  90%,   #6F0651 0%, rgba(111,6,81,.5)  50%, transparent 68%),
+    radial-gradient(ellipse 55% 70% at 95% 55%,   #260DBF 0%, rgba(38,13,191,.4) 45%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 95% 5%,    rgba(111,6,81,.6) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 55% at 52% 78%,   #110518 0%, #110518 30%, transparent 62%),
+    #220626;
+}
+.hero-grain{
+  position:absolute;inset:0;z-index:1;opacity:.055;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-center{
+  position:relative;z-index:10;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;gap:0;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);margin-bottom:.9rem;
+}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4ade80;box-shadow:0 0 8px #4ade80;
+  flex-shrink:0;animation:dotPulse 2.2s ease-in-out infinite;
+}
+@keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.75)}}
+.hero-name{
+  font-size:clamp(2.2rem,6.5vw,6.5rem);
+  font-weight:800;letter-spacing:-.05em;line-height:.88;
+  color:#fff;margin-bottom:1.6rem;white-space:nowrap;text-align:center;
+}
+.hero-desc{
+  font-size:.975rem;line-height:1.75;font-weight:400;
+  color:rgba(255,255,255,.52);
+  max-width:400px;margin:0 auto 1.75rem;text-align:center;
+}
+.hero-btns{display:flex;gap:.85rem;justify-content:center;align-items:center}
+.hbp{
+  display:inline-flex;align-items:center;padding:.82rem 1.7rem;
+  background:#fff;color:var(--ink);border-radius:100px;
+  font-size:.875rem;font-weight:700;font-family:var(--font);
+  cursor:pointer;border:none;transition:all .2s;
+}
+.hbp:hover{background:rgba(255,255,255,.88)}
+.hbg{
+  display:inline-flex;align-items:center;padding:.82rem 1.4rem;
+  background:transparent;color:rgba(255,255,255,.65);
+  border-radius:100px;font-size:.875rem;font-weight:600;
+  font-family:var(--font);cursor:pointer;border:none;transition:color .2s;
+}
+.hbg:hover{color:#fff}
+.hchip{
+  position:absolute;white-space:nowrap;border-radius:100px;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:0 4px 24px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.2);
+  color:rgba(255,255,255,.9);font-weight:600;cursor:default;
+  z-index:5;
+  animation:chipFloat var(--cdur,3.2s) ease-in-out var(--cdel,0s) infinite;
+}
+@keyframes chipFloat{
+  0%,100%{transform:translateY(0px) scale(1)}
+  50%    {transform:translateY(-5px) scale(1.1)}
+}
+
+/* ════════════════════════════
+   ABOUT
+════════════════════════════ */
+.about{background:#1E1E21;border-top:1px solid rgba(255,255,255,.06);padding:8rem var(--pad)}
+.ai{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8rem}
+.ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.75rem}
+.ah{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;letter-spacing:-.04em;line-height:1.08;margin-bottom:2rem}
+.at{font-size:.95rem;line-height:1.8;color:var(--w60);font-weight:400;margin-bottom:.85rem}
+.at strong{color:rgba(255,255,255,.88);font-weight:700}
+.abtns{display:flex;gap:.85rem;margin-top:2.5rem}
+.abt1{display:inline-flex;align-items:center;padding:.75rem 1.4rem;border-radius:100px;background:#fff;color:var(--ink);font-size:.82rem;font-weight:700;font-family:var(--font);cursor:pointer;border:none;transition:all .2s}
+.abt1:hover{background:rgba(255,255,255,.88)}
+.abt2{display:inline-flex;align-items:center;padding:.75rem 1.4rem;border-radius:100px;background:transparent;color:var(--w60);font-size:.82rem;font-weight:600;font-family:var(--font);cursor:pointer;border:1.5px solid var(--w20);transition:all .2s}
+.abt2:hover{border-color:var(--w40);color:#fff}
+.tl{position:relative}
+.tl-ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:2rem}
+.tl-track{position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(255,255,255,.15)}
+
+/* Scroll window with fade masks */
+.tl-window{
+  position:relative;height:360px;overflow:hidden;
+}
+.tl-window::before,.tl-window::after{
+  content:'';position:absolute;left:0;right:0;height:100px;z-index:2;pointer-events:none;
+}
+.tl-window::before{top:0;background:linear-gradient(to bottom,#1E1E21 10%,transparent 100%)}
+.tl-window::after{bottom:0;background:linear-gradient(to top,#1E1E21 10%,transparent 100%)}
+
+.tl-items{
+  display:flex;flex-direction:column;
+  padding-left:1.5rem;
+  transition:transform .1s linear;
+  will-change:transform;
+}
+.tli{
+  display:flex;gap:1.5rem;padding:1.5rem 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  opacity:1;transform:none;transition:none;
+}
+.tli:last-child{border-bottom:none}
+.tli.faded .tli-role,.tli.faded .tli-co,.tli.faded .tli-desc{opacity:.3}
+.tli.faded .tli-yr{opacity:.3}
+.tli-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,.7);
+  flex-shrink:0;margin-top:.45rem;position:relative;z-index:1;
+  box-shadow:0 0 0 2px rgba(255,255,255,.1);
+}
+.tli.faded .tli-dot{background:rgba(255,255,255,.2);box-shadow:none}
+.tli-yr{font-size:.68rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:.3rem}
+.tli-role{font-size:.95rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.15rem;color:#fff}
+.tli-co{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:500;margin-bottom:.4rem}
+.tli-desc{font-size:.8rem;color:rgba(255,255,255,.28);line-height:1.6;font-weight:400}
+
+/* ════════════════════════════
+   PROJECTS
+════════════════════════════ */
+.pj{background:var(--cream);border-top:2px solid var(--ink);color:var(--ink)}
+.ph{max-width:var(--max);margin:0 auto;padding:5rem var(--pad) 3rem;border-bottom:none}
+.ph-ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(6,7,15,.35);margin-bottom:.75rem}
+.pt{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;color:var(--ink);line-height:1}
+.ball{display:none}
+.ac{max-width:var(--max);margin:0 auto;padding:0 var(--pad);border-bottom:1px solid rgba(6,7,15,.12)}
+.ac.op{border-color:rgba(6,7,15,.12);padding-bottom:2rem;background:var(--cream)}
+.ach{
+  width:100%;background:none;border:none;cursor:pointer;
+  font-family:var(--font);text-align:left;padding:2rem 0;
+  display:flex;align-items:center;gap:2.5rem;color:#06070f;
+}
+.ach:hover .ac-plus{opacity:.6}
+.acbig{font-size:clamp(2.8rem,5vw,5rem);font-weight:800;letter-spacing:-.05em;color:#06070f;line-height:1;min-width:5rem;flex-shrink:0}
+.aci-wrap{flex:1;display:flex;flex-direction:column;gap:.18rem}
+.accat{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(6,7,15,.35)}
+.act2{font-size:clamp(1rem,1.8vw,1.5rem);font-weight:800;letter-spacing:-.03em;color:#06070f}
+.ac-plus{
+  width:2.2rem;height:2.2rem;border-radius:50%;
+  border:1.5px solid rgba(6,7,15,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:400;color:rgba(6,7,15,.5);
+  flex-shrink:0;transition:transform .3s;
+  line-height:1;text-align:center;
+  padding:0 0 1px 1px;
+}
+.ac.op .ac-plus{transform:rotate(45deg)}
+.acb{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)}
+.ac.op .acb{max-height:800px}
+.ac-card{
+  background:#2121A9;border-radius:18px;
+  padding:2rem 2.5rem 2.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;
+}
+.ac-img{background:rgba(255,255,255,.08);border-radius:10px;border:1px solid rgba(255,255,255,.1);min-height:280px;overflow:hidden}
+.ac-right{display:flex;flex-direction:column;gap:1.25rem;padding-top:.25rem}
+.ac-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.atag{padding:.26rem .8rem;border:1.5px solid rgba(255,255,255,.3);border-radius:100px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.75);background:transparent}
+.ac-desc p{font-size:.975rem;line-height:1.72;color:rgba(255,255,255,.6);font-weight:400}
+.ac-desc p strong{color:#fff;font-weight:700}
+.ac-more{
+  display:inline-flex;align-items:center;padding:.68rem 1.4rem;
+  border-radius:100px;background:#fff;color:var(--ink);
+  font-size:.82rem;font-weight:700;font-family:var(--font);
+  cursor:pointer;border:none;transition:all .2s;width:fit-content;
+}
+.ac-more:hover{background:rgba(255,255,255,.88)}
+
+/* ════════════════════════════
+   CONTACT
+════════════════════════════ */
+.ct{
+  background:
+    radial-gradient(ellipse 45% 140% at 0%   50%, rgba(38,13,191,.3)  0%, transparent 60%),
+    radial-gradient(ellipse 35% 60%  at 5%   90%, rgba(111,6,81,.4)   0%, transparent 55%),
+    radial-gradient(ellipse 50% 80%  at 100% 50%, rgba(38,13,191,.55) 0%, rgba(38,13,191,.25) 40%, transparent 65%),
+    radial-gradient(ellipse 40% 50%  at 95%  5%,  rgba(38,13,191,.35) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50%  at 50%  0%,  rgba(38,13,191,.15) 0%, transparent 60%),
+    #110518;
+  padding:8rem var(--pad);text-align:center;border-top:none;
+}
+.cti{max-width:560px;margin:0 auto}
+.cth{font-size:clamp(1.2rem,3vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.15;margin-bottom:1.5rem}
+.cts{font-size:.975rem;color:var(--w40);line-height:1.7;margin-bottom:3rem}
+.cls{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.cl{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.75rem;border:1.5px solid var(--w20);border-radius:100px;font-size:.85rem;font-weight:600;color:var(--w60);transition:all .2s}
+.cl:hover{border-color:rgba(255,255,255,.5);color:#fff;background:var(--w10)}
+.cdot{width:5px;height:5px;border-radius:50%;background:#4ade80;flex-shrink:0}
+
+/* FOOTER */
+footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
+.fi{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fc{font-size:.78rem;color:rgba(255,255,255,.2)}
+.fl{display:flex;gap:2rem}
+.fl a{font-size:.78rem;color:rgba(255,255,255,.22);transition:color .2s}
+.fl a:hover{color:rgba(255,255,255,.6)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){:root{--pad:2.5rem}.ai{grid-template-columns:1fr;gap:4rem}.ac-card{grid-template-columns:1fr}}
+@media(max-width:650px){:root{--pad:1.5rem;--nav:68px}.nl .nli{display:none}.ph{flex-direction:column;align-items:flex-start;gap:1.5rem}.cls{flex-direction:column;align-items:center}.hero-name{font-size:clamp(3rem,15vw,6rem);white-space:normal}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="ni">
+    <div class="logo">DR</div>
+    <ul class="nl">
+      <li class="nli"><a href="#" class="act" data-t="nav.home">Home</a></li>
+      <li class="nli"><a href="#projects" data-t="nav.projects">Projects</a></li>
+      <li class="nli"><a href="#" data-t="nav.cv">CV</a></li>
+      <li>
+        <div class="lang" id="lang-toggle">
+          <div class="lang-knob"></div>
+          <button class="lb on" id="lb-en" onclick="setL('en')">EN</button>
+          <button class="lb"    id="lb-es" onclick="setL('es')">ES</button>
+        </div>
+      </li>
+      <li><button class="ncta" data-t="nav.cta">Contact me</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-center">
+    <div class="hero-tag"><span class="hero-dot"></span><span data-t="hero.avail">OPEN TO WORK</span></div>
+    <h1 class="hero-name">David&nbsp;Rios</h1>
+    <p class="hero-desc" data-t="hero.desc">Crafting end-to-end digital experiences — UI-focused, systems-minded, and fluent in design variables and scalable component architecture.</p>
+    <div class="hero-btns">
+      <button class="hbp" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})" data-t="hero.cta">View Work →</button>
+      <button class="hbg" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})" data-t="hero.about">About me</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="ai">
+    <div>
+      <p class="ey" data-t="about.ey">About me</p>
+      <h2 class="ah rv" data-t-html="about.h">More than <span style="color:rgba(255,255,255,.45)">six years</span> of experience <strong>creating digital products.</strong></h2>
+      <p class="at rv" data-t="about.p1">I focus on understanding user behaviors, identifying their journey, and incorporating all this background into the development of my designs.</p>
+      <p class="at rv" data-t-html="about.p2">Additionally, I have a <strong>solid foundation in creating Design Systems</strong> (components and variables), which allows me to ensure consistency in every product I have worked on over the years.</p>
+      <div class="abtns rv">
+        <button class="abt1" data-t="about.btn1">About me →</button>
+        <button class="abt2" data-t="about.btn2">View full CV</button>
+      </div>
+    </div>
+    <div class="tl">
+      <p class="tl-ey" data-t="about.tley">Work Experience</p>
+      <div style="position:relative;padding-left:1px">
+        <div class="tl-track"></div>
+        <div class="tl-window">
+          <div class="tl-items" id="tl-items">
+            <div class="tli faded">
+              <div class="tli-dot"></div>
+              <div><p class="tli-yr" data-t="tl0.yr">Present</p><p class="tli-role" data-t="tl0.role">Lead Designer</p><p class="tli-co" data-t="tl0.co">Krogigs Startup</p></div>
+            </div>
+            <div class="tli">
+              <div class="tli-dot"></div>
+              <div><p class="tli-yr" data-t="tl1.yr">2021 — 2024</p><p class="tli-role" data-t="tl1.role">Ssr. Advanced Visual Designer</p><p class="tli-co" data-t="tl1.co">Globant</p><p class="tli-desc" data-t="tl1.desc">Designed product interfaces for sports-tech and banking clients. Led visual system migrations to Webflow.</p></div>
+            </div>
+            <div class="tli">
+              <div class="tli-dot"></div>
+              <div><p class="tli-yr" data-t="tl2.yr">2020 — 2021</p><p class="tli-role" data-t="tl2.role">UI Designer</p><p class="tli-co" data-t="tl2.co">Peru Apps</p><p class="tli-desc" data-t="tl2.desc">Crafted mobile-first UI for fintech and e-commerce apps. Established reusable component foundations.</p></div>
+            </div>
+            <div class="tli">
+              <div class="tli-dot"></div>
+              <div><p class="tli-yr" data-t="tl3.yr">2019</p><p class="tli-role" data-t="tl3.role">UX Intern</p><p class="tli-co" data-t="tl3.co">San Fernando</p><p class="tli-desc" data-t="tl3.desc">User research, wireframing and usability testing for internal digital tools.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="pj" id="projects">
+  <div class="ph">
+    <div><p class="ph-ey" data-t="proj.ey">Selected Work</p><h2 class="pt" data-t="proj.title">Recent Projects</h2></div>
+  </div>
+  <div id="acc-list" style="padding:0 0 4rem">
+    <div class="ac">
+      <button class="ach">
+        <span class="acbig">01</span>
+        <div class="aci-wrap"><p class="accat" data-t="p1.cat">AI Chatbot · App Maintenance</p><h3 class="act2" data-t="p1.title">Nissan Latam</h3></div>
+        <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="acb"><div class="ac-card">
+        <div class="ac-img"></div>
+        <div class="ac-right">
+          <div class="ac-tags"><span class="atag">UX Design</span><span class="atag">UI Design</span><span class="atag">Automotive</span><span class="atag">AI Chatbot</span><span class="atag">Figma</span></div>
+          <div class="ac-desc"><p data-t-html="p1.desc">Led UX and visual design for Nissan's Latin America digital maintenance platform — streamlining <strong>service scheduling and vehicle ownership experience across multiple markets.</strong></p></div>
+          <button class="ac-more" data-t="proj.more">View more</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="ac">
+      <button class="ach">
+        <span class="acbig">02</span>
+        <div class="aci-wrap"><p class="accat" data-t="p2.cat">Design System ·</p><h3 class="act2" data-t="p2.title">Bimbo Mexico</h3></div>
+        <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="acb"><div class="ac-card">
+        <div class="ac-img"></div>
+        <div class="ac-right">
+          <div class="ac-tags"><span class="atag">Design System</span><span class="atag">Visual Design</span><span class="atag">Brand</span><span class="atag">Figma</span></div>
+          <div class="ac-desc"><p data-t-html="p2.desc">Design studio engagement for Grupo Bimbo's Mexico division — <strong>crafting a scalable design system and visual language for one of the world's largest bakery companies.</strong></p></div>
+          <button class="ac-more" data-t="proj.more">View more</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="ac">
+      <button class="ach">
+        <span class="acbig">03</span>
+        <div class="aci-wrap"><p class="accat" data-t="p3.cat">Dashboard Design · UX Architecture · UI Kit · Illustrations</p><h3 class="act2" data-t="p3.title">Orion by Google</h3></div>
+        <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="acb"><div class="ac-card">
+        <div class="ac-img"></div>
+        <div class="ac-right">
+          <div class="ac-tags"><span class="atag">Dashboard design</span><span class="atag">UX Architecture</span><span class="atag">UI kit</span><span class="atag">Illustrations</span><span class="atag">Branding</span></div>
+          <div class="ac-desc"><p data-t-html="p3.desc">I led the information architecture and <strong>complete dashboard design, ensuring clarity, visual hierarchy, and optimal usability for end users.</strong> I developed the UI kit and component system that standardized design across the platform.</p></div>
+          <button class="ac-more" data-t="proj.more">View more</button>
+        </div>
+      </div></div>
+    </div>
+    <div class="ac">
+      <button class="ach">
+        <span class="acbig">04</span>
+        <div class="aci-wrap"><p class="accat" data-t="p4.cat">Identidad de Marca · Game UI · Diseño Visual</p><h3 class="act2" data-t="p4.title">La Calera</h3></div>
+        <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="acb"><div class="ac-card">
+        <div class="ac-img"></div>
+        <div class="ac-right">
+          <div class="ac-tags"><span class="atag">Brand Identity</span><span class="atag">Game UI</span><span class="atag">Visual Design</span><span class="atag">Figma</span></div>
+          <div class="ac-desc"><p data-t-html="p4.desc">Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong></p></div>
+          <button class="ac-more" data-t="proj.more">View more</button>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ct" id="contact">
+  <div class="cti">
+    <p class="ey" style="text-align:center;margin-bottom:1.25rem" data-t="ct.ey">Let's talk</p>
+    <h2 class="cth rv" data-t-html="ct.h">Ready to build<br>something great?</h2>
+    <p class="cts rv" data-t="ct.sub">Available for full-time roles, freelance projects and consulting. Remote-ready from São Paulo, Brazil.</p>
+    <div class="cls rv">
+      <a href="mailto:david@email.com" class="cl"><span class="cdot"></span>david@email.com</a>
+      <a href="https://linkedin.com/in/davidrios" target="_blank" class="cl">↗ LinkedIn</a>
+      <a href="tel:+51999999999" class="cl">+51 999 999 999</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
+    <div class="fl">
+      <a href="#about" data-t="foot.about">About</a>
+      <a href="#projects" data-t="foot.proj">Projects</a>
+      <a href="mailto:david@email.com">Email</a>
+      <a href="https://linkedin.com/in/davidrios" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const T={
+  en:{
+    'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV','nav.cta':'Contact me',
+    'hero.avail':'OPEN TO WORK','hero.desc':'Crafting end-to-end digital experiences — UI-focused, systems-minded, and fluent in design variables and scalable component architecture.','hero.cta':'View Work →','hero.about':'About me',
+    'about.ey':'About me','about.h':'More than <span style="color:rgba(255,255,255,.45)">six years</span> of experience <strong>creating digital products.</strong>','about.p1':'I focus on understanding user behaviors, identifying their journey, and incorporating all this background into the development of my designs.','about.p2':'Additionally, I have a <strong>solid foundation in creating Design Systems</strong> (components and variables), which allows me to ensure consistency in every product I have worked on over the years.','about.btn1':'About me →','about.btn2':'View full CV','about.tley':'Work Experience',
+    'tl0.yr':'Present','tl0.role':'Lead Designer','tl0.co':'Krogigs Startup',
+    'tl1.yr':'2021 — 2024','tl1.role':'Ssr. Advanced Visual Designer','tl1.co':'Globant','tl1.desc':'Designed product interfaces for sports-tech and banking clients. Led visual system migrations to Webflow.',
+    'tl2.yr':'2020 — 2021','tl2.role':'UI Designer','tl2.co':'Peru Apps','tl2.desc':'Crafted mobile-first UI for fintech and e-commerce apps. Established reusable component foundations.',
+    'tl3.yr':'2019','tl3.role':'UX Intern','tl3.co':'San Fernando','tl3.desc':'User research, wireframing and usability testing for internal digital tools.',
+    'proj.ey':'Selected Work','proj.title':'Recent Projects','proj.more':'View more',
+    'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam','p1.desc':"Led UX and visual design for Nissan's Latin America digital maintenance platform — streamlining <strong>service scheduling and vehicle ownership experience across multiple markets.</strong>",
+    'p2.cat':'Design System ·','p2.title':'Bimbo Mexico','p2.desc':"Design studio engagement for Grupo Bimbo's Mexico division — <strong>crafting a scalable design system and visual language for one of the world's largest bakery companies.</strong>",
+    'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google','p3.desc':'I led the information architecture and <strong>complete dashboard design, ensuring clarity, visual hierarchy, and optimal usability for end users.</strong> I developed the UI kit and component system that standardized design across the platform.',
+    'p4.cat':'Brand Identity · Game UI · Visual Design','p4.title':'La Calera','p4.desc':'Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong>',
+    'ct.ey':"Let's talk",'ct.h':'Ready to build<br>something great?','ct.sub':'Available for full-time roles, freelance projects and consulting. Remote-ready from São Paulo, Brazil.',
+    'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.about':'About','foot.proj':'Projects'
+  },
+  es:{
+    'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV','nav.cta':'Contáctame',
+    'hero.avail':'DISPONIBLE PARA TRABAJAR','hero.desc':'Creando experiencias digitales end-to-end — enfocado en UI, orientado a sistemas, y fluido en variables de diseño y arquitectura de componentes escalable.','hero.cta':'Ver Proyectos →','hero.about':'Sobre mí',
+    'about.ey':'Sobre mí','about.h':'Más de <span style="color:rgba(255,255,255,.45)">seis años</span> de experiencia <strong>creando productos digitales.</strong>','about.p1':'Me enfoco en entender los comportamientos de los usuarios, identificar su recorrido, e incorporar todo este contexto en el desarrollo de mis diseños.','about.p2':'Además, tengo una <strong>base sólida en la creación de Sistemas de Diseño</strong> (componentes y variables), lo que me permite asegurar consistencia en cada producto en el que he trabajado.','about.btn1':'Sobre mí →','about.btn2':'Ver CV completo','about.tley':'Experiencia laboral',
+    'tl0.yr':'Presente','tl0.role':'Lead Designer','tl0.co':'Krogigs Startup',
+    'tl1.yr':'2021 — 2024','tl1.role':'Ssr. Advanced Visual Designer','tl1.co':'Globant','tl1.desc':'Diseñé interfaces para clientes de sports-tech y banca. Lideré migraciones de sistemas visuales a Webflow.',
+    'tl2.yr':'2020 — 2021','tl2.role':'UI Designer','tl2.co':'Peru Apps','tl2.desc':'UI mobile-first para apps de fintech y e-commerce. Establecí bases de componentes reutilizables.',
+    'tl3.yr':'2019','tl3.role':'UX Intern','tl3.co':'San Fernando','tl3.desc':'Investigación de usuarios, wireframing y pruebas de usabilidad para herramientas internas.',
+    'proj.ey':'Trabajos Seleccionados','proj.title':'Proyectos Recientes','proj.more':'Ver más',
+    'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam','p1.desc':"Lideré el diseño UX y visual para la plataforma de mantenimiento de Nissan Latinoamérica — <strong>simplificando el agendamiento de servicios y la experiencia vehicular en múltiples mercados.</strong>",
+    'p2.cat':'Sistema de Diseño ·','p2.title':'Bimbo Mexico','p2.desc':"Proyecto para Grupo Bimbo México — <strong>creando un sistema de diseño escalable para una de las empresas panificadoras más grandes del mundo.</strong>",
+    'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google','p3.desc':'Lideré la arquitectura de información y el <strong>diseño completo del dashboard, asegurando claridad, jerarquía visual y usabilidad óptima.</strong> Desarrollé el UI kit y sistema de componentes.',
+    'p4.cat':'Identidad de Marca · Game UI · Diseño Visual','p4.title':'La Calera','p4.desc':'Identidad de marca completa para La Calera — <strong>desde el logo y lenguaje de color hasta los componentes de game UI.</strong>',
+    'ct.ey':'Hablemos','ct.h':'¿Listo para construir<br>algo increíble?','ct.sub':'Disponible para roles full-time, freelance y consultoría. Remote-ready desde São Paulo, Brazil.',
+    'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.about':'Sobre mí','foot.proj':'Proyectos'
+  }
+};
+let lang='en';
+function setL(l){
+  lang=l;
+  document.querySelectorAll('[data-t]').forEach(el=>{const v=T[l][el.dataset.t];if(v!==undefined)el.textContent=v;});
+  document.querySelectorAll('[data-t-html]').forEach(el=>{const v=T[l][el.dataset.tHtml];if(v!==undefined)el.innerHTML=v;});
+  document.getElementById('lb-en').classList.toggle('on',l==='en');
+  document.getElementById('lb-es').classList.toggle('on',l==='es');
+  const lt=document.getElementById('lang-toggle');if(lt)lt.classList.toggle('es',l==='es');
+}
+
+/* Chips */
+const CHIPS=[
+  {l:'Illustrator',       top:'18%',left:'20%', fs:.9,  dur:3.1,del:0  },
+  {l:'Design Systems',    top:'20%',left:'78%', fs:.88, dur:3.4,del:2.0},
+  {l:'Claude',            top:'38%',left:'8%',  fs:1.18,dur:2.8,del:.9 },
+  {l:'UX Research',       top:'36%',left:'87%', fs:.84, dur:3.7,del:.6 },
+  {l:'Adobe XD',          top:'57%',left:'18%', fs:.76, dur:3.5,del:.4 },
+  {l:'Figma',             top:'55%',left:'82%', fs:1.32,dur:3.0,del:.3 },
+  {l:'Photoshop',         top:'72%',left:'8%',  fs:1.05,dur:3.2,del:1.6},
+  {l:'Prototyping',       top:'68%',left:'89%', fs:.78, dur:3.1,del:1.4},
+  {l:'Premiere',          top:'84%',left:'28%', fs:.88, dur:2.9,del:.7 },
+  {l:'Interaction Design',top:'82%',left:'66%', fs:.88, dur:3.6,del:1.2},
+];
+(function(){
+  const hero=document.getElementById('hero');
+  CHIPS.forEach(c=>{
+    const d=document.createElement('div');
+    d.className='hchip';
+    d.textContent=c.l;
+    d.style.cssText=`top:${c.top};left:${c.left};font-size:${c.fs}rem;padding:${c.fs>1?'.45rem 1.1rem':'.32rem .9rem'};--cdur:${c.dur}s;--cdel:${c.del}s;`;
+    hero.appendChild(d);
+  });
+})();
+
+/* Nav */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40),{passive:true});
+
+/* Accordion */
+document.getElementById('acc-list').addEventListener('click',e=>{
+  const head=e.target.closest('.ach');
+  if(!head)return;
+  const item=e.target.closest('.ac');
+  const isOpen=item.classList.contains('op');
+  document.querySelectorAll('.ac').forEach(i=>i.classList.remove('op'));
+  if(!isOpen){item.classList.add('op');setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'nearest'}),60);}
+});
+
+/* Timeline parallax window */
+(function(){
+  const win=document.querySelector('.tl-window');
+  const items=document.getElementById('tl-items');
+  if(!win||!items)return;
+  let maxShift=0;
+  function calcMax(){maxShift=Math.max(0,items.scrollHeight-win.clientHeight);}
+  calcMax();
+  window.addEventListener('resize',calcMax,{passive:true});
+  window.addEventListener('scroll',()=>{
+    const rect=win.getBoundingClientRect();
+    const wh=window.innerHeight;
+    if(rect.bottom<0||rect.top>wh)return;
+    const progress=Math.max(0,Math.min(1,(wh-rect.top)/(wh+rect.height)));
+    const shift=progress*maxShift;
+    items.style.transform=`translateY(${-shift}px)`;
+  },{passive:true});
+})();
+
+/* Reveal */
+const rvObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rvObs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+setL('en');
+</script>
+</body>
+</html>
