@@ -298,7 +298,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
       <li class="nli"><a href="#" class="act" data-t="nav.home">Home</a></li>
       <!-- CAMBIO 1: Projects ahora enlaza a projects.html -->
       <li class="nli"><a href="projects.html" data-t="nav.projects">Projects</a></li>
-      <li class="nli"><a href="#" data-t="nav.cv">CV</a></li>
+      <li class="nli"><a href="cv.html" data-t="nav.cv">CV</a></li>
       <li>
         <div class="lang" id="lang-toggle">
           <div class="lang-knob"></div>
@@ -306,7 +306,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
           <button class="lb"    id="lb-es" onclick="setL('es')">ES</button>
         </div>
       </li>
-      <li><button class="ncta" data-t="nav.cta">Contact me</button></li>
+      <li><button class="ncta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})" data-t="nav.cta">Contact me</button></li>
     </ul>
   </div>
 </nav>
@@ -336,8 +336,8 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
       <p class="at rv" data-t="about.p1">I focus on understanding user behaviors, identifying their journey, and incorporating all this background into the development of my designs.</p>
       <p class="at rv" data-t-html="about.p2">Additionally, I have a <strong>solid foundation in creating Design Systems</strong> (components and variables), which allows me to ensure consistency in every product I have worked on over the years.</p>
       <div class="abtns rv">
-        <button class="abt1" data-t="about.btn1">About me →</button>
-        <button class="abt2" data-t="about.btn2">View full CV</button>
+        <a href="cv.html" class="abt1" data-t="about.btn1">About me →</a>
+        <a href="cv.html" class="abt2" data-t="about.btn2">View full CV</a>
       </div>
     </div>
     <div class="tl">
@@ -383,9 +383,9 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="aci-wrap"><p class="accat" data-t="p1.cat">AI Chatbot · App Maintenance</p><h3 class="act2" data-t="p1.title">Nissan Latam</h3></div>
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
-      <div class="acb">
+      <div class="acb"><div class="ac-card">
         <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto Nissan Latam -->
-        <div class="imagenes/Nissan1.png"></div>
+        <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">UX Design</span><span class="atag">UI Design</span><span class="atag">Automotive</span><span class="atag">AI Chatbot</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p1.desc">Led UX and visual design for Nissan's Latin America digital maintenance platform — streamlining <strong>service scheduling and vehicle ownership experience across multiple markets.</strong></p></div>
