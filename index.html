@@ -296,7 +296,8 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <div class="logo">DR</div>
     <ul class="nl">
       <li class="nli"><a href="#" class="act" data-t="nav.home">Home</a></li>
-      <li class="nli"><a href="#projects" data-t="nav.projects">Projects</a></li>
+      <!-- CAMBIO 1: Projects ahora enlaza a projects.html -->
+      <li class="nli"><a href="projects.html" data-t="nav.projects">Projects</a></li>
       <li class="nli"><a href="#" data-t="nav.cv">CV</a></li>
       <li>
         <div class="lang" id="lang-toggle">
@@ -319,7 +320,8 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <h1 class="hero-name">David&nbsp;Rios</h1>
     <p class="hero-desc" data-t="hero.desc">Crafting end-to-end digital experiences — UI-focused, systems-minded, and fluent in design variables and scalable component architecture.</p>
     <div class="hero-btns">
-      <button class="hbp" onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'})" data-t="hero.cta">View Work →</button>
+      <!-- CAMBIO 2: "View Work" ahora redirige a projects.html -->
+      <button class="hbp" onclick="window.location='projects.html'" data-t="hero.cta">View Work →</button>
       <button class="hbg" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})" data-t="hero.about">About me</button>
     </div>
   </div>
@@ -373,6 +375,8 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <div><p class="ph-ey" data-t="proj.ey">Selected Work</p><h2 class="pt" data-t="proj.title">Recent Projects</h2></div>
   </div>
   <div id="acc-list" style="padding:0 0 4rem">
+
+    <!-- ── PROYECTO 01 ── -->
     <div class="ac">
       <button class="ach">
         <span class="acbig">01</span>
@@ -380,14 +384,18 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
       <div class="acb"><div class="ac-card">
+        <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto Nissan Latam -->
         <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">UX Design</span><span class="atag">UI Design</span><span class="atag">Automotive</span><span class="atag">AI Chatbot</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p1.desc">Led UX and visual design for Nissan's Latin America digital maintenance platform — streamlining <strong>service scheduling and vehicle ownership experience across multiple markets.</strong></p></div>
-          <button class="ac-more" data-t="proj.more">View more</button>
+          <!-- CAMBIO 3a: "View more" redirige a projects.html#p1 -->
+          <a href="projects.html#p1" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
+
+    <!-- ── PROYECTO 02 ── -->
     <div class="ac">
       <button class="ach">
         <span class="acbig">02</span>
@@ -395,14 +403,18 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
       <div class="acb"><div class="ac-card">
+        <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto Bimbo Mexico -->
         <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Design System</span><span class="atag">Visual Design</span><span class="atag">Brand</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p2.desc">Design studio engagement for Grupo Bimbo's Mexico division — <strong>crafting a scalable design system and visual language for one of the world's largest bakery companies.</strong></p></div>
-          <button class="ac-more" data-t="proj.more">View more</button>
+          <!-- CAMBIO 3b: "View more" redirige a projects.html#p2 -->
+          <a href="projects.html#p2" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
+
+    <!-- ── PROYECTO 03 ── -->
     <div class="ac">
       <button class="ach">
         <span class="acbig">03</span>
@@ -410,14 +422,18 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
       <div class="acb"><div class="ac-card">
+        <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto Orion by Google -->
         <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Dashboard design</span><span class="atag">UX Architecture</span><span class="atag">UI kit</span><span class="atag">Illustrations</span><span class="atag">Branding</span></div>
           <div class="ac-desc"><p data-t-html="p3.desc">I led the information architecture and <strong>complete dashboard design, ensuring clarity, visual hierarchy, and optimal usability for end users.</strong> I developed the UI kit and component system that standardized design across the platform.</p></div>
-          <button class="ac-more" data-t="proj.more">View more</button>
+          <!-- CAMBIO 3c: "View more" redirige a projects.html#p3 -->
+          <a href="projects.html#p3" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
+
+    <!-- ── PROYECTO 04 ── -->
     <div class="ac">
       <button class="ach">
         <span class="acbig">04</span>
@@ -425,14 +441,17 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
       <div class="acb"><div class="ac-card">
+        <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto La Calera -->
         <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Brand Identity</span><span class="atag">Game UI</span><span class="atag">Visual Design</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p4.desc">Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong></p></div>
-          <button class="ac-more" data-t="proj.more">View more</button>
+          <!-- CAMBIO 3d: "View more" redirige a projects.html#p4 -->
+          <a href="projects.html#p4" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
+
   </div>
 </section>
 
@@ -443,9 +462,9 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <h2 class="cth rv" data-t-html="ct.h">Ready to build<br>something great?</h2>
     <p class="cts rv" data-t="ct.sub">Available for full-time roles, freelance projects and consulting. Remote-ready from São Paulo, Brazil.</p>
     <div class="cls rv">
-      <a href="mailto:david@email.com" class="cl"><span class="cdot"></span>david@email.com</a>
-      <a href="https://linkedin.com/in/davidrios" target="_blank" class="cl">↗ LinkedIn</a>
-      <a href="tel:+51999999999" class="cl">+51 999 999 999</a>
+      <a href="mailto:david.riosv03@gmail.com" class="cl"><span class="cdot"></span>david.riosv03@gmail.com</a>
+      <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank" class="cl">↗ LinkedIn</a>
+      <a href="tel:+5511924515003" class="cl">(11) 9 2451-5003</a>
     </div>
   </div>
 </section>
@@ -455,9 +474,10 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
     <div class="fl">
       <a href="#about" data-t="foot.about">About</a>
-      <a href="#projects" data-t="foot.proj">Projects</a>
-      <a href="mailto:david@email.com">Email</a>
-      <a href="https://linkedin.com/in/davidrios" target="_blank">LinkedIn</a>
+      <!-- CAMBIO 4: Projects en el footer enlaza a projects.html -->
+      <a href="projects.html" data-t="foot.proj">Projects</a>
+      <a href="mailto:david.riosv03@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
     </div>
   </div>
 </footer>
