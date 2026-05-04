@@ -69,11 +69,8 @@ nav.sc .nl a.act{color:var(--ink)}
 .pcat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w40);margin-bottom:.4rem}
 .tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .tag{padding:.28rem .8rem;border:1.5px solid var(--w20);border-radius:100px;font-size:.72rem;font-weight:600;color:var(--w60)}
-.pbody{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4rem}
-.ov-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:1.25rem}
-.ov-text{font-size:1rem;line-height:1.78;color:var(--w60)}
-.ov-text strong{color:#fff;font-weight:700}
-.hmock{border-radius:16px;overflow:hidden;min-height:300px;border:1px solid var(--w10);position:relative}
+
+/* Shared tabs */
 .proc-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:1.5rem}
 .proc-tabs{display:flex;border:1px solid var(--w10);border-radius:12px;overflow:hidden;margin-bottom:2.5rem}
 .ptab{flex:1;padding:.82rem .5rem;text-align:center;font-size:.73rem;font-weight:700;letter-spacing:.04em;color:var(--w40);background:none;border:none;cursor:pointer;font-family:var(--font);transition:all .2s;border-right:1px solid var(--w10);position:relative}
@@ -81,6 +78,14 @@ nav.sc .nl a.act{color:var(--ink)}
 .ptab:hover{color:var(--w60);background:var(--w10)}
 .ptab.act{color:#fff;background:rgba(255,255,255,.07)}
 .ptab.act::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#fff}
+
+/* Overview tab content */
+.ocontent{display:none;padding:1.75rem 0;margin-bottom:2.5rem}
+.ocontent.vis{display:block}
+.ov-text{font-size:1rem;line-height:1.82;color:var(--w60)}
+.ov-text strong{color:#fff;font-weight:700}
+
+/* Design process tab content */
 .pcontent{display:none}
 .pcontent.vis{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .pc-text h4{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem;color:#fff}
@@ -89,10 +94,19 @@ nav.sc .nl a.act{color:var(--ink)}
 .pc-text ul li{font-size:.84rem;color:var(--w60);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
 .pc-text ul li::before{content:'—';color:var(--w40);flex-shrink:0;margin-top:.05rem}
 .pmock{border-radius:12px;overflow:hidden;min-height:210px;border:1px solid var(--w10)}
+
+/* Metrics */
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
 .metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
+
+/* PIA feature block */
+.pia-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.pia-img{border-radius:14px;overflow:hidden;min-height:460px;border:1px solid var(--w10);background:rgba(255,255,255,.04)}
+.pia-title{font-size:clamp(2rem,3.2vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:.95;color:#fff;margin-bottom:1.75rem;text-transform:uppercase}
+.pia-desc{font-size:.92rem;line-height:1.78;color:var(--w60);margin-bottom:1rem}
+.pia-desc:last-child{margin-bottom:0}
 
 /* Mock fills */
 .mn{background:linear-gradient(135deg,#0d1c2e 0%,#162d47 100%)}
@@ -124,9 +138,10 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   :root{--pad:2.5rem}
-  .pbody,.pcontent.vis{grid-template-columns:1fr}
+  .pcontent.vis{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
+  .pia-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -160,9 +175,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
         </div>
       </li>
     </ul>
-    <button class="ham" id="ham" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -201,18 +214,44 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
   </div>
 </div>
 
-<!-- 01 NISSAN -->
+<!-- ═══ 01 NISSAN ═══ -->
 <div class="ps-wrap" id="p1"><div class="ps">
   <div class="pnum">01</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p1.cat">AI Chatbot · App Maintenance</p><h2 class="pname" data-t="p1.title">Nissan Latam</h2></div>
     <div class="tags"><span class="tag">UX Design</span><span class="tag">UI Design</span><span class="tag">Automotive</span><span class="tag">AI Chatbot</span><span class="tag">Figma</span></div>
   </div>
-  <div class="pbody rv">
-    <div><p class="ov-label" data-t="proc.ov">Project Overview</p><p class="ov-text" data-t-html="p1.ov">Led UX and visual design for Nissan's <strong>Latin America digital maintenance platform</strong> — a unified experience across 6 markets.</p></div>
-    <div class="hmock mn"><div class="mu"><div style="display:flex;justify-content:space-between;align-items:center"><div class="mbar w40 hi" style="height:9px"></div><div style="display:flex;gap:.3rem"><div style="width:22px;height:22px;border-radius:4px;background:rgba(255,255,255,.1)"></div><div style="width:22px;height:22px;border-radius:4px;background:rgba(255,255,255,.06)"></div></div></div><div class="mcard"><div class="mbar w80 hi" style="margin-bottom:.35rem"></div><div class="mbar w60"></div></div><div class="mgrid2"><div class="mcard" style="min-height:60px"></div><div class="mcard" style="min-height:60px;background:rgba(255,255,255,.09)"></div></div><div class="mcard" style="display:flex;gap:.6rem;align-items:center"><div style="width:34px;height:34px;border-radius:7px;background:rgba(255,255,255,.14);flex-shrink:0"></div><div style="flex:1"><div class="mbar w80 hi" style="margin-bottom:.3rem"></div><div class="mbar w50"></div></div></div><div style="display:flex;justify-content:flex-end"><div style="width:70px;height:26px;border-radius:100px;background:rgba(255,255,255,.15)"></div></div></div></div>
+
+  <!-- Overview tabs -->
+  <p class="proc-label">Project Overview</p>
+  <div class="proc-tabs" id="ov-p1">
+    <button class="ptab act" data-step="0">Context</button>
+    <button class="ptab" data-step="1">Challenge</button>
+    <button class="ptab" data-step="2">Goal</button>
   </div>
-  <p class="proc-label" data-t="proc.label">Design Process</p>
+  <div class="ocontent vis rv" data-op="p1" data-os="0">
+    <p class="ov-text">Nissan is one of the biggest Japanese car manufacturers. Their family of automobiles includes brands like Infiniti, Datsun and different tuning products under the label Nismo. It also has a strong presence in Latin America, a car market that is growing exponentially and represents a great business opportunity.</p>
+  </div>
+  <div class="ocontent" data-op="p1" data-os="1">
+    <p class="ov-text">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.</p>
+  </div>
+  <div class="ocontent" data-op="p1" data-os="2">
+    <p class="ov-text">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.</p>
+  </div>
+
+  <!-- PIA Feature -->
+  <div class="pia-grid rv">
+    <!-- IMAGENAQUI — Reemplazar este div con la imagen principal del proyecto Nissan / PIA -->
+    <div class="pia-img"></div>
+    <div>
+      <h3 class="pia-title">P.I.A<br>Purchasing<br>Indirect<br>Assistant</h3>
+      <p class="pia-desc">This first version implements in its core an advanced artificial intelligence. This A.I. is enabled for live interaction via chat and offers precise answers to user requests and an extra feature: capacity to upload and process documents and data.</p>
+      <p class="pia-desc">The design and programming team have also taken a close look at the possible interactions of A.I. and humans to ensure this product's safety. There are established limits for what information can be retrieved, what requests are acceptable and how to handle the user's frustrations in what-if scenarios.</p>
+    </div>
+  </div>
+
+  <!-- Design Process tabs -->
+  <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p1">
     <button class="ptab act" data-step="0" data-t="p1.t0">Discovery</button>
     <button class="ptab" data-step="1" data-t="p1.t1">User Research</button>
@@ -226,67 +265,94 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
   <div class="metrics rv"><div class="metric"><div class="mval">6</div><div class="mlabel" data-t="p1.m0">Markets covered</div></div><div class="metric"><div class="mval">120+</div><div class="mlabel" data-t="p1.m1">Screens delivered</div></div><div class="metric"><div class="mval">30+</div><div class="mlabel" data-t="p1.m2">Chatbot flows</div></div></div>
 </div></div>
 
-<!-- 02 BIMBO -->
+<!-- ═══ 02 BIMBO ═══ -->
 <div class="ps-wrap" id="p2" style="background:#0b0905"><div class="ps">
   <div class="pnum" style="color:rgba(255,120,0,.05)">02</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p2.cat">Design System</p><h2 class="pname" data-t="p2.title">Bimbo Mexico</h2></div>
     <div class="tags"><span class="tag">Design System</span><span class="tag">Visual Design</span><span class="tag">Brand</span><span class="tag">Figma</span></div>
   </div>
-  <div class="pbody rv">
-    <div><p class="ov-label" data-t="proc.ov">Project Overview</p><p class="ov-text" data-t-html="p2.ov">Building a <strong>scalable design system and visual language</strong> for Grupo Bimbo Mexico — unifying 3 digital products under one coherent brand experience.</p></div>
-    <div class="hmock mb"><div class="mu"><div style="display:flex;gap:.35rem;margin-bottom:.3rem"><div style="width:22px;height:22px;border-radius:50%;background:rgba(255,120,0,.3)"></div><div class="mbar w50 hi" style="align-self:center"></div></div><div class="mgrid2"><div class="mcard" style="min-height:68px;background:rgba(255,120,0,.1);border-color:rgba(255,120,0,.2)"></div><div class="mcard" style="min-height:68px"></div><div class="mcard" style="min-height:68px"></div><div class="mcard" style="min-height:68px;background:rgba(255,120,0,.08)"></div></div><div class="mbar w70"></div></div></div>
+
+  <!-- Overview tabs -->
+  <p class="proc-label">Project Overview</p>
+  <div class="proc-tabs" id="ov-p2">
+    <button class="ptab act" data-step="0">Context</button>
+    <button class="ptab" data-step="1">Challenge</button>
+    <button class="ptab" data-step="2">Goal</button>
   </div>
-  <p class="proc-label" data-t="proc.label">Design Process</p>
+  <div class="ocontent vis rv" data-op="p2" data-os="0">
+    <p class="ov-text">Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops. This not only offers wide access to customers but a logistic problem as well.</p>
+  </div>
+  <div class="ocontent" data-op="p2" data-os="1">
+    <p class="ov-text">To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app whose aim is to help the regular store seller and their supervisors in the work field. After many months of implementation, user feedback has proven that there are several UX and accessibility problems that need to be addressed.</p>
+  </div>
+  <div class="ocontent" data-op="p2" data-os="2">
+    <p class="ov-text">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p>
+  </div>
+
+  <!-- Design Process tabs -->
+  <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p2">
     <button class="ptab act" data-step="0" data-t="p2.t0">Audit</button>
     <button class="ptab" data-step="1" data-t="p2.t1">Tokens</button>
     <button class="ptab" data-step="2" data-t="p2.t2">Components</button>
     <button class="ptab" data-step="3" data-t="p2.t3">Documentation</button>
   </div>
-  <div class="pcontent vis rv" data-p="p2" data-s="0"><div class="pc-text"><h4 data-t="p2.s0h">Platform Audit</h4><p data-t="p2.s0p">Full audit of Bimbo's digital touchpoints. Revealed 200+ inconsistent UI patterns, 6 different button styles, and no unified typography scale across products.</p><ul><li data-t="p2.s0l0">200+ UI elements catalogued across 3 products</li><li data-t="p2.s0l1">Brand guidelines analysis & gap mapping</li><li data-t="p2.s0l2">Accessibility review — WCAG 2.1 AA</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w50 hi"></div><div class="mgrid3"><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.1)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.08)"></div></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p2" data-s="1"><div class="pc-text"><h4 data-t="p2.s1h">Design Token Architecture</h4><p data-t="p2.s1p">Full token hierarchy — from primitive values to semantic aliases, with dark mode support included from day one.</p><ul><li data-t="p2.s1l0">Color system — 8 semantic roles + dark mode</li><li data-t="p2.s1l1">Typography scale — 9 styles, 2 typefaces</li><li data-t="p2.s1l2">Spacing, radius, shadow, and motion tokens</li></ul></div><div class="pmock mb"><div class="mu"><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,140,0,.7)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,100,0,.5)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,60,0,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,200,0,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.12)"></div></div><div class="mbar w80 hi"></div><div class="mbar w60"></div><div class="mbar w40"></div></div></div></div>
+  <div class="pcontent vis rv" data-p="p2" data-s="0"><div class="pc-text"><h4 data-t="p2.s0h">Platform Audit</h4><p data-t="p2.s0p">Full audit of Bimbo's digital touchpoints. Revealed 200+ inconsistent UI patterns, 6 different button styles, and no unified typography scale.</p><ul><li data-t="p2.s0l0">200+ UI elements catalogued across 3 products</li><li data-t="p2.s0l1">Brand guidelines analysis & gap mapping</li><li data-t="p2.s0l2">Accessibility review — WCAG 2.1 AA</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w50 hi"></div><div class="mgrid3"><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.1)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.08)"></div></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
+  <div class="pcontent" data-p="p2" data-s="1"><div class="pc-text"><h4 data-t="p2.s1h">Design Token Architecture</h4><p data-t="p2.s1p">Full token hierarchy — from primitive values to semantic aliases, with dark mode support from day one.</p><ul><li data-t="p2.s1l0">Color system — 8 semantic roles + dark mode</li><li data-t="p2.s1l1">Typography scale — 9 styles, 2 typefaces</li><li data-t="p2.s1l2">Spacing, radius, shadow, and motion tokens</li></ul></div><div class="pmock mb"><div class="mu"><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,140,0,.7)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,100,0,.5)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,60,0,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,200,0,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.12)"></div></div><div class="mbar w80 hi"></div><div class="mbar w60"></div><div class="mbar w40"></div></div></div></div>
   <div class="pcontent" data-p="p2" data-s="2"><div class="pc-text"><h4 data-t="p2.s2h">Component Library</h4><p data-t="p2.s2p">80+ components in Figma with full variants, states, and auto-layout following atomic design principles.</p><ul><li data-t="p2.s2l0">80+ Figma components with all states</li><li data-t="p2.s2l1">Atomic structure — atoms to organisms</li><li data-t="p2.s2l2">Interactive prototypes for complex patterns</li></ul></div><div class="pmock mb"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:45px;background:rgba(255,120,0,.12);border-color:rgba(255,120,0,.25)"></div><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px;background:rgba(255,120,0,.1)"></div><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px;background:rgba(255,120,0,.08)"></div></div></div></div></div>
-  <div class="pcontent" data-p="p2" data-s="3"><div class="pc-text"><h4 data-t="p2.s3h">Guidelines & Handoff</h4><p data-t="p2.s3p">Every component documented with usage rules, do/don't examples, and accessibility notes — Figma file + Notion site.</p><ul><li data-t="p2.s3l0">Documentation for all 80+ components</li><li data-t="p2.s3l1">Dev handoff specs and CSS variable export</li><li data-t="p2.s3l2">Onboarding guide for new team members</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w60 hi"></div><div class="mcard"><div class="mbar w80" style="margin-bottom:.3rem"></div><div class="mbar w50"></div></div><div class="mcard"><div class="mbar w70" style="margin-bottom:.3rem"></div><div class="mbar w40"></div></div><div class="mcard"><div class="mbar w90" style="margin-bottom:.3rem"></div><div class="mbar w60"></div></div></div></div></div>
+  <div class="pcontent" data-p="p2" data-s="3"><div class="pc-text"><h4 data-t="p2.s3h">Guidelines & Handoff</h4><p data-t="p2.s3p">Every component documented with usage rules, do/don't examples, and accessibility notes.</p><ul><li data-t="p2.s3l0">Documentation for all 80+ components</li><li data-t="p2.s3l1">Dev handoff specs and CSS variable export</li><li data-t="p2.s3l2">Onboarding guide for new team members</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w60 hi"></div><div class="mcard"><div class="mbar w80" style="margin-bottom:.3rem"></div><div class="mbar w50"></div></div><div class="mcard"><div class="mbar w70" style="margin-bottom:.3rem"></div><div class="mbar w40"></div></div><div class="mcard"><div class="mbar w90" style="margin-bottom:.3rem"></div><div class="mbar w60"></div></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">80+</div><div class="mlabel" data-t="p2.m0">Components built</div></div><div class="metric"><div class="mval">3</div><div class="mlabel" data-t="p2.m1">Products unified</div></div><div class="metric"><div class="mval">200+</div><div class="mlabel" data-t="p2.m2">Patterns resolved</div></div></div>
 </div></div>
 
-<!-- 03 GOOGLE -->
+<!-- ═══ 03 GOOGLE ═══ -->
 <div class="ps-wrap" id="p3" style="background:#070c16"><div class="ps">
   <div class="pnum" style="color:rgba(66,133,244,.05)">03</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p3.cat">Dashboard Design · UX Architecture · UI Kit · Illustrations</p><h2 class="pname" data-t="p3.title">Orion by Google</h2></div>
     <div class="tags"><span class="tag">Dashboard</span><span class="tag">UX Architecture</span><span class="tag">UI Kit</span><span class="tag">Illustrations</span><span class="tag">Branding</span></div>
   </div>
-  <div class="pbody rv">
-    <div><p class="ov-label" data-t="proc.ov">Project Overview</p><p class="ov-text" data-t-html="p3.ov">Led information architecture and <strong>complete dashboard design for Orion</strong> — Google's internal analytics platform used daily by engineering and product teams.</p></div>
-    <div class="hmock mg"><div class="mu"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem"><div class="mbar w40 hi" style="height:9px"></div><div style="display:flex;gap:.3rem"><div style="width:20px;height:20px;border-radius:4px;background:rgba(66,133,244,.25)"></div><div style="width:20px;height:20px;border-radius:4px;background:rgba(52,168,83,.2)"></div><div style="width:20px;height:20px;border-radius:4px;background:rgba(251,188,4,.2)"></div></div></div><div style="display:grid;grid-template-columns:2fr 1fr;gap:.45rem;margin-bottom:.5rem"><div class="mcard" style="min-height:85px;background:rgba(66,133,244,.1);border-color:rgba(66,133,244,.18)"></div><div style="display:flex;flex-direction:column;gap:.4rem"><div class="mcard" style="flex:1;background:rgba(52,168,83,.08)"></div><div class="mcard" style="flex:1;background:rgba(251,188,4,.08)"></div></div></div><div class="mbar w80"></div><div class="mbar w50 hi" style="margin-top:.1rem"></div></div></div>
+
+  <!-- Overview tabs -->
+  <p class="proc-label">Project Overview</p>
+  <div class="proc-tabs" id="ov-p3">
+    <button class="ptab act" data-step="0">Context</button>
+    <button class="ptab" data-step="1">Challenge</button>
+    <button class="ptab" data-step="2">Goal</button>
   </div>
-  <p class="proc-label" data-t="proc.label">Design Process</p>
+  <div class="ocontent vis rv" data-op="p3" data-os="0">
+    <p class="ov-text">Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.</p>
+  </div>
+  <div class="ocontent" data-op="p3" data-os="1">
+    <p class="ov-text">Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.</p>
+  </div>
+  <div class="ocontent" data-op="p3" data-os="2">
+    <p class="ov-text">Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.</p>
+  </div>
+
+  <!-- Design Process tabs -->
+  <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p3">
     <button class="ptab act" data-step="0" data-t="p3.t0">Research</button>
     <button class="ptab" data-step="1" data-t="p3.t1">IA & Architecture</button>
     <button class="ptab" data-step="2" data-t="p3.t2">Dashboard</button>
     <button class="ptab" data-step="3" data-t="p3.t3">UI Kit</button>
   </div>
-  <div class="pcontent vis rv" data-p="p3" data-s="0"><div class="pc-text"><h4 data-t="p3.s0h">Understanding Data Complexity</h4><p data-t="p3.s0p">We worked with engineering and product teams to understand 15+ metric types and divergent mental models between technical and non-technical users.</p><ul><li data-t="p3.s0l0">Stakeholder workshops with 4 user groups</li><li data-t="p3.s0l1">Data taxonomy and metric hierarchy mapping</li><li data-t="p3.s0l2">Competitive analysis of monitoring dashboards</li></ul></div><div class="pmock mg"><div class="mu"><div class="mbar w50 hi"></div><div class="mcard" style="background:rgba(66,133,244,.1);min-height:65px"></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p3" data-s="1"><div class="pc-text"><h4 data-t="p3.s1h">Information Architecture</h4><p data-t="p3.s1p">Three-level navigation hierarchy — global overview, domain monitoring, metric drilldown. Card sorting with 18 users validated the taxonomy.</p><ul><li data-t="p3.s1l0">Card sorting with 18 internal users</li><li data-t="p3.s1l1">3-level navigation hierarchy defined</li><li data-t="p3.s1l2">Contextual linking between related metrics</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:flex;gap:.45rem"><div style="width:55px;background:rgba(255,255,255,.06);border-radius:6px;padding:.5rem .3rem;display:flex;flex-direction:column;gap:.3rem"><div class="mbar" style="background:rgba(66,133,244,.4)"></div><div class="mbar"></div><div class="mbar"></div><div class="mbar"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:.4rem"><div class="mbar w80 hi"></div><div class="mcard" style="min-height:55px"></div><div class="mbar w60"></div></div></div></div></div></div>
-  <div class="pcontent" data-p="p3" data-s="2"><div class="pc-text"><h4 data-t="p3.s2h">Dashboard Design</h4><p data-t="p3.s2p">40+ screen states across 6 monitoring domains. Every chart type, table, and filter crafted for data density and visual clarity, tested in 3 rounds.</p><ul><li data-t="p3.s2l0">40+ screens across 6 data domains</li><li data-t="p3.s2l1">8 chart types with responsive variants</li><li data-t="p3.s2l2">3 rounds of usability testing</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:grid;grid-template-columns:2fr 1fr;gap:.4rem"><div class="mcard" style="min-height:70px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:70px;background:rgba(52,168,83,.08)"></div></div><div class="mbar w80 hi"></div><div class="mbar w50"></div></div></div></div>
-  <div class="pcontent" data-p="p3" data-s="3"><div class="pc-text"><h4 data-t="p3.s3h">UI Kit & Illustrations</h4><p data-t="p3.s3p">60+ data-specific components plus a custom illustration system for empty states, onboarding, and contextual guidance.</p><ul><li data-t="p3.s3l0">60+ data-specific components in Figma</li><li data-t="p3.s3l1">Custom illustration library — 12 scenes</li><li data-t="p3.s3l2">Motion principles and transition specs</li></ul></div><div class="pmock mg"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:50px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(52,168,83,.08)"></div><div class="mcard" style="min-height:50px;background:rgba(251,188,4,.08)"></div></div><div class="mbar w60 hi"></div></div></div></div>
+  <div class="pcontent vis rv" data-p="p3" data-s="0"><div class="pc-text"><h4 data-t="p3.s0h">Understanding Data Complexity</h4><p data-t="p3.s0p">We worked with engineering and product teams to understand 15+ metric types and divergent mental models.</p><ul><li data-t="p3.s0l0">Stakeholder workshops with 4 user groups</li><li data-t="p3.s0l1">Data taxonomy and metric hierarchy mapping</li><li data-t="p3.s0l2">Competitive analysis of monitoring dashboards</li></ul></div><div class="pmock mg"><div class="mu"><div class="mbar w50 hi"></div><div class="mcard" style="background:rgba(66,133,244,.1);min-height:65px"></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
+  <div class="pcontent" data-p="p3" data-s="1"><div class="pc-text"><h4 data-t="p3.s1h">Information Architecture</h4><p data-t="p3.s1p">Three-level navigation hierarchy with contextual filtering. Card sorting with 18 users validated the taxonomy.</p><ul><li data-t="p3.s1l0">Card sorting with 18 internal users</li><li data-t="p3.s1l1">3-level navigation hierarchy defined</li><li data-t="p3.s1l2">Contextual linking between related metrics</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:flex;gap:.45rem"><div style="width:55px;background:rgba(255,255,255,.06);border-radius:6px;padding:.5rem .3rem;display:flex;flex-direction:column;gap:.3rem"><div class="mbar" style="background:rgba(66,133,244,.4)"></div><div class="mbar"></div><div class="mbar"></div><div class="mbar"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:.4rem"><div class="mbar w80 hi"></div><div class="mcard" style="min-height:55px"></div><div class="mbar w60"></div></div></div></div></div></div>
+  <div class="pcontent" data-p="p3" data-s="2"><div class="pc-text"><h4 data-t="p3.s2h">Dashboard Design</h4><p data-t="p3.s2p">40+ screen states across 6 monitoring domains, tested in 3 rounds of usability sessions.</p><ul><li data-t="p3.s2l0">40+ screens across 6 data domains</li><li data-t="p3.s2l1">8 chart types with responsive variants</li><li data-t="p3.s2l2">3 rounds of usability testing</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:grid;grid-template-columns:2fr 1fr;gap:.4rem"><div class="mcard" style="min-height:70px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:70px;background:rgba(52,168,83,.08)"></div></div><div class="mbar w80 hi"></div><div class="mbar w50"></div></div></div></div>
+  <div class="pcontent" data-p="p3" data-s="3"><div class="pc-text"><h4 data-t="p3.s3h">UI Kit & Illustrations</h4><p data-t="p3.s3p">60+ data-specific components plus a custom illustration system for empty states and onboarding.</p><ul><li data-t="p3.s3l0">60+ data-specific components in Figma</li><li data-t="p3.s3l1">Custom illustration library — 12 scenes</li><li data-t="p3.s3l2">Motion principles and transition specs</li></ul></div><div class="pmock mg"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:50px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(52,168,83,.08)"></div><div class="mcard" style="min-height:50px;background:rgba(251,188,4,.08)"></div></div><div class="mbar w60 hi"></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">40+</div><div class="mlabel" data-t="p3.m0">Screen states</div></div><div class="metric"><div class="mval">60+</div><div class="mlabel" data-t="p3.m1">UI components</div></div><div class="metric"><div class="mval">18</div><div class="mlabel" data-t="p3.m2">Users in card sorting</div></div></div>
 </div></div>
 
-<!-- 04 LA CALERA -->
+<!-- ═══ 04 LA CALERA ═══ -->
 <div class="ps-wrap" id="p4" style="background:#0c0910"><div class="ps">
   <div class="pnum" style="color:rgba(150,40,220,.05)">04</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p4.cat">Brand Identity · Game UI · Visual Design</p><h2 class="pname" data-t="p4.title">La Calera</h2></div>
     <div class="tags"><span class="tag">Brand Identity</span><span class="tag">Game UI</span><span class="tag">Visual Design</span><span class="tag">Figma</span></div>
   </div>
-  <div class="pbody rv">
-    <div><p class="ov-label" data-t="proc.ov">Project Overview</p><p class="ov-text" data-t-html="p4.ov">Complete brand identity and visual design system — <strong>from logo and color language to game UI components and marketing assets.</strong></p></div>
-    <div class="hmock mc"><div class="mu"><div style="display:flex;justify-content:center;margin-bottom:.6rem"><div style="width:52px;height:52px;border-radius:12px;background:rgba(150,40,220,.28);border:1px solid rgba(150,40,220,.35)"></div></div><div class="mbar w50 hi" style="margin:0 auto .7rem"></div><div class="mcard" style="background:rgba(150,40,220,.08);border-color:rgba(150,40,220,.2);min-height:75px"></div><div style="display:flex;gap:.5rem;justify-content:center"><div style="width:75px;height:28px;border-radius:100px;background:rgba(150,40,220,.35)"></div><div style="width:75px;height:28px;border-radius:100px;background:rgba(255,255,255,.07)"></div></div></div></div>
-  </div>
+  <div class="pmock mc" style="border-radius:16px;min-height:300px;margin-bottom:4rem"><div class="mu"><div style="display:flex;justify-content:center;margin-bottom:.6rem"><div style="width:52px;height:52px;border-radius:12px;background:rgba(150,40,220,.28);border:1px solid rgba(150,40,220,.35)"></div></div><div class="mbar w50 hi" style="margin:0 auto .7rem"></div><div class="mcard" style="background:rgba(150,40,220,.08);border-color:rgba(150,40,220,.2);min-height:75px"></div><div style="display:flex;gap:.5rem;justify-content:center"><div style="width:75px;height:28px;border-radius:100px;background:rgba(150,40,220,.35)"></div><div style="width:75px;height:28px;border-radius:100px;background:rgba(255,255,255,.07)"></div></div></div></div>
   <p class="proc-label" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p4">
     <button class="ptab act" data-step="0" data-t="p4.t0">Brand Strategy</button>
@@ -294,10 +360,10 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
     <button class="ptab" data-step="2" data-t="p4.t2">Game UI</button>
     <button class="ptab" data-step="3" data-t="p4.t3">Assets</button>
   </div>
-  <div class="pcontent vis rv" data-p="p4" data-s="0"><div class="pc-text"><h4 data-t="p4.s0h">Brand Strategy & Direction</h4><p data-t="p4.s0p">Deep competitive analysis of gaming brands — three creative directions explored and narrowed to a bold, high-contrast identity rooted in energy and precision.</p><ul><li data-t="p4.s0l0">Competitive landscape & positioning audit</li><li data-t="p4.s0l1">3 creative directions developed & tested</li><li data-t="p4.s0l2">Brand archetypes and voice definition</li></ul></div><div class="pmock mc"><div class="mu"><div class="mbar w50 hi"></div><div style="display:flex;gap:.4rem"><div class="mcard" style="flex:1;min-height:55px;background:rgba(150,40,220,.1)"></div><div class="mcard" style="flex:1;min-height:55px"></div><div class="mcard" style="flex:1;min-height:55px;background:rgba(150,40,220,.08)"></div></div><div class="mbar w70"></div></div></div></div>
-  <div class="pcontent" data-p="p4" data-s="1"><div class="pc-text"><h4 data-t="p4.s1h">Logo & Visual Identity</h4><p data-t="p4.s1p">12+ logo concept explorations — arriving at a mark that works at every scale. Color language, typography, and motion system defined as a unified identity.</p><ul><li data-t="p4.s1l0">12+ logo concepts, 3 presentation rounds</li><li data-t="p4.s1l1">Color palette — primary, accent & neutrals</li><li data-t="p4.s1l2">Typography — display, UI and body scales</li></ul></div><div class="pmock mc"><div class="mu"><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:rgba(150,40,220,.9)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(100,20,180,.6)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(210,90,255,.5)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,200,50,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.1)"></div></div><div class="mbar w80 hi"></div><div class="mbar w60"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p4" data-s="2"><div class="pc-text"><h4 data-t="p4.s2h">Game UI Design</h4><p data-t="p4.s2p">Complete game UI system — HUD elements, menus, inventory, leaderboards, and onboarding flows with immersive component design.</p><ul><li data-t="p4.s2l0">HUD system with real-time data displays</li><li data-t="p4.s2l1">50+ game UI components across all screens</li><li data-t="p4.s2l2">Motion specs for transitions and feedback</li></ul></div><div class="pmock mc"><div class="mu"><div style="display:flex;justify-content:space-between;margin-bottom:.5rem"><div style="width:40px;height:7px;border-radius:4px;background:rgba(150,40,220,.4)"></div><div style="width:40px;height:7px;border-radius:4px;background:rgba(255,200,50,.3)"></div></div><div class="mcard" style="min-height:75px;background:rgba(150,40,220,.07)"></div><div style="display:flex;gap:.3rem"><div style="flex:1;height:24px;border-radius:4px;background:rgba(150,40,220,.3)"></div><div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,.06)"></div><div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,.06)"></div></div></div></div></div>
-  <div class="pcontent" data-p="p4" data-s="3"><div class="pc-text"><h4 data-t="p4.s3h">Marketing Assets</h4><p data-t="p4.s3p">Social media templates, key art, merchandise guidelines, and digital advertising — plus a complete brand book for the internal team.</p><ul><li data-t="p4.s3l0">Social media templates — 8 formats</li><li data-t="p4.s3l1">Key art and hero visuals for launch</li><li data-t="p4.s3l2">Brand book and usage guidelines</li></ul></div><div class="pmock mc"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:50px;background:rgba(150,40,220,.14)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(150,40,220,.1)"></div></div><div class="mbar w60 hi"></div></div></div></div>
+  <div class="pcontent vis rv" data-p="p4" data-s="0"><div class="pc-text"><h4 data-t="p4.s0h">Brand Strategy & Direction</h4><p data-t="p4.s0p">Deep competitive analysis of gaming brands — three creative directions explored and narrowed to a bold, high-contrast identity.</p><ul><li data-t="p4.s0l0">Competitive landscape & positioning audit</li><li data-t="p4.s0l1">3 creative directions developed & tested</li><li data-t="p4.s0l2">Brand archetypes and voice definition</li></ul></div><div class="pmock mc"><div class="mu"><div class="mbar w50 hi"></div><div style="display:flex;gap:.4rem"><div class="mcard" style="flex:1;min-height:55px;background:rgba(150,40,220,.1)"></div><div class="mcard" style="flex:1;min-height:55px"></div><div class="mcard" style="flex:1;min-height:55px;background:rgba(150,40,220,.08)"></div></div><div class="mbar w70"></div></div></div></div>
+  <div class="pcontent" data-p="p4" data-s="1"><div class="pc-text"><h4 data-t="p4.s1h">Logo & Visual Identity</h4><p data-t="p4.s1p">12+ logo concept explorations — arriving at a mark that works at every scale.</p><ul><li data-t="p4.s1l0">12+ logo concepts, 3 presentation rounds</li><li data-t="p4.s1l1">Color palette — primary, accent & neutrals</li><li data-t="p4.s1l2">Typography — display, UI and body scales</li></ul></div><div class="pmock mc"><div class="mu"><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:rgba(150,40,220,.9)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(100,20,180,.6)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(210,90,255,.5)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,200,50,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.1)"></div></div><div class="mbar w80 hi"></div><div class="mbar w60"></div><div class="mbar w40"></div></div></div></div>
+  <div class="pcontent" data-p="p4" data-s="2"><div class="pc-text"><h4 data-t="p4.s2h">Game UI Design</h4><p data-t="p4.s2p">Complete game UI system — HUD elements, menus, inventory, leaderboards, and onboarding flows.</p><ul><li data-t="p4.s2l0">HUD system with real-time data displays</li><li data-t="p4.s2l1">50+ game UI components across all screens</li><li data-t="p4.s2l2">Motion specs for transitions and feedback</li></ul></div><div class="pmock mc"><div class="mu"><div style="display:flex;justify-content:space-between;margin-bottom:.5rem"><div style="width:40px;height:7px;border-radius:4px;background:rgba(150,40,220,.4)"></div><div style="width:40px;height:7px;border-radius:4px;background:rgba(255,200,50,.3)"></div></div><div class="mcard" style="min-height:75px;background:rgba(150,40,220,.07)"></div><div style="display:flex;gap:.3rem"><div style="flex:1;height:24px;border-radius:4px;background:rgba(150,40,220,.3)"></div><div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,.06)"></div><div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,.06)"></div></div></div></div></div>
+  <div class="pcontent" data-p="p4" data-s="3"><div class="pc-text"><h4 data-t="p4.s3h">Marketing Assets</h4><p data-t="p4.s3p">Social media templates, key art, and digital advertising — plus a complete brand book.</p><ul><li data-t="p4.s3l0">Social media templates — 8 formats</li><li data-t="p4.s3l1">Key art and hero visuals for launch</li><li data-t="p4.s3l2">Brand book and usage guidelines</li></ul></div><div class="pmock mc"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:50px;background:rgba(150,40,220,.14)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(150,40,220,.1)"></div></div><div class="mbar w60 hi"></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">12+</div><div class="mlabel" data-t="p4.m0">Logo concepts</div></div><div class="metric"><div class="mval">50+</div><div class="mlabel" data-t="p4.m1">Game UI components</div></div><div class="metric"><div class="mval">1</div><div class="mlabel" data-t="p4.m2">Brand ecosystem</div></div></div>
 </div></div>
 
@@ -320,34 +386,34 @@ en:{
   'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV',
   'page.ey':'Selected Work','page.title':'Projects','page.sub':'End-to-end design process — from discovery and research to final delivery.',
   'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
-  'proc.ov':'Project Overview','proc.label':'Design Process',
-  'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam','p1.ov':"Led UX and visual design for Nissan's <strong>Latin America digital maintenance platform</strong> — a unified experience across 6 markets.",
+  'proc.label':'Design Process',
+  'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
   'p1.t0':'Discovery','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Visual Design',
-  'p1.s0h':'Understanding the Market','p1.s0p':"We audited Nissan's digital touchpoints across 6 LATAM markets — identifying inconsistencies in service booking flows, language gaps, and disconnected dealer systems.",'p1.s0l0':'Competitor benchmarking across 8 automotive brands','p1.s0l1':'Stakeholder interviews with regional market leads','p1.s0l2':'Heuristic evaluation of the existing platform',
-  'p1.s1h':'User Journey Mapping','p1.s1p':'We conducted 24 interviews with vehicle owners in Mexico, Brazil and Argentina — mapping the emotional journey from service alert to vehicle pickup.','p1.s1l0':'24 user interviews across 3 markets','p1.s1l1':'Journey maps & pain point prioritization','p1.s1l2':'3 user archetypes defined',
-  'p1.s2h':'IA & Chatbot Flows','p1.s2p':'We defined the information architecture for the app and AI chatbot — mapping 30+ conversation trees, service booking flows, and vehicle status modules.','p1.s2l0':'30+ chatbot conversation flows architected','p1.s2l1':'Mid-fi wireframes validated with 12 users','p1.s2l2':'3 iterative sprint cycles before sign-off',
-  'p1.s3h':'Visual Design & Handoff','p1.s3p':"Final UI built on Nissan's brand system. Delivered 120+ screen designs and a Figma component library ready for engineering handoff across 6 language variants.",'p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
+  'p1.s0h':'Understanding the Market','p1.s0p':"We audited Nissan's digital touchpoints across 6 LATAM markets.",'p1.s0l0':'Competitor benchmarking across 8 brands','p1.s0l1':'Stakeholder interviews with regional leads','p1.s0l2':'Heuristic evaluation of the existing platform',
+  'p1.s1h':'User Journey Mapping','p1.s1p':'24 interviews in Mexico, Brazil and Argentina — mapping the journey from service alert to vehicle pickup.','p1.s1l0':'24 user interviews across 3 markets','p1.s1l1':'Journey maps & pain point prioritization','p1.s1l2':'3 user archetypes defined',
+  'p1.s2h':'IA & Chatbot Flows','p1.s2p':'Architecture for the app and AI chatbot — 30+ conversation trees and service booking flows.','p1.s2l0':'30+ chatbot conversation flows','p1.s2l1':'Mid-fi wireframes validated with 12 users','p1.s2l2':'3 iterative sprint cycles',
+  'p1.s3h':'Visual Design & Handoff','p1.s3p':"120+ screens and Figma component library across 6 language variants.",'p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
-  'p2.cat':'Design System','p2.title':'Bimbo Mexico','p2.ov':'Building a <strong>scalable design system and visual language</strong> for Grupo Bimbo Mexico — unifying 3 digital products under one coherent brand experience.',
+  'p2.cat':'Design System','p2.title':'Bimbo Mexico',
   'p2.t0':'Audit','p2.t1':'Tokens','p2.t2':'Components','p2.t3':'Documentation',
-  'p2.s0h':'Platform Audit','p2.s0p':"Full audit of Bimbo's digital touchpoints. Revealed 200+ inconsistent UI patterns, 6 different button styles, and no unified typography scale.",'p2.s0l0':'200+ UI elements catalogued across 3 products','p2.s0l1':'Brand guidelines analysis & gap mapping','p2.s0l2':'Accessibility review — WCAG 2.1 AA',
-  'p2.s1h':'Design Token Architecture','p2.s1p':'Full token hierarchy — from primitive values to semantic aliases, with dark mode support from day one.','p2.s1l0':'Color system — 8 semantic roles + dark mode','p2.s1l1':'Typography scale — 9 styles, 2 typefaces','p2.s1l2':'Spacing, radius, shadow, and motion tokens',
-  'p2.s2h':'Component Library','p2.s2p':'80+ components in Figma with full variants, states, and auto-layout following atomic design principles.','p2.s2l0':'80+ Figma components with all states','p2.s2l1':'Atomic structure — atoms to organisms','p2.s2l2':'Interactive prototypes for complex patterns',
-  'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules, do/don't examples, and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
+  'p2.s0h':'Platform Audit','p2.s0p':"Full audit of Bimbo's digital touchpoints. Revealed 200+ inconsistent patterns.",'p2.s0l0':'200+ UI elements catalogued','p2.s0l1':'Brand guidelines & gap mapping','p2.s0l2':'Accessibility review — WCAG 2.1 AA',
+  'p2.s1h':'Design Token Architecture','p2.s1p':'Full token hierarchy with dark mode from day one.','p2.s1l0':'Color system — 8 semantic roles + dark mode','p2.s1l1':'Typography scale — 9 styles, 2 typefaces','p2.s1l2':'Spacing, radius, shadow, and motion tokens',
+  'p2.s2h':'Component Library','p2.s2p':'80+ components in Figma following atomic design principles.','p2.s2l0':'80+ Figma components with all states','p2.s2l1':'Atomic structure — atoms to organisms','p2.s2l2':'Interactive prototypes for complex patterns',
+  'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
   'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
-  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google','p3.ov':'Led information architecture and <strong>complete dashboard design for Orion</strong> — Google\'s internal analytics platform used daily by engineering and product teams.',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
   'p3.t0':'Research','p3.t1':'IA & Architecture','p3.t2':'Dashboard','p3.t3':'UI Kit',
-  'p3.s0h':'Understanding Data Complexity','p3.s0p':'We worked with engineering and product teams to understand 15+ metric types and divergent mental models.','p3.s0l0':'Stakeholder workshops with 4 user groups','p3.s0l1':'Data taxonomy and metric hierarchy mapping','p3.s0l2':'Competitive analysis of monitoring dashboards',
-  'p3.s1h':'Information Architecture','p3.s1p':'Three-level navigation hierarchy with contextual filtering. Card sorting with 18 users validated the taxonomy.','p3.s1l0':'Card sorting with 18 internal users','p3.s1l1':'3-level navigation hierarchy defined','p3.s1l2':'Contextual linking between related metrics',
-  'p3.s2h':'Dashboard Design','p3.s2p':'40+ screen states across 6 monitoring domains, tested in 3 rounds of usability sessions.','p3.s2l0':'40+ screens across 6 data domains','p3.s2l1':'8 chart types with responsive variants','p3.s2l2':'3 rounds of usability testing',
-  'p3.s3h':'UI Kit & Illustrations','p3.s3p':'60+ data-specific components plus a custom illustration system for empty states and onboarding.','p3.s3l0':'60+ data-specific components in Figma','p3.s3l1':'Custom illustration library — 12 scenes','p3.s3l2':'Motion principles and transition specs',
+  'p3.s0h':'Understanding Data Complexity','p3.s0p':'Worked with engineering and product teams to understand 15+ metric types.','p3.s0l0':'Stakeholder workshops with 4 user groups','p3.s0l1':'Data taxonomy and metric hierarchy','p3.s0l2':'Competitive analysis of monitoring dashboards',
+  'p3.s1h':'Information Architecture','p3.s1p':'Three-level navigation hierarchy validated by card sorting with 18 users.','p3.s1l0':'Card sorting with 18 internal users','p3.s1l1':'3-level navigation hierarchy defined','p3.s1l2':'Contextual linking between metrics',
+  'p3.s2h':'Dashboard Design','p3.s2p':'40+ screen states across 6 monitoring domains, tested in 3 rounds.','p3.s2l0':'40+ screens across 6 data domains','p3.s2l1':'8 chart types with responsive variants','p3.s2l2':'3 rounds of usability testing',
+  'p3.s3h':'UI Kit & Illustrations','p3.s3p':'60+ data-specific components plus a custom illustration system.','p3.s3l0':'60+ data-specific components in Figma','p3.s3l1':'Custom illustration library — 12 scenes','p3.s3l2':'Motion principles and transition specs',
   'p3.m0':'Screen states','p3.m1':'UI components','p3.m2':'Users in card sorting',
-  'p4.cat':'Brand Identity · Game UI · Visual Design','p4.title':'La Calera','p4.ov':'Complete brand identity and visual design system — <strong>from logo and color language to game UI components and marketing assets.</strong>',
+  'p4.cat':'Brand Identity · Game UI · Visual Design','p4.title':'La Calera',
   'p4.t0':'Brand Strategy','p4.t1':'Identity','p4.t2':'Game UI','p4.t3':'Assets',
-  'p4.s0h':'Brand Strategy & Direction','p4.s0p':'Deep competitive analysis of gaming brands — three creative directions explored and narrowed to a bold, high-contrast identity.','p4.s0l0':'Competitive landscape & positioning audit','p4.s0l1':'3 creative directions developed & tested','p4.s0l2':'Brand archetypes and voice definition',
-  'p4.s1h':'Logo & Visual Identity','p4.s1p':'12+ logo concept explorations — arriving at a mark that works at every scale.','p4.s1l0':'12+ logo concepts, 3 presentation rounds','p4.s1l1':'Color palette — primary, accent & neutrals','p4.s1l2':'Typography — display, UI and body scales',
-  'p4.s2h':'Game UI Design','p4.s2p':'Complete game UI system — HUD elements, menus, inventory, leaderboards, and onboarding flows.','p4.s2l0':'HUD system with real-time data displays','p4.s2l1':'50+ game UI components across all screens','p4.s2l2':'Motion specs for transitions and feedback',
-  'p4.s3h':'Marketing Assets','p4.s3p':'Social media templates, key art, and digital advertising — plus a complete brand book.','p4.s3l0':'Social media templates — 8 formats','p4.s3l1':'Key art and hero visuals for launch','p4.s3l2':'Brand book and usage guidelines',
+  'p4.s0h':'Brand Strategy & Direction','p4.s0p':'Deep competitive analysis — three directions narrowed to a bold, high-contrast identity.','p4.s0l0':'Competitive landscape & positioning audit','p4.s0l1':'3 creative directions developed & tested','p4.s0l2':'Brand archetypes and voice definition',
+  'p4.s1h':'Logo & Visual Identity','p4.s1p':'12+ logo explorations — a mark that works at every scale.','p4.s1l0':'12+ logo concepts, 3 presentation rounds','p4.s1l1':'Color palette — primary, accent & neutrals','p4.s1l2':'Typography — display, UI and body scales',
+  'p4.s2h':'Game UI Design','p4.s2p':'Complete game UI — HUD, menus, inventory, leaderboards, and onboarding.','p4.s2l0':'HUD system with real-time data displays','p4.s2l1':'50+ game UI components','p4.s2l2':'Motion specs for transitions and feedback',
+  'p4.s3h':'Marketing Assets','p4.s3p':'Social media templates, key art, and a complete brand book.','p4.s3l0':'Social media templates — 8 formats','p4.s3l1':'Key art and hero visuals for launch','p4.s3l2':'Brand book and usage guidelines',
   'p4.m0':'Logo concepts','p4.m1':'Game UI components','p4.m2':'Brand ecosystem',
   'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Home','foot.proj':'Projects'
 },
@@ -355,34 +421,34 @@ es:{
   'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
   'page.ey':'Trabajos Seleccionados','page.title':'Proyectos','page.sub':'Proceso de diseño end-to-end — desde el descubrimiento hasta la entrega final.',
   'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
-  'proc.ov':'Descripción del Proyecto','proc.label':'Proceso de Diseño',
-  'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam','p1.ov':"Lideré el diseño UX y visual para la <strong>plataforma de mantenimiento digital de Nissan Latinoamérica</strong> — experiencia unificada en 6 mercados.",
+  'proc.label':'Proceso de Diseño',
+  'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
   'p1.t0':'Descubrimiento','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Diseño Visual',
-  'p1.s0h':'Entendiendo el Mercado','p1.s0p':'Auditamos los touchpoints de Nissan en 6 mercados LATAM — identificando inconsistencias en flujos de reserva y sistemas de concesionarios desconectados.','p1.s0l0':'Benchmarking competitivo en 8 marcas','p1.s0l1':'Entrevistas con líderes de mercados regionales','p1.s0l2':'Evaluación heurística de la plataforma existente',
-  'p1.s1h':'Mapeo del Journey','p1.s1p':'24 entrevistas en México, Brasil y Argentina — mapeando el recorrido emocional desde la alerta de servicio hasta la entrega.','p1.s1l0':'24 entrevistas en 3 mercados','p1.s1l1':'Journey maps y priorización de pain points','p1.s1l2':'3 arquetipos de usuario definidos',
-  'p1.s2h':'IA & Flujos del Chatbot','p1.s2p':'Arquitectura de información para la app y chatbot — 30+ árboles de conversación, flujos de reserva y módulos de estado.','p1.s2l0':'30+ flujos de conversación del chatbot','p1.s2l1':'Wireframes validados con 12 usuarios','p1.s2l2':'3 ciclos de sprints iterativos',
-  'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'UI final sobre la marca de Nissan. 120+ pantallas y librería de componentes Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería de componentes con design tokens','p1.s3l2':'Handoff Figma + soporte QA',
+  'p1.s0h':'Entendiendo el Mercado','p1.s0p':'Auditamos los touchpoints de Nissan en 6 mercados LATAM.','p1.s0l0':'Benchmarking en 8 marcas','p1.s0l1':'Entrevistas con líderes regionales','p1.s0l2':'Evaluación heurística de la plataforma',
+  'p1.s1h':'Mapeo del Journey','p1.s1p':'24 entrevistas en México, Brasil y Argentina.','p1.s1l0':'24 entrevistas en 3 mercados','p1.s1l1':'Journey maps y pain points','p1.s1l2':'3 arquetipos de usuario',
+  'p1.s2h':'IA & Flujos del Chatbot','p1.s2p':'Arquitectura para la app y chatbot — 30+ árboles de conversación.','p1.s2l0':'30+ flujos del chatbot','p1.s2l1':'Wireframes validados con 12 usuarios','p1.s2l2':'3 ciclos de sprints',
+  'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería de componentes en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + soporte QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
-  'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico','p2.ov':'Creación de un <strong>sistema de diseño escalable y lenguaje visual</strong> para Grupo Bimbo México — unificando 3 productos digitales.',
+  'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
   'p2.t0':'Auditoría','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentación',
-  'p2.s0h':'Auditoría de Plataforma','p2.s0p':'Auditoría completa. 200+ patrones inconsistentes, 6 estilos de botones y ninguna escala tipográfica unificada.','p2.s0l0':'200+ elementos catalogados en 3 productos','p2.s0l1':'Análisis de guidelines y mapeo de brechas','p2.s0l2':'Revisión de accesibilidad — WCAG 2.1 AA',
-  'p2.s1h':'Arquitectura de Tokens','p2.s1p':'Jerarquía completa de tokens con soporte para dark mode desde el primer día.','p2.s1l0':'Sistema de color — 8 roles semánticos + dark mode','p2.s1l1':'Escala tipográfica — 9 estilos, 2 tipografías','p2.s1l2':'Tokens de espaciado, radio, sombra y movimiento',
-  'p2.s2h':'Librería de Componentes','p2.s2p':'80+ componentes en Figma con variantes, estados y auto-layout siguiendo principios de diseño atómico.','p2.s2l0':'80+ componentes con todos los estados','p2.s2l1':'Estructura atómica — átomos a organismos','p2.s2l2':'Prototipos interactivos para patrones complejos',
-  'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas de uso, ejemplos do/don\'t y notas de accesibilidad.','p2.s3l0':'Documentación para los 80+ componentes','p2.s3l1':'Specs de handoff y exportación CSS','p2.s3l2':'Guía de onboarding para nuevos integrantes',
+  'p2.s0h':'Auditoría de Plataforma','p2.s0p':'Auditoría completa. 200+ patrones inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análisis de guidelines y brechas','p2.s0l2':'Revisión WCAG 2.1 AA',
+  'p2.s1h':'Arquitectura de Tokens','p2.s1p':'Jerarquía completa con dark mode desde el primer día.','p2.s1l0':'Sistema de color — 8 roles + dark mode','p2.s1l1':'Escala tipográfica — 9 estilos','p2.s1l2':'Tokens de espaciado, radio y movimiento',
+  'p2.s2h':'Librería de Componentes','p2.s2p':'80+ componentes en Figma con diseño atómico.','p2.s2l0':'80+ componentes con todos los estados','p2.s2l1':'Estructura atómica — átomos a organismos','p2.s2l2':'Prototipos interactivos',
+  'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y notas de accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
   'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
-  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google','p3.ov':'Lideré la arquitectura de información y el <strong>diseño completo del dashboard para Orion</strong> — plataforma interna de Google.',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
   'p3.t0':'Investigación','p3.t1':'IA & Arquitectura','p3.t2':'Dashboard','p3.t3':'UI Kit',
-  'p3.s0h':'Entendiendo la Complejidad','p3.s0p':'Trabajamos con ingeniería y producto para entender 15+ tipos de métricas y modelos mentales divergentes.','p3.s0l0':'Workshops con 4 grupos de usuarios','p3.s0l1':'Taxonomía de datos y jerarquía de métricas','p3.s0l2':'Análisis competitivo de dashboards',
-  'p3.s1h':'Arquitectura de Información','p3.s1p':'Jerarquía de 3 niveles con filtrado contextual. Card sorting con 18 usuarios validó la taxonomía.','p3.s1l0':'Card sorting con 18 usuarios internos','p3.s1l1':'Jerarquía de navegación de 3 niveles','p3.s1l2':'Vinculación contextual entre métricas',
-  'p3.s2h':'Diseño del Dashboard','p3.s2p':'40+ estados en 6 dominios de monitoreo, testeados en 3 rondas de usabilidad.','p3.s2l0':'40+ pantallas en 6 dominios','p3.s2l1':'8 tipos de gráficos con variantes responsive','p3.s2l2':'3 rondas de pruebas de usabilidad',
-  'p3.s3h':'UI Kit e Ilustraciones','p3.s3p':'60+ componentes para datos y sistema de ilustraciones para empty states y onboarding.','p3.s3l0':'60+ componentes en Figma','p3.s3l1':'Librería de ilustraciones — 12 escenas','p3.s3l2':'Principios de movimiento y transición',
+  'p3.s0h':'Entendiendo la Complejidad','p3.s0p':'Trabajamos con ingeniería y producto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops con 4 grupos de usuarios','p3.s0l1':'Taxonomía de datos y jerarquía','p3.s0l2':'Análisis competitivo de dashboards',
+  'p3.s1h':'Arquitectura de Información','p3.s1p':'Jerarquía de 3 niveles validada por card sorting con 18 usuarios.','p3.s1l0':'Card sorting con 18 usuarios','p3.s1l1':'Jerarquía de navegación de 3 niveles','p3.s1l2':'Vinculación contextual entre métricas',
+  'p3.s2h':'Diseño del Dashboard','p3.s2p':'40+ estados en 6 dominios, testeados en 3 rondas.','p3.s2l0':'40+ pantallas en 6 dominios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rondas de pruebas',
+  'p3.s3h':'UI Kit e Ilustraciones','p3.s3p':'60+ componentes y sistema de ilustraciones.','p3.s3l0':'60+ componentes en Figma','p3.s3l1':'Librería de ilustraciones — 12 escenas','p3.s3l2':'Principios de movimiento',
   'p3.m0':'Estados de pantalla','p3.m1':'Componentes UI','p3.m2':'Usuarios en card sorting',
-  'p4.cat':'Identidad de Marca · Game UI · Diseño Visual','p4.title':'La Calera','p4.ov':'Identidad de marca completa — <strong>desde el logo y lenguaje de color hasta los componentes de game UI y assets de marketing.</strong>',
+  'p4.cat':'Identidad de Marca · Game UI · Diseño Visual','p4.title':'La Calera',
   'p4.t0':'Estrategia','p4.t1':'Identidad','p4.t2':'Game UI','p4.t3':'Assets',
-  'p4.s0h':'Estrategia de Marca','p4.s0p':'Análisis competitivo profundo. Tres direcciones creativas exploradas y reducidas a una identidad bold de alto contraste.','p4.s0l0':'Auditoría competitiva y de posicionamiento','p4.s0l1':'3 direcciones creativas desarrolladas','p4.s0l2':'Arquetipos de marca y definición de voz',
-  'p4.s1h':'Logo e Identidad Visual','p4.s1p':'12+ exploraciones de logo. Sistema de color, tipografía y movimiento como identidad unificada.','p4.s1l0':'12+ conceptos, 3 rondas de presentación','p4.s1l1':'Paleta de color — primarios, acentos y neutrales','p4.s1l2':'Tipografía — display, UI y body',
-  'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo de game UI — HUD, menús, inventario, leaderboards y onboarding.','p4.s2l0':'Sistema HUD con datos en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento y transiciones',
-  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates para redes, key art y publicidad digital. Brand book completo entregado.','p4.s3l0':'Templates para redes — 8 formatos','p4.s3l1':'Key art y visuales hero para el lanzamiento','p4.s3l2':'Brand book y guías de uso',
+  'p4.s0h':'Estrategia de Marca','p4.s0p':'Análisis competitivo — tres direcciones reducidas a una identidad bold.','p4.s0l0':'Auditoría competitiva','p4.s0l1':'3 direcciones creativas','p4.s0l2':'Arquetipos y voz de marca',
+  'p4.s1h':'Logo e Identidad Visual','p4.s1p':'12+ exploraciones de logo a toda escala.','p4.s1l0':'12+ conceptos, 3 rondas','p4.s1l1':'Paleta — primarios, acentos y neutrales','p4.s1l2':'Tipografía — display, UI y body',
+  'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo — HUD, menús, inventario y onboarding.','p4.s2l0':'Sistema HUD en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento',
+  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
   'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
 }
@@ -414,6 +480,20 @@ function updatePnav(){let act=0;ids.forEach((id,i)=>{const el=document.getElemen
 window.addEventListener('scroll',updatePnav,{passive:true});
 function goTo(id){const el=document.getElementById(id);if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY-130,behavior:'smooth'});}
 
+/* Overview tabs (Context / Challenge / Goal) */
+['p1','p2','p3'].forEach(p=>{
+  const tabs=document.getElementById('ov-'+p);if(!tabs)return;
+  tabs.addEventListener('click',e=>{
+    const btn=e.target.closest('.ptab');if(!btn)return;
+    const s=parseInt(btn.dataset.step);
+    tabs.querySelectorAll('.ptab').forEach((b,i)=>b.classList.toggle('act',i===s));
+    document.querySelectorAll(`.ocontent[data-op="${p}"]`).forEach(c=>{
+      c.classList.toggle('vis',parseInt(c.dataset.os)===s);
+    });
+  });
+});
+
+/* Design Process tabs */
 ['p1','p2','p3','p4'].forEach(p=>{
   const tabs=document.getElementById('tabs-'+p);if(!tabs)return;
   tabs.addEventListener('click',e=>{
