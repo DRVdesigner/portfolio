@@ -455,13 +455,13 @@ function positionMobileChips(){
   const chipEls=[...document.querySelectorAll('.hchip')];
   const ROW=36; // vertical step between chips in same zone
   // Top zone: 5 chips stacked upward from topBoundary
-  const topLeft=[-8, 130, -25, 170, 55];
+  const topLeft=[42, 180, 25, 220, 105];
   chipEls.slice(0,5).forEach((el,i)=>{
     el.style.top=(topBoundary-ROW*(i+1))+'px';
     el.style.left=topLeft[i]+'px';
   });
   // Bottom zone: 5 chips stacked downward from bottomBoundary
-  const botLeft=[20, -18, 155, -10, 85];
+  const botLeft=[70, 32, 205, 40, 135];
   chipEls.slice(5).forEach((el,i)=>{
     el.style.top=(bottomBoundary+ROW*i+4)+'px';
     el.style.left=botLeft[i]+'px';
