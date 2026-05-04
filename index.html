@@ -50,9 +50,6 @@ nav.sc .ham span{background:var(--ink)}
 .mob.open{opacity:1;pointer-events:all}
 .mob-links{list-style:none;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center}
 .mob-links a{font-size:20px;font-weight:400;letter-spacing:0;color:var(--w40);transition:color .2s;line-height:1}
-@media(max-width:768px){
-  .hchip{top:var(--mt) !important;left:var(--ml) !important}
-}
 .mob-links a:hover,.mob-links a.act{color:#fff}
 .mob-lang{margin-top:.5rem}
 
@@ -437,13 +434,41 @@ const CHIPS=[
   CHIPS.forEach(c=>{
     const d=document.createElement('div');
     d.className='hchip';d.textContent=c.l;
-    d.style.cssText=`top:${c.top};left:${c.left};font-size:${c.fs}rem;padding:${c.fs>1?'.45rem 1.1rem':'.32rem .9rem'};--cdur:${c.dur}s;--cdel:${c.del}s;--mt:${c.mt};--ml:${c.ml};`;
+    d.style.cssText=`top:${c.top};left:${c.left};font-size:${c.fs}rem;padding:${c.fs>1?'.45rem 1.1rem':'.32rem .9rem'};--cdur:${c.dur}s;--cdel:${c.del}s;`;
     hero.appendChild(d);
   });
 })();
 
 /* Nav scroll */
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40),{passive:true});
+
+/* Mobile chip positioning — relative to hero-center bounds */
+function positionMobileChips(){
+  if(window.innerWidth>768)return;
+  const hero=document.getElementById('hero');
+  const center=document.querySelector('.hero-center');
+  if(!hero||!center)return;
+  const hRect=hero.getBoundingClientRect();
+  const cRect=center.getBoundingClientRect();
+  const topBoundary=cRect.top-hRect.top-10;   // 10px above text block
+  const bottomBoundary=cRect.bottom-hRect.top+10; // 10px below text block
+  const chipEls=[...document.querySelectorAll('.hchip')];
+  const ROW=36; // vertical step between chips in same zone
+  // Top zone: 5 chips stacked upward from topBoundary
+  const topLeft=[-8, 130, -25, 170, 55];
+  chipEls.slice(0,5).forEach((el,i)=>{
+    el.style.top=(topBoundary-ROW*(i+1))+'px';
+    el.style.left=topLeft[i]+'px';
+  });
+  // Bottom zone: 5 chips stacked downward from bottomBoundary
+  const botLeft=[20, -18, 155, -10, 85];
+  chipEls.slice(5).forEach((el,i)=>{
+    el.style.top=(bottomBoundary+ROW*i+4)+'px';
+    el.style.left=botLeft[i]+'px';
+  });
+}
+window.addEventListener('load',positionMobileChips);
+window.addEventListener('resize',positionMobileChips,{passive:true});
 
 /* Accordion */
 document.getElementById('acc-list').addEventListener('click',e=>{
