@@ -143,10 +143,10 @@ nav.sc .ham span{background:var(--ink)}
 /* FOOTER */
 footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
 .fi{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.fc{font-size:.78rem;color:rgba(255,255,255,.2)}
+.fc{font-size:.78rem;color:#fff}
 .fl{display:flex;gap:2rem}
-.fl a{font-size:.78rem;color:rgba(255,255,255,.22);transition:color .2s}
-.fl a:hover{color:rgba(255,255,255,.6)}
+.fl a{font-size:.78rem;color:#fff;transition:opacity .2s}
+.fl a:hover{opacity:.7;text-decoration:underline}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
@@ -177,7 +177,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <div class="logo">DR</div>
     <ul class="nl">
       <li><a href="#" class="act" data-t="nav.home">Home</a></li>
-      <li><a href="projects.html" data-t="nav.projects">Projects</a></li>
+      <li><a href="project-nissan.html" data-t="nav.projects">Projects</a></li>
       <li><a href="cv.html" data-t="nav.cv">CV</a></li>
       <li>
         <div class="lang" id="lang-nav">
@@ -197,7 +197,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
 <div class="mob" id="mob">
   <ul class="mob-links">
     <li><a href="#" class="act" data-t="nav.home" onclick="closeMob()">Home</a></li>
-    <li><a href="projects.html" data-t="nav.projects" onclick="closeMob()">Projects</a></li>
+    <li><a href="project-nissan.html" data-t="nav.projects" onclick="closeMob()">Projects</a></li>
     <li><a href="cv.html" data-t="nav.cv" onclick="closeMob()">CV</a></li>
   </ul>
   <div class="lang mob-lang" id="lang-mob">
@@ -361,7 +361,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
     <div class="fl">
       <a href="#about" data-t="foot.about">About</a>
-      <a href="projects.html" data-t="foot.proj">Projects</a>
+      <a href="project-nissan.html" data-t="foot.proj">Projects</a>
       <a href="mailto:david.riosv03@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
     </div>
