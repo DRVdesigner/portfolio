@@ -47,7 +47,10 @@ nav.sc .nl a.act{color:var(--ink)}
 .mob-links a:hover,.mob-links a.act{color:#fff}
 
 /* PAGE HERO */
-.pg-hero{padding-top:calc(var(--nav) + 4.5rem);padding-bottom:3.5rem;padding-left:var(--pad);padding-right:var(--pad);border-bottom:1px solid var(--w10)}
+.pg-hero{position:relative;padding-top:calc(var(--nav) + 4.5rem);padding-bottom:3.5rem;padding-left:var(--pad);padding-right:var(--pad);border-bottom:1px solid var(--w10);overflow:hidden}
+.pg-hero::before{content:"";position:absolute;inset:0;background-image:var(--hero-bg,none);background-size:cover;background-position:center;background-repeat:no-repeat;z-index:0;opacity:.55}
+.pg-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,15,.35) 0%,rgba(6,7,15,.85) 100%);z-index:1;pointer-events:none}
+.pg-hero-inner{position:relative;z-index:2}
 .pg-hero-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
 .ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:.75rem}
 .pg-title{font-size:clamp(3.5rem,8vw,7rem);font-weight:800;letter-spacing:-.05em;line-height:.88;color:#fff}
@@ -234,7 +237,8 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--
 </div>
 
 <!-- PAGE HERO -->
-<div class="pg-hero">
+<!-- 🖼️ HERO BACKGROUND IMAGE — replace path below with your own image -->
+<div class="pg-hero" style="--hero-bg:url('imagenes/Googleheader.png')">
   <div class="pg-hero-inner">
     <div><p class="ey" data-t="page.ey">Selected Work</p><h1 class="pg-title" data-t="page.title">Projects</h1></div>
     <p class="pg-sub" data-t="page.sub">End-to-end design process — from discovery and research to final delivery.</p>
