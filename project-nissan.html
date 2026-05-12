@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nissan Latam — David Rios</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --ink:#06070f;--cream:#f2f0eb;--blue:#2121A9;
+  --w60:rgba(255,255,255,.6);--w40:rgba(255,255,255,.4);
+  --w20:rgba(255,255,255,.2);--w10:rgba(255,255,255,.1);
+  --font:'Plus Jakarta Sans',sans-serif;--max:1200px;--pad:5rem;--nav:80px;
+}
+body{font-family:var(--font);background:var(--ink);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav);z-index:900;padding:0 var(--pad);display:flex;align-items:center;border-bottom:1px solid transparent;transition:background .4s,border-color .4s;background:rgba(6,7,15,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+nav.sc{background:#fafafa;border-bottom:1px solid rgba(6,7,15,.08);backdrop-filter:none}
+nav.sc .nl a{color:rgba(6,7,15,.45)}
+nav.sc .nl a:hover,nav.sc .nl a.act{color:var(--ink)}
+nav.sc .logo{background:#e8e6e0;border-color:rgba(6,7,15,.15);color:rgba(6,7,15,.5)}
+nav.sc .ham span{background:var(--ink)}
+.ni{width:100%;max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{width:36px;height:36px;background:#1a1a2a;border-radius:50%;border:1.5px solid var(--w20);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--w60);cursor:pointer}
+.nl{display:flex;gap:2rem;list-style:none;align-items:center}
+.nl a{font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--w40);transition:color .2s}
+.nl a:hover,.nl a.act{color:#fff}
+nav.sc .nl a.act{color:var(--ink)}
+.lang{display:flex;position:relative;align-items:center;background:#e0ded8;border-radius:100px;padding:3px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6)}
+.lang-knob{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
+.lang.es .lang-knob{transform:translateX(100%)}
+.lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
+.lb.on{color:rgba(30,30,33,.82)}
+.ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
+.ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob{position:fixed;inset:0;z-index:800;background:rgba(6,7,15,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3rem;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.mob.open{opacity:1;pointer-events:all}
+.mob-links{list-style:none;display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center}
+.mob-links a{font-size:20px;font-weight:400;letter-spacing:0;color:var(--w40);transition:color .2s;line-height:1}
+.mob-links a:hover,.mob-links a.act{color:#fff}
+
+/* PAGE HERO */
+.pg-hero{padding-top:calc(var(--nav) + 4.5rem);padding-bottom:3.5rem;padding-left:var(--pad);padding-right:var(--pad);border-bottom:1px solid var(--w10)}
+.pg-hero-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:.75rem}
+.pg-title{font-size:clamp(3.5rem,8vw,7rem);font-weight:800;letter-spacing:-.05em;line-height:.88;color:#fff}
+.pg-sub{max-width:300px;font-size:.95rem;line-height:1.75;color:var(--w40);font-weight:400}
+
+/* STICKY PROJECT NAV */
+.pnav{position:sticky;top:var(--nav);z-index:100;background:rgba(6,7,15,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--w10)}
+.pnav-inner{max-width:var(--max);margin:0 auto;padding:0 var(--pad);display:flex}
+.pnb{flex:1;text-align:center;padding:.85rem .5rem;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--w40);background:none;border:none;cursor:pointer;font-family:var(--font);transition:color .2s;border-bottom:2px solid transparent;white-space:nowrap}
+.pnb:hover{color:var(--w60)}
+.pnb.act{color:#fff;border-bottom-color:#fff}
+
+/* PROJECT SECTIONS */
+/* PROJECT SECTIONS — LIGHT BACKGROUND */
+.ps-wrap{background:var(--cream);color:var(--ink);border-bottom:1px solid rgba(6,7,15,.1)}
+.ps-wrap .pnum{color:#E1E0DC}
+.ps-wrap .ptitle-row{border-bottom-color:rgba(6,7,15,.12)}
+.ps-wrap .pname{color:var(--ink)}
+.ps-wrap .pcat{color:#7C7C7D}
+.ps-wrap .tag{border-color:rgba(6,7,15,.18);color:#4D4D51}
+.ps-wrap .ccg-block{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
+.ps-wrap .ccg-label{color:#7C7C7D;border-bottom-color:rgba(6,7,15,.1)}
+.ps-wrap .ccg-text{color:#4D4D51}
+.ps-wrap .proc-label{color:#7C7C7D}
+.ps-wrap .proc-tabs{border-color:rgba(6,7,15,.12)}
+.ps-wrap .ptab{color:#7C7C7D;border-right-color:rgba(6,7,15,.12)}
+.ps-wrap .ptab:hover{color:#35363B;background:rgba(6,7,15,.05)}
+.ps-wrap .ptab.act{color:var(--ink);background:rgba(6,7,15,.07)}
+.ps-wrap .ptab.act::after{background:var(--ink)}
+.ps-wrap .ov-text{color:#4D4D51}
+.ps-wrap .ov-text strong{color:var(--ink)}
+.ps-wrap .pc-text h4{color:var(--ink)}
+.ps-wrap .pc-text p{color:#4D4D51}
+.ps-wrap .pc-text ul li{color:#4D4D51}
+.ps-wrap .pc-text ul li::before{color:#7C7C7D}
+.ps-wrap .pmock{border-color:rgba(6,7,15,.1)}
+.ps-wrap .metric{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
+.ps-wrap .mval{color:var(--ink)}
+.ps-wrap .mlabel{color:#7C7C7D}
+.ps-wrap .pia-img{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.04)}
+.ps-wrap .pia-title{color:var(--ink)}
+.ps-wrap .pia-desc{color:#4D4D51}
+.ps{max-width:var(--max);margin:0 auto;padding:6rem var(--pad)}
+.pnum{font-size:clamp(5rem,10vw,9rem);font-weight:800;letter-spacing:-.06em;color:rgba(255,255,255,.05);line-height:1;margin-bottom:-1rem;user-select:none}
+.ptitle-row{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--w10);margin-bottom:3rem;flex-wrap:wrap}
+.pname{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1}
+.pcat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--w40);margin-bottom:.4rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{padding:.28rem .8rem;border:1.5px solid var(--w20);border-radius:100px;font-size:.72rem;font-weight:600;color:var(--w60)}
+
+/* ── DESKTOP OVERVIEW GRID (3 columns) ── */
+.ccg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem}
+.ccg-block{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
+.ccg-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--w40);margin-bottom:.85rem;padding-bottom:.6rem;border-bottom:1px solid var(--w10)}
+.ccg-text{font-size:.88rem;line-height:1.75;color:var(--w60)}
+
+/* ── MOBILE OVERVIEW TABS (hidden on desktop) ── */
+.ov-tabs-wrap{display:none;margin-bottom:3rem}
+
+/* Shared tab styles */
+.proc-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:1.5rem}
+.proc-tabs{display:flex;border:1px solid var(--w10);border-radius:12px;overflow:hidden;margin-bottom:2.5rem}
+.ptab{flex:1;padding:.82rem .5rem;text-align:center;font-size:.73rem;font-weight:700;letter-spacing:.04em;color:var(--w40);background:none;border:none;cursor:pointer;font-family:var(--font);transition:all .2s;border-right:1px solid var(--w10);position:relative}
+.ptab:last-child{border-right:none}
+.ptab:hover{color:var(--w60);background:var(--w10)}
+.ptab.act{color:#fff;background:rgba(255,255,255,.07)}
+.ptab.act::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#fff}
+
+/* Mobile overview content panels */
+.ocontent{display:none;padding:1.75rem 0}
+.ocontent.vis{display:block}
+.ov-text{font-size:1rem;line-height:1.82;color:var(--w60)}
+.ov-text strong{color:#fff;font-weight:700}
+
+/* Design process panels */
+.pcontent{display:none}
+.pcontent.vis{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.pc-text h4{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem;color:#fff}
+.pc-text p{font-size:.9rem;line-height:1.75;color:var(--w60)}
+.pc-text ul{list-style:none;margin-top:.85rem;display:flex;flex-direction:column;gap:.45rem}
+.pc-text ul li{font-size:.84rem;color:var(--w60);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
+.pc-text ul li::before{content:'—';color:var(--w40);flex-shrink:0;margin-top:.05rem}
+.pmock{border-radius:12px;overflow:hidden;border:1px solid var(--w10)}
+.pmock:empty{min-height:210px}
+.pmock img{width:100%;height:auto;display:block;object-fit:cover}
+
+/* Metrics */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
+.mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
+.mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
+
+/* PIA feature block */
+.pia-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
+.pia-img{border-radius:14px;overflow:hidden;min-height:460px;border:1px solid var(--w10);background:rgba(255,255,255,.04)}
+.pia-title{font-size:clamp(2rem,3.2vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:.95;color:#fff;margin-bottom:1.75rem;text-transform:uppercase}
+.pia-desc{font-size:.92rem;line-height:1.78;color:var(--w60);margin-bottom:1rem}
+.pia-desc:last-child{margin-bottom:0}
+
+/* Mock fills */
+.mn{background:linear-gradient(135deg,#0d1c2e 0%,#162d47 100%)}
+.mb{background:linear-gradient(135deg,#1a0a00 0%,#2e1400 100%)}
+.mg{background:linear-gradient(135deg,#080f1e 0%,#0f1e38 100%)}
+.mc{background:linear-gradient(135deg,#100818 0%,#200a30 100%)}
+.mu{width:100%;height:100%;padding:1.4rem;display:flex;flex-direction:column;gap:.65rem}
+.mbar{height:7px;border-radius:4px;background:rgba(255,255,255,.08)}
+.mbar.w90{width:90%}.mbar.w80{width:80%}.mbar.w70{width:70%}.mbar.w60{width:60%}.mbar.w50{width:50%}.mbar.w40{width:40%}
+.mbar.hi{background:rgba(255,255,255,.17)}
+.mcard{background:rgba(255,255,255,.05);border-radius:8px;padding:.7rem;border:1px solid rgba(255,255,255,.07)}
+.mgrid2{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.mgrid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem}
+.mcircle{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.1);flex-shrink:0}
+.mrow{display:flex;gap:.5rem;align-items:center}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+footer{background:#110518;padding:1.75rem var(--pad);border-top:1px solid var(--w10)}
+.fi{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fc{font-size:.78rem;color:#fff}
+.fl{display:flex;gap:2rem}
+.fl a{font-size:.78rem;color:#fff;transition:opacity .2s}
+.fl a:hover{opacity:.7;text-decoration:underline}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  :root{--pad:2.5rem}
+  .pcontent.vis{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .pg-hero-inner{flex-direction:column;align-items:flex-start}
+  .pia-grid{grid-template-columns:1fr}
+  .ccg{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nl{display:none}
+  .ham{display:flex}
+  .pnav-inner{padding:0 1.5rem}
+  .pnb{font-size:.62rem;padding:.75rem .25rem}
+  /* swap overview: hide grid, show tabs */
+  .ccg{display:none}
+  .ov-tabs-wrap{display:block}
+}
+@media(max-width:650px){
+  :root{--pad:1.5rem;--nav:68px}
+  .metrics{grid-template-columns:1fr}
+  .proc-tabs{flex-wrap:wrap;border-radius:10px}
+  .ptab{flex:calc(50% - 1px);border-bottom:1px solid var(--w10)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="ni">
+    <div class="logo" onclick="window.location='index.html'">DR</div>
+    <ul class="nl">
+      <li><a href="index.html" data-t="nav.home">Home</a></li>
+      <li><a href="project-nissan.html" class="act" data-t="nav.projects">Projects</a></li>
+      <li><a href="cv.html" data-t="nav.cv">CV</a></li>
+      <li>
+        <div class="lang" id="lang-nav">
+          <div class="lang-knob"></div>
+          <button class="lb lb-en on" onclick="setL('en')">EN</button>
+          <button class="lb lb-es" onclick="setL('es')">ES</button>
+        </div>
+      </li>
+    </ul>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob" id="mob">
+  <ul class="mob-links">
+    <li><a href="index.html" data-t="nav.home" onclick="closeMob()">Home</a></li>
+    <li><a href="project-nissan.html" class="act" data-t="nav.projects" onclick="closeMob()">Projects</a></li>
+    <li><a href="cv.html" data-t="nav.cv" onclick="closeMob()">CV</a></li>
+  </ul>
+  <div class="lang" id="lang-mob">
+    <div class="lang-knob"></div>
+    <button class="lb lb-en on" onclick="setL('en')">EN</button>
+    <button class="lb lb-es" onclick="setL('es')">ES</button>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="pg-hero">
+  <div class="pg-hero-inner">
+    <div><p class="ey" data-t="page.ey">Selected Work</p><h1 class="pg-title" data-t="page.title">Projects</h1></div>
+    <p class="pg-sub" data-t="page.sub">End-to-end design process — from discovery and research to final delivery.</p>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="pnav">
+  <div class="pnav-inner">
+    <a href="project-nissan.html" class="pnb act" data-t="pn.p1">01 — Nissan</a>
+    <a href="project-bimbo.html" class="pnb" data-t="pn.p2">02 — Bimbo</a>
+    <a href="project-google.html" class="pnb" data-t="pn.p3">03 — Google</a>
+    <a href="project-lacalera.html" class="pnb" data-t="pn.p4">04 — La Calera</a>
+  </div>
+</div>
+
+<!-- ═══ 01 NISSAN ═══ -->
+<div class="ps-wrap" id="p1"><div class="ps">
+  <div class="pnum">01</div>
+  <div class="ptitle-row rv">
+    <div><p class="pcat" data-t="p1.cat">AI Chatbot · App Maintenance</p><h2 class="pname" data-t="p1.title">Nissan Latam</h2></div>
+    <div class="tags"><span class="tag">UX Design</span><span class="tag">UI Design</span><span class="tag">Automotive</span><span class="tag">AI Chatbot</span><span class="tag">Figma</span></div>
+  </div>
+
+  <!-- Desktop: 3-col grid -->
+  <div class="ccg rv">
+    <div class="ccg-block">
+      <p class="ccg-label">Context</p>
+      <p class="ccg-text">Nissan is one of the biggest Japanese car manufacturers. Their family of automobiles includes brands like Infiniti, Datsun and different tuning products under the label Nismo. It also has a strong presence in Latin America, a car market that is growing exponentially and represents a great business opportunity.</p>
+    </div>
+    <div class="ccg-block">
+      <p class="ccg-label">Challenge</p>
+      <p class="ccg-text">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.</p>
+    </div>
+    <div class="ccg-block">
+      <p class="ccg-label">Goal</p>
+      <p class="ccg-text">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.</p>
+    </div>
+  </div>
+
+  <!-- Mobile: tabs -->
+  <div class="ov-tabs-wrap">
+    <p class="proc-label">Project Overview</p>
+    <div class="proc-tabs" id="ov-p1">
+      <button class="ptab act" data-step="0">Context</button>
+      <button class="ptab" data-step="1">Challenge</button>
+      <button class="ptab" data-step="2">Goal</button>
+    </div>
+    <div class="ocontent vis" data-op="p1" data-os="0"><p class="ov-text">Nissan is one of the biggest Japanese car manufacturers. Their family of automobiles includes brands like Infiniti, Datsun and different tuning products under the label Nismo. It also has a strong presence in Latin America, a car market that is growing exponentially and represents a great business opportunity.</p></div>
+    <div class="ocontent" data-op="p1" data-os="1"><p class="ov-text">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.</p></div>
+    <div class="ocontent" data-op="p1" data-os="2"><p class="ov-text">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.</p></div>
+  </div>
+
+  <!-- PIA Feature -->
+  <div class="pia-grid rv">
+    <!-- IMAGENAQUI — Reemplazar este div con la imagen principal del proyecto Nissan / PIA -->
+    <div class="pia-img"></div>
+    <div>
+      <h3 class="pia-title">P.I.A<br>Purchasing<br>Indirect<br>Assistant</h3>
+      <p class="pia-desc">This first version implements in its core an advanced artificial intelligence. This A.I. is enabled for live interaction via chat and offers precise answers to user requests and an extra feature: capacity to upload and process documents and data.</p>
+      <p class="pia-desc">The design and programming team have also taken a close look at the possible interactions of A.I. and humans to ensure this product's safety. There are established limits for what information can be retrieved, what requests are acceptable and how to handle the user's frustrations in what-if scenarios.</p>
+    </div>
+  </div>
+
+  <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
+  <div class="proc-tabs" id="tabs-p1">
+    <button class="ptab act" data-step="0" data-t="p1.t0">Discovery</button>
+    <button class="ptab" data-step="1" data-t="p1.t1">User Research</button>
+    <button class="ptab" data-step="2" data-t="p1.t2">Wireframes</button>
+    <button class="ptab" data-step="3" data-t="p1.t3">Visual Design</button>
+  </div>
+  <div class="pcontent vis rv" data-p="p1" data-s="0"><div class="pc-text"><h4 data-t="p1.s0h">Understanding the Market</h4><p data-t="p1.s0p">We audited Nissan's digital touchpoints across 6 LATAM markets — identifying inconsistencies in service booking flows, language gaps, and disconnected dealer systems.</p><ul><li data-t="p1.s0l0">Competitor benchmarking across 8 automotive brands</li><li data-t="p1.s0l1">Stakeholder interviews with regional market leads</li><li data-t="p1.s0l2">Heuristic evaluation of the existing platform</li></ul></div><div class="pmock mn"><div class="mu"><div class="mbar w50 hi"></div><div class="mgrid3"><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.09)"></div><div class="mcard" style="min-height:55px"></div></div><div class="mbar w70"></div><div class="mbar w50"></div></div></div></div>
+  <div class="pcontent" data-p="p1" data-s="1"><div class="pc-text"><h4 data-t="p1.s1h">User Journey Mapping</h4><p data-t="p1.s1p">We conducted 24 interviews with vehicle owners in Mexico, Brazil and Argentina — mapping the emotional journey from service alert to vehicle pickup.</p><ul><li data-t="p1.s1l0">24 user interviews across 3 markets</li><li data-t="p1.s1l1">Journey maps & pain point prioritization</li><li data-t="p1.s1l2">3 user archetypes defined</li></ul></div><div class="pmock mn"><div class="mu"><div class="mbar w40 hi"></div><div class="mrow"><div class="mcircle"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem"><div class="mbar w80"></div><div class="mbar w60"></div></div></div><div class="mrow"><div class="mcircle"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem"><div class="mbar w90"></div><div class="mbar w40"></div></div></div></div></div></div>
+  <div class="pcontent" data-p="p1" data-s="2"><div class="pc-text"><h4 data-t="p1.s2h">IA & Chatbot Flows</h4><p data-t="p1.s2p">We defined the information architecture for the app and AI chatbot — mapping 30+ conversation trees and service booking flows.</p><ul><li data-t="p1.s2l0">30+ chatbot conversation flows architected</li><li data-t="p1.s2l1">Mid-fi wireframes validated with 12 users</li><li data-t="p1.s2l2">3 iterative sprint cycles before sign-off</li></ul></div><div class="pmock mn"><div class="mu"><div class="mcard" style="min-height:80px"><div class="mbar w60 hi" style="margin-bottom:.4rem"></div><div class="mbar w40"></div></div><div class="mgrid2"><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px"></div></div><div class="mbar w70"></div></div></div></div>
+  <div class="pcontent" data-p="p1" data-s="3"><div class="pc-text"><h4 data-t="p1.s3h">Visual Design & Handoff</h4><p data-t="p1.s3p">Final UI built on Nissan's brand system. Delivered 120+ screen designs and a Figma component library across 6 language variants.</p><ul><li data-t="p1.s3l0">120+ screens across 6 languages</li><li data-t="p1.s3l1">Component library with design tokens</li><li data-t="p1.s3l2">Figma handoff + QA support</li></ul></div><div class="pmock mn"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div></div><div class="mbar w60 hi"></div></div></div></div>
+  <div class="metrics rv"><div class="metric"><div class="mval">6</div><div class="mlabel" data-t="p1.m0">Markets covered</div></div><div class="metric"><div class="mval">120+</div><div class="mlabel" data-t="p1.m1">Screens delivered</div></div><div class="metric"><div class="mval">30+</div><div class="mlabel" data-t="p1.m2">Chatbot flows</div></div></div>
+</div></div>
+
+<footer>
+  <div class="fi">
+    <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
+    <div class="fl">
+      <a href="index.html" data-t="foot.home">Home</a>
+      <a href="project-nissan.html" data-t="foot.proj">Projects</a>
+      <a href="mailto:david.riosv03@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const T={
+en:{
+  'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV',
+  'page.ey':'Selected Work','page.title':'Projects','page.sub':'End-to-end design process — from discovery and research to final delivery.',
+  'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
+  'proc.label':'Design Process',
+  'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
+  'p1.t0':'Discovery','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Visual Design',
+  'p1.s0h':'Understanding the Market','p1.s0p':"We audited Nissan's digital touchpoints across 6 LATAM markets.",'p1.s0l0':'Competitor benchmarking across 8 brands','p1.s0l1':'Stakeholder interviews with regional leads','p1.s0l2':'Heuristic evaluation of the existing platform',
+  'p1.s1h':'User Journey Mapping','p1.s1p':'24 interviews in Mexico, Brazil and Argentina.','p1.s1l0':'24 user interviews across 3 markets','p1.s1l1':'Journey maps & pain point prioritization','p1.s1l2':'3 user archetypes defined',
+  'p1.s2h':'IA & Chatbot Flows','p1.s2p':'Architecture for the app and AI chatbot — 30+ conversation trees.','p1.s2l0':'30+ chatbot conversation flows','p1.s2l1':'Mid-fi wireframes validated with 12 users','p1.s2l2':'3 iterative sprint cycles',
+  'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
+  'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
+  'p2.cat':'Design System','p2.title':'Bimbo Mexico',
+  'p2.t0':'Audit','p2.t1':'Tokens','p2.t2':'Components','p2.t3':'Documentation',
+  'p2.s0h':'Platform Audit','p2.s0p':"Full audit revealing 200+ inconsistent patterns.",'p2.s0l0':'200+ UI elements catalogued','p2.s0l1':'Brand guidelines & gap mapping','p2.s0l2':'Accessibility review — WCAG 2.1 AA',
+  'p2.s1h':'Design Token Architecture','p2.s1p':'Full token hierarchy with dark mode from day one.','p2.s1l0':'Color system — 8 semantic roles + dark mode','p2.s1l1':'Typography scale — 9 styles, 2 typefaces','p2.s1l2':'Spacing, radius, shadow, and motion tokens',
+  'p2.s2h':'Component Library','p2.s2p':'80+ components in Figma following atomic design.','p2.s2l0':'80+ Figma components with all states','p2.s2l1':'Atomic structure — atoms to organisms','p2.s2l2':'Interactive prototypes',
+  'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
+  'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
+  'p3.t0':'Research','p3.t1':'IA & Architecture','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Understanding Data Complexity','p3.s0p':'Worked with engineering and product to understand 15+ metric types.','p3.s0l0':'Stakeholder workshops with 4 user groups','p3.s0l1':'Data taxonomy and metric hierarchy','p3.s0l2':'Competitive analysis of monitoring dashboards',
+  'p3.s1h':'Information Architecture','p3.s1p':'Three-level hierarchy validated by card sorting with 18 users.','p3.s1l0':'Card sorting with 18 internal users','p3.s1l1':'3-level navigation hierarchy defined','p3.s1l2':'Contextual linking between metrics',
+  'p3.s2h':'Dashboard Design','p3.s2p':'40+ screen states across 6 domains, tested in 3 rounds.','p3.s2l0':'40+ screens across 6 data domains','p3.s2l1':'8 chart types with responsive variants','p3.s2l2':'3 rounds of usability testing',
+  'p3.s3h':'UI Kit & Illustrations','p3.s3p':'60+ data-specific components plus custom illustration system.','p3.s3l0':'60+ data-specific components','p3.s3l1':'Custom illustration library — 12 scenes','p3.s3l2':'Motion principles and transition specs',
+  'p3.m0':'Screen states','p3.m1':'UI components','p3.m2':'Users in card sorting',
+  'p4.cat':'Brand Identity · Game UI · Visual Design','p4.title':'La Calera',
+  'p4.t0':'Brand Strategy','p4.t1':'Identity','p4.t2':'Game UI','p4.t3':'Assets',
+  'p4.s0h':'Brand Strategy & Direction','p4.s0p':'Three directions narrowed to a bold, high-contrast identity.','p4.s0l0':'Competitive landscape & positioning audit','p4.s0l1':'3 creative directions developed & tested','p4.s0l2':'Brand archetypes and voice definition',
+  'p4.s1h':'Logo & Visual Identity','p4.s1p':'12+ logo explorations at every scale.','p4.s1l0':'12+ logo concepts, 3 presentation rounds','p4.s1l1':'Color palette — primary, accent & neutrals','p4.s1l2':'Typography — display, UI and body scales',
+  'p4.s2h':'Game UI Design','p4.s2p':'Complete game UI — HUD, menus, inventory, leaderboards, and onboarding.','p4.s2l0':'HUD system with real-time data','p4.s2l1':'50+ game UI components','p4.s2l2':'Motion specs for transitions',
+  'p4.s3h':'Marketing Assets','p4.s3p':'Social media templates, key art, and a complete brand book.','p4.s3l0':'Social media templates — 8 formats','p4.s3l1':'Key art and hero visuals for launch','p4.s3l2':'Brand book and usage guidelines',
+  'p4.m0':'Logo concepts','p4.m1':'Game UI components','p4.m2':'Brand ecosystem',
+  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Home','foot.proj':'Projects'
+},
+es:{
+  'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
+  'page.ey':'Trabajos Seleccionados','page.title':'Proyectos','page.sub':'Proceso end-to-end — desde el descubrimiento hasta la entrega final.',
+  'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
+  'proc.label':'Proceso de Diseño',
+  'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
+  'p1.t0':'Descubrimiento','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Diseño Visual',
+  'p1.s0h':'Entendiendo el Mercado','p1.s0p':'Auditamos los touchpoints de Nissan en 6 mercados LATAM.','p1.s0l0':'Benchmarking en 8 marcas','p1.s0l1':'Entrevistas con líderes regionales','p1.s0l2':'Evaluación heurística de la plataforma',
+  'p1.s1h':'Mapeo del Journey','p1.s1p':'24 entrevistas en México, Brasil y Argentina.','p1.s1l0':'24 entrevistas en 3 mercados','p1.s1l1':'Journey maps y pain points','p1.s1l2':'3 arquetipos de usuario',
+  'p1.s2h':'IA & Flujos del Chatbot','p1.s2p':'Arquitectura para la app y chatbot — 30+ árboles de conversación.','p1.s2l0':'30+ flujos del chatbot','p1.s2l1':'Wireframes validados con 12 usuarios','p1.s2l2':'3 ciclos de sprints',
+  'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
+  'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
+  'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
+  'p2.t0':'Auditoría','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentación',
+  'p2.s0h':'Auditoría de Plataforma','p2.s0p':'200+ patrones inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análisis de guidelines y brechas','p2.s0l2':'Revisión WCAG 2.1 AA',
+  'p2.s1h':'Arquitectura de Tokens','p2.s1p':'Jerarquía completa con dark mode desde el primer día.','p2.s1l0':'8 roles semánticos + dark mode','p2.s1l1':'9 estilos tipográficos, 2 tipografías','p2.s1l2':'Tokens de espaciado, radio y movimiento',
+  'p2.s2h':'Librería de Componentes','p2.s2p':'80+ componentes en Figma con diseño atómico.','p2.s2l0':'80+ componentes con todos los estados','p2.s2l1':'Estructura atómica','p2.s2l2':'Prototipos interactivos',
+  'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
+  'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
+  'p3.t0':'Investigación','p3.t1':'IA & Arquitectura','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Entendiendo la Complejidad','p3.s0p':'Trabajamos con ingeniería y producto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops con 4 grupos','p3.s0l1':'Taxonomía de datos y jerarquía','p3.s0l2':'Análisis de dashboards',
+  'p3.s1h':'Arquitectura de Información','p3.s1p':'Jerarquía de 3 niveles validada por card sorting.','p3.s1l0':'Card sorting con 18 usuarios','p3.s1l1':'Jerarquía de 3 niveles','p3.s1l2':'Vinculación contextual entre métricas',
+  'p3.s2h':'Diseño del Dashboard','p3.s2p':'40+ estados en 6 dominios, testeados en 3 rondas.','p3.s2l0':'40+ pantallas en 6 dominios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rondas de pruebas',
+  'p3.s3h':'UI Kit e Ilustraciones','p3.s3p':'60+ componentes y sistema de ilustraciones.','p3.s3l0':'60+ componentes en Figma','p3.s3l1':'12 escenas de ilustraciones','p3.s3l2':'Principios de movimiento',
+  'p3.m0':'Estados de pantalla','p3.m1':'Componentes UI','p3.m2':'Usuarios en card sorting',
+  'p4.cat':'Identidad de Marca · Game UI · Diseño Visual','p4.title':'La Calera',
+  'p4.t0':'Estrategia','p4.t1':'Identidad','p4.t2':'Game UI','p4.t3':'Assets',
+  'p4.s0h':'Estrategia de Marca','p4.s0p':'Tres direcciones reducidas a una identidad bold.','p4.s0l0':'Auditoría competitiva','p4.s0l1':'3 direcciones creativas','p4.s0l2':'Arquetipos y voz de marca',
+  'p4.s1h':'Logo e Identidad Visual','p4.s1p':'12+ exploraciones de logo a toda escala.','p4.s1l0':'12+ conceptos, 3 rondas','p4.s1l1':'Paleta de color completa','p4.s1l2':'Tipografía — display, UI y body',
+  'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo — HUD, menús, inventario y onboarding.','p4.s2l0':'Sistema HUD en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento',
+  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
+  'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
+  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+}
+};
+
+let lang='en';
+function setL(l){
+  lang=l;
+  document.querySelectorAll('[data-t]').forEach(el=>{const v=T[l][el.dataset.t];if(v!==undefined)el.textContent=v;});
+  document.querySelectorAll('.lb-en').forEach(b=>b.classList.toggle('on',l==='en'));
+  document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
+  document.querySelectorAll('.lang').forEach(lt=>lt.classList.toggle('es',l==='es'));
+}
+
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+function closeMob(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}
+ham.addEventListener('click',()=>{
+  const opening=!mob.classList.contains('open');
+  ham.classList.toggle('open');mob.classList.toggle('open');
+  document.body.style.overflow=opening?'hidden':'';
+});
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40),{passive:true});
+
+/* Overview tabs — mobile only (this page) */
+const PID='p1';
+const ovTabs=document.getElementById('ov-'+PID);
+if(ovTabs){
+  ovTabs.addEventListener('click',e=>{
+    const btn=e.target.closest('.ptab');if(!btn)return;
+    const s=parseInt(btn.dataset.step);
+    ovTabs.querySelectorAll('.ptab').forEach((b,i)=>b.classList.toggle('act',i===s));
+    document.querySelectorAll(`.ocontent[data-op="${PID}"]`).forEach(c=>c.classList.toggle('vis',parseInt(c.dataset.os)===s));
+  });
+}
+
+/* Design process tabs (this page) */
+const procTabs=document.getElementById('tabs-'+PID);
+if(procTabs){
+  procTabs.addEventListener('click',e=>{
+    const btn=e.target.closest('.ptab');if(!btn)return;
+    const s=parseInt(btn.dataset.step);
+    procTabs.querySelectorAll('.ptab').forEach((b,i)=>b.classList.toggle('act',i===s));
+    document.querySelectorAll(`.pcontent[data-p="${PID}"]`).forEach(c=>{const show=parseInt(c.dataset.s)===s;c.classList.toggle('vis',show);if(show)c.classList.add('rv','vis');});
+  });
+}
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+setL('en');
+</script>
+</body>
+</html>
