@@ -149,6 +149,17 @@ nav.sc .nl a.act{color:var(--ink)}
 .pia-desc{font-size:.92rem;line-height:1.78;color:var(--w60);margin-bottom:1rem}
 .pia-desc:last-child{margin-bottom:0}
 
+/* Design Variables & Final Screens sections */
+.extra-sec{margin-top:5rem;padding-top:4rem;border-top:1px solid rgba(6,7,15,.1)}
+.es-head{margin-bottom:2.5rem;max-width:720px}
+.es-ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7C7C7D;margin-bottom:.85rem}
+.es-title{font-size:clamp(2rem,3.2vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:.95;color:var(--ink);text-transform:uppercase;margin-bottom:1.25rem}
+.es-desc{font-size:.92rem;line-height:1.78;color:#4D4D51;max-width:640px}
+.dv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.dv-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center}
+.scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.scr-img{border-radius:14px;overflow:hidden;aspect-ratio:9/19;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center}
+
 /* Mock fills */
 .mn{background:linear-gradient(135deg,#0d1c2e 0%,#162d47 100%)}
 .mb{background:linear-gradient(135deg,#1a0a00 0%,#2e1400 100%)}
@@ -182,6 +193,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
+  .dv-grid{grid-template-columns:1fr 1fr}
+  .scr-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -197,6 +210,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .metrics{grid-template-columns:1fr}
   .proc-tabs{flex-wrap:wrap;border-radius:10px}
   .ptab{flex:calc(50% - 1px);border-bottom:1px solid var(--w10)}
+  .dv-grid{grid-template-columns:1fr}
+  .scr-grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -315,6 +330,48 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="pcontent" data-p="p1" data-s="2"><div class="pc-text"><h4 data-t="p1.s2h">IA & Chatbot Flows</h4><p data-t="p1.s2p">We defined the information architecture for the app and AI chatbot — mapping 30+ conversation trees and service booking flows.</p><ul><li data-t="p1.s2l0">30+ chatbot conversation flows architected</li><li data-t="p1.s2l1">Mid-fi wireframes validated with 12 users</li><li data-t="p1.s2l2">3 iterative sprint cycles before sign-off</li></ul></div><div class="pmock mn"><div class="mu"><div class="mcard" style="min-height:80px"><div class="mbar w60 hi" style="margin-bottom:.4rem"></div><div class="mbar w40"></div></div><div class="mgrid2"><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px"></div></div><div class="mbar w70"></div></div></div></div>
   <div class="pcontent" data-p="p1" data-s="3"><div class="pc-text"><h4 data-t="p1.s3h">Visual Design & Handoff</h4><p data-t="p1.s3p">Final UI built on Nissan's brand system. Delivered 120+ screen designs and a Figma component library across 6 language variants.</p><ul><li data-t="p1.s3l0">120+ screens across 6 languages</li><li data-t="p1.s3l1">Component library with design tokens</li><li data-t="p1.s3l2">Figma handoff + QA support</li></ul></div><div class="pmock mn"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div></div><div class="mbar w60 hi"></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">6</div><div class="mlabel" data-t="p1.m0">Markets covered</div></div><div class="metric"><div class="mval">120+</div><div class="mlabel" data-t="p1.m1">Screens delivered</div></div><div class="metric"><div class="mval">30+</div><div class="mlabel" data-t="p1.m2">Chatbot flows</div></div></div>
+
+  <!-- ═══ DESIGN VARIABLES (FIGMA) ═══ -->
+  <div class="extra-sec rv">
+    <div class="es-head">
+      <p class="es-ey" data-t="p1.dvey">Design System</p>
+      <h3 class="es-title" data-t="p1.dvh">Design Variables</h3>
+      <p class="es-desc" data-t="p1.dvp">A complete token-based system built in Figma — color, typography, spacing, and component variables that scale across 6 language variants and keep the platform visually consistent end-to-end.</p>
+    </div>
+    <div class="dv-grid">
+      <!-- ▼ IMAGENAQUI 1 ▼ Reemplaza con la imagen de Color Tokens -->
+      <div class="dv-img"></div>
+      <!-- ▼ IMAGENAQUI 2 ▼ Reemplaza con la imagen de Typography -->
+      <div class="dv-img"></div>
+      <!-- ▼ IMAGENAQUI 3 ▼ Reemplaza con la imagen de Spacing / Layout -->
+      <div class="dv-img"></div>
+      <!-- ▼ IMAGENAQUI 4 ▼ Reemplaza con la imagen de Components / Effects -->
+      <div class="dv-img"></div>
+    </div>
+  </div>
+
+  <!-- ═══ FINAL SCREENS SHOWCASE ═══ -->
+  <div class="extra-sec rv">
+    <div class="es-head">
+      <p class="es-ey" data-t="p1.scey">Final Output</p>
+      <h3 class="es-title" data-t="p1.sch">Final Screens</h3>
+      <p class="es-desc" data-t="p1.scp">A selection of final screens from the platform — showcasing the AI chatbot interactions, autoparts search, and the core maintenance flows delivered to users.</p>
+    </div>
+    <div class="scr-grid">
+      <!-- ▼ IMAGENAQUI 1 ▼ Reemplaza con la captura de pantalla 1 -->
+      <div class="scr-img"></div>
+      <!-- ▼ IMAGENAQUI 2 ▼ Reemplaza con la captura de pantalla 2 -->
+      <div class="scr-img"></div>
+      <!-- ▼ IMAGENAQUI 3 ▼ Reemplaza con la captura de pantalla 3 -->
+      <div class="scr-img"></div>
+      <!-- ▼ IMAGENAQUI 4 ▼ Reemplaza con la captura de pantalla 4 -->
+      <div class="scr-img"></div>
+      <!-- ▼ IMAGENAQUI 5 ▼ Reemplaza con la captura de pantalla 5 -->
+      <div class="scr-img"></div>
+      <!-- ▼ IMAGENAQUI 6 ▼ Reemplaza con la captura de pantalla 6 -->
+      <div class="scr-img"></div>
+    </div>
+  </div>
 </div></div>
 
 <footer>
@@ -334,7 +391,7 @@ const T={
 en:{
   'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV',
   'page.ey':'Selected Work','page.title':'Projects','page.sub':'End-to-end design process — from discovery and research to final delivery.',
-  'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
   'proc.label':'Design Process',
   'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
   'p1.t0':'Discovery','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Visual Design',
@@ -343,6 +400,8 @@ en:{
   'p1.s2h':'IA & Chatbot Flows','p1.s2p':'Architecture for the app and AI chatbot — 30+ conversation trees.','p1.s2l0':'30+ chatbot conversation flows','p1.s2l1':'Mid-fi wireframes validated with 12 users','p1.s2l2':'3 iterative sprint cycles',
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
+  'p1.dvey':'Design System','p1.dvh':'Design Variables','p1.dvp':'A complete token-based system built in Figma — color, typography, spacing, and component variables that scale across 6 language variants and keep the platform visually consistent end-to-end.',
+  'p1.scey':'Final Output','p1.sch':'Final Screens','p1.scp':'A selection of final screens from the platform — showcasing the AI chatbot interactions, autoparts search, and the core maintenance flows delivered to users.',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
   'p2.t0':'Audit','p2.t1':'Tokens','p2.t2':'Components','p2.t3':'Documentation',
   'p2.s0h':'Platform Audit','p2.s0p':"Full audit revealing 200+ inconsistent patterns.",'p2.s0l0':'200+ UI elements catalogued','p2.s0l1':'Brand guidelines & gap mapping','p2.s0l2':'Accessibility review — WCAG 2.1 AA',
@@ -369,7 +428,7 @@ en:{
 es:{
   'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
   'page.ey':'Trabajos Seleccionados','page.title':'Proyectos','page.sub':'Proceso end-to-end — desde el descubrimiento hasta la entrega final.',
-  'pn.p1':'01 — Nissan','pn.p2':'02 — Bimbo','pn.p3':'03 — Google','pn.p4':'04 — La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
   'proc.label':'Proceso de Diseño',
   'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
   'p1.t0':'Descubrimiento','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Diseño Visual',
@@ -378,6 +437,8 @@ es:{
   'p1.s2h':'IA & Flujos del Chatbot','p1.s2p':'Arquitectura para la app y chatbot — 30+ árboles de conversación.','p1.s2l0':'30+ flujos del chatbot','p1.s2l1':'Wireframes validados con 12 usuarios','p1.s2l2':'3 ciclos de sprints',
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
+  'p1.dvey':'Sistema de Diseño','p1.dvh':'Variables de Diseño','p1.dvp':'Un sistema completo basado en tokens construido en Figma — variables de color, tipografía, espaciado y componentes que escalan en 6 variantes de idioma y mantienen la plataforma visualmente consistente de principio a fin.',
+  'p1.scey':'Resultado Final','p1.sch':'Pantallas Finales','p1.scp':'Una selección de pantallas finales de la plataforma — mostrando las interacciones del chatbot con IA, búsqueda de autopartes y los flujos principales de mantenimiento entregados a los usuarios.',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
   'p2.t0':'Auditoría','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentación',
   'p2.s0h':'Auditoría de Plataforma','p2.s0p':'200+ patrones inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análisis de guidelines y brechas','p2.s0l2':'Revisión WCAG 2.1 AA',
