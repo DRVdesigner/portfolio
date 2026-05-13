@@ -47,7 +47,9 @@ nav.sc .nl a.act{color:var(--ink)}
 .mob-links a:hover,.mob-links a.act{color:#fff}
 
 /* PAGE HERO */
-.pg-hero{padding-top:calc(var(--nav) + 4.5rem);padding-bottom:3.5rem;padding-left:var(--pad);padding-right:var(--pad);border-bottom:1px solid var(--w10);background:#00042F}
+.pg-hero{padding-top:calc(var(--nav) + 4.5rem);padding-bottom:3.5rem;padding-left:var(--pad);padding-right:var(--pad);border-bottom:1px solid var(--w10);background:#00042F;position:relative;overflow:hidden}
+.pg-hero-img{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:.35;z-index:0;pointer-events:none}
+.pg-hero-inner{position:relative;z-index:1}
 .pg-hero-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
 .ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--w40);margin-bottom:.75rem}
 .pg-title{font-size:clamp(3.5rem,8vw,7rem);font-weight:800;letter-spacing:-.05em;line-height:.88;color:#fff}
@@ -235,6 +237,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 
 <!-- PAGE HERO -->
 <div class="pg-hero">
+  <!-- ▼ IMAGENAQUI ▼ Reemplaza la ruta de abajo con la imagen del header de este proyecto -->
+  <div class="pg-hero-img" style="background-image:url('imagenes/header-lacalera.jpg')"></div>
   <div class="pg-hero-inner">
     <div><p class="ey" data-t="page.ey">Selected Work</p><h1 class="pg-title" data-t="page.title">Projects</h1></div>
     <p class="pg-sub" data-t="page.sub">End-to-end design process — from discovery and research to final delivery.</p>
