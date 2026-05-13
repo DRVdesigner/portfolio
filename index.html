@@ -55,7 +55,7 @@ nav.sc .ham span{background:var(--ink)}
 
 /* ── HERO ── */
 .hero{position:relative;width:100%;min-height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 80% at 0% 40%,#260DBF 0%,rgba(38,13,191,.6) 45%,transparent 68%),radial-gradient(ellipse 45% 60% at 8% 90%,#6F0651 0%,rgba(111,6,81,.5) 50%,transparent 68%),radial-gradient(ellipse 55% 70% at 95% 55%,#260DBF 0%,rgba(38,13,191,.4) 45%,transparent 65%),radial-gradient(ellipse 40% 50% at 95% 5%,rgba(111,6,81,.6) 0%,transparent 55%),radial-gradient(ellipse 55% 55% at 52% 78%,#110518 0%,#110518 30%,transparent 62%),#220626}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 54% 72% at 0% 40%,rgba(33,51,255,.77) 0%,rgba(33,51,255,.46) 45%,transparent 68%),radial-gradient(ellipse 77% 78% at 8% 90%,rgba(143,179,0,.77) 0%,rgba(143,179,0,.39) 50%,transparent 68%),radial-gradient(ellipse 54% 68% at 95% 55%,rgba(33,51,255,.77) 0%,rgba(33,51,255,.31) 45%,transparent 65%),radial-gradient(ellipse 91% 112% at 95% 5%,rgba(143,179,0,.46) 0%,transparent 55%),radial-gradient(ellipse 103% 103% at 52% 78%,rgba(0,5,56,.77) 0%,rgba(0,5,56,.77) 30%,transparent 62%),#15141A}
 .hero-grain{position:absolute;inset:0;z-index:1;opacity:.055;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero-center{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
 .hero-tag{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:.9rem}
@@ -131,7 +131,7 @@ nav.sc .ham span{background:var(--ink)}
 .ac-more:hover{background:rgba(255,255,255,.88)}
 
 /* ── CONTACT ── */
-.ct{background:radial-gradient(ellipse 45% 140% at 0% 50%,rgba(38,13,191,.3) 0%,transparent 60%),radial-gradient(ellipse 35% 60% at 5% 90%,rgba(111,6,81,.4) 0%,transparent 55%),radial-gradient(ellipse 50% 80% at 100% 50%,rgba(38,13,191,.55) 0%,rgba(38,13,191,.25) 40%,transparent 65%),radial-gradient(ellipse 40% 50% at 95% 5%,rgba(38,13,191,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 50% 0%,rgba(38,13,191,.15) 0%,transparent 60%),#110518;padding:8rem var(--pad);text-align:center}
+.ct{background:radial-gradient(ellipse 45% 140% at 0% 50%,rgba(33,51,255,.3) 0%,transparent 60%),radial-gradient(ellipse 35% 60% at 5% 90%,rgba(191,252,0,.6) 0%,transparent 55%),radial-gradient(ellipse 50% 80% at 100% 50%,rgba(33,51,255,.55) 0%,rgba(33,51,255,.25) 40%,transparent 65%),radial-gradient(ellipse 40% 50% at 95% 5%,rgba(33,51,255,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 50% 0%,rgba(33,51,255,.15) 0%,transparent 60%),#00042F;padding:8rem var(--pad);text-align:center}
 .cti{max-width:560px;margin:0 auto}
 .cth{font-size:clamp(1.2rem,3vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.15;margin-bottom:1.5rem}
 .cts{font-size:.975rem;color:var(--w40);line-height:1.7;margin-bottom:3rem}
@@ -141,7 +141,7 @@ nav.sc .ham span{background:var(--ink)}
 .cdot{width:5px;height:5px;border-radius:50%;background:#4ade80;flex-shrink:0}
 
 /* FOOTER */
-footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
+footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 .fi{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .fc{font-size:.78rem;color:#fff}
 .fl{display:flex;gap:2rem}
@@ -281,7 +281,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">UX Design</span><span class="atag">UI Design</span><span class="atag">Automotive</span><span class="atag">AI Chatbot</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p1.desc">Led UX and visual design for Nissan's Latin America digital maintenance platform — streamlining <strong>service scheduling and vehicle ownership experience across multiple markets.</strong></p></div>
-          <a href="project-nissan.html" class="ac-more" data-t="proj.more">View more</a>
+          <a href="projects.html#p1" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
@@ -294,13 +294,11 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
       </button>
       <div class="acb"><div class="ac-card">
         <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto Bimbo Mexico -->
-          <div class="ac-img">
-           <img src="imagenes/Bimbo1.png" alt="Bimbo Mexico">
-          </div>
+        <div class="ac-img"></div>
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Design System</span><span class="atag">Visual Design</span><span class="atag">Brand</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p2.desc">Design studio engagement for Grupo Bimbo's Mexico division — <strong>crafting a scalable design system and visual language for one of the world's largest bakery companies.</strong></p></div>
-          <a href="project-bimbo.html" class="ac-more" data-t="proj.more">View more</a>
+          <a href="projects.html#p2" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
@@ -308,7 +306,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
     <div class="ac">
       <button class="ach">
         <span class="acbig">03</span>
-        <div class="aci-wrap"><p class="accat" data-t="p3.cat">Dashboard Design · Branding</p><h3 class="act2" data-t="p3.title">Orion by Google</h3></div>
+        <div class="aci-wrap"><p class="accat" data-t="p3.cat">Dashboard Design · UX Architecture · UI Kit · Illustrations</p><h3 class="act2" data-t="p3.title">Orion by Google</h3></div>
         <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </button>
       <div class="acb"><div class="ac-card">
@@ -319,7 +317,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Dashboard design</span><span class="atag">UX Architecture</span><span class="atag">UI kit</span><span class="atag">Illustrations</span><span class="atag">Branding</span></div>
           <div class="ac-desc"><p data-t-html="p3.desc">I led the information architecture and <strong>complete dashboard design, ensuring clarity, visual hierarchy, and optimal usability for end users.</strong> I developed the UI kit and component system that standardized design across the platform.</p></div>
-          <a href="project-google.html" class="ac-more" data-t="proj.more">View more</a>
+          <a href="projects.html#p3" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
@@ -336,7 +334,7 @@ footer{background:#110518;padding:1.75rem var(--pad);border-top:none}
         <div class="ac-right">
           <div class="ac-tags"><span class="atag">Brand Identity</span><span class="atag">Game UI</span><span class="atag">Visual Design</span><span class="atag">Figma</span></div>
           <div class="ac-desc"><p data-t-html="p4.desc">Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong></p></div>
-          <a href="project-lacalera.html" class="ac-more" data-t="proj.more">View more</a>
+          <a href="projects.html#p4" class="ac-more" data-t="proj.more">View more</a>
         </div>
       </div></div>
     </div>
