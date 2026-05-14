@@ -126,7 +126,39 @@ nav.sc .nl a.act{color:var(--ink)}
 
 /* Design process panels */
 .pcontent{display:none}
-.pcontent.vis{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.pcontent.vis{display:block}
+
+/* Tab content: standard text intro */
+.pc-intro{max-width:760px;margin-bottom:2.5rem}
+.pc-intro h4{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin-bottom:1rem}
+.pc-intro p{font-size:1rem;line-height:1.7;color:#4D4D51}
+
+/* Benchmark full-bleed image */
+.full-bleed{position:relative;left:50%;right:50%;width:100vw;margin-left:-50vw;margin-right:-50vw;display:block}
+.full-bleed img{width:100%;height:auto;display:block}
+
+/* User Research numbered bullets */
+.ur-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem}
+.ur-item{padding:1.75rem;border:1px solid rgba(6,7,15,.1);border-radius:14px;background:rgba(6,7,15,.025);position:relative}
+.ur-num{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;color:var(--ink);line-height:1;margin-bottom:.85rem;display:block;opacity:.18}
+.ur-text{font-size:.95rem;line-height:1.65;color:#3A3A3D;font-weight:500}
+
+/* Wireframes 3-image grid */
+.wf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:.5rem}
+.wf-img{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease}
+.wf-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
+.wf-img::after{
+  content:'';position:absolute;top:.75rem;right:.75rem;width:36px;height:36px;border-radius:50%;
+  background-color:rgba(6,7,15,.72);
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:18px 18px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:.85;
+  transition:opacity .25s ease,transform .25s ease;pointer-events:none;border:1px solid rgba(255,255,255,.18);
+}
+.wf-img:hover::after{opacity:1;transform:scale(1.06)}
+
+/* Placeholder tab for "coming later" */
+.pc-placeholder{padding:3rem 2rem;border:1px dashed rgba(6,7,15,.18);border-radius:14px;text-align:center;color:#7C7C7D;font-size:.92rem;line-height:1.7;max-width:560px;margin:0 auto}
 .pc-text h4{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem;color:#fff}
 .pc-text p{font-size:.9rem;line-height:1.75;color:var(--w60)}
 .pc-text ul{list-style:none;margin-top:.85rem;display:flex;flex-direction:column;gap:.45rem}
@@ -240,12 +272,13 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   :root{--pad:2.5rem}
-  .pcontent.vis{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
   .dv-grid{grid-template-columns:1fr 1fr}
+  .ur-list{grid-template-columns:1fr}
+  .wf-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -371,15 +404,70 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p1">
-    <button class="ptab act" data-step="0" data-t="p1.t0">Discovery</button>
+    <button class="ptab act" data-step="0" data-t="p1.t0">Benchmark</button>
     <button class="ptab" data-step="1" data-t="p1.t1">User Research</button>
     <button class="ptab" data-step="2" data-t="p1.t2">Wireframes</button>
-    <button class="ptab" data-step="3" data-t="p1.t3">Visual Design</button>
+    <button class="ptab" data-step="3" data-t="p1.t3">Style Guides</button>
   </div>
-  <div class="pcontent vis rv" data-p="p1" data-s="0"><div class="pc-text"><h4 data-t="p1.s0h">Understanding the Market</h4><p data-t="p1.s0p">We audited Nissan's digital touchpoints across 6 LATAM markets — identifying inconsistencies in service booking flows, language gaps, and disconnected dealer systems.</p><ul><li data-t="p1.s0l0">Competitor benchmarking across 8 automotive brands</li><li data-t="p1.s0l1">Stakeholder interviews with regional market leads</li><li data-t="p1.s0l2">Heuristic evaluation of the existing platform</li></ul></div><div class="pmock mn"><div class="mu"><div class="mbar w50 hi"></div><div class="mgrid3"><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.09)"></div><div class="mcard" style="min-height:55px"></div></div><div class="mbar w70"></div><div class="mbar w50"></div></div></div></div>
-  <div class="pcontent" data-p="p1" data-s="1"><div class="pc-text"><h4 data-t="p1.s1h">User Journey Mapping</h4><p data-t="p1.s1p">We conducted 24 interviews with vehicle owners in Mexico, Brazil and Argentina — mapping the emotional journey from service alert to vehicle pickup.</p><ul><li data-t="p1.s1l0">24 user interviews across 3 markets</li><li data-t="p1.s1l1">Journey maps & pain point prioritization</li><li data-t="p1.s1l2">3 user archetypes defined</li></ul></div><div class="pmock mn"><div class="mu"><div class="mbar w40 hi"></div><div class="mrow"><div class="mcircle"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem"><div class="mbar w80"></div><div class="mbar w60"></div></div></div><div class="mrow"><div class="mcircle"></div><div style="flex:1;display:flex;flex-direction:column;gap:.25rem"><div class="mbar w90"></div><div class="mbar w40"></div></div></div></div></div></div>
-  <div class="pcontent" data-p="p1" data-s="2"><div class="pc-text"><h4 data-t="p1.s2h">IA & Chatbot Flows</h4><p data-t="p1.s2p">We defined the information architecture for the app and AI chatbot — mapping 30+ conversation trees and service booking flows.</p><ul><li data-t="p1.s2l0">30+ chatbot conversation flows architected</li><li data-t="p1.s2l1">Mid-fi wireframes validated with 12 users</li><li data-t="p1.s2l2">3 iterative sprint cycles before sign-off</li></ul></div><div class="pmock mn"><div class="mu"><div class="mcard" style="min-height:80px"><div class="mbar w60 hi" style="margin-bottom:.4rem"></div><div class="mbar w40"></div></div><div class="mgrid2"><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px"></div></div><div class="mbar w70"></div></div></div></div>
-  <div class="pcontent" data-p="p1" data-s="3"><div class="pc-text"><h4 data-t="p1.s3h">Visual Design & Handoff</h4><p data-t="p1.s3p">Final UI built on Nissan's brand system. Delivered 120+ screen designs and a Figma component library across 6 language variants.</p><ul><li data-t="p1.s3l0">120+ screens across 6 languages</li><li data-t="p1.s3l1">Component library with design tokens</li><li data-t="p1.s3l2">Figma handoff + QA support</li></ul></div><div class="pmock mn"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px"></div><div class="mcard" style="min-height:55px;background:rgba(255,255,255,.1)"></div></div><div class="mbar w60 hi"></div></div></div></div>
+
+  <!-- TAB 1: BENCHMARK -->
+  <div class="pcontent vis rv" data-p="p1" data-s="0">
+    <div class="pc-intro">
+      <h4 data-t="p1.s0h">Understanding the Market</h4>
+      <p data-t="p1.s0p">We audited the most used AI tools on the market to map design patterns and interactions that would be useful for our new product.</p>
+    </div>
+    <!-- ▼ IMAGENAQUI: imagen del benchmark — sube tu archivo a 'imagenes/Nissanbenchmark.png' (full-bleed, ocupa todo el ancho del body) -->
+    <div class="full-bleed">
+      <img src="imagenes/Nissanbenchmark.png" alt="AI tools benchmark">
+    </div>
+  </div>
+
+  <!-- TAB 2: USER RESEARCH -->
+  <div class="pcontent" data-p="p1" data-s="1">
+    <div class="pc-intro">
+      <h4 data-t="p1.s1h">User-Centered Interactions</h4>
+      <p data-t="p1.s1p">To improve the experience and following the good practices guidelines regarding AI-interaction, we included the following aspects in this product.</p>
+    </div>
+    <div class="ur-list">
+      <div class="ur-item">
+        <span class="ur-num">01</span>
+        <p class="ur-text" data-t="p1.s1b1">Frustration scenarios for the user and the type of communication used were taken into account.</p>
+      </div>
+      <div class="ur-item">
+        <span class="ur-num">02</span>
+        <p class="ur-text" data-t="p1.s1b2">Warnings and limitations were included regarding the content the chatbot can generate.</p>
+      </div>
+      <div class="ur-item">
+        <span class="ur-num">03</span>
+        <p class="ur-text" data-t="p1.s1b3">Users were given the ability to edit and add different AI agents according to their needs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: WIREFRAMES -->
+  <div class="pcontent" data-p="p1" data-s="2">
+    <div class="pc-intro">
+      <h4 data-t="p1.s2h">Wireframing the Experience</h4>
+      <p data-t="p1.s2p">Add your wireframes description text here. You can edit this paragraph directly in the translation block at the bottom of the file (keys p1.s2h and p1.s2p).</p>
+    </div>
+    <div class="wf-grid">
+      <!-- ▼ IMAGENAQUI 1 ▼ Reemplaza con el primer wireframe -->
+      <div class="wf-img" style="background-image:url('imagenes/Wireframe1.png')"></div>
+      <!-- ▼ IMAGENAQUI 2 ▼ Reemplaza con el segundo wireframe -->
+      <div class="wf-img" style="background-image:url('imagenes/Wireframe2.png')"></div>
+      <!-- ▼ IMAGENAQUI 3 ▼ Reemplaza con el tercer wireframe -->
+      <div class="wf-img" style="background-image:url('imagenes/Wireframe3.png')"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4: STYLE GUIDES (pending — to be filled in later) -->
+  <div class="pcontent" data-p="p1" data-s="3">
+    <div class="pc-intro">
+      <h4 data-t="p1.s3h">Style Guides</h4>
+      <p data-t="p1.s3p">Content for this section will be added later.</p>
+    </div>
+    <div class="pc-placeholder" data-t="p1.s3ph">Section in progress — content coming soon.</div>
+  </div>
   <div class="metrics rv"><div class="metric"><div class="mval">6</div><div class="mlabel" data-t="p1.m0">Markets covered</div></div><div class="metric"><div class="mval">120+</div><div class="mlabel" data-t="p1.m1">Screens delivered</div></div><div class="metric"><div class="mval">30+</div><div class="mlabel" data-t="p1.m2">Chatbot flows</div></div></div>
 
   <!-- ═══ DESIGN VARIABLES (FIGMA) ═══ -->
@@ -480,11 +568,19 @@ en:{
   'p1.pia_t':'P.I.A<br>Purchasing<br>Indirect<br>Assistant',
   'p1.pia_p1':'This first version implements in its core an advanced artificial intelligence. This A.I. is enabled for live interaction via chat and offers precise answers to user requests and an extra feature: capacity to upload and process documents and data.',
   'p1.pia_p2':"The design and programming team have also taken a close look at the possible interactions of A.I. and humans to ensure this product's safety. There are established limits for what information can be retrieved, what requests are acceptable and how to handle the user's frustrations in what-if scenarios.",
-  'p1.t0':'Discovery','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Visual Design',
-  'p1.s0h':'Understanding the Market','p1.s0p':"We audited Nissan's digital touchpoints across 6 LATAM markets.",'p1.s0l0':'Competitor benchmarking across 8 brands','p1.s0l1':'Stakeholder interviews with regional leads','p1.s0l2':'Heuristic evaluation of the existing platform',
-  'p1.s1h':'User Journey Mapping','p1.s1p':'24 interviews in Mexico, Brazil and Argentina.','p1.s1l0':'24 user interviews across 3 markets','p1.s1l1':'Journey maps & pain point prioritization','p1.s1l2':'3 user archetypes defined',
-  'p1.s2h':'IA & Chatbot Flows','p1.s2p':'Architecture for the app and AI chatbot — 30+ conversation trees.','p1.s2l0':'30+ chatbot conversation flows','p1.s2l1':'Mid-fi wireframes validated with 12 users','p1.s2l2':'3 iterative sprint cycles',
-  'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
+  'p1.t0':'Benchmark','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Style Guides',
+  'p1.s0h':'Understanding the Market',
+  'p1.s0p':'We audited the most used AI tools on the market to map design patterns and interactions that would be useful for our new product.',
+  'p1.s1h':'User-Centered Interactions',
+  'p1.s1p':'To improve the experience and following the good practices guidelines regarding AI-interaction, we included the following aspects in this product.',
+  'p1.s1b1':'Frustration scenarios for the user and the type of communication used were taken into account.',
+  'p1.s1b2':'Warnings and limitations were included regarding the content the chatbot can generate.',
+  'p1.s1b3':'Users were given the ability to edit and add different AI agents according to their needs.',
+  'p1.s2h':'Wireframing the Experience',
+  'p1.s2p':'Add your wireframes description text here. You can edit this paragraph directly in the translation block at the bottom of the file (keys p1.s2h and p1.s2p).',
+  'p1.s3h':'Style Guides',
+  'p1.s3p':'Content for this section will be added later.',
+  'p1.s3ph':'Section in progress — content coming soon.',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p1.dvey':'Design System','p1.dvh':'Design Variables','p1.dvp':'A complete token-based system built in Figma — color, typography, spacing, and component variables that scale across 6 language variants and keep the platform visually consistent end-to-end.',
   'p1.dv_after':'The implementation of variables in the design made it possible to adapt components quickly for both day and night modes.',
@@ -526,11 +622,19 @@ es:{
   'p1.pia_t':'P.I.A<br>Asistente<br>Indirecto<br>de Compras',
   'p1.pia_p1':'Esta primera versión implementa en su núcleo una inteligencia artificial avanzada. Esta I.A. está habilitada para interacción en vivo vía chat y ofrece respuestas precisas a las solicitudes del usuario, con una característica extra: capacidad de cargar y procesar documentos y datos.',
   'p1.pia_p2':'El equipo de diseño y programación también ha analizado de cerca las posibles interacciones entre la I.A. y los humanos para garantizar la seguridad de este producto. Hay límites establecidos sobre qué información puede recuperarse, qué solicitudes son aceptables y cómo manejar las frustraciones del usuario en escenarios hipotéticos.',
-  'p1.t0':'Descubrimiento','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Diseño Visual',
-  'p1.s0h':'Entendiendo el Mercado','p1.s0p':'Auditamos los touchpoints de Nissan en 6 mercados LATAM.','p1.s0l0':'Benchmarking en 8 marcas','p1.s0l1':'Entrevistas con líderes regionales','p1.s0l2':'Evaluación heurística de la plataforma',
-  'p1.s1h':'Mapeo del Journey','p1.s1p':'24 entrevistas en México, Brasil y Argentina.','p1.s1l0':'24 entrevistas en 3 mercados','p1.s1l1':'Journey maps y pain points','p1.s1l2':'3 arquetipos de usuario',
-  'p1.s2h':'IA & Flujos del Chatbot','p1.s2p':'Arquitectura para la app y chatbot — 30+ árboles de conversación.','p1.s2l0':'30+ flujos del chatbot','p1.s2l1':'Wireframes validados con 12 usuarios','p1.s2l2':'3 ciclos de sprints',
-  'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
+  'p1.t0':'Benchmark','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Guías de Estilo',
+  'p1.s0h':'Entendiendo el Mercado',
+  'p1.s0p':'Auditamos las herramientas de IA más utilizadas del mercado para mapear los patrones de diseño e interacciones que serían útiles para nuestro nuevo producto.',
+  'p1.s1h':'Interacciones Centradas en el Usuario',
+  'p1.s1p':'Para mejorar la experiencia y siguiendo las guías de buenas prácticas respecto a la interacción con IA, incluimos los siguientes aspectos en este producto.',
+  'p1.s1b1':'Se tomaron en cuenta escenarios de frustración para el usuario y el tipo de comunicación utilizada.',
+  'p1.s1b2':'Se incluyeron advertencias y limitaciones sobre el contenido que el chatbot puede generar.',
+  'p1.s1b3':'Se le dio la capacidad al usuario de editar y agregar distintos agentes IA según su necesidad.',
+  'p1.s2h':'Diseñando la Experiencia',
+  'p1.s2p':'Agrega aquí tu texto descriptivo para los wireframes. Puedes editar este párrafo directamente en el bloque de traducciones al final del archivo (claves p1.s2h y p1.s2p).',
+  'p1.s3h':'Guías de Estilo',
+  'p1.s3p':'El contenido de esta sección se agregará más adelante.',
+  'p1.s3ph':'Sección en desarrollo — contenido próximamente.',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p1.dvey':'Sistema de Diseño','p1.dvh':'Variables de Diseño','p1.dvp':'Un sistema completo basado en tokens construido en Figma — variables de color, tipografía, espaciado y componentes que escalan en 6 variantes de idioma y mantienen la plataforma visualmente consistente de principio a fin.',
   'p1.dv_after':'La implementación de variables en el diseño permitió adaptar los componentes rápidamente para un modo día y noche.',
@@ -631,7 +735,7 @@ if(procTabs){
     document.body.style.overflow='';
   }
 
-  document.querySelectorAll('.dv-img, .scr-img').forEach(el=>{
+  document.querySelectorAll('.dv-img, .scr-img, .wf-img').forEach(el=>{
     el.addEventListener('click',()=>openLB(el));
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
@@ -682,4 +786,5 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 setL('en');
 </script>
 </body>
+</html>
 </html>
