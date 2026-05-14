@@ -133,9 +133,9 @@ nav.sc .nl a.act{color:var(--ink)}
 .pc-intro h4{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--ink);margin-bottom:1rem}
 .pc-intro p{font-size:1rem;line-height:1.7;color:#4D4D51}
 
-/* Benchmark full-bleed image */
-.full-bleed{position:relative;left:50%;right:50%;width:100vw;margin-left:-50vw;margin-right:-50vw;display:block}
-.full-bleed img{width:100%;height:auto;display:block}
+/* Benchmark image — respects container padding */
+.bench-img{display:block;margin-top:1rem;border-radius:14px;overflow:hidden}
+.bench-img img{width:100%;height:auto;display:block}
 
 /* User Research numbered bullets */
 .ur-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem}
@@ -416,8 +416,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       <h4 data-t="p1.s0h">Understanding the Market</h4>
       <p data-t="p1.s0p">We audited the most used AI tools on the market to map design patterns and interactions that would be useful for our new product.</p>
     </div>
-    <!-- ▼ IMAGENAQUI: imagen del benchmark — sube tu archivo a 'imagenes/Nissanbenchmark.png' (full-bleed, ocupa todo el ancho del body) -->
-    <div class="full-bleed">
+    <!-- ▼ IMAGENAQUI: imagen del benchmark — sube tu archivo a 'imagenes/Nissanbenchmark.png' (respeta los paddings del body) -->
+    <div class="bench-img">
       <img src="imagenes/Nissanbenchmark.png" alt="AI tools benchmark">
     </div>
   </div>
@@ -786,5 +786,4 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 setL('en');
 </script>
 </body>
-</html>
 </html>
