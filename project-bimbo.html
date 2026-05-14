@@ -89,6 +89,27 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .metric{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
 .ps-wrap .mval{color:var(--ink)}
 .ps-wrap .mlabel{color:#7C7C7D}
+.ps-wrap .whyds-title{color:var(--ink)}
+.ps-wrap .whyds-intro{color:#4D4D51}
+.ps-wrap .whyds-card{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
+.ps-wrap .whyds-label{color:var(--ink);border-bottom-color:rgba(6,7,15,.1)}
+.ps-wrap .whyds-text{color:#4D4D51}
+.ps-wrap .user-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
+.ps-wrap .user-role{color:var(--ink)}
+.ps-wrap .user-desc{color:#4D4D51}
+.ps-wrap .audit-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
+.ps-wrap .vars-intro{color:#4D4D51}
+.ps-wrap .var-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
+.ps-wrap .var-label{color:var(--ink)}
+.ps-wrap .var-desc{color:#4D4D51}
+.ps-wrap .okr{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
+.ps-wrap .okr-head{border-bottom-color:rgba(6,7,15,.1)}
+.ps-wrap .okr-num{color:#4D4D51;background:rgba(6,7,15,.08)}
+.ps-wrap .okr-title{color:var(--ink)}
+.ps-wrap .okr-ctx{color:#4D4D51}
+.ps-wrap .okr-krs{border-top-color:rgba(6,7,15,.1)}
+.ps-wrap .kr-val{color:var(--ink)}
+.ps-wrap .kr-label{color:#7C7C7D}
 .ps-wrap .pia-img{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.04)}
 .ps-wrap .pia-title{color:var(--ink)}
 .ps-wrap .pia-desc{color:#4D4D51}
@@ -142,6 +163,47 @@ nav.sc .nl a.act{color:var(--ink)}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
 
+/* Why a Design System */
+.whyds{margin-top:1rem;margin-bottom:4.5rem}
+.whyds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
+.whyds-intro{font-size:1rem;line-height:1.78;color:var(--w60);max-width:780px;margin-bottom:2.25rem}
+.whyds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.whyds-card{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
+.whyds-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.95rem;padding-bottom:.75rem;border-bottom:1px solid var(--w10);line-height:1.4}
+.whyds-text{font-size:.88rem;line-height:1.72;color:var(--w60)}
+
+/* Users tab — special 3-column layout */
+.pcontent.vis.users-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.user-card{display:flex;flex-direction:column;gap:1.1rem}
+.user-img{width:100%;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
+.user-role{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2;margin-bottom:.4rem}
+.user-desc{font-size:.88rem;line-height:1.72;color:var(--w60)}
+
+/* Audit tab — single column with full-width image */
+.pcontent.vis.audit-layout{grid-template-columns:1fr;gap:2.25rem}
+.audit-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Variables tab — intro + 2x2 grid */
+.pcontent.vis.vars-layout{grid-template-columns:1fr;gap:2rem}
+.vars-intro{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
+.vars-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.var-card{display:flex;flex-direction:column;gap:1.1rem}
+.var-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
+.var-label{font-size:1rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2;margin-bottom:.4rem}
+.var-desc{font-size:.86rem;line-height:1.7;color:var(--w60)}
+
+/* OKRs */
+.okrs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1rem}
+.okr{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:1.1rem}
+.okr-head{display:flex;align-items:center;gap:.7rem;padding-bottom:1.1rem;border-bottom:1px solid var(--w10)}
+.okr-num{font-size:.68rem;font-weight:800;letter-spacing:.1em;color:var(--w60);background:rgba(255,255,255,.08);padding:.3rem .6rem;border-radius:6px;flex-shrink:0}
+.okr-title{font-size:1.05rem;font-weight:700;letter-spacing:-.02em;line-height:1.25;color:#fff}
+.okr-ctx{font-size:.85rem;line-height:1.7;color:var(--w60);flex:1}
+.okr-krs{display:flex;flex-direction:column;gap:.85rem;padding-top:1.1rem;border-top:1px solid var(--w10)}
+.kr{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.kr-val{font-size:1.15rem;font-weight:800;letter-spacing:-.03em;color:#fff;flex-shrink:0}
+.kr-label{font-size:.78rem;color:var(--w40);text-align:right;line-height:1.4}
+
 /* PIA feature block */
 .pia-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-bottom:4rem}
 .pia-img{border-radius:14px;overflow:hidden;min-height:460px;border:1px solid var(--w10);background:rgba(255,255,255,.04)}
@@ -151,7 +213,7 @@ nav.sc .nl a.act{color:var(--ink)}
 
 /* Mock fills */
 .mn{background:linear-gradient(135deg,#0d1c2e 0%,#162d47 100%)}
-.mb{background:linear-gradient(135deg,#1a0a00 0%,#2e1400 100%)}
+.mb{background:linear-gradient(135deg,#0e0e12 0%,#1c1c22 100%)}
 .mg{background:linear-gradient(135deg,#080f1e 0%,#0f1e38 100%)}
 .mc{background:linear-gradient(135deg,#100818 0%,#200a30 100%)}
 .mu{width:100%;height:100%;padding:1.4rem;display:flex;flex-direction:column;gap:.65rem}
@@ -178,7 +240,11 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 @media(max-width:900px){
   :root{--pad:2.5rem}
   .pcontent.vis{grid-template-columns:1fr}
+  .pcontent.vis.users-grid{grid-template-columns:1fr}
+  .vars-grid{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
+  .okrs{grid-template-columns:1fr}
+  .whyds-grid{grid-template-columns:1fr}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
@@ -257,7 +323,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 
 <!-- ═══ 02 BIMBO ═══ -->
 <div class="ps-wrap" id="p2"><div class="ps">
-  <div class="pnum" style="color:rgba(255,120,0,.05)">02</div>
+  <div class="pnum">02</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p2.cat">Design System</p><h2 class="pname" data-t="p2.title">Bimbo Mexico</h2></div>
     <div class="tags"><span class="tag">Design System</span><span class="tag">Visual Design</span><span class="tag">Brand</span><span class="tag">Figma</span></div>
@@ -292,18 +358,148 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <div class="ocontent" data-op="p2" data-os="2"><p class="ov-text">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p></div>
   </div>
 
+  <div class="whyds rv">
+    <h3 class="whyds-title" data-t="p2.whyds.title">Why a Design System?</h3>
+    <p class="whyds-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
+    <div class="whyds-grid">
+      <div class="whyds-card">
+        <p class="whyds-label" data-t="p2.whyds.0t">Visual consistency and functionality</p>
+        <p class="whyds-text" data-t="p2.whyds.0d">It sets clear rules for components, ensuring that all interface elements are consistent across the interface.</p>
+      </div>
+      <div class="whyds-card">
+        <p class="whyds-label" data-t="p2.whyds.1t">Team collaboration</p>
+        <p class="whyds-text" data-t="p2.whyds.1d">Reduce misunderstandings and ensure that all project members work with the same guidelines.</p>
+      </div>
+      <div class="whyds-card">
+        <p class="whyds-label" data-t="p2.whyds.2t">Save time and resources</p>
+        <p class="whyds-text" data-t="p2.whyds.2d">In the long run, a DS reduces the time spent on design and development decisions.</p>
+      </div>
+    </div>
+  </div>
+
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p2">
-    <button class="ptab act" data-step="0" data-t="p2.t0">Audit</button>
-    <button class="ptab" data-step="1" data-t="p2.t1">Tokens</button>
-    <button class="ptab" data-step="2" data-t="p2.t2">Components</button>
+    <button class="ptab act" data-step="0" data-t="p2.t0">Users</button>
+    <button class="ptab" data-step="1" data-t="p2.t1">Audit</button>
+    <button class="ptab" data-step="2" data-t="p2.t2">Variables</button>
     <button class="ptab" data-step="3" data-t="p2.t3">Documentation</button>
   </div>
-  <div class="pcontent vis rv" data-p="p2" data-s="0"><div class="pc-text"><h4 data-t="p2.s0h">Platform Audit</h4><p data-t="p2.s0p">Full audit of Bimbo's digital touchpoints. Revealed 200+ inconsistent UI patterns, 6 different button styles, and no unified typography scale.</p><ul><li data-t="p2.s0l0">200+ UI elements catalogued across 3 products</li><li data-t="p2.s0l1">Brand guidelines analysis & gap mapping</li><li data-t="p2.s0l2">Accessibility review — WCAG 2.1 AA</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w50 hi"></div><div class="mgrid3"><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.1)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(255,80,0,.08)"></div></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p2" data-s="1"><div class="pc-text"><h4 data-t="p2.s1h">Design Token Architecture</h4><p data-t="p2.s1p">Full token hierarchy — from primitive values to semantic aliases, with dark mode support from day one.</p><ul><li data-t="p2.s1l0">Color system — 8 semantic roles + dark mode</li><li data-t="p2.s1l1">Typography scale — 9 styles, 2 typefaces</li><li data-t="p2.s1l2">Spacing, radius, shadow, and motion tokens</li></ul></div><div class="pmock mb"><div class="mu"><div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem"><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,140,0,.7)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,100,0,.5)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,60,0,.4)"></div><div style="width:18px;height:18px;border-radius:4px;background:rgba(255,200,0,.4)"></div></div><div class="mbar w80 hi"></div><div class="mbar w60"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p2" data-s="2"><div class="pc-text"><h4 data-t="p2.s2h">Component Library</h4><p data-t="p2.s2p">80+ components in Figma with full variants, states, and auto-layout following atomic design principles.</p><ul><li data-t="p2.s2l0">80+ Figma components with all states</li><li data-t="p2.s2l1">Atomic structure — atoms to organisms</li><li data-t="p2.s2l2">Interactive prototypes for complex patterns</li></ul></div><div class="pmock mb"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:45px;background:rgba(255,120,0,.12)"></div><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px"></div><div class="mcard" style="min-height:45px;background:rgba(255,120,0,.1)"></div></div></div></div></div>
+  <div class="pcontent vis rv users-grid" data-p="p2" data-s="0">
+    <div class="user-card">
+      <!-- ▼ IMAGENAQUI ▼ Manager1.png -->
+      <div class="user-img" style="background-image:url('imagenes/Manager1.png')"></div>
+      <div>
+        <h4 class="user-role" data-t="p2.usr.0r">Business Manager</h4>
+        <p class="user-desc" data-t="p2.usr.0d">Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.</p>
+      </div>
+    </div>
+    <div class="user-card">
+      <!-- ▼ IMAGENAQUI ▼ Supervisor1.png -->
+      <div class="user-img" style="background-image:url('imagenes/Supervisor1.png')"></div>
+      <div>
+        <h4 class="user-role" data-t="p2.usr.1r">Supervisor</h4>
+        <p class="user-desc" data-t="p2.usr.1d">Keeps a close look into seller performance and objectives. Organizes the local distribution of products.</p>
+      </div>
+    </div>
+    <div class="user-card">
+      <!-- ▼ IMAGENAQUI ▼ Seller1.png -->
+      <div class="user-img" style="background-image:url('imagenes/Seller1.png')"></div>
+      <div>
+        <h4 class="user-role" data-t="p2.usr.2r">Seller</h4>
+        <p class="user-desc" data-t="p2.usr.2d">Door-to-door personnel in charge of delivering Bimbo's products to small neighborhood stores around Mexico.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pcontent rv audit-layout" data-p="p2" data-s="1">
+    <div class="pc-text">
+      <h4 data-t="p2.s1h">Platform Audit</h4>
+      <p data-t="p2.s1p">Full audit revealing inconsistent patterns.</p>
+      <ul>
+        <li data-t="p2.s1l0">Lack of components consistency</li>
+        <li data-t="p2.s1l1">Improper use of colors according to Bimbo's manual</li>
+        <li data-t="p2.s1l2">No hierarchy between the interface's elements</li>
+        <li data-t="p2.s1l3">Poor contrast between components</li>
+        <li data-t="p2.s1l4">No common visual language in the icon's design</li>
+      </ul>
+    </div>
+    <!-- ▼ IMAGENAQUI ▼ Auditoria.png -->
+    <div class="audit-img" style="background-image:url('imagenes/Auditoria.png')"></div>
+  </div>
+  <div class="pcontent rv vars-layout" data-p="p2" data-s="2">
+    <p class="vars-intro" data-t="p2.s2p">The foundational layer of the Design System — a curated set of tokens for font, spacing, typography, and color that every component is built on.</p>
+    <div class="vars-grid">
+      <div class="var-card">
+        <!-- ▼ IMAGENAQUI ▼ Bimbovariables1.png -->
+        <div class="var-img" style="background-image:url('imagenes/Bimbovariables1.png')"></div>
+        <div>
+          <h4 class="var-label" data-t="p2.var.0t">Font</h4>
+          <p class="var-desc" data-t="p2.var.0d">Brand-aligned typefaces with the full weight range required to cover every UI need across the system.</p>
+        </div>
+      </div>
+      <div class="var-card">
+        <!-- ▼ IMAGENAQUI ▼ Bimbovariables2.png -->
+        <div class="var-img" style="background-image:url('imagenes/Bimbovariables2.png')"></div>
+        <div>
+          <h4 class="var-label" data-t="p2.var.1t">Spacing</h4>
+          <p class="var-desc" data-t="p2.var.1d">A consistent spacing scale that defines margins, paddings, and layout gaps to keep vertical rhythm uniform across screens.</p>
+        </div>
+      </div>
+      <div class="var-card">
+        <!-- ▼ IMAGENAQUI ▼ Bimbovariables3.png -->
+        <div class="var-img" style="background-image:url('imagenes/Bimbovariables3.png')"></div>
+        <div>
+          <h4 class="var-label" data-t="p2.var.2t">Typography</h4>
+          <p class="var-desc" data-t="p2.var.2d">A defined type scale covering display, heading, body, and caption styles — each with its own size, weight, and line-height.</p>
+        </div>
+      </div>
+      <div class="var-card">
+        <!-- ▼ IMAGENAQUI ▼ Bimbovariables4.png -->
+        <div class="var-img" style="background-image:url('imagenes/Bimbovariables4.png')"></div>
+        <div>
+          <h4 class="var-label" data-t="p2.var.3t">Color</h4>
+          <p class="var-desc" data-t="p2.var.3d">Semantic color roles for surfaces, content, borders, and states — derived from Bimbo's brand palette and validated for accessibility.</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="pcontent" data-p="p2" data-s="3"><div class="pc-text"><h4 data-t="p2.s3h">Guidelines & Handoff</h4><p data-t="p2.s3p">Every component documented with usage rules, do/don't examples, and accessibility notes.</p><ul><li data-t="p2.s3l0">Documentation for all 80+ components</li><li data-t="p2.s3l1">Dev handoff specs and CSS variable export</li><li data-t="p2.s3l2">Onboarding guide for new team members</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w60 hi"></div><div class="mcard"><div class="mbar w80" style="margin-bottom:.3rem"></div><div class="mbar w50"></div></div><div class="mcard"><div class="mbar w70" style="margin-bottom:.3rem"></div><div class="mbar w40"></div></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">80+</div><div class="mlabel" data-t="p2.m0">Components built</div></div><div class="metric"><div class="mval">3</div><div class="mlabel" data-t="p2.m1">Products unified</div></div><div class="metric"><div class="mval">200+</div><div class="mlabel" data-t="p2.m2">Patterns resolved</div></div></div>
+
+  <p class="proc-label" style="margin-top:4rem" data-t="p2.okr.label">Objectives & Key Results</p>
+  <div class="okrs rv">
+    <div class="okr">
+      <div class="okr-head">
+        <span class="okr-num">O1</span>
+        <h4 class="okr-title" data-t="p2.okr.0t">Improve satisfaction and efficiency</h4>
+      </div>
+      <p class="okr-ctx" data-t="p2.okr.0c">Develop and roll out the first version of the Design System in the MarketMap app by the end of Q2, and reach a strong level of satisfaction among its users.</p>
+      <div class="okr-krs">
+        <div class="kr"><div class="kr-val">70%+</div><div class="kr-label" data-t="p2.okr.0k0">System Usability Scale</div></div>
+      </div>
+    </div>
+    <div class="okr">
+      <div class="okr-head">
+        <span class="okr-num">O2</span>
+        <h4 class="okr-title" data-t="p2.okr.1t">Reduce time to market</h4>
+      </div>
+      <p class="okr-ctx" data-t="p2.okr.1c">Cut new-feature development time by 30% by reusing design system components, with the goal achieved by Q3 2025.</p>
+      <div class="okr-krs">
+        <div class="kr"><div class="kr-val">−30%</div><div class="kr-label" data-t="p2.okr.1k0">Sprint duration</div></div>
+        <div class="kr"><div class="kr-val">−40%</div><div class="kr-label" data-t="p2.okr.1k1">Handoff time</div></div>
+      </div>
+    </div>
+    <div class="okr">
+      <div class="okr-head">
+        <span class="okr-num">O3</span>
+        <h4 class="okr-title" data-t="p2.okr.2t">Drive adoption and expand reach</h4>
+      </div>
+      <p class="okr-ctx" data-t="p2.okr.2c">Scale the use of the Design System to other Grupo Bimbo sub-brands and expand its application to the desktop format.</p>
+      <div class="okr-krs">
+        <div class="kr"><div class="kr-val">80%</div><div class="kr-label" data-t="p2.okr.2k0">Component adoption</div></div>
+        <div class="kr"><div class="kr-val">&lt;2w</div><div class="kr-label" data-t="p2.okr.2k1">Onboarding time per new team member</div></div>
+      </div>
+    </div>
+  </div>
 </div></div>
 
 <footer>
@@ -333,12 +529,28 @@ en:{
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
-  'p2.t0':'Audit','p2.t1':'Tokens','p2.t2':'Components','p2.t3':'Documentation',
+  'p2.t0':'Users','p2.t1':'Audit','p2.t2':'Variables','p2.t3':'Documentation',
+  'p2.usr.0r':'Business Manager','p2.usr.0d':'Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.',
+  'p2.usr.1r':'Supervisor','p2.usr.1d':'Keeps a close look into seller performance and objectives. Organizes the local distribution of products.',
+  'p2.usr.2r':'Seller','p2.usr.2d':"Door-to-door personnel in charge of delivering Bimbo's products to small neighborhood stores around Mexico.",
+  'p2.whyds.title':'Why a Design System?',
+  'p2.whyds.intro':'It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.',
+  'p2.whyds.0t':'Visual consistency and functionality','p2.whyds.0d':'It sets clear rules for components, ensuring that all interface elements are consistent across the interface.',
+  'p2.whyds.1t':'Team collaboration','p2.whyds.1d':'Reduce misunderstandings and ensure that all project members work with the same guidelines.',
+  'p2.whyds.2t':'Save time and resources','p2.whyds.2d':'In the long run, a DS reduces the time spent on design and development decisions.',
   'p2.s0h':'Platform Audit','p2.s0p':"Full audit revealing 200+ inconsistent patterns.",'p2.s0l0':'200+ UI elements catalogued','p2.s0l1':'Brand guidelines & gap mapping','p2.s0l2':'Accessibility review — WCAG 2.1 AA',
-  'p2.s1h':'Design Token Architecture','p2.s1p':'Full token hierarchy with dark mode from day one.','p2.s1l0':'Color system — 8 semantic roles + dark mode','p2.s1l1':'Typography scale — 9 styles, 2 typefaces','p2.s1l2':'Spacing, radius, shadow, and motion tokens',
-  'p2.s2h':'Component Library','p2.s2p':'80+ components in Figma following atomic design.','p2.s2l0':'80+ Figma components with all states','p2.s2l1':'Atomic structure — atoms to organisms','p2.s2l2':'Interactive prototypes',
+  'p2.s1h':'Platform Audit','p2.s1p':'Full audit revealing inconsistent patterns.','p2.s1l0':'Lack of components consistency','p2.s1l1':"Improper use of colors according to Bimbo's manual",'p2.s1l2':"No hierarchy between the interface's elements",'p2.s1l3':'Poor contrast between components','p2.s1l4':"No common visual language in the icon's design",
+  'p2.s2p':'The foundational layer of the Design System — a curated set of tokens for font, spacing, typography, and color that every component is built on.',
+  'p2.var.0t':'Font','p2.var.0d':'Brand-aligned typefaces with the full weight range required to cover every UI need across the system.',
+  'p2.var.1t':'Spacing','p2.var.1d':'A consistent spacing scale that defines margins, paddings, and layout gaps to keep vertical rhythm uniform across screens.',
+  'p2.var.2t':'Typography','p2.var.2d':'A defined type scale covering display, heading, body, and caption styles — each with its own size, weight, and line-height.',
+  'p2.var.3t':'Color','p2.var.3d':"Semantic color roles for surfaces, content, borders, and states — derived from Bimbo's brand palette and validated for accessibility.",
   'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
   'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
+  'p2.okr.label':'Objectives & Key Results',
+  'p2.okr.0t':'Improve satisfaction and efficiency','p2.okr.0c':'Develop and roll out the first version of the Design System in the MarketMap app by the end of Q2, and reach a strong level of satisfaction among its users.','p2.okr.0k0':'System Usability Scale',
+  'p2.okr.1t':'Reduce time to market','p2.okr.1c':'Cut new-feature development time by 30% by reusing design system components, with the goal achieved by Q3 2025.','p2.okr.1k0':'Sprint duration','p2.okr.1k1':'Handoff time',
+  'p2.okr.2t':'Drive adoption and expand reach','p2.okr.2c':'Scale the use of the Design System to other Grupo Bimbo sub-brands and expand its application to the desktop format.','p2.okr.2k0':'Component adoption','p2.okr.2k1':'Onboarding time per new team member',
   'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
   'p3.t0':'Research','p3.t1':'IA & Architecture','p3.t2':'Dashboard','p3.t3':'UI Kit',
   'p3.s0h':'Understanding Data Complexity','p3.s0p':'Worked with engineering and product to understand 15+ metric types.','p3.s0l0':'Stakeholder workshops with 4 user groups','p3.s0l1':'Data taxonomy and metric hierarchy','p3.s0l2':'Competitive analysis of monitoring dashboards',
@@ -368,12 +580,28 @@ es:{
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
-  'p2.t0':'Auditoría','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentación',
+  'p2.t0':'Usuarios','p2.t1':'Auditoría','p2.t2':'Variables','p2.t3':'Documentación',
+  'p2.usr.0r':'Gerente de Negocio','p2.usr.0d':'Hace seguimiento de la demanda de productos Bimbo en la región y coordina los esfuerzos en la producción de la fábrica y la publicidad de los productos.',
+  'p2.usr.1r':'Supervisor','p2.usr.1d':'Vigila de cerca el desempeño y los objetivos de los vendedores. Organiza la distribución local de los productos.',
+  'p2.usr.2r':'Vendedor','p2.usr.2d':'Personal puerta a puerta encargado de entregar los productos de Bimbo a pequeñas tiendas de barrio en todo México.',
+  'p2.whyds.title':'¿Por qué un Design System?',
+  'p2.whyds.intro':'Es un sistema integral que contiene principios de diseño, componentes, patrones de interacción, organización y documentación para asegurar la consistencia y escalabilidad de un producto digital o familia de productos.',
+  'p2.whyds.0t':'Consistencia visual y funcionalidad','p2.whyds.0d':'Define reglas claras para los componentes, asegurando que todos los elementos de la interfaz sean consistentes entre sí.',
+  'p2.whyds.1t':'Colaboración del equipo','p2.whyds.1d':'Reduce malentendidos y asegura que todos los miembros del proyecto trabajen bajo las mismas guías.',
+  'p2.whyds.2t':'Ahorrar tiempo y recursos','p2.whyds.2d':'A largo plazo, un DS reduce el tiempo dedicado a decisiones de diseño y desarrollo.',
   'p2.s0h':'Auditoría de Plataforma','p2.s0p':'200+ patrones inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análisis de guidelines y brechas','p2.s0l2':'Revisión WCAG 2.1 AA',
-  'p2.s1h':'Arquitectura de Tokens','p2.s1p':'Jerarquía completa con dark mode desde el primer día.','p2.s1l0':'8 roles semánticos + dark mode','p2.s1l1':'9 estilos tipográficos, 2 tipografías','p2.s1l2':'Tokens de espaciado, radio y movimiento',
-  'p2.s2h':'Librería de Componentes','p2.s2p':'80+ componentes en Figma con diseño atómico.','p2.s2l0':'80+ componentes con todos los estados','p2.s2l1':'Estructura atómica','p2.s2l2':'Prototipos interactivos',
+  'p2.s1h':'Auditoría de la Plataforma','p2.s1p':'Auditoría completa que revela patrones inconsistentes.','p2.s1l0':'Falta de consistencia entre componentes','p2.s1l1':'Uso indebido de colores según el manual de Bimbo','p2.s1l2':'Sin jerarquía entre los elementos de la interfaz','p2.s1l3':'Mal contraste entre componentes','p2.s1l4':'Sin un lenguaje visual común en el diseño de los iconos',
+  'p2.s2p':'La capa base del Design System — un conjunto de tokens de fuente, espaciado, tipografía y color sobre el cual se construye cada componente.',
+  'p2.var.0t':'Fuente','p2.var.0d':'Tipografías alineadas con la marca, con todo el rango de pesos necesario para cubrir cualquier necesidad de UI dentro del sistema.',
+  'p2.var.1t':'Espaciado','p2.var.1d':'Una escala de espaciado consistente que define márgenes, paddings y separaciones de layout para mantener un ritmo vertical uniforme entre pantallas.',
+  'p2.var.2t':'Tipografía','p2.var.2d':'Una escala tipográfica definida que cubre estilos de display, heading, body y caption — cada uno con su tamaño, peso y line-height.',
+  'p2.var.3t':'Color','p2.var.3d':'Roles de color semánticos para superficies, contenido, bordes y estados — derivados de la paleta de marca de Bimbo y validados para accesibilidad.',
   'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
   'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
+  'p2.okr.label':'Objetivos y Resultados Clave',
+  'p2.okr.0t':'Mejorar la satisfacción y eficiencia','p2.okr.0c':'Desarrollar y aplicar la primera versión del Design System en la app de MarketMap a finales del Q2 y obtener un buen nivel de satisfacción por parte de los usuarios.','p2.okr.0k0':'System Usability Scale',
+  'p2.okr.1t':'Reducir el time to market','p2.okr.1c':'Reducir el tiempo de desarrollo de nuevas features en un 30% gracias a la reutilización de componentes del design system para el Q3 de 2025.','p2.okr.1k0':'Duración de los sprints','p2.okr.1k1':'Tiempo de handoff',
+  'p2.okr.2t':'Generar adopción y expandir el alcance','p2.okr.2c':'Escalar el uso del Design System a otras submarcas del Grupo Bimbo, así como expandir su uso al formato desktop.','p2.okr.2k0':'Adopción de los componentes','p2.okr.2k1':'Onboarding por nuevo integrante',
   'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
   'p3.t0':'Investigación','p3.t1':'IA & Arquitectura','p3.t2':'Dashboard','p3.t3':'UI Kit',
   'p3.s0h':'Entendiendo la Complejidad','p3.s0p':'Trabajamos con ingeniería y producto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops con 4 grupos','p3.s0l1':'Taxonomía de datos y jerarquía','p3.s0l2':'Análisis de dashboards',
