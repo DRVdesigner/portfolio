@@ -149,6 +149,39 @@ nav.sc .nl a.act{color:var(--ink)}
 .pia-desc{font-size:.92rem;line-height:1.78;color:var(--w60);margin-bottom:1rem}
 .pia-desc:last-child{margin-bottom:0}
 
+/* ── ARCHITECTURE TAB — vertical layout with 2-image cards ── */
+.pcontent.vis.arch-block{display:flex;flex-direction:column;gap:2.25rem}
+.arch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+.arch-card{display:flex;flex-direction:column}
+.arch-card .pc-text{margin-top:1.1rem}
+.arch-card .pc-text h4{font-size:.95rem;letter-spacing:.06em;text-transform:uppercase}
+.arch-card .pc-text p{font-size:.86rem}
+
+/* ── CLICKABLE IMAGE (.dv-img) + LIGHTBOX ── */
+.dv-img{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;width:100%}
+.dv-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
+.dv-img::after{
+  content:'';position:absolute;top:.75rem;right:.75rem;width:36px;height:36px;border-radius:50%;
+  background-color:rgba(6,7,15,.72);
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:18px 18px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:.85;transition:opacity .25s ease,transform .25s ease;pointer-events:none;
+  border:1px solid rgba(255,255,255,.18);
+}
+.dv-img:hover::after{opacity:1;transform:scale(1.06)}
+
+/* Lightbox dialog */
+.lb-dialog{padding:0;border:none;background:transparent;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;overflow:hidden}
+.lb-dialog::backdrop{background:rgba(6,7,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.lb-wrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:2rem}
+.lb-image{max-width:92vw;max-height:88vh;width:auto;height:auto;border-radius:8px;display:block;box-shadow:0 24px 60px rgba(0,0,0,.55);object-fit:contain}
+.lb-close{position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;padding:0;z-index:10}
+.lb-close svg{display:block}
+.lb-close:hover{background:rgba(255,255,255,.18)}
+@keyframes lbIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.lb-dialog[open] .lb-image{animation:lbIn .3s ease}
+
 /* Mock fills */
 .mn{background:linear-gradient(135deg,#0d1c2e 0%,#162d47 100%)}
 .mb{background:linear-gradient(135deg,#1a0a00 0%,#2e1400 100%)}
@@ -191,6 +224,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   /* swap overview: hide grid, show tabs */
   .ccg{display:none}
   .ov-tabs-wrap{display:block}
+  .arch-grid{grid-template-columns:1fr}
 }
 @media(max-width:650px){
   :root{--pad:1.5rem;--nav:68px}
@@ -294,17 +328,27 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p3">
-    <button class="ptab act" data-step="0" data-t="p3.t0">Research</button>
-    <button class="ptab" data-step="1" data-t="p3.t1">IA & Architecture</button>
+    <button class="ptab act" data-step="0" data-t="p3.t0">Business</button>
+    <button class="ptab" data-step="1" data-t="p3.t1">Architecture</button>
     <button class="ptab" data-step="2" data-t="p3.t2">Dashboard</button>
     <button class="ptab" data-step="3" data-t="p3.t3">UI Kit</button>
   </div>
-  <div class="pcontent vis rv" data-p="p3" data-s="0"><div class="pc-text"><h4 data-t="p3.s0h">Understanding Data Complexity</h4><p data-t="p3.s0p">We worked with engineering and product teams to understand 15+ metric types and divergent mental models.</p><ul><li data-t="p3.s0l0">Stakeholder workshops with 4 user groups</li><li data-t="p3.s0l1">Data taxonomy and metric hierarchy mapping</li><li data-t="p3.s0l2">Competitive analysis of monitoring dashboards</li></ul></div><div class="pmock mg"><div class="mu"><div class="mbar w50 hi"></div><div class="mcard" style="background:rgba(66,133,244,.1);min-height:65px"></div><div class="mbar w70"></div><div class="mbar w40"></div></div></div></div>
-  <div class="pcontent" data-p="p3" data-s="1"><div class="pc-text"><h4 data-t="p3.s1h">Information Architecture</h4><p data-t="p3.s1p">Three-level navigation hierarchy validated by card sorting with 18 users.</p><ul><li data-t="p3.s1l0">Card sorting with 18 internal users</li><li data-t="p3.s1l1">3-level navigation hierarchy defined</li><li data-t="p3.s1l2">Contextual linking between metrics</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:flex;gap:.45rem"><div style="width:55px;background:rgba(255,255,255,.06);border-radius:6px;padding:.5rem .3rem;display:flex;flex-direction:column;gap:.3rem"><div class="mbar" style="background:rgba(66,133,244,.4)"></div><div class="mbar"></div><div class="mbar"></div><div class="mbar"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:.4rem"><div class="mbar w80 hi"></div><div class="mcard" style="min-height:55px"></div><div class="mbar w60"></div></div></div></div></div></div>
+  <div class="pcontent vis rv" data-p="p3" data-s="0"><div class="pc-text"><h4 data-t="p3.s0h">Business Model</h4><p data-t="p3.s0p">Orion Wi-Fi lets mobile devices connect to premium Wi-Fi while connection quality, security and policies are handled automatically — no extra setup required for the end user.</p><ul><li data-t="p3.s0l0">Seamless premium Wi-Fi for mobile users</li><li data-t="p3.s0l1">New revenue streams for participating venues</li><li data-t="p3.s0l2">Hotels, airports, conference centers, stadiums and malls</li></ul></div><div class="pmock mg" style="display:flex;align-items:center;justify-content:center;padding:1.25rem"><svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:580px;display:block;font-family:'Plus Jakarta Sans',sans-serif"><text x="40" y="35" fill="#fff" font-size="20" font-weight="700" data-t="p3.svg.suppliers">Suministradores</text><text x="510" y="35" fill="#fff" font-size="20" font-weight="700" data-t="p3.svg.buyers">Compradores</text><circle cx="125" cy="180" r="78" fill="#6f6f73"/><text x="125" y="162" text-anchor="middle" fill="#fff" font-size="15" font-weight="800" data-t="p3.svg.venues">SEDES</text><text x="125" y="192" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" data-t="p3.svg.venues1">CENTRO COMERCIAL,</text><text x="125" y="206" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" data-t="p3.svg.venues2">RESTAURANTE,</text><text x="125" y="220" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" data-t="p3.svg.venues3">ESTADIOS</text><circle cx="207" cy="180" r="4" fill="#fff"/><line x1="211" y1="180" x2="248" y2="180" stroke="#fff" stroke-width="1.5"/><circle cx="252" cy="180" r="4" fill="#fff"/><circle cx="350" cy="180" r="98" fill="#4285f4"/><text x="350" y="172" text-anchor="middle" fill="#fff" font-size="24" font-weight="800">ORION</text><text x="350" y="200" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">MARKETPLACE/</text><text x="350" y="215" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">BROKER</text><circle cx="448" cy="180" r="4" fill="#fff"/><line x1="452" y1="180" x2="489" y2="180" stroke="#fff" stroke-width="1.5"/><circle cx="493" cy="180" r="4" fill="#fff"/><circle cx="575" cy="180" r="78" fill="#6f6f73"/><text x="575" y="160" text-anchor="middle" fill="#fff" font-size="13" font-weight="800" data-t="p3.svg.carriers1">EMPRESAS</text><text x="575" y="178" text-anchor="middle" fill="#fff" font-size="13" font-weight="800" data-t="p3.svg.carriers2">DE TELEFONÍA</text><text x="575" y="202" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">T-MOBILE, AT&amp;T,</text><text x="575" y="216" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">VERIZON</text><line x1="350" y1="278" x2="350" y2="302" stroke="#fff" stroke-width="1.5"/><text x="350" y="328" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" data-t="p3.svg.wifi">Wifi</text><text x="350" y="358" text-anchor="middle" fill="#fff" font-size="22" font-weight="700" data-t="p3.svg.cellular">Celular</text><line x1="350" y1="378" x2="350" y2="430" stroke="#fff" stroke-width="1.5"/><polygon points="350,437 343,425 357,425" fill="#fff"/><circle cx="350" cy="515" r="75" fill="#fff"/><text x="350" y="485" text-anchor="middle" fill="#06070f" font-size="16" font-weight="800" data-t="p3.svg.user">USUARIO</text><text x="350" y="508" text-anchor="middle" fill="#06070f" font-size="9" font-weight="700" data-t="p3.svg.usr1">MEJOR EXPERIENCIA</text><text x="350" y="522" text-anchor="middle" fill="#06070f" font-size="9" font-weight="700" data-t="p3.svg.usr2">DEPENDIENDO DEL</text><text x="350" y="536" text-anchor="middle" fill="#06070f" font-size="9" font-weight="700" data-t="p3.svg.usr3">LUGAR, HORA Y</text><text x="350" y="550" text-anchor="middle" fill="#06070f" font-size="9" font-weight="700" data-t="p3.svg.usr4">VELOCIDAD</text></svg></div></div>
+  <div class="pcontent rv arch-block" data-p="p3" data-s="1"><div class="pc-text"><h4 data-t="p3.s1h">Architecture</h4><p data-t="p3.s1p">The platform splits into two coordinated sides: Demand (carriers buying connectivity) and Supply (venues selling Wi-Fi access). Each side has its own architecture and entry points.</p></div><div class="arch-grid"><div class="arch-card"><div class="dv-img" style="background-image:url('imagenes/Demandarch.png')"></div><div class="pc-text"><h4 data-t="p3.s1.demand_h">Demand</h4><p data-t="p3.s1.demand_p">The buyer-side flow — telecom carriers connect their subscribers to premium Wi-Fi through Orion's broker layer.</p></div></div><div class="arch-card"><div class="dv-img" style="background-image:url('imagenes/Supplyarch.png')"></div><div class="pc-text"><h4 data-t="p3.s1.supply_h">Supply</h4><p data-t="p3.s1.supply_p">The supplier-side flow — venues integrate their Wi-Fi networks and earn revenue per connected session.</p></div></div></div></div>
   <div class="pcontent" data-p="p3" data-s="2"><div class="pc-text"><h4 data-t="p3.s2h">Dashboard Design</h4><p data-t="p3.s2p">40+ screen states across 6 monitoring domains, tested in 3 rounds of usability sessions.</p><ul><li data-t="p3.s2l0">40+ screens across 6 data domains</li><li data-t="p3.s2l1">8 chart types with responsive variants</li><li data-t="p3.s2l2">3 rounds of usability testing</li></ul></div><div class="pmock mg"><div class="mu"><div style="display:grid;grid-template-columns:2fr 1fr;gap:.4rem"><div class="mcard" style="min-height:70px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:70px;background:rgba(52,168,83,.08)"></div></div><div class="mbar w80 hi"></div><div class="mbar w50"></div></div></div></div>
   <div class="pcontent" data-p="p3" data-s="3"><div class="pc-text"><h4 data-t="p3.s3h">UI Kit & Illustrations</h4><p data-t="p3.s3p">60+ data-specific components plus a custom illustration system for empty states and onboarding.</p><ul><li data-t="p3.s3l0">60+ data-specific components in Figma</li><li data-t="p3.s3l1">Custom illustration library — 12 scenes</li><li data-t="p3.s3l2">Motion principles and transition specs</li></ul></div><div class="pmock mg"><div class="mu"><div class="mgrid2"><div class="mcard" style="min-height:50px;background:rgba(66,133,244,.12)"></div><div class="mcard" style="min-height:50px"></div><div class="mcard" style="min-height:50px;background:rgba(52,168,83,.08)"></div><div class="mcard" style="min-height:50px;background:rgba(251,188,4,.08)"></div></div><div class="mbar w60 hi"></div></div></div></div>
   <div class="metrics rv"><div class="metric"><div class="mval">40+</div><div class="mlabel" data-t="p3.m0">Screen states</div></div><div class="metric"><div class="mval">60+</div><div class="mlabel" data-t="p3.m1">UI components</div></div><div class="metric"><div class="mval">18</div><div class="mlabel" data-t="p3.m2">Users in card sorting</div></div></div>
 </div></div>
+
+<!-- LIGHTBOX DIALOG -->
+<dialog id="lightbox" class="lb-dialog" aria-label="Image preview">
+  <button class="lb-close" id="lb-close" aria-label="Close">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+  </button>
+  <div class="lb-wrap">
+    <img class="lb-image" id="lb-image" alt="">
+  </div>
+</dialog>
 
 <footer>
   <div class="fi">
@@ -340,9 +384,16 @@ en:{
   'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
   'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
   'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
-  'p3.t0':'Research','p3.t1':'IA & Architecture','p3.t2':'Dashboard','p3.t3':'UI Kit',
-  'p3.s0h':'Understanding Data Complexity','p3.s0p':'Worked with engineering and product to understand 15+ metric types.','p3.s0l0':'Stakeholder workshops with 4 user groups','p3.s0l1':'Data taxonomy and metric hierarchy','p3.s0l2':'Competitive analysis of monitoring dashboards',
-  'p3.s1h':'Information Architecture','p3.s1p':'Three-level hierarchy validated by card sorting with 18 users.','p3.s1l0':'Card sorting with 18 internal users','p3.s1l1':'3-level navigation hierarchy defined','p3.s1l2':'Contextual linking between metrics',
+  'p3.t0':'Business','p3.t1':'Architecture','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Business Model','p3.s0p':'Orion Wi-Fi lets mobile devices connect to premium Wi-Fi while connection quality, security and policies are handled automatically — no extra setup required for the end user.','p3.s0l0':'Seamless premium Wi-Fi for mobile users','p3.s0l1':'New revenue streams for participating venues','p3.s0l2':'Hotels, airports, conference centers, stadiums and malls',
+  'p3.s1h':'Architecture','p3.s1p':"The platform splits into two coordinated sides: Demand (carriers buying connectivity) and Supply (venues selling Wi-Fi access). Each side has its own architecture and entry points.",
+  'p3.s1.demand_h':'Demand','p3.s1.demand_p':"The buyer-side flow — telecom carriers connect their subscribers to premium Wi-Fi through Orion's broker layer.",
+  'p3.s1.supply_h':'Supply','p3.s1.supply_p':'The supplier-side flow — venues integrate their Wi-Fi networks and earn revenue per connected session.',
+  'p3.svg.suppliers':'Suppliers','p3.svg.buyers':'Buyers',
+  'p3.svg.venues':'VENUES','p3.svg.venues1':'MALL,','p3.svg.venues2':'RESTAURANT,','p3.svg.venues3':'STADIUMS',
+  'p3.svg.carriers1':'TELECOM','p3.svg.carriers2':'CARRIERS',
+  'p3.svg.wifi':'Wifi','p3.svg.cellular':'Cellular',
+  'p3.svg.user':'USER','p3.svg.usr1':'BETTER EXPERIENCE','p3.svg.usr2':'DEPENDING ON','p3.svg.usr3':'PLACE, TIME AND','p3.svg.usr4':'SPEED',
   'p3.s2h':'Dashboard Design','p3.s2p':'40+ screen states across 6 domains, tested in 3 rounds.','p3.s2l0':'40+ screens across 6 data domains','p3.s2l1':'8 chart types with responsive variants','p3.s2l2':'3 rounds of usability testing',
   'p3.s3h':'UI Kit & Illustrations','p3.s3p':'60+ data-specific components plus custom illustration system.','p3.s3l0':'60+ data-specific components','p3.s3l1':'Custom illustration library — 12 scenes','p3.s3l2':'Motion principles and transition specs',
   'p3.m0':'Screen states','p3.m1':'UI components','p3.m2':'Users in card sorting',
@@ -375,9 +426,16 @@ es:{
   'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
   'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
   'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
-  'p3.t0':'Investigación','p3.t1':'IA & Arquitectura','p3.t2':'Dashboard','p3.t3':'UI Kit',
-  'p3.s0h':'Entendiendo la Complejidad','p3.s0p':'Trabajamos con ingeniería y producto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops con 4 grupos','p3.s0l1':'Taxonomía de datos y jerarquía','p3.s0l2':'Análisis de dashboards',
-  'p3.s1h':'Arquitectura de Información','p3.s1p':'Jerarquía de 3 niveles validada por card sorting.','p3.s1l0':'Card sorting con 18 usuarios','p3.s1l1':'Jerarquía de 3 niveles','p3.s1l2':'Vinculación contextual entre métricas',
+  'p3.t0':'Business','p3.t1':'Arquitectura','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Modelo de Negocio','p3.s0p':'Orion Wi-Fi permite que los dispositivos móviles se conecten a Wi-Fi premium mientras la calidad, seguridad y políticas de conexión se manejan automáticamente — sin configuración extra para el usuario final.','p3.s0l0':'Wi-Fi premium sin fricción para usuarios móviles','p3.s0l1':'Nuevas fuentes de ingreso para las sedes participantes','p3.s0l2':'Hoteles, aeropuertos, centros de conferencia, estadios y centros comerciales',
+  'p3.s1h':'Arquitectura','p3.s1p':'La plataforma se divide en dos lados coordinados: Demanda (operadoras que compran conectividad) y Suministro (sedes que venden acceso Wi-Fi). Cada lado tiene su propia arquitectura y puntos de entrada.',
+  'p3.s1.demand_h':'Demanda','p3.s1.demand_p':'El flujo del comprador — las operadoras de telefonía conectan a sus usuarios al Wi-Fi premium a través de la capa broker de Orion.',
+  'p3.s1.supply_h':'Suministro','p3.s1.supply_p':'El flujo del suministrador — las sedes integran sus redes Wi-Fi y generan ingresos por cada sesión conectada.',
+  'p3.svg.suppliers':'Suministradores','p3.svg.buyers':'Compradores',
+  'p3.svg.venues':'SEDES','p3.svg.venues1':'CENTRO COMERCIAL,','p3.svg.venues2':'RESTAURANTE,','p3.svg.venues3':'ESTADIOS',
+  'p3.svg.carriers1':'EMPRESAS','p3.svg.carriers2':'DE TELEFONÍA',
+  'p3.svg.wifi':'Wifi','p3.svg.cellular':'Celular',
+  'p3.svg.user':'USUARIO','p3.svg.usr1':'MEJOR EXPERIENCIA','p3.svg.usr2':'DEPENDIENDO DEL','p3.svg.usr3':'LUGAR, HORA Y','p3.svg.usr4':'VELOCIDAD',
   'p3.s2h':'Diseño del Dashboard','p3.s2p':'40+ estados en 6 dominios, testeados en 3 rondas.','p3.s2l0':'40+ pantallas en 6 dominios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rondas de pruebas',
   'p3.s3h':'UI Kit e Ilustraciones','p3.s3p':'60+ componentes y sistema de ilustraciones.','p3.s3l0':'60+ componentes en Figma','p3.s3l1':'12 escenas de ilustraciones','p3.s3l2':'Principios de movimiento',
   'p3.m0':'Estados de pantalla','p3.m1':'Componentes UI','p3.m2':'Usuarios en card sorting',
@@ -433,6 +491,40 @@ if(procTabs){
     document.querySelectorAll(`.pcontent[data-p="${PID}"]`).forEach(c=>{const show=parseInt(c.dataset.s)===s;c.classList.toggle('vis',show);if(show)c.classList.add('rv','vis');});
   });
 }
+
+/* Lightbox — click on .dv-img to open full image */
+(function(){
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lb-image');
+  const lbClose=document.getElementById('lb-close');
+  if(!lb||!lbImg)return;
+
+  function openLB(el){
+    const bg=getComputedStyle(el).backgroundImage;
+    const m=bg.match(/url\(["']?(.+?)["']?\)/);
+    if(!m||!m[1]||m[1]==='none')return;
+    lbImg.src=m[1];
+    if(typeof lb.showModal==='function')lb.showModal();
+    else lb.setAttribute('open','');
+    document.body.style.overflow='hidden';
+  }
+  function closeLB(){
+    if(typeof lb.close==='function')lb.close();
+    else lb.removeAttribute('open');
+    lbImg.src='';
+    document.body.style.overflow='';
+  }
+
+  document.querySelectorAll('.dv-img').forEach(el=>{
+    el.addEventListener('click',()=>openLB(el));
+    el.setAttribute('role','button');
+    el.setAttribute('tabindex','0');
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLB(el);}});
+  });
+  lbClose.addEventListener('click',closeLB);
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-wrap'))closeLB();});
+  lb.addEventListener('close',()=>{document.body.style.overflow='';});
+})();
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
