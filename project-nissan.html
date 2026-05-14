@@ -156,11 +156,34 @@ nav.sc .nl a.act{color:var(--ink)}
 .es-title{font-size:clamp(2rem,3.2vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:.95;color:var(--ink);text-transform:uppercase;margin-bottom:1.25rem}
 .es-desc{font-size:.92rem;line-height:1.78;color:#4D4D51;max-width:640px}
 .dv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
-.dv-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease}
+.dv-img{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease}
 .dv-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
 .scr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.scr-img{border-radius:14px;overflow:hidden;aspect-ratio:9/19;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease}
+.scr-img{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/19;border:1px solid rgba(6,7,15,.1);background:rgba(6,7,15,.04);background-size:cover;background-position:center;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease}
 .scr-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
+
+/* Zoom-in hint icon (magnifying glass) on hoverable images */
+.dv-img::after, .scr-img::after{
+  content:'';
+  position:absolute;
+  top:.75rem;
+  right:.75rem;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background-color:rgba(6,7,15,.72);
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:18px 18px;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  opacity:.85;
+  transition:opacity .25s ease,transform .25s ease;
+  pointer-events:none;
+  border:1px solid rgba(255,255,255,.18);
+}
+.dv-img:hover::after, .scr-img:hover::after{opacity:1;transform:scale(1.06)}
 
 /* Description below variables grid */
 .dv-after-desc{max-width:720px;margin:3rem auto 1.5rem;text-align:center;font-size:.95rem;line-height:1.78;color:#4D4D51}
@@ -183,9 +206,9 @@ nav.sc .nl a.act{color:var(--ink)}
 .lb-dialog::backdrop{background:rgba(6,7,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .lb-wrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:2rem}
 .lb-image{max-width:92vw;max-height:88vh;width:auto;height:auto;border-radius:8px;display:block;box-shadow:0 24px 60px rgba(0,0,0,.55);object-fit:contain}
-.lb-close{position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;padding:0;z-index:10}
+.lb-close{position:fixed;top:1.5rem;right:1.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;padding:0;z-index:10}
 .lb-close svg{display:block}
-.lb-close:hover{background:rgba(255,255,255,.18);transform:rotate(90deg)}
+.lb-close:hover{background:rgba(255,255,255,.18)}
 @keyframes lbIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
 .lb-dialog[open] .lb-image{animation:lbIn .3s ease}
 
