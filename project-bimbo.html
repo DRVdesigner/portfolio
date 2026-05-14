@@ -164,10 +164,11 @@ nav.sc .nl a.act{color:var(--ink)}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
 
 /* Why a Design System */
-.whyds{margin-top:1rem;margin-bottom:4.5rem}
+.whyds{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:7rem;margin-bottom:6rem}
+.whyds-side{grid-column:2;grid-row:1;text-align:right}
 .whyds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
-.whyds-intro{font-size:1rem;line-height:1.78;color:var(--w60);max-width:780px;margin-bottom:2.25rem}
-.whyds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.whyds-intro{font-size:1rem;line-height:1.78;color:var(--w60)}
+.whyds-grid{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:1.25rem}
 .whyds-card{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
 .whyds-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.95rem;padding-bottom:.75rem;border-bottom:1px solid var(--w10);line-height:1.4}
 .whyds-text{font-size:.88rem;line-height:1.72;color:var(--w60)}
@@ -244,7 +245,9 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .vars-grid{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
   .okrs{grid-template-columns:1fr}
-  .whyds-grid{grid-template-columns:1fr}
+  .whyds{grid-template-columns:1fr;gap:2rem}
+  .whyds-side{grid-column:auto;grid-row:auto;text-align:left}
+  .whyds-grid{grid-column:auto;grid-row:auto}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
@@ -359,8 +362,10 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   </div>
 
   <div class="whyds rv">
-    <h3 class="whyds-title" data-t="p2.whyds.title">Why a Design System?</h3>
-    <p class="whyds-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
+    <div class="whyds-side">
+      <h3 class="whyds-title" data-t="p2.whyds.title">Why a Design System?</h3>
+      <p class="whyds-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
+    </div>
     <div class="whyds-grid">
       <div class="whyds-card">
         <p class="whyds-label" data-t="p2.whyds.0t">Visual consistency and functionality</p>
@@ -394,8 +399,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div>
     </div>
     <div class="user-card">
-      <!-- ▼ IMAGENAQUI ▼ Supervisor1.png -->
-      <div class="user-img" style="background-image:url('imagenes/Supervisor1.png')"></div>
+      <!-- ▼ IMAGENAQUI ▼ Supervisorb.png -->
+      <div class="user-img" style="background-image:url('imagenes/Supervisorb.png')"></div>
       <div>
         <h4 class="user-role" data-t="p2.usr.1r">Supervisor</h4>
         <p class="user-desc" data-t="p2.usr.1d">Keeps a close look into seller performance and objectives. Organizes the local distribution of products.</p>
