@@ -181,9 +181,18 @@ nav.sc .nl a.act{color:var(--ink)}
 .user-role{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2;margin-bottom:.4rem}
 .user-desc{font-size:.88rem;line-height:1.72;color:var(--w60)}
 
-/* Audit tab — single column with full-width image */
-.pcontent.vis.audit-layout{grid-template-columns:1fr;gap:2.25rem}
+/* Audit tab — 2 columns: text left, image right */
+.pcontent.vis.audit-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .audit-img{width:100%;aspect-ratio:16/9;border-radius:12px;background-color:transparent;background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Research tab — 2 columns: text+title left, bullets right (like Concept) */
+.pcontent.vis.research-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.research-side{grid-column:1;grid-row:1;text-align:left}
+.research-bullets{grid-column:2;grid-row:1;list-style:none;margin:0;display:flex;flex-direction:column;gap:.45rem}
+.research-bullets li{font-size:.84rem;color:var(--w60);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
+.research-bullets li::before{content:'—';color:var(--w40);flex-shrink:0;margin-top:.05rem}
+.ps-wrap .research-bullets li{color:#4D4D51}
+.ps-wrap .research-bullets li::before{color:#7C7C7D}
 
 /* Branding tab — intro + 2 square images */
 .pcontent.vis.brand-layout{grid-template-columns:1fr;gap:2rem}
@@ -292,8 +301,10 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pcontent.vis.concept-layout{grid-template-columns:1fr;gap:2rem}
   .concept-side{grid-column:auto;grid-row:auto;text-align:left}
   .concept-grid{grid-column:auto;grid-row:auto}
-  .showcase-side-img{display:none}
-  .showcase-row{gap:0}
+  .pcontent.vis.audit-layout{grid-template-columns:1fr;gap:2rem}
+  .pcontent.vis.research-layout{grid-template-columns:1fr;gap:2rem}
+  .research-side{grid-column:auto;grid-row:auto}
+  .research-bullets{grid-column:auto;grid-row:auto}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
@@ -353,9 +364,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 .showcase{margin-top:5.5rem;margin-bottom:1.5rem;text-align:center}
 .showcase-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
 .showcase-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px;margin:0 auto 2.5rem}
-.showcase-row{display:flex;align-items:center;justify-content:center;gap:3rem;max-width:1100px;margin:0 auto}
-.showcase-side-img{flex:0 0 200px;aspect-ratio:1/1;background-size:contain;background-position:center;background-repeat:no-repeat}
-.phone-frame{position:relative;width:100%;max-width:380px;flex:0 0 auto;aspect-ratio:360/628;border-radius:36px;padding:14px;background:linear-gradient(160deg,#1a1a20 0%,#0a0a0e 100%);box-shadow:0 18px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
+.phone-frame{position:relative;width:100%;max-width:380px;flex:0 0 auto;aspect-ratio:360/628;border-radius:36px;padding:14px;background:linear-gradient(160deg,#1a1a20 0%,#0a0a0e 100%);box-shadow:0 18px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden;margin:0 auto}
 .phone-frame::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:35%;height:18px;background:#0a0a0e;border-radius:0 0 12px 12px;z-index:5}
 .cmp{position:relative;width:100%;height:100%;overflow:hidden;border-radius:22px;background:rgba(255,255,255,.02);user-select:none;-webkit-user-select:none;--pos:50%;cursor:ew-resize;touch-action:none}
 .cmp-img{position:absolute;inset:0;background-size:cover;background-position:center;pointer-events:none}
@@ -504,18 +513,18 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div>
     </div>
   </div>
-  <div class="pcontent rv audit-layout" data-p="p2" data-s="1">
-    <div class="pc-text">
+  <div class="pcontent rv research-layout" data-p="p2" data-s="1">
+    <div class="pc-text research-side">
       <h4 data-t="p2.s_res_h">Research</h4>
       <p data-t="p2.s_res_p">Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.</p>
-      <ul>
-        <li data-t="p2.s_res_l0">Field shadowing with 12 sellers across Ciudad de Mexico</li>
-        <li data-t="p2.s_res_l1">In-depth interviews with supervisors and the sellers</li>
-        <li data-t="p2.s_res_l2">Found issues with the accessibility of the interfaces when used in sunny environments and old equipment</li>
-        <li data-t="p2.s_res_l3">Mapped the screen specifications of the tablets and phones used by the sellers</li>
-        <li data-t="p2.s_res_l4">Pain points mapped, prioritized, and validated</li>
-      </ul>
     </div>
+    <ul class="pc-text research-bullets">
+      <li data-t="p2.s_res_l0">Field shadowing with 12 sellers across Ciudad de Mexico</li>
+      <li data-t="p2.s_res_l1">In-depth interviews with supervisors and the sellers</li>
+      <li data-t="p2.s_res_l2">Found issues with the accessibility of the interfaces when used in sunny environments and old equipment</li>
+      <li data-t="p2.s_res_l3">Mapped the screen specifications of the tablets and phones used by the sellers</li>
+      <li data-t="p2.s_res_l4">Pain points mapped, prioritized, and validated</li>
+    </ul>
   </div>
   <div class="pcontent rv audit-layout" data-p="p2" data-s="2">
     <div class="pc-text">
@@ -646,29 +655,23 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <p class="proc-label" style="margin-top:1rem" data-t="p2.show.label">Showcase</p>
     <h3 class="showcase-title" data-t="p2.show.title">Before & After</h3>
     <p class="showcase-desc" data-t="p2.show.desc">A side-by-side comparison of how the app looked before the Design System, and how it looks after — drag the handle to reveal each version.</p>
-    <div class="showcase-row">
-      <!-- ▼ IMAGENAQUI ▼ Bimbologo1.png -->
-      <div class="showcase-side-img" style="background-image:url('imagenes/Bimbologo1.png')" aria-hidden="true"></div>
-      <div class="phone-frame">
-        <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-          <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
-          <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp2.png')"></div>
-          <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
-          <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp1.png')"></div>
-          <span class="cmp-label cmp-label-before" data-t="p2.show.before">Before</span>
-          <span class="cmp-label cmp-label-after" data-t="p2.show.after">After</span>
-          <div class="cmp-handle" aria-hidden="true">
-            <div class="cmp-handle-knob">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 6 4 12 9 18"/>
-                <polyline points="15 6 20 12 15 18"/>
-              </svg>
-            </div>
+    <div class="phone-frame">
+      <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
+        <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp2.png')"></div>
+        <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
+        <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp1.png')"></div>
+        <span class="cmp-label cmp-label-before" data-t="p2.show.before">Before</span>
+        <span class="cmp-label cmp-label-after" data-t="p2.show.after">After</span>
+        <div class="cmp-handle" aria-hidden="true">
+          <div class="cmp-handle-knob">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 6 4 12 9 18"/>
+              <polyline points="15 6 20 12 15 18"/>
+            </svg>
           </div>
         </div>
       </div>
-      <!-- ▼ IMAGENAQUI ▼ Bimbologo2.png -->
-      <div class="showcase-side-img" style="background-image:url('imagenes/Bimbologo2.png')" aria-hidden="true"></div>
     </div>
   </div>
 
