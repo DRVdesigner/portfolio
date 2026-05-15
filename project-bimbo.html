@@ -98,6 +98,8 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .user-desc{color:#4D4D51}
 .ps-wrap .brand-intro{color:#4D4D51}
 .ps-wrap .nds-title{color:var(--ink)}
+.ps-wrap .showcase-title{color:var(--ink)}
+.ps-wrap .showcase-desc{color:#4D4D51}
 .ps-wrap .nds-section{border-bottom-color:rgba(6,7,15,.1)}
 .ps-wrap .nds-label{color:var(--ink)}
 .ps-wrap .nds-plus{color:rgba(6,7,15,.55);border-color:rgba(6,7,15,.3)}
@@ -349,6 +351,23 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 }
 .audit-img:hover::after, .var-img:hover::after, .brand-img:hover::after{opacity:1;transform:scale(1.06)}
 
+/* Showcase — Before/After in phone frame */
+.showcase{margin-top:5.5rem;margin-bottom:1.5rem}
+.showcase-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
+.showcase-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px;margin-bottom:2.5rem}
+.phone-frame{position:relative;width:100%;max-width:380px;margin:0 auto;aspect-ratio:360/628;border-radius:36px;padding:14px;background:linear-gradient(160deg,#1a1a20 0%,#0a0a0e 100%);box-shadow:0 18px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
+.phone-frame::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:35%;height:18px;background:#0a0a0e;border-radius:0 0 12px 12px;z-index:5}
+.cmp{position:relative;width:100%;height:100%;overflow:hidden;border-radius:22px;background:rgba(255,255,255,.02);user-select:none;-webkit-user-select:none;--pos:50%;cursor:ew-resize;touch-action:none}
+.cmp-img{position:absolute;inset:0;background-size:cover;background-position:center;pointer-events:none}
+.cmp-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0);z-index:2}
+.cmp-after{z-index:1}
+.cmp-label{position:absolute;top:1.75rem;padding:.35rem .7rem;border-radius:100px;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(6,7,15,.72);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:4;pointer-events:none}
+.cmp-label-before{left:.85rem}
+.cmp-label-after{right:.85rem}
+.cmp-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:#fff;transform:translateX(-50%);z-index:3;pointer-events:none;box-shadow:0 0 16px rgba(0,0,0,.25)}
+.cmp-handle-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;color:#06070f}
+.cmp-handle-knob svg{display:block}
+
 /* Lightbox dialog */
 .lb-dialog{padding:0;border:none;background:transparent;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;overflow:hidden}
 .lb-dialog::backdrop{background:rgba(6,7,15,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -477,9 +496,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p2">
     <button class="ptab act" data-step="0" data-t="p2.t0">Users</button>
-    <button class="ptab" data-step="1" data-t="p2.t1">Audit</button>
-    <button class="ptab" data-step="2" data-t="p2.t2">Variables</button>
-    <button class="ptab" data-step="3" data-t="p2.t3">Branding</button>
+    <button class="ptab" data-step="1" data-t="p2.t1">Research</button>
+    <button class="ptab" data-step="2" data-t="p2.t2">Audit</button>
   </div>
   <div class="pcontent vis rv users-grid" data-p="p2" data-s="0">
     <div class="user-card">
@@ -509,6 +527,19 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   </div>
   <div class="pcontent rv audit-layout" data-p="p2" data-s="1">
     <div class="pc-text">
+      <h4 data-t="p2.s_res_h">Research</h4>
+      <p data-t="p2.s_res_p">Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.</p>
+      <ul>
+        <li data-t="p2.s_res_l0">Field shadowing with 12 sellers across 4 regions</li>
+        <li data-t="p2.s_res_l1">In-depth interviews with supervisors and business managers</li>
+        <li data-t="p2.s_res_l2">Pain points mapped, prioritized, and validated</li>
+      </ul>
+    </div>
+    <!-- ▼ IMAGENAQUI ▼ Research.png -->
+    <div class="audit-img" style="background-image:url('imagenes/Research.png')"></div>
+  </div>
+  <div class="pcontent rv audit-layout" data-p="p2" data-s="2">
+    <div class="pc-text">
       <h4 data-t="p2.s1h">Platform Audit</h4>
       <p data-t="p2.s1p">Full audit revealing inconsistent patterns.</p>
       <ul>
@@ -522,58 +553,11 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <!-- ▼ IMAGENAQUI ▼ Auditoria.png -->
     <div class="audit-img" style="background-image:url('imagenes/Auditoria.png')"></div>
   </div>
-  <div class="pcontent rv vars-layout" data-p="p2" data-s="2">
-    <p class="vars-intro" data-t="p2.s2p">The foundational layer of the Design System — a curated set of tokens for font, spacing, typography, and color that every component is built on.</p>
-    <div class="vars-grid">
-      <div class="var-card">
-        <!-- ▼ IMAGENAQUI ▼ Bimbovariables1.png -->
-        <div class="var-img" style="background-image:url('imagenes/Bimbovariables1.png')"></div>
-        <div>
-          <h4 class="var-label" data-t="p2.var.0t">Color</h4>
-          <p class="var-desc" data-t="p2.var.0d">Semantic color roles for surfaces, content, borders, and states — derived from Bimbo's brand palette and validated for accessibility.</p>
-        </div>
-      </div>
-      <div class="var-card">
-        <!-- ▼ IMAGENAQUI ▼ Bimbovariables2.png -->
-        <div class="var-img" style="background-image:url('imagenes/Bimbovariables2.png')"></div>
-        <div>
-          <h4 class="var-label" data-t="p2.var.1t">Typography</h4>
-          <p class="var-desc" data-t="p2.var.1d">A defined type scale covering display, heading, body, and caption styles — each with its own size, weight, and line-height.</p>
-        </div>
-      </div>
-      <div class="var-card">
-        <!-- ▼ IMAGENAQUI ▼ Bimbovariables3.png -->
-        <div class="var-img" style="background-image:url('imagenes/Bimbovariables3.png')"></div>
-        <div>
-          <h4 class="var-label" data-t="p2.var.2t">Spacing</h4>
-          <p class="var-desc" data-t="p2.var.2d">A consistent spacing scale that defines margins, paddings, and layout gaps to keep vertical rhythm uniform across screens.</p>
-        </div>
-      </div>
-      <div class="var-card">
-        <!-- ▼ IMAGENAQUI ▼ Bimbovariables4.png -->
-        <div class="var-img" style="background-image:url('imagenes/Bimbovariables4.png')"></div>
-        <div>
-          <h4 class="var-label" data-t="p2.var.3t">Border</h4>
-          <p class="var-desc" data-t="p2.var.3d">Border widths and corner radii that shape the edges and rounded corners of every component across the system.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pcontent rv brand-layout" data-p="p2" data-s="3">
-    <p class="brand-intro" data-t="p2.s3p">A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.</p>
-    <div class="brand-grid">
-      <!-- ▼ IMAGENAQUI ▼ Bimbologo1.png -->
-      <div class="brand-img" style="background-image:url('imagenes/Bimbologo1.png')"></div>
-      <!-- ▼ IMAGENAQUI ▼ Bimbologo2.png -->
-      <div class="brand-img" style="background-image:url('imagenes/Bimbologo2.png')"></div>
-    </div>
-  </div>
-
   <div class="nds rv">
     <h3 class="nds-title" data-t="p2.nds.title">Market MAP Design System</h3>
     <div class="nds-section">
       <button class="nds-head" type="button">
-        <span class="nds-label" data-t="p2.nds.0t">Typography</span>
+        <span class="nds-label" data-t="p2.nds.0t">Variables</span>
         <div class="nds-plus" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -583,9 +567,41 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </button>
       <div class="nds-body">
         <div class="nds-content">
-          <p class="nds-desc" data-t="p2.nds.0d">A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.</p>
-          <!-- ▼ IMAGENAQUI ▼ Bimbotypos.png -->
-          <div class="nds-img" style="background-image:url('imagenes/Bimbotypos.png')"></div>
+          <p class="nds-desc" data-t="p2.nds.0d">The foundational layer of the Design System — a curated set of tokens for color, typography, spacing, and border that every component is built on.</p>
+          <div class="vars-grid">
+            <div class="var-card">
+              <!-- ▼ IMAGENAQUI ▼ Bimbovariables1.png -->
+              <div class="var-img" style="background-image:url('imagenes/Bimbovariables1.png')"></div>
+              <div>
+                <h4 class="var-label" data-t="p2.var.0t">Color</h4>
+                <p class="var-desc" data-t="p2.var.0d">Semantic color roles for surfaces, content, borders, and states — derived from Bimbo's brand palette and validated for accessibility.</p>
+              </div>
+            </div>
+            <div class="var-card">
+              <!-- ▼ IMAGENAQUI ▼ Bimbovariables2.png -->
+              <div class="var-img" style="background-image:url('imagenes/Bimbovariables2.png')"></div>
+              <div>
+                <h4 class="var-label" data-t="p2.var.1t">Typography</h4>
+                <p class="var-desc" data-t="p2.var.1d">A defined type scale covering display, heading, body, and caption styles — each with its own size, weight, and line-height.</p>
+              </div>
+            </div>
+            <div class="var-card">
+              <!-- ▼ IMAGENAQUI ▼ Bimbovariables3.png -->
+              <div class="var-img" style="background-image:url('imagenes/Bimbovariables3.png')"></div>
+              <div>
+                <h4 class="var-label" data-t="p2.var.2t">Spacing</h4>
+                <p class="var-desc" data-t="p2.var.2d">A consistent spacing scale that defines margins, paddings, and layout gaps to keep vertical rhythm uniform across screens.</p>
+              </div>
+            </div>
+            <div class="var-card">
+              <!-- ▼ IMAGENAQUI ▼ Bimbovariables4.png -->
+              <div class="var-img" style="background-image:url('imagenes/Bimbovariables4.png')"></div>
+              <div>
+                <h4 class="var-label" data-t="p2.var.3t">Border</h4>
+                <p class="var-desc" data-t="p2.var.3d">Border widths and corner radii that shape the edges and rounded corners of every component across the system.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -609,7 +625,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     </div>
     <div class="nds-section">
       <button class="nds-head" type="button">
-        <span class="nds-label" data-t="p2.nds.2t">Color</span>
+        <span class="nds-label" data-t="p2.nds.2t">Components</span>
         <div class="nds-plus" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -619,15 +635,15 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </button>
       <div class="nds-body">
         <div class="nds-content">
-          <p class="nds-desc" data-t="p2.nds.2d">A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.</p>
-          <!-- ▼ IMAGENAQUI ▼ Bimbocolors.png -->
-          <div class="nds-img" style="background-image:url('imagenes/Bimbocolors.png')"></div>
+          <p class="nds-desc" data-t="p2.nds.2d">More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.</p>
+          <!-- ▼ IMAGENAQUI ▼ Bimbocomponents.png -->
+          <div class="nds-img" style="background-image:url('imagenes/Bimbocomponents.png')"></div>
         </div>
       </div>
     </div>
     <div class="nds-section">
       <button class="nds-head" type="button">
-        <span class="nds-label" data-t="p2.nds.3t">Components</span>
+        <span class="nds-label" data-t="p2.nds.3t">Branding</span>
         <div class="nds-plus" aria-hidden="true">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -637,9 +653,37 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </button>
       <div class="nds-body">
         <div class="nds-content">
-          <p class="nds-desc" data-t="p2.nds.3d">More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.</p>
-          <!-- ▼ IMAGENAQUI ▼ Bimbocomponents.png -->
-          <div class="nds-img" style="background-image:url('imagenes/Bimbocomponents.png')"></div>
+          <p class="nds-desc" data-t="p2.nds.3d">A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.</p>
+          <div class="brand-grid">
+            <!-- ▼ IMAGENAQUI ▼ Bimbologo1.png -->
+            <div class="brand-img" style="background-image:url('imagenes/Bimbologo1.png')"></div>
+            <!-- ▼ IMAGENAQUI ▼ Bimbologo2.png -->
+            <div class="brand-img" style="background-image:url('imagenes/Bimbologo2.png')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase rv">
+    <p class="proc-label" style="margin-top:1rem" data-t="p2.show.label">Showcase</p>
+    <h3 class="showcase-title" data-t="p2.show.title">Before & After</h3>
+    <p class="showcase-desc" data-t="p2.show.desc">A side-by-side comparison of how the app looked before the Design System, and how it looks after — drag the handle to reveal each version.</p>
+    <div class="phone-frame">
+      <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
+        <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp1.png')"></div>
+        <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
+        <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp2.png')"></div>
+        <span class="cmp-label cmp-label-before" data-t="p2.show.after">After</span>
+        <span class="cmp-label cmp-label-after" data-t="p2.show.before">Before</span>
+        <div class="cmp-handle" aria-hidden="true">
+          <div class="cmp-handle-knob">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 6 4 12 9 18"/>
+              <polyline points="15 6 20 12 15 18"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -721,7 +765,8 @@ en:{
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
-  'p2.t0':'Users','p2.t1':'Audit','p2.t2':'Variables','p2.t3':'Branding',
+  'p2.t0':'Users','p2.t1':'Research','p2.t2':'Audit',
+  'p2.s_res_h':'Research','p2.s_res_p':"Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.",'p2.s_res_l0':'Field shadowing with 12 sellers across 4 regions','p2.s_res_l1':'In-depth interviews with supervisors and business managers','p2.s_res_l2':'Pain points mapped, prioritized, and validated',
   'p2.usr.0r':'Business Manager','p2.usr.0d':'Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Keeps a close look into seller performance and objectives. Organizes the local distribution of products.',
   'p2.usr.2r':'Seller','p2.usr.2d':"Door-to-door personnel in charge of delivering Bimbo's products to small neighborhood stores around Mexico.",
@@ -739,10 +784,11 @@ en:{
   'p2.var.3t':'Border','p2.var.3d':'Border widths and corner radii that shape the edges and rounded corners of every component across the system.',
   'p2.s3p':"A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.",
   'p2.nds.title':'Market MAP Design System',
-  'p2.nds.0t':'Typography','p2.nds.0d':"A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.",
+  'p2.nds.0t':'Variables','p2.nds.0d':'The foundational layer of the Design System — a curated set of tokens for color, typography, spacing, and border that every component is built on.',
   'p2.nds.1t':'Icons','p2.nds.1d':'A custom icon library built specifically for the Design System — over 900 icons drawn with a shared visual language, consistent stroke weight, and clear meaning at every scale.',
-  'p2.nds.2t':'Color','p2.nds.2d':"A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.",
-  'p2.nds.3t':'Components','p2.nds.3d':'More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.',
+  'p2.nds.2t':'Components','p2.nds.2d':'More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.',
+  'p2.nds.3t':'Branding','p2.nds.3d':"A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.",
+  'p2.show.label':'Showcase','p2.show.title':'Before & After','p2.show.desc':'A side-by-side comparison of how the app looked before the Design System, and how it looks after — drag the handle to reveal each version.','p2.show.before':'Before','p2.show.after':'After',
   'p2.m0':'Components built','p2.m1':'Icons included',
   'p2.okr.label':'Objectives & Key Results',
   'p2.okr.0t':'Improve satisfaction and efficiency','p2.okr.0c':'Develop and roll out the first version of the Design System in the MarketMap app by the end of Q2, and reach a strong level of satisfaction among its users.','p2.okr.0k0':'System Usability Scale',
@@ -777,7 +823,8 @@ es:{
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
-  'p2.t0':'Usuarios','p2.t1':'Auditoría','p2.t2':'Variables','p2.t3':'Branding',
+  'p2.t0':'Usuarios','p2.t1':'Research','p2.t2':'Auditoría',
+  'p2.s_res_h':'Research','p2.s_res_p':'Investigación de campo con vendedores, supervisores y gerentes en múltiples regiones. Acompañamos rutas de reparto, observamos la app en condiciones reales al aire libre y realizamos entrevistas 1 a 1 para identificar los puntos de fricción que no se veían desde la oficina.','p2.s_res_l0':'Field shadowing con 12 vendedores en 4 regiones','p2.s_res_l1':'Entrevistas en profundidad con supervisores y gerentes','p2.s_res_l2':'Pain points mapeados, priorizados y validados',
   'p2.usr.0r':'Gerente de Negocio','p2.usr.0d':'Hace seguimiento de la demanda de productos Bimbo en la región y coordina los esfuerzos en la producción de la fábrica y la publicidad de los productos.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Vigila de cerca el desempeño y los objetivos de los vendedores. Organiza la distribución local de los productos.',
   'p2.usr.2r':'Vendedor','p2.usr.2d':'Personal puerta a puerta encargado de entregar los productos de Bimbo a pequeñas tiendas de barrio en todo México.',
@@ -795,10 +842,11 @@ es:{
   'p2.var.3t':'Borde','p2.var.3d':'Anchos de borde y radios de esquina que dan forma a los bordes y esquinas redondeadas de cada componente del sistema.',
   'p2.s3p':'Se creó una nueva identidad gráfica que va acorde al lenguaje visual utilizado por Bimbo. De esta forma, logramos una cohesión entre este producto y el universo de marca.',
   'p2.nds.title':'Market MAP Design System',
-  'p2.nds.0t':'Tipografía','p2.nds.0d':'Un sistema tipográfico definido que establece jerarquía, legibilidad y personalidad en todo el producto — elegido para sentirse cercano a la voz de marca de Bimbo y al mismo tiempo funcional en pantallas con alta densidad de datos.',
+  'p2.nds.0t':'Variables','p2.nds.0d':'La capa base del Design System — un conjunto de tokens de color, tipografía, espaciado y borde sobre el cual se construye cada componente.',
   'p2.nds.1t':'Iconos','p2.nds.1d':'Una librería de iconos personalizada creada específicamente para el Design System — más de 900 iconos dibujados con un lenguaje visual compartido, grosor de trazo consistente y significado claro a cualquier tamaño.',
-  'p2.nds.2t':'Color','p2.nds.2d':'Una paleta de color semántica derivada de los lineamientos de marca de Bimbo — con grises cuidadosamente seleccionados para superficies, contenido y bordes, validados para contraste y accesibilidad en condiciones reales de campo.',
-  'p2.nds.3t':'Componentes','p2.nds.3d':'Más de 80 componentes listos para producción que cubren cada patrón de UI recurrente en el producto — cada uno con sus estados, variantes y specs de accesibilidad incorporados desde el inicio.',
+  'p2.nds.2t':'Componentes','p2.nds.2d':'Más de 80 componentes listos para producción que cubren cada patrón de UI recurrente en el producto — cada uno con sus estados, variantes y specs de accesibilidad incorporados desde el inicio.',
+  'p2.nds.3t':'Branding','p2.nds.3d':'Se creó una nueva identidad gráfica que va acorde al lenguaje visual utilizado por Bimbo. De esta forma, logramos una cohesión entre este producto y el universo de marca.',
+  'p2.show.label':'Showcase','p2.show.title':'Antes & Después','p2.show.desc':'Una comparación lado a lado de cómo se veía la app antes del Design System, y cómo se ve después — arrastra el control para revelar cada versión.','p2.show.before':'Antes','p2.show.after':'Después',
   'p2.m0':'Componentes construidos','p2.m1':'Iconos incluidos',
   'p2.okr.label':'Objetivos y Resultados Clave',
   'p2.okr.0t':'Mejorar la satisfacción y eficiencia','p2.okr.0c':'Desarrollar y aplicar la primera versión del Design System en la app de MarketMap a finales del Q2 y obtener un buen nivel de satisfacción por parte de los usuarios.','p2.okr.0k0':'System Usability Scale',
@@ -901,6 +949,40 @@ setL('en');
   /* Click on backdrop (outside image) closes */
   lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-wrap'))closeLB();});
   lb.addEventListener('close',()=>{document.body.style.overflow='';});
+})();
+
+/* Image Comparison Slider — Before / After */
+(function(){
+  const cmp=document.getElementById('cmp-bimbo');
+  if(!cmp)return;
+  let dragging=false;
+  function setPos(clientX){
+    const r=cmp.getBoundingClientRect();
+    let p=((clientX-r.left)/r.width)*100;
+    p=Math.max(0,Math.min(100,p));
+    cmp.style.setProperty('--pos',p+'%');
+    cmp.setAttribute('aria-valuenow',Math.round(p));
+  }
+  cmp.addEventListener('pointerdown',e=>{
+    dragging=true;
+    cmp.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+  });
+  cmp.addEventListener('pointermove',e=>{if(dragging)setPos(e.clientX);});
+  cmp.addEventListener('pointerup',()=>{dragging=false;});
+  cmp.addEventListener('pointercancel',()=>{dragging=false;});
+  /* Keyboard accessibility */
+  cmp.addEventListener('keydown',e=>{
+    let p=parseFloat(cmp.getAttribute('aria-valuenow'))||50;
+    if(e.key==='ArrowLeft')p=Math.max(0,p-5);
+    else if(e.key==='ArrowRight')p=Math.min(100,p+5);
+    else if(e.key==='Home')p=0;
+    else if(e.key==='End')p=100;
+    else return;
+    cmp.style.setProperty('--pos',p+'%');
+    cmp.setAttribute('aria-valuenow',p);
+    e.preventDefault();
+  });
 })();
 
 /* Market MAP Design System — accordion behavior on mobile (matches index_1_.html pattern) */
