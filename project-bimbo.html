@@ -103,8 +103,7 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .nds-title{color:var(--ink)}
 .ps-wrap .nds-section{border-bottom-color:rgba(6,7,15,.1)}
 .ps-wrap .nds-label{color:var(--ink)}
-.ps-wrap .nds-chev{color:#7C7C7D}
-.ps-wrap .nds-plus{color:#7C7C7D}
+.ps-wrap .nds-plus{color:rgba(6,7,15,.55);border-color:rgba(6,7,15,.3)}
 .ps-wrap .nds-desc{color:#4D4D51}
 .ps-wrap .nds-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
 .ps-wrap .vars-intro{color:#4D4D51}
@@ -194,7 +193,7 @@ nav.sc .nl a.act{color:var(--ink)}
 .audit-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
 
 /* Branding tab — intro + 2 square images */
-.pcontent.brand-layout{display:grid;grid-template-columns:1fr;gap:2rem}
+.pcontent.vis.brand-layout{grid-template-columns:1fr;gap:2rem}
 .brand-intro{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
 .brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .brand-img{width:100%;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
@@ -204,16 +203,11 @@ nav.sc .nl a.act{color:var(--ink)}
 .nds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:2.5rem;color:#fff}
 .nds-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--w10)}
 .nds-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.nds-summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:default;list-style:none;margin-bottom:1.25rem}
-.nds-summary::-webkit-details-marker{display:none}
+.nds-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:none;cursor:default;font-family:var(--font);text-align:left;padding:0;color:inherit;margin-bottom:1.25rem}
 .nds-label{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2}
-.nds-chev{display:none;width:24px;height:24px;flex-shrink:0;transition:transform .3s ease;color:var(--w60)}
-.nds-plus{display:none;position:relative;width:16px;height:16px;flex-shrink:0;color:var(--w60)}
-.nds-plus-h, .nds-plus-v{position:absolute;background:currentColor;border-radius:2px;transition:transform .3s ease,opacity .3s ease}
-.nds-plus-h{top:50%;left:0;right:0;height:2px;transform:translateY(-50%)}
-.nds-plus-v{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
-.nds-section[open] .nds-plus-v{transform:translateX(-50%) rotate(90deg);opacity:0}
-.nds-body{display:flex;flex-direction:column;gap:1.5rem}
+.nds-plus{display:none}
+.nds-body{}
+.nds-content{display:flex;flex-direction:column;gap:1.5rem}
 .nds-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
 .nds-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
 .nds-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
@@ -226,7 +220,7 @@ nav.sc .nl a.act{color:var(--ink)}
   height:36px;
   border-radius:50%;
   background-color:rgba(6,7,15,.72);
-  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='11' y2='11'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:center;
   background-size:18px 18px;
@@ -307,18 +301,16 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
-  /* New Design System — switch to accordion */
-  .nds-section{margin-bottom:0;padding:0;border-bottom:1px solid var(--w10)}
+  /* New Design System — switch to accordion (replicates index_1_.html pattern) */
+  .nds-section{margin-bottom:0;padding:0 0 0 0;border-bottom:1px solid var(--w10)}
   .nds-section:last-child{border-bottom:none}
-  .nds-section[open]{padding-bottom:1.5rem}
-  .nds-summary{cursor:pointer;padding:1.25rem 0;margin-bottom:0;user-select:none;-webkit-tap-highlight-color:transparent}
-  .nds-summary:hover .nds-label{color:var(--w60)}
-  .ps-wrap .nds-summary:hover .nds-label{color:#4D4D51}
-  .nds-chev{display:block}
-  .nds-plus{display:block}
-  .nds-section[open] .nds-chev{transform:rotate(180deg)}
-  .nds-body{padding-top:.25rem;animation:ndsExpand .35s ease}
-  @keyframes ndsExpand{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+  .nds-head{cursor:pointer;padding:1.5rem 0;margin-bottom:0;-webkit-tap-highlight-color:transparent}
+  .nds-plus{display:flex;width:2.2rem;height:2.2rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,.55);transition:transform .3s ease;line-height:1}
+  .nds-section.op .nds-plus{transform:rotate(45deg)}
+  .nds-head:hover .nds-plus{opacity:.7}
+  .nds-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)}
+  .nds-section.op .nds-body{max-height:1400px}
+  .nds-content{padding-bottom:1.75rem}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -583,50 +575,78 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 
   <div class="nds rv">
     <h3 class="nds-title" data-t="p2.nds.title">New Design System</h3>
-    <details class="nds-section" open>
-      <summary class="nds-summary">
+    <div class="nds-section">
+      <button class="nds-head" type="button">
         <span class="nds-label" data-t="p2.nds.0t">Typography</span>
-        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
-      </summary>
+        <div class="nds-plus" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </button>
       <div class="nds-body">
-        <p class="nds-desc" data-t="p2.nds.0d">A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.</p>
-        <!-- ▼ IMAGENAQUI ▼ Typography.png -->
-        <div class="nds-img" style="background-image:url('imagenes/Typography.png')"></div>
+        <div class="nds-content">
+          <p class="nds-desc" data-t="p2.nds.0d">A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.</p>
+          <!-- ▼ IMAGENAQUI ▼ Typography.png -->
+          <div class="nds-img" style="background-image:url('imagenes/Typography.png')"></div>
+        </div>
       </div>
-    </details>
-    <details class="nds-section" open>
-      <summary class="nds-summary">
+    </div>
+    <div class="nds-section">
+      <button class="nds-head" type="button">
         <span class="nds-label" data-t="p2.nds.1t">Icons</span>
-        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
-      </summary>
+        <div class="nds-plus" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </button>
       <div class="nds-body">
-        <p class="nds-desc" data-t="p2.nds.1d">A custom icon library built specifically for the Design System — over 900 icons drawn with a shared visual language, consistent stroke weight, and clear meaning at every scale.</p>
-        <!-- ▼ IMAGENAQUI ▼ Icons.png -->
-        <div class="nds-img" style="background-image:url('imagenes/Icons.png')"></div>
+        <div class="nds-content">
+          <p class="nds-desc" data-t="p2.nds.1d">A custom icon library built specifically for the Design System — over 900 icons drawn with a shared visual language, consistent stroke weight, and clear meaning at every scale.</p>
+          <!-- ▼ IMAGENAQUI ▼ Icons.png -->
+          <div class="nds-img" style="background-image:url('imagenes/Icons.png')"></div>
+        </div>
       </div>
-    </details>
-    <details class="nds-section" open>
-      <summary class="nds-summary">
+    </div>
+    <div class="nds-section">
+      <button class="nds-head" type="button">
         <span class="nds-label" data-t="p2.nds.2t">Color</span>
-        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
-      </summary>
+        <div class="nds-plus" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </button>
       <div class="nds-body">
-        <p class="nds-desc" data-t="p2.nds.2d">A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.</p>
-        <!-- ▼ IMAGENAQUI ▼ Color.png -->
-        <div class="nds-img" style="background-image:url('imagenes/Color.png')"></div>
+        <div class="nds-content">
+          <p class="nds-desc" data-t="p2.nds.2d">A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.</p>
+          <!-- ▼ IMAGENAQUI ▼ Color.png -->
+          <div class="nds-img" style="background-image:url('imagenes/Color.png')"></div>
+        </div>
       </div>
-    </details>
-    <details class="nds-section" open>
-      <summary class="nds-summary">
+    </div>
+    <div class="nds-section">
+      <button class="nds-head" type="button">
         <span class="nds-label" data-t="p2.nds.3t">Components</span>
-        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
-      </summary>
+        <div class="nds-plus" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </button>
       <div class="nds-body">
-        <p class="nds-desc" data-t="p2.nds.3d">More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.</p>
-        <!-- ▼ IMAGENAQUI ▼ Components.png -->
-        <div class="nds-img" style="background-image:url('imagenes/Components.png')"></div>
+        <div class="nds-content">
+          <p class="nds-desc" data-t="p2.nds.3d">More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.</p>
+          <!-- ▼ IMAGENAQUI ▼ Components.png -->
+          <div class="nds-img" style="background-image:url('imagenes/Components.png')"></div>
+        </div>
       </div>
-    </details>
+    </div>
   </div>
 
   <div class="metrics rv"><div class="metric"><div class="mval">80+</div><div class="mlabel" data-t="p2.m0">Components built</div></div><div class="metric"><div class="mval">900+</div><div class="mlabel" data-t="p2.m1">Icons included</div></div></div>
@@ -887,28 +907,36 @@ setL('en');
   lb.addEventListener('close',()=>{document.body.style.overflow='';});
 })();
 
-/* New Design System — accordion behavior on mobile */
+/* New Design System — accordion behavior on mobile (matches index_1_.html pattern) */
 (function(){
   const sections=document.querySelectorAll('.nds-section');
   if(!sections.length)return;
   const mq=window.matchMedia('(max-width:900px)');
+
+  /* On mobile: only first item open. On desktop: all open (state irrelevant since CSS shows everything). */
   function applyMode(){
     if(mq.matches){
-      /* Mobile: only first section open */
-      sections.forEach((s,i)=>{s.open=(i===0);});
-    } else {
-      /* Desktop: all open */
-      sections.forEach(s=>{s.open=true;});
+      sections.forEach((s,i)=>{
+        s.classList.toggle('op',i===0);
+      });
     }
   }
   applyMode();
   if(mq.addEventListener)mq.addEventListener('change',applyMode);
   else if(mq.addListener)mq.addListener(applyMode);
-  /* On mobile, accordion: opening one closes the others */
+
+  /* Click on .nds-head: close all then open clicked (or close if already open) — exactly like index_1_.html */
   sections.forEach(s=>{
-    s.addEventListener('toggle',()=>{
-      if(!mq.matches||!s.open)return;
-      sections.forEach(o=>{if(o!==s)o.open=false;});
+    const head=s.querySelector('.nds-head');
+    if(!head)return;
+    head.addEventListener('click',()=>{
+      if(!mq.matches)return; /* Desktop: no-op, everything is already visible via CSS */
+      const isOpen=s.classList.contains('op');
+      sections.forEach(i=>i.classList.remove('op'));
+      if(!isOpen){
+        s.classList.add('op');
+        setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+      }
     });
   });
 })();
