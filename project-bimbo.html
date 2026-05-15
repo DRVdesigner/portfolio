@@ -89,8 +89,6 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .metric{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
 .ps-wrap .mval{color:var(--ink)}
 .ps-wrap .mlabel{color:#7C7C7D}
-.ps-wrap .concept-title{color:var(--ink)}
-.ps-wrap .concept-intro{color:#4D4D51}
 .ps-wrap .concept-card{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
 .ps-wrap .concept-label{color:var(--ink);border-bottom-color:rgba(6,7,15,.1)}
 .ps-wrap .concept-text{color:#4D4D51}
@@ -163,17 +161,15 @@ nav.sc .nl a.act{color:var(--ink)}
 .pmock img{width:100%;height:auto;display:block;object-fit:cover}
 
 /* Metrics */
-.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem;max-width:640px;margin-left:auto;margin-right:auto}
-.metric{padding:64px 1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);text-align:center}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin:7rem auto;max-width:640px}
+.metric{padding:128px 1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);text-align:center}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
 
-/* Concept tab — Why a Design System (3 cards left + text right) */
+/* Concept tab — Why a Design System (text left + 3 cards right) */
 .pcontent.vis.concept-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.concept-side{grid-column:2;grid-row:1;text-align:right}
-.concept-title{font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
-.concept-intro{font-size:1rem;line-height:1.78;color:var(--w60)}
-.concept-grid{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:1.25rem}
+.concept-side{grid-column:1;grid-row:1;text-align:left}
+.concept-grid{grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:1.25rem}
 .concept-card{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
 .concept-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.95rem;padding-bottom:.75rem;border-bottom:1px solid var(--w10);line-height:1.4}
 .concept-text{font-size:.88rem;line-height:1.72;color:var(--w60)}
@@ -537,9 +533,9 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <div class="audit-img" style="background-image:url('imagenes/Auditoria.png')"></div>
   </div>
   <div class="pcontent rv concept-layout" data-p="p2" data-s="3">
-    <div class="concept-side">
-      <h4 class="concept-title" data-t="p2.whyds.title">Why a Design System?</h4>
-      <p class="concept-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
+    <div class="pc-text concept-side">
+      <h4 data-t="p2.whyds.title">Why a Design System?</h4>
+      <p data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
     </div>
     <div class="concept-grid">
       <div class="concept-card">
