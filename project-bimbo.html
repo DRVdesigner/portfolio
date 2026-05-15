@@ -98,6 +98,15 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .user-role{color:var(--ink)}
 .ps-wrap .user-desc{color:#4D4D51}
 .ps-wrap .audit-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
+.ps-wrap .brand-intro{color:#4D4D51}
+.ps-wrap .brand-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
+.ps-wrap .nds-title{color:var(--ink)}
+.ps-wrap .nds-section{border-bottom-color:rgba(6,7,15,.1)}
+.ps-wrap .nds-label{color:var(--ink)}
+.ps-wrap .nds-chev{color:#7C7C7D}
+.ps-wrap .nds-plus{color:#7C7C7D}
+.ps-wrap .nds-desc{color:#4D4D51}
+.ps-wrap .nds-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
 .ps-wrap .vars-intro{color:#4D4D51}
 .ps-wrap .var-img{border-color:rgba(6,7,15,.1);background-color:rgba(6,7,15,.04)}
 .ps-wrap .var-label{color:var(--ink)}
@@ -158,7 +167,7 @@ nav.sc .nl a.act{color:var(--ink)}
 .pmock img{width:100%;height:auto;display:block;object-fit:cover}
 
 /* Metrics */
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem;max-width:640px}
 .metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
@@ -183,6 +192,52 @@ nav.sc .nl a.act{color:var(--ink)}
 /* Audit tab — single column with full-width image */
 .pcontent.vis.audit-layout{grid-template-columns:1fr;gap:2.25rem}
 .audit-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Branding tab — intro + 2 square images */
+.pcontent.brand-layout{display:grid;grid-template-columns:1fr;gap:2rem}
+.brand-intro{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.brand-img{width:100%;aspect-ratio:1/1;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* New Design System — showcase section */
+.nds{margin-top:4.5rem}
+.nds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:2.5rem;color:#fff}
+.nds-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--w10)}
+.nds-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.nds-summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:default;list-style:none;margin-bottom:1.25rem}
+.nds-summary::-webkit-details-marker{display:none}
+.nds-label{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2}
+.nds-chev{display:none;width:24px;height:24px;flex-shrink:0;transition:transform .3s ease;color:var(--w60)}
+.nds-plus{display:none;position:relative;width:16px;height:16px;flex-shrink:0;color:var(--w60)}
+.nds-plus-h, .nds-plus-v{position:absolute;background:currentColor;border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+.nds-plus-h{top:50%;left:0;right:0;height:2px;transform:translateY(-50%)}
+.nds-plus-v{left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%)}
+.nds-section[open] .nds-plus-v{transform:translateX(-50%) rotate(90deg);opacity:0}
+.nds-body{display:flex;flex-direction:column;gap:1.5rem}
+.nds-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
+.nds-img{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--w10);background-color:rgba(255,255,255,.03);background-size:cover;background-position:center;background-repeat:no-repeat;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
+.nds-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
+.nds-img::after{
+  content:'';
+  position:absolute;
+  top:.75rem;
+  right:.75rem;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background-color:rgba(6,7,15,.72);
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='11' y2='11'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:18px 18px;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  opacity:.85;
+  transition:opacity .25s ease,transform .25s ease;
+  pointer-events:none;
+  border:1px solid rgba(255,255,255,.18);
+}
+.nds-img:hover::after{opacity:1;transform:scale(1.06)}
 
 /* Variables tab — intro + 2x2 grid */
 .pcontent.vis.vars-layout{grid-template-columns:1fr;gap:2rem}
@@ -243,6 +298,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pcontent.vis{grid-template-columns:1fr}
   .pcontent.vis.users-grid{grid-template-columns:1fr}
   .vars-grid{grid-template-columns:1fr}
+  .brand-grid{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
   .okrs{grid-template-columns:1fr}
   .whyds{grid-template-columns:1fr;gap:2rem}
@@ -251,6 +307,18 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
+  /* New Design System — switch to accordion */
+  .nds-section{margin-bottom:0;padding:0;border-bottom:1px solid var(--w10)}
+  .nds-section:last-child{border-bottom:none}
+  .nds-section[open]{padding-bottom:1.5rem}
+  .nds-summary{cursor:pointer;padding:1.25rem 0;margin-bottom:0;user-select:none;-webkit-tap-highlight-color:transparent}
+  .nds-summary:hover .nds-label{color:var(--w60)}
+  .ps-wrap .nds-summary:hover .nds-label{color:#4D4D51}
+  .nds-chev{display:block}
+  .nds-plus{display:block}
+  .nds-section[open] .nds-chev{transform:rotate(180deg)}
+  .nds-body{padding-top:.25rem;animation:ndsExpand .35s ease}
+  @keyframes ndsExpand{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -269,9 +337,9 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 }
 
 /* Zoomable images — magnifying glass hint + cursor */
-.audit-img, .var-img{cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
-.audit-img:hover, .var-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
-.audit-img::after, .var-img::after{
+.audit-img, .var-img, .brand-img{cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
+.audit-img:hover, .var-img:hover, .brand-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
+.audit-img::after, .var-img::after, .brand-img::after{
   content:'';
   position:absolute;
   top:.75rem;
@@ -291,7 +359,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   pointer-events:none;
   border:1px solid rgba(255,255,255,.18);
 }
-.audit-img:hover::after, .var-img:hover::after{opacity:1;transform:scale(1.06)}
+.audit-img:hover::after, .var-img:hover::after, .brand-img:hover::after{opacity:1;transform:scale(1.06)}
 
 /* Lightbox dialog */
 .lb-dialog{padding:0;border:none;background:transparent;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;overflow:hidden}
@@ -423,7 +491,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <button class="ptab act" data-step="0" data-t="p2.t0">Users</button>
     <button class="ptab" data-step="1" data-t="p2.t1">Audit</button>
     <button class="ptab" data-step="2" data-t="p2.t2">Variables</button>
-    <button class="ptab" data-step="3" data-t="p2.t3">Documentation</button>
+    <button class="ptab" data-step="3" data-t="p2.t3">Branding</button>
   </div>
   <div class="pcontent vis rv users-grid" data-p="p2" data-s="0">
     <div class="user-card">
@@ -503,8 +571,65 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div>
     </div>
   </div>
-  <div class="pcontent" data-p="p2" data-s="3"><div class="pc-text"><h4 data-t="p2.s3h">Guidelines & Handoff</h4><p data-t="p2.s3p">Every component documented with usage rules, do/don't examples, and accessibility notes.</p><ul><li data-t="p2.s3l0">Documentation for all 80+ components</li><li data-t="p2.s3l1">Dev handoff specs and CSS variable export</li><li data-t="p2.s3l2">Onboarding guide for new team members</li></ul></div><div class="pmock mb"><div class="mu"><div class="mbar w60 hi"></div><div class="mcard"><div class="mbar w80" style="margin-bottom:.3rem"></div><div class="mbar w50"></div></div><div class="mcard"><div class="mbar w70" style="margin-bottom:.3rem"></div><div class="mbar w40"></div></div></div></div></div>
-  <div class="metrics rv"><div class="metric"><div class="mval">80+</div><div class="mlabel" data-t="p2.m0">Components built</div></div><div class="metric"><div class="mval">3</div><div class="mlabel" data-t="p2.m1">Products unified</div></div><div class="metric"><div class="mval">200+</div><div class="mlabel" data-t="p2.m2">Patterns resolved</div></div></div>
+  <div class="pcontent rv brand-layout" data-p="p2" data-s="3">
+    <p class="brand-intro" data-t="p2.s3p">A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.</p>
+    <div class="brand-grid">
+      <!-- ▼ IMAGENAQUI ▼ Branding1.png -->
+      <div class="brand-img" style="background-image:url('imagenes/Branding1.png')"></div>
+      <!-- ▼ IMAGENAQUI ▼ Branding2.png -->
+      <div class="brand-img" style="background-image:url('imagenes/Branding2.png')"></div>
+    </div>
+  </div>
+
+  <div class="nds rv">
+    <h3 class="nds-title" data-t="p2.nds.title">New Design System</h3>
+    <details class="nds-section" open>
+      <summary class="nds-summary">
+        <span class="nds-label" data-t="p2.nds.0t">Typography</span>
+        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
+      </summary>
+      <div class="nds-body">
+        <p class="nds-desc" data-t="p2.nds.0d">A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.</p>
+        <!-- ▼ IMAGENAQUI ▼ Typography.png -->
+        <div class="nds-img" style="background-image:url('imagenes/Typography.png')"></div>
+      </div>
+    </details>
+    <details class="nds-section" open>
+      <summary class="nds-summary">
+        <span class="nds-label" data-t="p2.nds.1t">Icons</span>
+        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
+      </summary>
+      <div class="nds-body">
+        <p class="nds-desc" data-t="p2.nds.1d">A custom icon library built specifically for the Design System — over 900 icons drawn with a shared visual language, consistent stroke weight, and clear meaning at every scale.</p>
+        <!-- ▼ IMAGENAQUI ▼ Icons.png -->
+        <div class="nds-img" style="background-image:url('imagenes/Icons.png')"></div>
+      </div>
+    </details>
+    <details class="nds-section" open>
+      <summary class="nds-summary">
+        <span class="nds-label" data-t="p2.nds.2t">Color</span>
+        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
+      </summary>
+      <div class="nds-body">
+        <p class="nds-desc" data-t="p2.nds.2d">A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.</p>
+        <!-- ▼ IMAGENAQUI ▼ Color.png -->
+        <div class="nds-img" style="background-image:url('imagenes/Color.png')"></div>
+      </div>
+    </details>
+    <details class="nds-section" open>
+      <summary class="nds-summary">
+        <span class="nds-label" data-t="p2.nds.3t">Components</span>
+        <span class="nds-plus" aria-hidden="true"><span class="nds-plus-h"></span><span class="nds-plus-v"></span></span>
+      </summary>
+      <div class="nds-body">
+        <p class="nds-desc" data-t="p2.nds.3d">More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.</p>
+        <!-- ▼ IMAGENAQUI ▼ Components.png -->
+        <div class="nds-img" style="background-image:url('imagenes/Components.png')"></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="metrics rv"><div class="metric"><div class="mval">80+</div><div class="mlabel" data-t="p2.m0">Components built</div></div><div class="metric"><div class="mval">900+</div><div class="mlabel" data-t="p2.m1">Icons included</div></div></div>
 
   <p class="proc-label" style="margin-top:4rem" data-t="p2.okr.label">Objectives & Key Results</p>
   <div class="okrs rv">
@@ -580,7 +705,7 @@ en:{
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
-  'p2.t0':'Users','p2.t1':'Audit','p2.t2':'Variables','p2.t3':'Documentation',
+  'p2.t0':'Users','p2.t1':'Audit','p2.t2':'Variables','p2.t3':'Branding',
   'p2.usr.0r':'Business Manager','p2.usr.0d':'Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Keeps a close look into seller performance and objectives. Organizes the local distribution of products.',
   'p2.usr.2r':'Seller','p2.usr.2d':"Door-to-door personnel in charge of delivering Bimbo's products to small neighborhood stores around Mexico.",
@@ -596,8 +721,13 @@ en:{
   'p2.var.1t':'Typography','p2.var.1d':'A defined type scale covering display, heading, body, and caption styles — each with its own size, weight, and line-height.',
   'p2.var.2t':'Spacing','p2.var.2d':'A consistent spacing scale that defines margins, paddings, and layout gaps to keep vertical rhythm uniform across screens.',
   'p2.var.3t':'Border','p2.var.3d':'Border widths and corner radii that shape the edges and rounded corners of every component across the system.',
-  'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
-  'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
+  'p2.s3p':"A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.",
+  'p2.nds.title':'New Design System',
+  'p2.nds.0t':'Typography','p2.nds.0d':"A defined typographic system that establishes hierarchy, readability, and personality across the entire product — chosen to feel close to Bimbo's brand voice while remaining functional in dense data screens.",
+  'p2.nds.1t':'Icons','p2.nds.1d':'A custom icon library built specifically for the Design System — over 900 icons drawn with a shared visual language, consistent stroke weight, and clear meaning at every scale.',
+  'p2.nds.2t':'Color','p2.nds.2d':"A semantic color palette derived from Bimbo's brand guidelines — with carefully curated grays for surfaces, content, and borders, validated for contrast and accessibility in real field conditions.",
+  'p2.nds.3t':'Components','p2.nds.3d':'More than 80 production-ready components covering every recurring UI pattern in the product — each with its states, variants, and accessibility specs baked in from the start.',
+  'p2.m0':'Components built','p2.m1':'Icons included',
   'p2.okr.label':'Objectives & Key Results',
   'p2.okr.0t':'Improve satisfaction and efficiency','p2.okr.0c':'Develop and roll out the first version of the Design System in the MarketMap app by the end of Q2, and reach a strong level of satisfaction among its users.','p2.okr.0k0':'System Usability Scale',
   'p2.okr.1t':'Reduce time to market','p2.okr.1c':'Cut new-feature development time by 30% by reusing design system components, with the goal achieved by Q3 2025.','p2.okr.1k0':'Sprint duration','p2.okr.1k1':'Handoff time',
@@ -631,7 +761,7 @@ es:{
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
-  'p2.t0':'Usuarios','p2.t1':'Auditoría','p2.t2':'Variables','p2.t3':'Documentación',
+  'p2.t0':'Usuarios','p2.t1':'Auditoría','p2.t2':'Variables','p2.t3':'Branding',
   'p2.usr.0r':'Gerente de Negocio','p2.usr.0d':'Hace seguimiento de la demanda de productos Bimbo en la región y coordina los esfuerzos en la producción de la fábrica y la publicidad de los productos.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Vigila de cerca el desempeño y los objetivos de los vendedores. Organiza la distribución local de los productos.',
   'p2.usr.2r':'Vendedor','p2.usr.2d':'Personal puerta a puerta encargado de entregar los productos de Bimbo a pequeñas tiendas de barrio en todo México.',
@@ -647,8 +777,13 @@ es:{
   'p2.var.1t':'Tipografía','p2.var.1d':'Una escala tipográfica definida que cubre estilos de display, heading, body y caption — cada uno con su tamaño, peso y line-height.',
   'p2.var.2t':'Espaciado','p2.var.2d':'Una escala de espaciado consistente que define márgenes, paddings y separaciones de layout para mantener un ritmo vertical uniforme entre pantallas.',
   'p2.var.3t':'Borde','p2.var.3d':'Anchos de borde y radios de esquina que dan forma a los bordes y esquinas redondeadas de cada componente del sistema.',
-  'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
-  'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
+  'p2.s3p':'Se creó una nueva identidad gráfica que va acorde al lenguaje visual utilizado por Bimbo. De esta forma, logramos una cohesión entre este producto y el universo de marca.',
+  'p2.nds.title':'Nuevo Design System',
+  'p2.nds.0t':'Tipografía','p2.nds.0d':'Un sistema tipográfico definido que establece jerarquía, legibilidad y personalidad en todo el producto — elegido para sentirse cercano a la voz de marca de Bimbo y al mismo tiempo funcional en pantallas con alta densidad de datos.',
+  'p2.nds.1t':'Iconos','p2.nds.1d':'Una librería de iconos personalizada creada específicamente para el Design System — más de 900 iconos dibujados con un lenguaje visual compartido, grosor de trazo consistente y significado claro a cualquier tamaño.',
+  'p2.nds.2t':'Color','p2.nds.2d':'Una paleta de color semántica derivada de los lineamientos de marca de Bimbo — con grises cuidadosamente seleccionados para superficies, contenido y bordes, validados para contraste y accesibilidad en condiciones reales de campo.',
+  'p2.nds.3t':'Componentes','p2.nds.3d':'Más de 80 componentes listos para producción que cubren cada patrón de UI recurrente en el producto — cada uno con sus estados, variantes y specs de accesibilidad incorporados desde el inicio.',
+  'p2.m0':'Componentes construidos','p2.m1':'Iconos incluidos',
   'p2.okr.label':'Objetivos y Resultados Clave',
   'p2.okr.0t':'Mejorar la satisfacción y eficiencia','p2.okr.0c':'Desarrollar y aplicar la primera versión del Design System en la app de MarketMap a finales del Q2 y obtener un buen nivel de satisfacción por parte de los usuarios.','p2.okr.0k0':'System Usability Scale',
   'p2.okr.1t':'Reducir el time to market','p2.okr.1c':'Reducir el tiempo de desarrollo de nuevas features en un 30% gracias a la reutilización de componentes del design system para el Q3 de 2025.','p2.okr.1k0':'Duración de los sprints','p2.okr.1k1':'Tiempo de handoff',
@@ -740,7 +875,7 @@ setL('en');
     document.body.style.overflow='';
   }
 
-  document.querySelectorAll('.audit-img, .var-img').forEach(el=>{
+  document.querySelectorAll('.audit-img, .var-img, .brand-img, .nds-img').forEach(el=>{
     el.addEventListener('click',()=>openLB(el));
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
@@ -750,6 +885,32 @@ setL('en');
   /* Click on backdrop (outside image) closes */
   lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-wrap'))closeLB();});
   lb.addEventListener('close',()=>{document.body.style.overflow='';});
+})();
+
+/* New Design System — accordion behavior on mobile */
+(function(){
+  const sections=document.querySelectorAll('.nds-section');
+  if(!sections.length)return;
+  const mq=window.matchMedia('(max-width:900px)');
+  function applyMode(){
+    if(mq.matches){
+      /* Mobile: only first section open */
+      sections.forEach((s,i)=>{s.open=(i===0);});
+    } else {
+      /* Desktop: all open */
+      sections.forEach(s=>{s.open=true;});
+    }
+  }
+  applyMode();
+  if(mq.addEventListener)mq.addEventListener('change',applyMode);
+  else if(mq.addListener)mq.addListener(applyMode);
+  /* On mobile, accordion: opening one closes the others */
+  sections.forEach(s=>{
+    s.addEventListener('toggle',()=>{
+      if(!mq.matches||!s.open)return;
+      sections.forEach(o=>{if(o!==s)o.open=false;});
+    });
+  });
 })();
 </script>
 </body>
