@@ -203,7 +203,7 @@ nav.sc .nl a.act{color:var(--ink)}
 .nds-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:none;cursor:default;font-family:var(--font);text-align:left;padding:0;color:inherit;margin-bottom:1.25rem}
 .nds-label{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2}
 .nds-plus{display:none}
-.nds-body{}
+.nds-body{max-height:none;overflow:visible}
 .nds-content{display:flex;flex-direction:column;gap:1.5rem}
 .nds-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
 .nds-img{width:100%;aspect-ratio:16/9;border-radius:12px;background-color:transparent;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
@@ -435,7 +435,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <a href="project-nissan.html" class="pnb" data-t="pn.p1">Nissan</a>
     <a href="project-bimbo.html" class="pnb act" data-t="pn.p2">Bimbo</a>
     <a href="project-google.html" class="pnb" data-t="pn.p3">Google</a>
-    <a href="project-lacalera.html" class="pnb" data-t="pn.p4">La Calera</a>
   </div>
 </div>
 
@@ -658,12 +657,12 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       <div class="showcase-side-img" style="background-image:url('imagenes/Bimbologo1.png')" aria-hidden="true"></div>
       <div class="phone-frame">
         <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-          <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
-          <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp1.png')"></div>
           <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
-          <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp2.png')"></div>
-          <span class="cmp-label cmp-label-before" data-t="p2.show.after">After</span>
-          <span class="cmp-label cmp-label-after" data-t="p2.show.before">Before</span>
+          <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp2.png')"></div>
+          <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
+          <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp1.png')"></div>
+          <span class="cmp-label cmp-label-before" data-t="p2.show.before">Before</span>
+          <span class="cmp-label cmp-label-after" data-t="p2.show.after">After</span>
           <div class="cmp-handle" aria-hidden="true">
             <div class="cmp-handle-knob">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -745,7 +744,7 @@ const T={
 en:{
   'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV',
   'page.ey':'Selected Work','page.title':'Projects','page.sub':'End-to-end design process — from discovery and research to final delivery.',
-  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google',
   'proc.label':'Design Process',
   'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
   'p1.t0':'Discovery','p1.t1':'User Research','p1.t2':'Wireframes','p1.t3':'Visual Design',
@@ -803,7 +802,7 @@ en:{
 es:{
   'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
   'page.ey':'Trabajos Seleccionados','page.title':'Proyectos','page.sub':'Proceso end-to-end — desde el descubrimiento hasta la entrega final.',
-  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google',
   'proc.label':'Proceso de Diseño',
   'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
   'p1.t0':'Descubrimiento','p1.t1':'Investigación','p1.t2':'Wireframes','p1.t3':'Diseño Visual',
@@ -981,12 +980,14 @@ setL('en');
   if(!sections.length)return;
   const mq=window.matchMedia('(max-width:900px)');
 
-  /* On mobile: only first item open. On desktop: all open (state irrelevant since CSS shows everything). */
+  /* On mobile: only first item open. On desktop: all sections always open. */
   function applyMode(){
     if(mq.matches){
       sections.forEach((s,i)=>{
         s.classList.toggle('op',i===0);
       });
+    } else {
+      sections.forEach(s=>s.classList.add('op'));
     }
   }
   applyMode();
