@@ -164,7 +164,7 @@ nav.sc .nl a.act{color:var(--ink)}
 
 /* Metrics */
 .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem;max-width:640px;margin-left:auto;margin-right:auto}
-.metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);text-align:center}
+.metric{padding:64px 1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);text-align:center}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
 
@@ -520,8 +520,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         <li data-t="p2.s_res_l4">Pain points mapped, prioritized, and validated</li>
       </ul>
     </div>
-    <!-- ▼ IMAGENAQUI ▼ Research.png -->
-    <div class="audit-img" style="background-image:url('imagenes/Research.png')"></div>
   </div>
   <div class="pcontent rv audit-layout" data-p="p2" data-s="2">
     <div class="pc-text">
@@ -558,7 +556,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div>
     </div>
   </div>
-  <div class="nds rv">
+  <div class="nds">
     <h3 class="nds-title" data-t="p2.nds.title">Market MAP Design System</h3>
     <div class="nds-section">
       <button class="nds-head" type="button">
@@ -901,7 +899,7 @@ if(procTabs){
   });
 }
 
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.01});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 setL('en');
 
