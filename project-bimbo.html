@@ -981,24 +981,7 @@ setL('en');
   /* On mobile: only first item open. On desktop: all sections always open. */
   function applyMode(){
     if(mq.matches){
-      sections.forEach((s,i)=>{
-        s.classList.toggle('op',i===0);
-      });
-    } else {
-      sections.forEach(s=>s.classList.add('op'));
-    }
-  }
-  applyMode();
-  if(mq.addEventListener)mq.addEventListener('change',applyMode);
-  else if(mq.addListener)mq.addListener(applyMode);
-
-  /* Click on .nds-head: close all then open clicked (or close if already open) — exactly like index_1_.html */
-  sections.forEach(s=>{
-    const head=s.querySelector('.nds-head');
-    if(!head)return;
-    head.addEventListener('click',()=>{
-      if(!mq.matches)return; /* Desktop: no-op, everything is already visible via CSS */
-      const isOpen=s.classList.contains('op');
+   
       sections.forEach(i=>i.classList.remove('op'));
       if(!isOpen){
         s.classList.add('op');
