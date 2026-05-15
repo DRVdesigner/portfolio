@@ -129,6 +129,13 @@ nav.sc .ham span{background:var(--ink)}
 .ac-desc p strong{color:#fff;font-weight:700}
 .ac-more{display:inline-flex;align-items:center;padding:.68rem 1.4rem;border-radius:100px;background:#fff;color:var(--ink);font-size:.82rem;font-weight:700;font-family:var(--font);cursor:pointer;border:none;transition:all .2s;width:fit-content}
 .ac-more:hover{background:rgba(255,255,255,.88)}
+/* Coming soon placeholder */
+.ac-soon .ach{cursor:default}
+.ac-soon .acbig{color:rgba(6,7,15,.32)}
+.ac-soon .accat{color:rgba(6,7,15,.4)}
+.ac-soon .act2{color:rgba(6,7,15,.5);font-weight:700}
+.ac-soon .ac-plus{border-style:dashed;border-color:rgba(6,7,15,.25)}
+.ac-soon .ach:hover .ac-plus{opacity:1}
 
 /* ── CONTACT ── */
 .ct{background:radial-gradient(ellipse 45% 140% at 0% 50%,rgba(33,51,255,.3) 0%,transparent 60%),radial-gradient(ellipse 35% 60% at 5% 90%,rgba(191,252,0,.6) 0%,transparent 55%),radial-gradient(ellipse 50% 80% at 100% 50%,rgba(33,51,255,.55) 0%,rgba(33,51,255,.25) 40%,transparent 65%),radial-gradient(ellipse 40% 50% at 95% 5%,rgba(33,51,255,.35) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 50% 0%,rgba(33,51,255,.15) 0%,transparent 60%),#000323;padding:8rem var(--pad);text-align:center}
@@ -324,6 +331,20 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div></div>
     </div>
 
+    <!-- Coming soon placeholder — non-interactive teaser for future projects -->
+    <div class="ac ac-soon">
+      <div class="ach">
+        <span class="acbig">04</span>
+        <div class="aci-wrap"><p class="accat" data-t="soon.cat">Coming soon</p><h3 class="act2" data-t="soon.title">More projects in the works</h3></div>
+        <div class="ac-plus ac-soon-icon">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="7" cy="7" r="5.5" stroke="rgba(6,7,15,.45)" stroke-width="1.4" stroke-dasharray="2 2"/>
+            <path d="M7 4v3.2l2 1.4" stroke="rgba(6,7,15,.45)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -368,6 +389,7 @@ const T={
     'p2.cat':'Design System ·','p2.title':'Bimbo Mexico','p2.desc':"Design studio engagement for Grupo Bimbo's Mexico division — <strong>crafting a scalable design system and visual language for one of the world's largest bakery companies.</strong>",
     'p3.cat':'Dashboard Design · UX Architecture','p3.title':'Orion by Google','p3.desc':'I led the information architecture and <strong>complete dashboard design, ensuring clarity, visual hierarchy, and optimal usability for end users.</strong> I developed the UI kit and component system that standardized design across the platform.',
     'p4.cat':'Ui design · UX design','p4.title':'La Calera','p4.desc':'Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong>',
+    'soon.cat':'Coming soon','soon.title':'More projects in the works',
     'ct.ey':"Let's talk",'ct.h':'Ready to build<br>something great?','ct.sub':'Available for full-time roles, freelance projects and consulting. Remote-ready from São Paulo, Brazil.',
     'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.about':'About','foot.proj':'Projects'
   },
@@ -384,6 +406,7 @@ const T={
     'p2.cat':'Sistema de Diseño ·','p2.title':'Bimbo Mexico','p2.desc':"Proyecto para Grupo Bimbo México — <strong>creando un sistema de diseño escalable para una de las empresas panificadoras más grandes del mundo.</strong>",
     'p3.cat':'Dashboard Design · UX Architecture','p3.title':'Orion by Google','p3.desc':'Lideré la arquitectura de información y el <strong>diseño completo del dashboard, asegurando claridad, jerarquía visual y usabilidad óptima.</strong> Desarrollé el UI kit y sistema de componentes.',
     'p4.cat':'Ui design · UX design','p4.title':'La Calera','p4.desc':'Identidad de marca completa para La Calera — <strong>desde el logo y lenguaje de color hasta los componentes de game UI.</strong>',
+    'soon.cat':'Próximamente','soon.title':'Más proyectos en desarrollo',
     'ct.ey':'Hablemos','ct.h':'¿Listo para construir<br>algo increíble?','ct.sub':'Disponible para roles full-time, freelance y consultoría. Remote-ready desde São Paulo, Brazil.',
     'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.about':'Sobre mí','foot.proj':'Proyectos'
   }
@@ -445,23 +468,35 @@ function positionMobileChips(){
   const bottomBoundary=cRect.bottom-hRect.top+10; // 10px below text block
   const chipEls=[...document.querySelectorAll('.hchip')];
   const ROW=36; // vertical step between chips in same zone
-  const RIGHT_EDGE=30; // px from viewport right edge for right-side chips
-  // Top zone: 5 chips stacked upward from topBoundary
-  // null = anchor to right edge (RIGHT_EDGE px from viewport right)
-  const topLeft=[127, null, 110, null, 190];
+  // Symmetric layout — each L chip has an R chip at the mirrored offset.
+  // Use % so chips stay balanced around viewport center on any phone width.
+  // Format: {side:'L'|'R', off:'X%'}
+  // Top zone chips: 0 Illustrator(L), 1 Design Systems(R), 2 Claude(L), 3 UX Research(R), 4 Adobe XD(L)
+  const topPos=[
+    {side:'L',off:'7%'},   // i=0 mirrors bottom slice 3
+    {side:'R',off:'7%'},   // i=1 mirrors bottom slice 4
+    {side:'L',off:'18%'},  // i=2 mirrors bottom slice 1
+    {side:'R',off:'18%'},  // i=3 mirrors bottom slice 2
+    {side:'L',off:'30%'},  // i=4 mirrors bottom slice 0
+  ];
   chipEls.slice(0,5).forEach((el,i)=>{
     el.style.top=(topBoundary-ROW*(i+1))+'px';
-    if(topLeft[i]===null){el.style.left='auto';el.style.right=RIGHT_EDGE+'px';}
-    else{el.style.left=topLeft[i]+'px';el.style.right='auto';}
+    if(topPos[i].side==='L'){el.style.left=topPos[i].off;el.style.right='auto';}
+    else{el.style.left='auto';el.style.right=topPos[i].off;}
   });
-  // Bottom zone: 5 chips stacked downward from bottomBoundary
-  // null = anchor to right edge (RIGHT_EDGE px from viewport right)
-  const botLeft=[175, 117, null, 125, null];
+  // Bottom zone chips: 5 Figma(R), 6 Photoshop(L), 7 Prototyping(R), 8 Premiere(L), 9 Interaction Design(R)
+  const botPos=[
+    {side:'R',off:'30%'},  // slice 0 mirrors top i=4
+    {side:'L',off:'18%'},  // slice 1 mirrors top i=2
+    {side:'R',off:'18%'},  // slice 2 mirrors top i=3
+    {side:'L',off:'7%'},   // slice 3 mirrors top i=0
+    {side:'R',off:'7%'},   // slice 4 mirrors top i=1
+  ];
   const botTopOff=[-20, 4, 4, 4, 4]; // per-chip vertical adjustment (Figma -20px up)
   chipEls.slice(5).forEach((el,i)=>{
     el.style.top=(bottomBoundary+ROW*i+botTopOff[i])+'px';
-    if(botLeft[i]===null){el.style.left='auto';el.style.right=RIGHT_EDGE+'px';}
-    else{el.style.left=botLeft[i]+'px';el.style.right='auto';}
+    if(botPos[i].side==='L'){el.style.left=botPos[i].off;el.style.right='auto';}
+    else{el.style.left='auto';el.style.right=botPos[i].off;}
   });
 }
 window.addEventListener('load',positionMobileChips);
@@ -470,7 +505,9 @@ window.addEventListener('resize',positionMobileChips,{passive:true});
 /* Accordion */
 document.getElementById('acc-list').addEventListener('click',e=>{
   const head=e.target.closest('.ach');if(!head)return;
-  const item=e.target.closest('.ac'),isOpen=item.classList.contains('op');
+  const item=e.target.closest('.ac');
+  if(item.classList.contains('ac-soon'))return; // skip placeholder items
+  const isOpen=item.classList.contains('op');
   document.querySelectorAll('.ac').forEach(i=>i.classList.remove('op'));
   if(!isOpen){item.classList.add('op');setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'nearest'}),60);}
 });
