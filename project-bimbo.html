@@ -89,11 +89,11 @@ nav.sc .nl a.act{color:var(--ink)}
 .ps-wrap .metric{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
 .ps-wrap .mval{color:var(--ink)}
 .ps-wrap .mlabel{color:#7C7C7D}
-.ps-wrap .whyds-title{color:var(--ink)}
-.ps-wrap .whyds-intro{color:#4D4D51}
-.ps-wrap .whyds-card{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
-.ps-wrap .whyds-label{color:var(--ink);border-bottom-color:rgba(6,7,15,.1)}
-.ps-wrap .whyds-text{color:#4D4D51}
+.ps-wrap .concept-title{color:var(--ink)}
+.ps-wrap .concept-intro{color:#4D4D51}
+.ps-wrap .concept-card{border-color:rgba(6,7,15,.1);background:rgba(6,7,15,.03)}
+.ps-wrap .concept-label{color:var(--ink);border-bottom-color:rgba(6,7,15,.1)}
+.ps-wrap .concept-text{color:#4D4D51}
 .ps-wrap .user-role{color:var(--ink)}
 .ps-wrap .user-desc{color:#4D4D51}
 .ps-wrap .brand-intro{color:#4D4D51}
@@ -163,20 +163,20 @@ nav.sc .nl a.act{color:var(--ink)}
 .pmock img{width:100%;height:auto;display:block;object-fit:cover}
 
 /* Metrics */
-.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem;max-width:640px}
-.metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:3.5rem;max-width:640px;margin-left:auto;margin-right:auto}
+.metric{padding:1.5rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03);text-align:center}
 .mval{font-size:2.2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.4rem}
 .mlabel{font-size:.8rem;color:var(--w40);line-height:1.45}
 
-/* Why a Design System */
-.whyds{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:7rem;margin-bottom:6rem}
-.whyds-side{grid-column:2;grid-row:1;text-align:right}
-.whyds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
-.whyds-intro{font-size:1rem;line-height:1.78;color:var(--w60)}
-.whyds-grid{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:1.25rem}
-.whyds-card{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
-.whyds-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.95rem;padding-bottom:.75rem;border-bottom:1px solid var(--w10);line-height:1.4}
-.whyds-text{font-size:.88rem;line-height:1.72;color:var(--w60)}
+/* Concept tab — Why a Design System (3 cards left + text right) */
+.pcontent.vis.concept-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.concept-side{grid-column:2;grid-row:1;text-align:right}
+.concept-title{font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
+.concept-intro{font-size:1rem;line-height:1.78;color:var(--w60)}
+.concept-grid{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:1.25rem}
+.concept-card{padding:1.75rem;border:1px solid var(--w10);border-radius:12px;background:rgba(255,255,255,.03)}
+.concept-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:.95rem;padding-bottom:.75rem;border-bottom:1px solid var(--w10);line-height:1.4}
+.concept-text{font-size:.88rem;line-height:1.72;color:var(--w60)}
 
 /* Users tab — special 3-column layout */
 .pcontent.vis.users-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -293,9 +293,11 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .brand-img{flex:0 1 40%}
   .metrics{grid-template-columns:1fr 1fr}
   .okrs{grid-template-columns:1fr}
-  .whyds{grid-template-columns:1fr;gap:2rem}
-  .whyds-side{grid-column:auto;grid-row:auto;text-align:left}
-  .whyds-grid{grid-column:auto;grid-row:auto}
+  .pcontent.vis.concept-layout{grid-template-columns:1fr;gap:2rem}
+  .concept-side{grid-column:auto;grid-row:auto;text-align:left}
+  .concept-grid{grid-column:auto;grid-row:auto}
+  .showcase-side-img{display:none}
+  .showcase-row{gap:0}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
@@ -352,10 +354,12 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 .audit-img:hover::after, .var-img:hover::after, .brand-img:hover::after{opacity:1;transform:scale(1.06)}
 
 /* Showcase — Before/After in phone frame */
-.showcase{margin-top:5.5rem;margin-bottom:1.5rem}
+.showcase{margin-top:5.5rem;margin-bottom:1.5rem;text-align:center}
 .showcase-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:1.25rem;color:#fff}
-.showcase-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px;margin-bottom:2.5rem}
-.phone-frame{position:relative;width:100%;max-width:380px;margin:0 auto;aspect-ratio:360/628;border-radius:36px;padding:14px;background:linear-gradient(160deg,#1a1a20 0%,#0a0a0e 100%);box-shadow:0 18px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
+.showcase-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px;margin:0 auto 2.5rem}
+.showcase-row{display:flex;align-items:center;justify-content:center;gap:3rem;max-width:1100px;margin:0 auto}
+.showcase-side-img{flex:0 0 200px;aspect-ratio:1/1;background-size:contain;background-position:center;background-repeat:no-repeat}
+.phone-frame{position:relative;width:100%;max-width:380px;flex:0 0 auto;aspect-ratio:360/628;border-radius:36px;padding:14px;background:linear-gradient(160deg,#1a1a20 0%,#0a0a0e 100%);box-shadow:0 18px 60px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.05);overflow:hidden}
 .phone-frame::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:35%;height:18px;background:#0a0a0e;border-radius:0 0 12px 12px;z-index:5}
 .cmp{position:relative;width:100%;height:100%;overflow:hidden;border-radius:22px;background:rgba(255,255,255,.02);user-select:none;-webkit-user-select:none;--pos:50%;cursor:ew-resize;touch-action:none}
 .cmp-img{position:absolute;inset:0;background-size:cover;background-position:center;pointer-events:none}
@@ -472,32 +476,12 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <div class="ocontent" data-op="p2" data-os="2"><p class="ov-text">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p></div>
   </div>
 
-  <div class="whyds rv">
-    <div class="whyds-side">
-      <h3 class="whyds-title" data-t="p2.whyds.title">Why a Design System?</h3>
-      <p class="whyds-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
-    </div>
-    <div class="whyds-grid">
-      <div class="whyds-card">
-        <p class="whyds-label" data-t="p2.whyds.0t">Visual consistency and functionality</p>
-        <p class="whyds-text" data-t="p2.whyds.0d">It sets clear rules for components, ensuring that all interface elements are consistent across the interface.</p>
-      </div>
-      <div class="whyds-card">
-        <p class="whyds-label" data-t="p2.whyds.1t">Team collaboration</p>
-        <p class="whyds-text" data-t="p2.whyds.1d">Reduce misunderstandings and ensure that all project members work with the same guidelines.</p>
-      </div>
-      <div class="whyds-card">
-        <p class="whyds-label" data-t="p2.whyds.2t">Save time and resources</p>
-        <p class="whyds-text" data-t="p2.whyds.2d">In the long run, a DS reduces the time spent on design and development decisions.</p>
-      </div>
-    </div>
-  </div>
-
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
   <div class="proc-tabs" id="tabs-p2">
     <button class="ptab act" data-step="0" data-t="p2.t0">Users</button>
     <button class="ptab" data-step="1" data-t="p2.t1">Research</button>
     <button class="ptab" data-step="2" data-t="p2.t2">Audit</button>
+    <button class="ptab" data-step="3" data-t="p2.t3">Concept</button>
   </div>
   <div class="pcontent vis rv users-grid" data-p="p2" data-s="0">
     <div class="user-card">
@@ -530,9 +514,11 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       <h4 data-t="p2.s_res_h">Research</h4>
       <p data-t="p2.s_res_p">Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.</p>
       <ul>
-        <li data-t="p2.s_res_l0">Field shadowing with 12 sellers across 4 regions</li>
-        <li data-t="p2.s_res_l1">In-depth interviews with supervisors and business managers</li>
-        <li data-t="p2.s_res_l2">Pain points mapped, prioritized, and validated</li>
+        <li data-t="p2.s_res_l0">Field shadowing with 12 sellers across Ciudad de Mexico</li>
+        <li data-t="p2.s_res_l1">In-depth interviews with supervisors and the sellers</li>
+        <li data-t="p2.s_res_l2">Found issues with the accessibility of the interfaces when used in sunny environments and old equipment</li>
+        <li data-t="p2.s_res_l3">Mapped the screen specifications of the tablets and phones used by the sellers</li>
+        <li data-t="p2.s_res_l4">Pain points mapped, prioritized, and validated</li>
       </ul>
     </div>
     <!-- ▼ IMAGENAQUI ▼ Research.png -->
@@ -552,6 +538,26 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     </div>
     <!-- ▼ IMAGENAQUI ▼ Auditoria.png -->
     <div class="audit-img" style="background-image:url('imagenes/Auditoria.png')"></div>
+  </div>
+  <div class="pcontent rv concept-layout" data-p="p2" data-s="3">
+    <div class="concept-side">
+      <h4 class="concept-title" data-t="p2.whyds.title">Why a Design System?</h4>
+      <p class="concept-intro" data-t="p2.whyds.intro">It is a comprehensive system that contains design principles, components, interaction patterns, organization, and documentation to ensure the consistency and scalability of a digital product or family of products.</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <p class="concept-label" data-t="p2.whyds.0t">Visual consistency and functionality</p>
+        <p class="concept-text" data-t="p2.whyds.0d">It sets clear rules for components, ensuring that all interface elements are consistent across the interface.</p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-label" data-t="p2.whyds.1t">Team collaboration</p>
+        <p class="concept-text" data-t="p2.whyds.1d">Reduce misunderstandings and ensure that all project members work with the same guidelines.</p>
+      </div>
+      <div class="concept-card">
+        <p class="concept-label" data-t="p2.whyds.2t">Save time and resources</p>
+        <p class="concept-text" data-t="p2.whyds.2d">In the long run, a DS reduces the time spent on design and development decisions.</p>
+      </div>
+    </div>
   </div>
   <div class="nds rv">
     <h3 class="nds-title" data-t="p2.nds.title">Market MAP Design System</h3>
@@ -641,51 +647,35 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         </div>
       </div>
     </div>
-    <div class="nds-section">
-      <button class="nds-head" type="button">
-        <span class="nds-label" data-t="p2.nds.3t">Branding</span>
-        <div class="nds-plus" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-      </button>
-      <div class="nds-body">
-        <div class="nds-content">
-          <p class="nds-desc" data-t="p2.nds.3d">A new graphic identity was created to align with Bimbo's visual language, achieving cohesion between this product and the broader brand universe.</p>
-          <div class="brand-grid">
-            <!-- ▼ IMAGENAQUI ▼ Bimbologo1.png -->
-            <div class="brand-img" style="background-image:url('imagenes/Bimbologo1.png')"></div>
-            <!-- ▼ IMAGENAQUI ▼ Bimbologo2.png -->
-            <div class="brand-img" style="background-image:url('imagenes/Bimbologo2.png')"></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="showcase rv">
     <p class="proc-label" style="margin-top:1rem" data-t="p2.show.label">Showcase</p>
     <h3 class="showcase-title" data-t="p2.show.title">Before & After</h3>
     <p class="showcase-desc" data-t="p2.show.desc">A side-by-side comparison of how the app looked before the Design System, and how it looks after — drag the handle to reveal each version.</p>
-    <div class="phone-frame">
-      <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-        <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
-        <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp1.png')"></div>
-        <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
-        <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp2.png')"></div>
-        <span class="cmp-label cmp-label-before" data-t="p2.show.after">After</span>
-        <span class="cmp-label cmp-label-after" data-t="p2.show.before">Before</span>
-        <div class="cmp-handle" aria-hidden="true">
-          <div class="cmp-handle-knob">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 6 4 12 9 18"/>
-              <polyline points="15 6 20 12 15 18"/>
-            </svg>
+    <div class="showcase-row">
+      <!-- ▼ IMAGENAQUI ▼ Bimbologo1.png -->
+      <div class="showcase-side-img" style="background-image:url('imagenes/Bimbologo1.png')" aria-hidden="true"></div>
+      <div class="phone-frame">
+        <div class="cmp" id="cmp-bimbo" role="slider" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+          <!-- ▼ IMAGENAQUI ▼ Bimboapp1.png -->
+          <div class="cmp-img cmp-after" style="background-image:url('imagenes/Bimboapp1.png')"></div>
+          <!-- ▼ IMAGENAQUI ▼ Bimboapp2.png -->
+          <div class="cmp-img cmp-before" style="background-image:url('imagenes/Bimboapp2.png')"></div>
+          <span class="cmp-label cmp-label-before" data-t="p2.show.after">After</span>
+          <span class="cmp-label cmp-label-after" data-t="p2.show.before">Before</span>
+          <div class="cmp-handle" aria-hidden="true">
+            <div class="cmp-handle-knob">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 6 4 12 9 18"/>
+                <polyline points="15 6 20 12 15 18"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
+      <!-- ▼ IMAGENAQUI ▼ Bimbologo2.png -->
+      <div class="showcase-side-img" style="background-image:url('imagenes/Bimbologo2.png')" aria-hidden="true"></div>
     </div>
   </div>
 
@@ -765,8 +755,8 @@ en:{
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
-  'p2.t0':'Users','p2.t1':'Research','p2.t2':'Audit',
-  'p2.s_res_h':'Research','p2.s_res_p':"Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.",'p2.s_res_l0':'Field shadowing with 12 sellers across 4 regions','p2.s_res_l1':'In-depth interviews with supervisors and business managers','p2.s_res_l2':'Pain points mapped, prioritized, and validated',
+  'p2.t0':'Users','p2.t1':'Research','p2.t2':'Audit','p2.t3':'Concept',
+  'p2.s_res_h':'Research','p2.s_res_p':"Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.",'p2.s_res_l0':'Field shadowing with 12 sellers across Ciudad de Mexico','p2.s_res_l1':'In-depth interviews with supervisors and the sellers','p2.s_res_l2':'Found issues with the accessibility of the interfaces when used in sunny environments and old equipment','p2.s_res_l3':'Mapped the screen specifications of the tablets and phones used by the sellers','p2.s_res_l4':'Pain points mapped, prioritized, and validated',
   'p2.usr.0r':'Business Manager','p2.usr.0d':'Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Keeps a close look into seller performance and objectives. Organizes the local distribution of products.',
   'p2.usr.2r':'Seller','p2.usr.2d':"Door-to-door personnel in charge of delivering Bimbo's products to small neighborhood stores around Mexico.",
@@ -823,8 +813,8 @@ es:{
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
-  'p2.t0':'Usuarios','p2.t1':'Research','p2.t2':'Auditoría',
-  'p2.s_res_h':'Research','p2.s_res_p':'Investigación de campo con vendedores, supervisores y gerentes en múltiples regiones. Acompañamos rutas de reparto, observamos la app en condiciones reales al aire libre y realizamos entrevistas 1 a 1 para identificar los puntos de fricción que no se veían desde la oficina.','p2.s_res_l0':'Field shadowing con 12 vendedores en 4 regiones','p2.s_res_l1':'Entrevistas en profundidad con supervisores y gerentes','p2.s_res_l2':'Pain points mapeados, priorizados y validados',
+  'p2.t0':'Usuarios','p2.t1':'Research','p2.t2':'Auditoría','p2.t3':'Concepto',
+  'p2.s_res_h':'Research','p2.s_res_p':'Investigación de campo con vendedores, supervisores y gerentes en múltiples regiones. Acompañamos rutas de reparto, observamos la app en condiciones reales al aire libre y realizamos entrevistas 1 a 1 para identificar los puntos de fricción que no se veían desde la oficina.','p2.s_res_l0':'Field shadowing con 12 vendedores en Ciudad de México','p2.s_res_l1':'Entrevistas en profundidad con supervisores y vendedores','p2.s_res_l2':'Detectamos problemas de accesibilidad de las interfaces en ambientes soleados y con equipos antiguos','p2.s_res_l3':'Mapeo de las especificaciones de pantalla de las tablets y celulares utilizados por los vendedores','p2.s_res_l4':'Pain points mapeados, priorizados y validados',
   'p2.usr.0r':'Gerente de Negocio','p2.usr.0d':'Hace seguimiento de la demanda de productos Bimbo en la región y coordina los esfuerzos en la producción de la fábrica y la publicidad de los productos.',
   'p2.usr.1r':'Supervisor','p2.usr.1d':'Vigila de cerca el desempeño y los objetivos de los vendedores. Organiza la distribución local de los productos.',
   'p2.usr.2r':'Vendedor','p2.usr.2d':'Personal puerta a puerta encargado de entregar los productos de Bimbo a pequeñas tiendas de barrio en todo México.',
