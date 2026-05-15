@@ -324,23 +324,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       </div></div>
     </div>
 
-    <div class="ac">
-      <button class="ach">
-        <span class="acbig">04</span>
-        <div class="aci-wrap"><p class="accat" data-t="p4.cat">Ui design · UX design</p><h3 class="act2" data-t="p4.title">La Calera</h3></div>
-        <div class="ac-plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><line x1="6" y1="0" x2="6" y2="12" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/><line x1="0" y1="6" x2="12" y2="6" stroke="rgba(6,7,15,.55)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      </button>
-      <div class="acb"><div class="ac-card">
-        <!-- IMAGENAQUI — Reemplazar este div con la imagen del proyecto La Calera -->
-        <div class="ac-img"></div>
-        <div class="ac-right">
-          <div class="ac-tags"><span class="atag">Visual design</span><span class="atag">Ui kit</span><span class="atag">Figma</span></div>
-          <div class="ac-desc"><p data-t-html="p4.desc">Complete brand identity and visual design system for La Calera — <strong>from logo and color language to game UI components and marketing assets.</strong></p></div>
-          <a href="project-lacalera.html" class="ac-more" data-t="proj.more">View more</a>
-        </div>
-      </div></div>
-    </div>
-
   </div>
 </section>
 
@@ -462,18 +445,23 @@ function positionMobileChips(){
   const bottomBoundary=cRect.bottom-hRect.top+10; // 10px below text block
   const chipEls=[...document.querySelectorAll('.hchip')];
   const ROW=36; // vertical step between chips in same zone
+  const RIGHT_EDGE=30; // px from viewport right edge for right-side chips
   // Top zone: 5 chips stacked upward from topBoundary
-  const topLeft=[127, 265, 110, 305, 190];
+  // null = anchor to right edge (RIGHT_EDGE px from viewport right)
+  const topLeft=[127, null, 110, null, 190];
   chipEls.slice(0,5).forEach((el,i)=>{
     el.style.top=(topBoundary-ROW*(i+1))+'px';
-    el.style.left=topLeft[i]+'px';
+    if(topLeft[i]===null){el.style.left='auto';el.style.right=RIGHT_EDGE+'px';}
+    else{el.style.left=topLeft[i]+'px';el.style.right='auto';}
   });
   // Bottom zone: 5 chips stacked downward from bottomBoundary
-  const botLeft=[175, 117, 320, 125, 220];
+  // null = anchor to right edge (RIGHT_EDGE px from viewport right)
+  const botLeft=[175, 117, null, 125, null];
   const botTopOff=[-20, 4, 4, 4, 4]; // per-chip vertical adjustment (Figma -20px up)
   chipEls.slice(5).forEach((el,i)=>{
     el.style.top=(bottomBoundary+ROW*i+botTopOff[i])+'px';
-    el.style.left=botLeft[i]+'px';
+    if(botLeft[i]===null){el.style.left='auto';el.style.right=RIGHT_EDGE+'px';}
+    else{el.style.left=botLeft[i]+'px';el.style.right='auto';}
   });
 }
 window.addEventListener('load',positionMobileChips);
