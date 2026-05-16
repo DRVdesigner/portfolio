@@ -267,6 +267,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .metrics{grid-template-columns:1fr}
   .proc-tabs{flex-wrap:wrap;border-radius:10px}
   .ptab{flex:calc(50% - 1px);border-bottom:1px solid var(--w10)}
+  .fi{flex-direction:column;justify-content:center;text-align:center}
+  .fl{justify-content:center}
 }
 </style>
 </head>
@@ -329,36 +331,36 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="pnum">03</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p3.cat">Dashboard Design · UX Architecture · UI Kit · Illustrations</p><h2 class="pname" data-t="p3.title">Orion by Google</h2></div>
-    <div class="tags"><span class="tag">Dashboard</span><span class="tag">UX Architecture</span><span class="tag">UI Kit</span><span class="tag">Illustrations</span><span class="tag">Branding</span></div>
+    <div class="tags"><span class="tag" data-t="p3.tag0">Dashboard</span><span class="tag" data-t="p3.tag1">UX Architecture</span><span class="tag" data-t="p3.tag2">UI Kit</span><span class="tag" data-t="p3.tag3">Illustrations</span><span class="tag" data-t="p3.tag4">Branding</span></div>
   </div>
 
   <!-- Desktop: 3-col grid -->
   <div class="ccg rv">
     <div class="ccg-block">
-      <p class="ccg-label">Context</p>
-      <p class="ccg-text">Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.</p>
+      <p class="ccg-label" data-t="p3.ctx_l">Context</p>
+      <p class="ccg-text" data-t="p3.ctx_p">Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.</p>
     </div>
     <div class="ccg-block">
-      <p class="ccg-label">Challenge</p>
-      <p class="ccg-text">Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.</p>
+      <p class="ccg-label" data-t="p3.cha_l">Challenge</p>
+      <p class="ccg-text" data-t="p3.cha_p">Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.</p>
     </div>
     <div class="ccg-block">
-      <p class="ccg-label">Goal</p>
-      <p class="ccg-text">Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.</p>
+      <p class="ccg-label" data-t="p3.goal_l">Goal</p>
+      <p class="ccg-text" data-t="p3.goal_p">Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.</p>
     </div>
   </div>
 
   <!-- Mobile: tabs -->
   <div class="ov-tabs-wrap">
-    <p class="proc-label">Project Overview</p>
+    <p class="proc-label" data-t="p3.ov_label">Project Overview</p>
     <div class="proc-tabs" id="ov-p3">
-      <button class="ptab act" data-step="0">Context</button>
-      <button class="ptab" data-step="1">Challenge</button>
-      <button class="ptab" data-step="2">Goal</button>
+      <button class="ptab act" data-step="0" data-t="p3.ctx_l">Context</button>
+      <button class="ptab" data-step="1" data-t="p3.cha_l">Challenge</button>
+      <button class="ptab" data-step="2" data-t="p3.goal_l">Goal</button>
     </div>
-    <div class="ocontent vis" data-op="p3" data-os="0"><p class="ov-text">Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.</p></div>
-    <div class="ocontent" data-op="p3" data-os="1"><p class="ov-text">Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.</p></div>
-    <div class="ocontent" data-op="p3" data-os="2"><p class="ov-text">Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.</p></div>
+    <div class="ocontent vis" data-op="p3" data-os="0"><p class="ov-text" data-t="p3.ctx_p">Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.</p></div>
+    <div class="ocontent" data-op="p3" data-os="1"><p class="ov-text" data-t="p3.cha_p">Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.</p></div>
+    <div class="ocontent" data-op="p3" data-os="2"><p class="ov-text" data-t="p3.goal_p">Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.</p></div>
   </div>
 
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
@@ -431,8 +433,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="fi">
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
     <div class="fl">
-      <a href="index.html" data-t="foot.home">Home</a>
-      <a href="project-nissan.html" data-t="foot.proj">Projects</a>
       <a href="mailto:david.riosv03@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
     </div>
@@ -461,6 +461,11 @@ en:{
   'p2.s3h':'Guidelines & Handoff','p2.s3p':"Every component documented with usage rules and accessibility notes.",'p2.s3l0':'Documentation for all 80+ components','p2.s3l1':'Dev handoff specs and CSS variable export','p2.s3l2':'Onboarding guide for new team members',
   'p2.m0':'Components built','p2.m1':'Products unified','p2.m2':'Patterns resolved',
   'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
+  'p3.tag0':'Dashboard','p3.tag1':'UX Architecture','p3.tag2':'UI Kit','p3.tag3':'Illustrations','p3.tag4':'Branding',
+  'p3.ov_label':'Project Overview',
+  'p3.ctx_l':'Context','p3.ctx_p':'Orion is a B2B broker platform from Google that allows carriers to buy internet (Wi-Fi) from different venues. It enhances the connectivity experience for customers in areas where the cellular network is poor and allows local businesses to generate profits by selling their Wi-Fi.',
+  'p3.cha_l':'Challenge','p3.cha_p':"Orion's platform is already functioning and has been released to other businesses with great adoption. The issue lies in the lack of information architecture, visual consistency, use of specific component libraries and better data visualization.",
+  'p3.goal_l':'Goal','p3.goal_p':'Improve the UX experience in the main broker platform and create a marketing website whose brand identity is closely related to the average Google look and feel.',
   'p3.t0':'Business','p3.t1':'Architecture',
   'p3.s0h':'Business Model','p3.s0p':'Orion Wi-Fi lets mobile devices connect to premium Wi-Fi while connection quality, security and policies are handled automatically — no extra setup required for the end user.','p3.s0l0':'Seamless premium Wi-Fi for mobile users','p3.s0l1':'New revenue streams for participating venues','p3.s0l2':'Hotels, airports, conference centers, stadiums and malls',
   'p3.s1h':'Architecture','p3.s1p':"The platform splits into two coordinated sides: Supply (venues selling Wi-Fi access) and Demand (carriers buying connectivity). Each side has its own architecture and entry points.",
@@ -502,8 +507,13 @@ es:{
   'p2.s2h':'Librería de Componentes','p2.s2p':'80+ componentes en Figma con diseño atómico.','p2.s2l0':'80+ componentes con todos los estados','p2.s2l1':'Estructura atómica','p2.s2l2':'Prototipos interactivos',
   'p2.s3h':'Documentación y Entrega','p2.s3p':'Cada componente documentado con reglas y accesibilidad.','p2.s3l0':'Documentación para 80+ componentes','p2.s3l1':'Specs de handoff y variables CSS','p2.s3l2':'Guía de onboarding',
   'p2.m0':'Componentes construidos','p2.m1':'Productos unificados','p2.m2':'Patrones resueltos',
-  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
-  'p3.t0':'Business','p3.t1':'Arquitectura',
+  'p3.cat':'Diseño de Dashboard · Arquitectura UX · UI Kit · Ilustraciones','p3.title':'Orion by Google',
+  'p3.tag0':'Dashboard','p3.tag1':'Arquitectura UX','p3.tag2':'UI Kit','p3.tag3':'Ilustraciones','p3.tag4':'Branding',
+  'p3.ov_label':'Resumen del Proyecto',
+  'p3.ctx_l':'Contexto','p3.ctx_p':'Orion es una plataforma B2B de intermediación de Google que permite a las operadoras comprar internet (Wi-Fi) de distintas sedes. Mejora la experiencia de conectividad para los clientes en zonas donde la red celular es deficiente y permite a los negocios locales generar ingresos vendiendo su Wi-Fi.',
+  'p3.cha_l':'Desafío','p3.cha_p':'La plataforma de Orion ya está funcionando y ha sido lanzada a otros negocios con gran adopción. El problema radica en la falta de arquitectura de información, consistencia visual, uso de librerías de componentes específicas y una mejor visualización de datos.',
+  'p3.goal_l':'Objetivo','p3.goal_p':'Mejorar la experiencia UX en la plataforma principal de intermediación y crear un sitio web de marketing cuya identidad de marca esté estrechamente relacionada con el look and feel característico de Google.',
+  'p3.t0':'Negocio','p3.t1':'Arquitectura',
   'p3.s0h':'Modelo de Negocio','p3.s0p':'Orion Wi-Fi permite que los dispositivos móviles se conecten a Wi-Fi premium mientras la calidad, seguridad y políticas de conexión se manejan automáticamente — sin configuración extra para el usuario final.','p3.s0l0':'Wi-Fi premium sin fricción para usuarios móviles','p3.s0l1':'Nuevas fuentes de ingreso para las sedes participantes','p3.s0l2':'Hoteles, aeropuertos, centros de conferencia, estadios y centros comerciales',
   'p3.s1h':'Arquitectura','p3.s1p':'La plataforma se divide en dos lados coordinados: Suministro (sedes que venden acceso Wi-Fi) y Demanda (operadoras que compran conectividad). Cada lado tiene su propia arquitectura y puntos de entrada.',
   'p3.s1.supply_h':'Suministro','p3.s1.supply_p':'El flujo del suministrador — las sedes integran sus redes Wi-Fi y generan ingresos por cada sesión conectada.',
@@ -523,7 +533,7 @@ es:{
   'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo — HUD, menús, inventario y onboarding.','p4.s2l0':'Sistema HUD en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento',
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
-  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+  'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
 }
 };
 
