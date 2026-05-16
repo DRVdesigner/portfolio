@@ -36,6 +36,25 @@ nav.sc .nl a.act{color:var(--ink)}
 .lang.pt .lang-knob{transform:translateX(200%)}
 .lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
 .lb.on{color:rgba(30,30,33,.82)}
+/* lang dropdown (desktop only) */
+.lang-dd{position:relative;font-family:var(--font)}
+.lang-dd-btn{display:flex;align-items:center;gap:.5rem;padding:.48rem .9rem;background:var(--w10);border:1.5px solid var(--w20);border-radius:100px;color:var(--w60);font-family:var(--font);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.lang-dd-btn:hover{color:#fff;border-color:var(--w40)}
+nav.sc .lang-dd-btn{background:rgba(6,7,15,.04);border-color:rgba(6,7,15,.15);color:rgba(6,7,15,.5)}
+nav.sc .lang-dd-btn:hover{color:var(--ink);border-color:rgba(6,7,15,.3)}
+.lang-dd-arrow{flex-shrink:0;transition:transform .28s ease}
+.lang-dd.open .lang-dd-arrow{transform:rotate(180deg)}
+.lang-dd-menu{position:absolute;top:calc(100% + .55rem);right:0;min-width:10rem;list-style:none;margin:0;padding:.35rem;background:#1a1a2a;border:1px solid var(--w20);border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.38);opacity:0;transform:translateY(-6px) scale(.97);transform-origin:top right;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:50}
+nav.sc .lang-dd-menu{background:#fff;border-color:rgba(6,7,15,.1);box-shadow:0 14px 34px rgba(6,7,15,.13)}
+.lang-dd.open .lang-dd-menu{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.lang-dd-opt{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;padding:.6rem .85rem;background:none;border:none;border-radius:9px;font-family:var(--font);font-size:.85rem;font-weight:600;color:var(--w60);text-align:left;cursor:pointer;transition:background .18s,color .18s}
+.lang-dd-opt:hover{background:var(--w10);color:#fff}
+nav.sc .lang-dd-opt{color:rgba(6,7,15,.55)}
+nav.sc .lang-dd-opt:hover{background:rgba(6,7,15,.05);color:var(--ink)}
+.lang-dd-opt.on{color:#fff}
+nav.sc .lang-dd-opt.on{color:var(--ink)}
+.lang-dd-check{flex-shrink:0;opacity:0;transition:opacity .18s}
+.lang-dd-opt.on .lang-dd-check{opacity:1}
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
 .ham span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s}
 .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -350,10 +369,16 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       <li><a href="project-nissan.html" class="act" data-t="nav.projects">Projects</a></li>
       <li><a href="cv.html" data-t="nav.cv">CV</a></li>
       <li>
-        <div class="lang" id="lang-nav">
-          <div class="lang-knob"></div>
-          <button class="lb lb-en on" onclick="setL('en')">EN</button>
-          <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
+        <div class="lang-dd" id="lang-dd">
+          <button class="lang-dd-btn" id="lang-dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <span id="lang-dd-cur">EN</span>
+            <svg class="lang-dd-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="lang-dd-menu" role="listbox" aria-label="Language">
+            <li><button class="lang-dd-opt lang-opt-en" type="button" role="option" onclick="setL('en')">English<svg class="lang-dd-check" width="12" height="9" viewBox="0 0 12 9" fill="none" aria-hidden="true"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+            <li><button class="lang-dd-opt lang-opt-es" type="button" role="option" onclick="setL('es')">Español<svg class="lang-dd-check" width="12" height="9" viewBox="0 0 12 9" fill="none" aria-hidden="true"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+            <li><button class="lang-dd-opt lang-opt-pt" type="button" role="option" onclick="setL('pt')">Português<svg class="lang-dd-check" width="12" height="9" viewBox="0 0 12 9" fill="none" aria-hidden="true"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -766,6 +791,11 @@ function setL(l){
   document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
   document.querySelectorAll('.lb-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
   document.querySelectorAll('.lang').forEach(lt=>{lt.classList.toggle('es',l==='es');lt.classList.toggle('pt',l==='pt');});
+  var ddc=document.getElementById('lang-dd-cur');if(ddc)ddc.textContent=l.toUpperCase();
+  document.querySelectorAll('.lang-opt-en').forEach(b=>b.classList.toggle('on',l==='en'));
+  document.querySelectorAll('.lang-opt-es').forEach(b=>b.classList.toggle('on',l==='es'));
+  document.querySelectorAll('.lang-opt-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
+  var dd=document.getElementById('lang-dd');if(dd){dd.classList.remove('open');var ddb=document.getElementById('lang-dd-btn');if(ddb)ddb.setAttribute('aria-expanded','false');}
 }
 
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -872,6 +902,13 @@ if(procTabs){
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+(function(){
+  var dd=document.getElementById('lang-dd');if(!dd)return;
+  var btn=document.getElementById('lang-dd-btn');
+  btn.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  document.addEventListener('click',function(e){if(!dd.contains(e.target)){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');}});
+})();
 (function(){var s;try{s=localStorage.getItem('site-lang');}catch(e){}setL(['en','es','pt'].indexOf(s)>-1?s:'en');})();
 </script>
 </body>
