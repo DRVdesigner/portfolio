@@ -31,8 +31,9 @@ nav.sc .ham span{background:var(--ink)}
 .nl a:hover,.nl a.act{color:#fff}
 nav.sc .nl a.act{color:var(--ink)}
 .lang{display:flex;position:relative;align-items:center;background:#e0ded8;border-radius:100px;padding:3px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6)}
-.lang-knob{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
+.lang-knob{position:absolute;top:3px;left:3px;width:calc(33.333% - 2px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
 .lang.es .lang-knob{transform:translateX(100%)}
+.lang.pt .lang-knob{transform:translateX(200%)}
 .lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
 .lb.on{color:rgba(30,30,33,.82)}
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
@@ -156,7 +157,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         <div class="lang" id="lang-nav">
           <div class="lang-knob"></div>
           <button class="lb lb-en on" onclick="setL('en')">EN</button>
-          <button class="lb lb-es" onclick="setL('es')">ES</button>
+          <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
         </div>
       </li>
     </ul>
@@ -176,7 +177,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="lang" id="lang-mob">
     <div class="lang-knob"></div>
     <button class="lb lb-en on" onclick="setL('en')">EN</button>
-    <button class="lb lb-es" onclick="setL('es')">ES</button>
+    <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
   </div>
 </div>
 
@@ -346,17 +347,41 @@ es:{
   'lng1.name':'Inglés','lng1.level':'Avanzado — IELTS 7',
   'lng2.name':'Portugués','lng2.level':'Básico',
   'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+},
+pt:{
+  'nav.home':'Início','nav.projects':'Projetos','nav.cv':'CV',
+  'page.ey':'Currículo','page.role':'UI/UX Designer · São Paulo, Brasil','page.dl':'Baixar CV',
+  'sec.profile':'Perfil','sec.exp':'Experiência Profissional','sec.edu':'Formação','sec.skills':'Skills & Ferramentas','sec.lang':'Idiomas',
+  'profile.text':'Sou um designer peruano-brasileiro com mais de <strong>seis anos</strong> de experiência criando produtos digitais. Meu trabalho vai além do visual; foco em <strong>compreender os comportamentos dos usuários, identificar sua jornada</strong> e incorporar todo esse contexto no desenvolvimento dos meus designs.<br><br>Além disso, tenho uma <strong>base sólida na criação de Design Systems</strong> (componentes e variáveis), o que me permite garantir consistência em cada produto em que trabalhei ao longo dos anos.',
+  'exp0.title':'Lead Designer','exp0.period':'Jun 2025 — Out 2025','exp0.desc':'Responsável por <strong>formar e liderar a equipe de design</strong>, dirigindo a criação da identidade de marca, do design system e da arquitetura da informação do produto.',
+  'exp1.title':'Ssr. Advanced Visual Designer','exp1.period':'Out 2021 — Mai 2025',
+  'cl0.period':'Nov 2024 — Mai 2025','cl0.desc':'Responsável por guiar a criação e <strong>implementação de variáveis de design</strong>, pesquisa de experiência do usuário e melhorias de fluxos, incluindo o <strong>desenvolvimento de um chatbot com IA</strong>.',
+  'cl1.period':'Jul 2024 — Out 2024','cl1.desc':'Liderei a <strong>criação e estruturação de um Design System do zero</strong>, estabelecendo as bases visuais e de componentes para o cliente.',
+  'cl2.period':'Jan 2024 — Jul 2024','cl2.desc':'Parte da equipe criativa responsável por <strong>desenvolver a identidade gráfica</strong> e o site promocional.',
+  'cl3.period':'Out 2021 — Jan 2024','cl3.desc':'Responsável pela <strong>arquitetura da informação</strong> e pelo <strong>design completo do dashboard, criando um UI kit</strong> para manter consistência visual, identidade de marca e ilustrações para a plataforma.',
+  'exp2.title':'UI Designer','exp2.period':'Set 2020 — Out 2021','exp2.desc':'Alocado em diferentes portfólios de clientes; participei do <strong>design de produtos digitais para os setores bancário, de transporte e e-commerce</strong> para marcas como Alicorp, Caja Arequipa, One Autos, entre outras.',
+  'exp3.title':'UX Practitioner','exp3.period':'Jun 2019 — Dez 2019','exp3.desc':'Fiz parte da equipe de Inovação e Novos Negócios, onde aprendi <strong>metodologias como Lean UX</strong> para explorar e desenvolver soluções inovadoras dentro da organização.',
+  'edu0.name':'Programa de Design System','edu0.badge':'🏆 Bolsa Top 3',
+  'edu1.name':'Certificado em Psicologia Cognitiva e UX','edu2.name':'Certificado em Design de Experiência do Usuário',
+  'edu3.name':'Design Gráfico','edu4.name':'Pintura',
+  'sk.design':'Design','sk.tools':'Ferramentas',
+  'lng0.name':'Espanhol','lng0.level':'Nativo',
+  'lng1.name':'Inglês','lng1.level':'Avançado — IELTS 7',
+  'lng2.name':'Português','lng2.level':'Básico',
+  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.proj':'Projetos'
 }
 };
 
 let lang='en';
 function setL(l){
   lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
   document.querySelectorAll('[data-t]').forEach(el=>{const v=T[l][el.dataset.t];if(v!==undefined)el.textContent=v;});
   document.querySelectorAll('[data-t-html]').forEach(el=>{const v=T[l][el.dataset.tHtml];if(v!==undefined)el.innerHTML=v;});
   document.querySelectorAll('.lb-en').forEach(b=>b.classList.toggle('on',l==='en'));
   document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
-  document.querySelectorAll('.lang').forEach(lt=>lt.classList.toggle('es',l==='es'));
+  document.querySelectorAll('.lb-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
+  document.querySelectorAll('.lang').forEach(lt=>{lt.classList.toggle('es',l==='es');lt.classList.toggle('pt',l==='pt');});
 }
 
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -371,7 +396,7 @@ window.addEventListener('scroll',()=>document.getElementById('nav').classList.to
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-setL('en');
+(function(){var s;try{s=localStorage.getItem('site-lang');}catch(e){}setL(['en','es','pt'].indexOf(s)>-1?s:'en');})();
 </script>
 </body>
 </html>
