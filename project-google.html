@@ -31,8 +31,9 @@ nav.sc .ham span{background:var(--ink)}
 .nl a:hover,.nl a.act{color:#fff}
 nav.sc .nl a.act{color:var(--ink)}
 .lang{display:flex;position:relative;align-items:center;background:#e0ded8;border-radius:100px;padding:3px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6)}
-.lang-knob{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
+.lang-knob{position:absolute;top:3px;left:3px;width:calc(33.333% - 2px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
 .lang.es .lang-knob{transform:translateX(100%)}
+.lang.pt .lang-knob{transform:translateX(200%)}
 .lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
 .lb.on{color:rgba(30,30,33,.82)}
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
@@ -286,7 +287,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         <div class="lang" id="lang-nav">
           <div class="lang-knob"></div>
           <button class="lb lb-en on" onclick="setL('en')">EN</button>
-          <button class="lb lb-es" onclick="setL('es')">ES</button>
+          <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
         </div>
       </li>
     </ul>
@@ -303,7 +304,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="lang" id="lang-mob">
     <div class="lang-knob"></div>
     <button class="lb lb-en on" onclick="setL('en')">EN</button>
-    <button class="lb lb-es" onclick="setL('es')">ES</button>
+    <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
   </div>
 </div>
 
@@ -534,12 +535,60 @@ es:{
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
   'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
+},
+pt:{
+  'nav.home':'Início','nav.projects':'Projetos','nav.cv':'CV',
+  'page.ey':'Trabalhos Selecionados','page.title':'Projetos','page.sub':'Processo de design de ponta a ponta — da descoberta e pesquisa à entrega final.',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'proc.label':'Processo de Design',
+  'p1.cat':'AI Chatbot · Manutenção de App','p1.title':'Nissan Latam',
+  'p1.t0':'Descoberta','p1.t1':'Pesquisa','p1.t2':'Wireframes','p1.t3':'Design Visual',
+  'p1.s0h':'Entendendo o Mercado','p1.s0p':'Auditamos os touchpoints da Nissan em 6 mercados LATAM.','p1.s0l0':'Benchmarking em 8 marcas','p1.s0l1':'Entrevistas com líderes regionais','p1.s0l2':'Avaliação heurística da plataforma',
+  'p1.s1h':'Mapeamento da Jornada','p1.s1p':'24 entrevistas no México, Brasil e Argentina.','p1.s1l0':'24 entrevistas em 3 mercados','p1.s1l1':'Journey maps e pain points','p1.s1l2':'3 arquétipos de usuário',
+  'p1.s2h':'IA & Fluxos do Chatbot','p1.s2p':'Arquitetura para o app e o chatbot — 30+ árvores de conversa.','p1.s2l0':'30+ fluxos do chatbot','p1.s2l1':'Wireframes validados com 12 usuários','p1.s2l2':'3 ciclos de sprints',
+  'p1.s3h':'Design Visual e Handoff','p1.s3p':'120+ telas e biblioteca Figma em 6 idiomas.','p1.s3l0':'120+ telas em 6 idiomas','p1.s3l1':'Biblioteca com design tokens','p1.s3l2':'Handoff Figma + QA',
+  'p1.m0':'Mercados cobertos','p1.m1':'Telas entregues','p1.m2':'Fluxos do chatbot',
+  'p2.cat':'Design System','p2.title':'Bimbo Mexico',
+  'p2.t0':'Auditoria','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentação',
+  'p2.s0h':'Auditoria de Plataforma','p2.s0p':'200+ padrões inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análise de guidelines e gaps','p2.s0l2':'Revisão WCAG 2.1 AA',
+  'p2.s1h':'Arquitetura de Tokens','p2.s1p':'Hierarquia completa com dark mode desde o primeiro dia.','p2.s1l0':'8 papéis semânticos + dark mode','p2.s1l1':'9 estilos tipográficos, 2 tipografias','p2.s1l2':'Tokens de espaçamento, raio e movimento',
+  'p2.s2h':'Biblioteca de Componentes','p2.s2p':'80+ componentes no Figma com design atômico.','p2.s2l0':'80+ componentes com todos os estados','p2.s2l1':'Estrutura atômica','p2.s2l2':'Protótipos interativos',
+  'p2.s3h':'Documentação e Handoff','p2.s3p':'Cada componente documentado com regras e acessibilidade.','p2.s3l0':'Documentação para 80+ componentes','p2.s3l1':'Specs de handoff e variáveis CSS','p2.s3l2':'Guia de onboarding',
+  'p2.m0':'Componentes construídos','p2.m1':'Produtos unificados','p2.m2':'Padrões resolvidos',
+  'p3.cat':'Diseño de Dashboard · Arquitetura UX · UI Kit · Ilustrações','p3.title':'Orion by Google',
+  'p3.tag0':'Dashboard','p3.tag1':'Arquitetura UX','p3.tag2':'UI Kit','p3.tag3':'Ilustrações','p3.tag4':'Branding',
+  'p3.ov_label':'Resumo do Projeto',
+  'p3.ctx_l':'Contexto','p3.ctx_p':'O Orion é uma plataforma B2B de intermediação do Google que permite às operadoras comprar internet (Wi-Fi) de diferentes locais. Melhora a experiência de conectividade dos clientes em áreas onde a rede celular é deficiente e permite que negócios locais gerem receita vendendo seu Wi-Fi.',
+  'p3.cha_l':'Desafio','p3.cha_p':'A plataforma do Orion já está funcionando e foi lançada para outros negócios com grande adoção. O problema está na falta de arquitetura da informação, consistência visual, uso de bibliotecas de componentes específicas e uma melhor visualização de dados.',
+  'p3.goal_l':'Objetivo','p3.goal_p':'Melhorar a experiência de UX na plataforma principal de intermediação e criar um site de marketing cuja identidade de marca esteja fortemente relacionada ao look and feel característico do Google.',
+  'p3.t0':'Negócio','p3.t1':'Arquitetura',
+  'p3.s0h':'Modelo de Negócio','p3.s0p':'O Orion Wi-Fi permite que dispositivos móveis se conectem a um Wi-Fi premium enquanto a qualidade, segurança e políticas de conexão são gerenciadas automaticamente — sem configuração extra para o usuário final.','p3.s0l0':'Wi-Fi premium sem fricção para usuários móveis','p3.s0l1':'Novas fontes de receita para os locais participantes','p3.s0l2':'Hotéis, aeroportos, centros de convenções, estádios e shoppings',
+  'p3.s1h':'Arquitetura','p3.s1p':'A plataforma se divide em dois lados coordenados: Oferta (locais que vendem acesso Wi-Fi) e Demanda (operadoras que compram conectividade). Cada lado tem sua própria arquitetura e pontos de entrada.',
+  'p3.s1.supply_h':'Oferta','p3.s1.supply_p':'O fluxo do fornecedor — os locais integram suas redes Wi-Fi e geram receita por cada sessão conectada.',
+  'p3.s1.demand_h':'Demanda','p3.s1.demand_p':'O fluxo do comprador — as operadoras de telefonia conectam seus assinantes ao Wi-Fi premium através da camada broker do Orion.',
+  'p3.svg.suppliers':'Fornecedores','p3.svg.buyers':'Compradores',
+  'p3.svg.venues':'LOCAIS','p3.svg.venues1':'SHOPPING,','p3.svg.venues2':'RESTAURANTE,','p3.svg.venues3':'ESTÁDIOS',
+  'p3.svg.carriers1':'OPERADORAS','p3.svg.carriers2':'DE TELEFONIA',
+  'p3.svg.wifi':'Wifi','p3.svg.cellular':'Celular',
+  'p3.svg.user':'USUÁRIO','p3.svg.usr1':'MELHOR EXPERIÊNCIA','p3.svg.usr2':'DEPENDENDO DO','p3.svg.usr3':'LUGAR, HORA E','p3.svg.usr4':'VELOCIDADE',
+  'p3.supply.ey':'Showcase','p3.supply.h':'Oferta','p3.supply.p':'Os donos dos locais podem gerenciar vários deles ao mesmo tempo com o Orion. Monitoram a quantidade de dispositivos conectados, verificam a estabilidade da conexão e visualizam o dinheiro gerado.',
+  'p3.demand.ey':'Showcase','p3.demand.h':'Demanda','p3.demand.p':'Visão de controle central para engenheiros de telecomunicações. O Orion permite que eles visualizem gráficos-chave relacionados ao consumo de dados e gastos, verifiquem perfis de conexão e busquem e comprem novos locais de terceiros conforme necessário.',
+  'p3.mw.h':'Site de<br>Marketing','p3.mw.p':'Foi desenvolvida uma série de ilustrações para ajudar a explicar a proposta de valor do Orion. Esse estilo é o resultado de um meio-termo entre o Google Ads e a linguagem de design própria do Orion. Traz a familiaridade de um produto Google sem compartilhar exatamente o mesmo estilo de marca.','p3.mw.cta':'Visitar site ao vivo',
+  'p4.cat':'Identidade de Marca · Game UI · Design Visual','p4.title':'La Calera',
+  'p4.t0':'Estratégia','p4.t1':'Identidade','p4.t2':'Game UI','p4.t3':'Assets',
+  'p4.s0h':'Estratégia de Marca','p4.s0p':'Três direções reduzidas a uma identidade bold.','p4.s0l0':'Auditoria competitiva','p4.s0l1':'3 direções criativas','p4.s0l2':'Arquétipos e voz de marca',
+  'p4.s1h':'Logo e Identidade Visual','p4.s1p':'12+ explorações de logo em toda escala.','p4.s1l0':'12+ conceitos, 3 rodadas','p4.s1l1':'Paleta de cores completa','p4.s1l2':'Tipografia — display, UI e body',
+  'p4.s2h':'Design de Game UI','p4.s2p':'Sistema completo — HUD, menus, inventário e onboarding.','p4.s2l0':'Sistema HUD em tempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimento',
+  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art e brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para o lançamento','p4.s3l2':'Brand book e guias',
+  'p4.m0':'Conceitos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecossistema de marca',
+  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.proj':'Projetos'
 }
 };
 
 let lang='en';
 function setL(l){
   lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
   document.querySelectorAll('[data-t]').forEach(el=>{
     const v=T[l][el.dataset.t];
     if(v===undefined)return;
@@ -548,7 +597,8 @@ function setL(l){
   });
   document.querySelectorAll('.lb-en').forEach(b=>b.classList.toggle('on',l==='en'));
   document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
-  document.querySelectorAll('.lang').forEach(lt=>lt.classList.toggle('es',l==='es'));
+  document.querySelectorAll('.lb-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
+  document.querySelectorAll('.lang').forEach(lt=>{lt.classList.toggle('es',l==='es');lt.classList.toggle('pt',l==='pt');});
 }
 
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -620,7 +670,7 @@ if(procTabs){
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-setL('en');
+(function(){var s;try{s=localStorage.getItem('site-lang');}catch(e){}setL(['en','es','pt'].indexOf(s)>-1?s:'en');})();
 </script>
 </body>
 </html>
