@@ -333,6 +333,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .ptab{flex:calc(50% - 1px);border-bottom:1px solid var(--w10)}
   .dv-grid{grid-template-columns:1fr 1fr}
   .scr-grid{grid-template-columns:1fr}
+  .fi{flex-direction:column;justify-content:center;text-align:center}
+  .fl{justify-content:center}
 }
 </style>
 </head>
@@ -395,7 +397,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="pnum">01</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p1.cat">AI Chatbot · App Maintenance</p><h2 class="pname" data-t="p1.title">Nissan Latam</h2></div>
-    <div class="tags"><span class="tag">UX Design</span><span class="tag">UI Design</span><span class="tag">Automotive</span><span class="tag">AI Chatbot</span><span class="tag">Figma</span></div>
+    <div class="tags"><span class="tag" data-t="p1.tag0">UX Design</span><span class="tag" data-t="p1.tag1">UI Design</span><span class="tag" data-t="p1.tag2">Automotive</span><span class="tag" data-t="p1.tag3">AI Chatbot</span><span class="tag">Figma</span></div>
   </div>
 
   <!-- Desktop: 3-col grid -->
@@ -406,11 +408,11 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     </div>
     <div class="ccg-block">
       <p class="ccg-label" data-t="p1.cha_l">Challenge</p>
-      <p class="ccg-text" data-t="p1.cha_p">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.</p>
+      <p class="ccg-text" data-t="p1.cha_p">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers.</p>
     </div>
     <div class="ccg-block">
       <p class="ccg-label" data-t="p1.gol_l">Goal</p>
-      <p class="ccg-text" data-t="p1.gol_p">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.</p>
+      <p class="ccg-text" data-t="p1.gol_p">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database.</p>
     </div>
   </div>
 
@@ -423,8 +425,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
       <button class="ptab" data-step="2" data-t="p1.gol_l">Goal</button>
     </div>
     <div class="ocontent vis" data-op="p1" data-os="0"><p class="ov-text" data-t="p1.ctx_p">Nissan is one of the biggest Japanese car manufacturers. Their family of automobiles includes brands like Infiniti, Datsun and different tuning products under the label Nismo. It also has a strong presence in Latin America, a car market that is growing exponentially and represents a great business opportunity.</p></div>
-    <div class="ocontent" data-op="p1" data-os="1"><p class="ov-text" data-t="p1.cha_p">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.</p></div>
-    <div class="ocontent" data-op="p1" data-os="2"><p class="ov-text" data-t="p1.gol_p">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.</p></div>
+    <div class="ocontent" data-op="p1" data-os="1"><p class="ov-text" data-t="p1.cha_p">Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers.</p></div>
+    <div class="ocontent" data-op="p1" data-os="2"><p class="ov-text" data-t="p1.gol_p">Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database.</p></div>
   </div>
 
   <!-- PIA Feature -->
@@ -567,8 +569,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="fi">
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
     <div class="fl">
-      <a href="index.html" data-t="foot.home">Home</a>
-      <a href="project-nissan.html" data-t="foot.proj">Projects</a>
       <a href="mailto:david.riosv03@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
     </div>
@@ -593,10 +593,11 @@ en:{
   'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
   'proc.label':'Design Process',
   'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
+  'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotive','p1.tag3':'AI Chatbot',
   'p1.ov_label':'Project Overview',
   'p1.ctx_l':'Context','p1.ctx_p':'Nissan is one of the biggest Japanese car manufacturers. Their family of automobiles includes brands like Infiniti, Datsun and different tuning products under the label Nismo. It also has a strong presence in Latin America, a car market that is growing exponentially and represents a great business opportunity.',
-  'p1.cha_l':'Challenge','p1.cha_p':"Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers. On the user's side, the telematics app has proven to offer value to customers but its low feedback count on stores drives potential users away.",
-  'p1.gol_l':'Goal','p1.gol_p':'Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database. Research a way of improving the user willingness to rate the app on the stores.',
+  'p1.cha_l':'Challenge','p1.cha_p':"Nissan Latam is in search of a way to optimize their internal process of quote and requesting autoparts from providers.",
+  'p1.gol_l':'Goal','p1.gol_p':'Develop a platform enhanced with A.I. that automates the search for autoparts and stores, and registers all of this information in a database.',
   'p1.pia_t':'P.I.A<br>Purchasing<br>Indirect<br>Assistant',
   'p1.pia_p1':'This first version implements in its core an advanced artificial intelligence. This A.I. is enabled for live interaction via chat and offers precise answers to user requests and an extra feature: capacity to upload and process documents and data.',
   'p1.pia_p2':"The design and programming team have also taken a close look at the possible interactions of A.I. and humans to ensure this product's safety. There are established limits for what information can be retrieved, what requests are acceptable and how to handle the user's frustrations in what-if scenarios.",
@@ -646,10 +647,11 @@ es:{
   'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
   'proc.label':'Proceso de Diseño',
   'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
+  'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotriz','p1.tag3':'AI Chatbot',
   'p1.ov_label':'Resumen del Proyecto',
   'p1.ctx_l':'Contexto','p1.ctx_p':'Nissan es uno de los mayores fabricantes japoneses de automóviles. Su familia de vehículos incluye marcas como Infiniti, Datsun y diferentes productos de tuning bajo la etiqueta Nismo. También tiene una fuerte presencia en Latinoamérica, un mercado automotriz que está creciendo exponencialmente y representa una gran oportunidad de negocio.',
-  'p1.cha_l':'Desafío','p1.cha_p':'Nissan Latam busca una forma de optimizar su proceso interno de cotización y solicitud de autopartes a proveedores. Por el lado del usuario, la app de telemática ha demostrado ofrecer valor a los clientes, pero su baja cantidad de feedback en las tiendas aleja a usuarios potenciales.',
-  'p1.gol_l':'Objetivo','p1.gol_p':'Desarrollar una plataforma potenciada con I.A. que automatice la búsqueda de autopartes y tiendas, y registre toda esta información en una base de datos. Investigar una forma de mejorar la disposición del usuario a calificar la app en las tiendas.',
+  'p1.cha_l':'Desafío','p1.cha_p':'Nissan Latam busca una forma de optimizar su proceso interno de cotización y solicitud de autopartes a proveedores.',
+  'p1.gol_l':'Objetivo','p1.gol_p':'Desarrollar una plataforma potenciada con I.A. que automatice la búsqueda de autopartes y tiendas, y registre toda esta información en una base de datos.',
   'p1.pia_t':'P.I.A<br>Asistente<br>Indirecto<br>de Compras',
   'p1.pia_p1':'Esta primera versión implementa en su núcleo una inteligencia artificial avanzada. Esta I.A. está habilitada para interacción en vivo vía chat y ofrece respuestas precisas a las solicitudes del usuario, con una característica extra: capacidad de cargar y procesar documentos y datos.',
   'p1.pia_p2':'El equipo de diseño y programación también ha analizado de cerca las posibles interacciones entre la I.A. y los humanos para garantizar la seguridad de este producto. Hay límites establecidos sobre qué información puede recuperarse, qué solicitudes son aceptables y cómo manejar las frustraciones del usuario en escenarios hipotéticos.',
@@ -691,7 +693,7 @@ es:{
   'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo — HUD, menús, inventario y onboarding.','p4.s2l0':'Sistema HUD en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento',
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
-  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+  'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
 }
 };
 
