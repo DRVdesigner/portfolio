@@ -138,6 +138,24 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 .fc{font-size:.78rem;color:#fff}
 .fl{display:flex;gap:2rem}
 .fl a{font-size:.78rem;color:#fff;transition:opacity .2s}
+/* "Creado con Claude" badge */
+.cb-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .9rem .4rem .5rem;border:1.5px solid rgba(255,255,255,.18);border-radius:100px;background:rgba(255,255,255,.04);color:rgba(255,255,255,.72);font-family:inherit;font-size:.76rem;font-weight:600;letter-spacing:.01em;line-height:1;text-decoration:none;transition:border-color .25s,background .25s,color .25s;-webkit-tap-highlight-color:transparent}
+.cb-badge:hover{border-color:rgba(217,119,87,.55);background:rgba(217,119,87,.10);color:#fff}
+.cb-badge .cb-text strong{font-weight:800;color:#fff}
+.cb-mascot{width:30px;height:30px;display:block;flex-shrink:0;animation:cb-float 3s ease-in-out infinite;will-change:transform}
+.cb-badge:hover .cb-mascot{animation-duration:1.3s}
+.cb-tilt{transform-box:fill-box;transform-origin:50% 88%;animation:cb-tilt 3s ease-in-out infinite}
+.cb-badge:hover .cb-tilt{animation-duration:.7s}
+.cb-eyes{transform-box:fill-box;transform-origin:center;animation:cb-blink 4.6s ease-in-out infinite}
+.cb-glow{transform-box:fill-box;transform-origin:center;animation:cb-glow 3s ease-in-out infinite}
+@keyframes cb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.6px)}}
+@keyframes cb-tilt{0%,100%{transform:rotate(-3.5deg)}50%{transform:rotate(3.5deg)}}
+@keyframes cb-blink{0%,88%,100%{transform:scaleY(1)}94%{transform:scaleY(.12)}}
+@keyframes cb-glow{0%,100%{opacity:.26}50%{opacity:.6}}
+@media(prefers-reduced-motion:reduce){.cb-mascot,.cb-tilt,.cb-eyes,.cb-glow{animation:none!important}}
+.fi{gap:1.25rem}
+.f-end{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:768px){.f-end{flex-direction:column;gap:1.1rem}}
 .fl a:hover{opacity:.7;text-decoration:underline}
 
 /* Reveal */
@@ -320,9 +338,34 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 <footer>
   <div class="fi">
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
-    <div class="fl">
-      <a href="mailto:david.riosv03@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
+    <div class="f-end">
+      <div class="fl">
+        <a href="mailto:david.riosv03@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
+      </div>
+      <a class="cb-badge" href="https://claude.ai" target="_blank" rel="noopener" aria-label="Creado con Claude">
+        <span class="cb-mascot" aria-hidden="true">
+          <svg viewBox="0 0 60 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cbBody" x1="30" y1="3" x2="30" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#D67B5B"/><stop offset="1" stop-color="#BC5F3E"/>
+              </linearGradient>
+              <radialGradient id="cbGl" cx=".5" cy=".5" r=".5">
+                <stop stop-color="#E8845F" stop-opacity=".7"/><stop offset="1" stop-color="#E8845F" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle class="cb-glow" cx="30" cy="26" r="25" fill="url(#cbGl)"/>
+            <g class="cb-tilt">
+              <path d="M18 3 L42 3 L42 8 L48 8 L48 16 L52 16 L52 24 L48 24 L48 35 L40 35 L40 48 L34 48 L34 40 L26 40 L26 48 L20 48 L20 35 L12 35 L12 24 L8 24 L8 16 L12 16 L12 8 L18 8 Z" fill="url(#cbBody)" stroke="#F2F0EB" stroke-width="5" stroke-linejoin="round" paint-order="stroke"/>
+              <g class="cb-eyes" fill="#1d130c">
+                <rect x="21" y="13" width="6" height="7"/>
+                <rect x="33" y="13" width="6" height="7"/>
+              </g>
+            </g>
+          </svg>
+        </span>
+        <span class="cb-text" data-t-html="foot.cb">Creado con <strong>Claude</strong></span>
+      </a>
     </div>
   </div>
 </footer>
@@ -349,7 +392,7 @@ en:{
   'lng0.name':'Spanish','lng0.level':'Native',
   'lng1.name':'English','lng1.level':'Advanced — IELTS 7',
   'lng2.name':'Portuguese','lng2.level':'Basic',
-  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Home','foot.proj':'Projects'
+  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Home','foot.cb':'Built with <strong>Claude</strong>','foot.proj':'Projects'
 },
 es:{
   'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
@@ -371,7 +414,7 @@ es:{
   'lng0.name':'Español','lng0.level':'Nativo',
   'lng1.name':'Inglés','lng1.level':'Avanzado — IELTS 7',
   'lng2.name':'Portugués','lng2.level':'Básico',
-  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.cb':'Creado con <strong>Claude</strong>','foot.proj':'Proyectos'
 },
 pt:{
   'nav.home':'Início','nav.projects':'Projetos','nav.cv':'CV',
@@ -393,7 +436,7 @@ pt:{
   'lng0.name':'Espanhol','lng0.level':'Nativo',
   'lng1.name':'Inglês','lng1.level':'Avançado — IELTS 7',
   'lng2.name':'Português','lng2.level':'Básico',
-  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.proj':'Projetos'
+  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.cb':'Feito com <strong>Claude</strong>','foot.proj':'Projetos'
 }
 };
 
