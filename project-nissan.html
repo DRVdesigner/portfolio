@@ -31,8 +31,9 @@ nav.sc .ham span{background:var(--ink)}
 .nl a:hover,.nl a.act{color:#fff}
 nav.sc .nl a.act{color:var(--ink)}
 .lang{display:flex;position:relative;align-items:center;background:#e0ded8;border-radius:100px;padding:3px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6)}
-.lang-knob{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
+.lang-knob{position:absolute;top:3px;left:3px;width:calc(33.333% - 2px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
 .lang.es .lang-knob{transform:translateX(100%)}
+.lang.pt .lang-knob{transform:translateX(200%)}
 .lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
 .lb.on{color:rgba(30,30,33,.82)}
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
@@ -352,7 +353,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         <div class="lang" id="lang-nav">
           <div class="lang-knob"></div>
           <button class="lb lb-en on" onclick="setL('en')">EN</button>
-          <button class="lb lb-es" onclick="setL('es')">ES</button>
+          <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
         </div>
       </li>
     </ul>
@@ -369,7 +370,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="lang" id="lang-mob">
     <div class="lang-knob"></div>
     <button class="lb lb-en on" onclick="setL('en')">EN</button>
-    <button class="lb lb-es" onclick="setL('es')">ES</button>
+    <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
   </div>
 </div>
 
@@ -694,12 +695,67 @@ es:{
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
   'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
+},
+pt:{
+  'nav.home':'Início','nav.projects':'Projetos','nav.cv':'CV',
+  'page.ey':'Trabalhos Selecionados','page.title':'Projetos','page.sub':'Processo de design de ponta a ponta — da descoberta e pesquisa à entrega final.',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'proc.label':'Processo de Design',
+  'p1.cat':'AI Chatbot · Manutenção de App','p1.title':'Nissan Latam',
+  'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotivo','p1.tag3':'AI Chatbot',
+  'p1.ov_label':'Resumo do Projeto',
+  'p1.ctx_l':'Contexto','p1.ctx_p':'A Nissan é uma das maiores fabricantes japonesas de automóveis. Sua família de veículos inclui marcas como Infiniti, Datsun e diversos produtos de tuning sob o selo Nismo. Também tem forte presença na América Latina, um mercado automotivo que cresce exponencialmente e representa uma grande oportunidade de negócio.',
+  'p1.cha_l':'Desafio','p1.cha_p':'A Nissan Latam busca uma forma de otimizar seu processo interno de cotação e solicitação de autopeças a fornecedores.',
+  'p1.gol_l':'Objetivo','p1.gol_p':'Desenvolver uma plataforma potencializada com I.A. que automatize a busca de autopeças e lojas, e registre todas essas informações em um banco de dados.',
+  'p1.pia_t':'P.I.A<br>Assistente<br>Indireto<br>de Compras',
+  'p1.pia_p1':'Esta primeira versão implementa em seu núcleo uma inteligência artificial avançada. Essa I.A. está habilitada para interação ao vivo via chat e oferece respostas precisas às solicitações do usuário, com um recurso extra: a capacidade de carregar e processar documentos e dados.',
+  'p1.pia_p2':'A equipe de design e programação também analisou de perto as possíveis interações entre a I.A. e os humanos para garantir a segurança deste produto. Há limites estabelecidos sobre quais informações podem ser recuperadas, quais solicitações são aceitáveis e como lidar com as frustrações do usuário em cenários hipotéticos.',
+  'p1.t0':'Benchmark','p1.t1':'Pesquisa','p1.t2':'Wireframes','p1.t3':'Guias de Estilo',
+  'p1.s0h':'Entendendo o Mercado',
+  'p1.s0p':'Auditamos as ferramentas de IA mais utilizadas do mercado para mapear os padrões de design e as interações que seriam úteis para o nosso novo produto.',
+  'p1.s1h':'Interações Centradas no Usuário',
+  'p1.s1p':'Para melhorar a experiência e seguindo as diretrizes de boas práticas em relação à interação com IA, incluímos os seguintes aspectos neste produto.',
+  'p1.s1b1':'Foram considerados cenários de frustração para o usuário e o tipo de comunicação utilizada.',
+  'p1.s1b2':'Foram incluídos avisos e limitações sobre o conteúdo que o chatbot pode gerar.',
+  'p1.s1b3':'O usuário recebeu a capacidade de editar e adicionar diferentes agentes de IA conforme sua necessidade.',
+  'p1.s2h':'Desenhando a Experiência',
+  'p1.s2p':'Exploramos diferentes casos de uso: cadastro, busca de arquivos, upload de arquivos e criação de Agentes de IA.',
+  'p1.s3h':'Guias de Estilo',
+  'p1.s3p':'Para a criação posterior das variáveis, levamos em conta os guias de estilo utilizados pela Nissan no wds2. Os diferentes usos de tipografia e cores foram analisados e documentados.',
+  'p1.m0':'Mercados cobertos','p1.m1':'Telas entregues','p1.m2':'Fluxos do chatbot',
+  'p1.dvey':'Design System','p1.dvh':'Variáveis de Design','p1.dvp':'Um sistema completo baseado em tokens construído no Figma — variáveis de cor, tipografia, espaçamento e componentes que escalam em 6 variantes de idioma e mantêm a plataforma visualmente consistente de ponta a ponta.',
+  'p1.dv_after':'A implementação de variáveis no design permitiu adaptar os componentes rapidamente para os modos dia e noite.',
+  'p1.cmp_day':'Claro','p1.cmp_night':'Noite',
+  'p1.scey':'Resultado Final','p1.sch':'Telas Finais','p1.scp':'Uma seleção de telas finais da plataforma — mostrando as interações do chatbot com IA, a busca de autopeças e os principais fluxos de manutenção entregues aos usuários.',
+  'p2.cat':'Design System','p2.title':'Bimbo Mexico',
+  'p2.t0':'Auditoria','p2.t1':'Tokens','p2.t2':'Componentes','p2.t3':'Documentação',
+  'p2.s0h':'Auditoria de Plataforma','p2.s0p':'200+ padrões inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análise de guidelines e gaps','p2.s0l2':'Revisão WCAG 2.1 AA',
+  'p2.s1h':'Arquitetura de Tokens','p2.s1p':'Hierarquia completa com dark mode desde o primeiro dia.','p2.s1l0':'8 papéis semânticos + dark mode','p2.s1l1':'9 estilos tipográficos, 2 tipografias','p2.s1l2':'Tokens de espaçamento, raio e movimento',
+  'p2.s2h':'Biblioteca de Componentes','p2.s2p':'80+ componentes no Figma com design atômico.','p2.s2l0':'80+ componentes com todos os estados','p2.s2l1':'Estrutura atômica','p2.s2l2':'Protótipos interativos',
+  'p2.s3h':'Documentação e Handoff','p2.s3p':'Cada componente documentado com regras e acessibilidade.','p2.s3l0':'Documentação para 80+ componentes','p2.s3l1':'Specs de handoff e variáveis CSS','p2.s3l2':'Guia de onboarding',
+  'p2.m0':'Componentes construídos','p2.m1':'Produtos unificados','p2.m2':'Padrões resolvidos',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
+  'p3.t0':'Pesquisa','p3.t1':'IA & Arquitetura','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Entendendo a Complexidade','p3.s0p':'Trabalhamos com engenharia e produto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops com 4 grupos','p3.s0l1':'Taxonomia de dados e hierarquia','p3.s0l2':'Análise de dashboards',
+  'p3.s1h':'Arquitetura da Informação','p3.s1p':'Hierarquia de 3 níveis validada por card sorting.','p3.s1l0':'Card sorting com 18 usuários','p3.s1l1':'Hierarquia de 3 níveis','p3.s1l2':'Vinculação contextual entre métricas',
+  'p3.s2h':'Design do Dashboard','p3.s2p':'40+ estados em 6 domínios, testados em 3 rodadas.','p3.s2l0':'40+ telas em 6 domínios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rodadas de testes',
+  'p3.s3h':'UI Kit e Ilustrações','p3.s3p':'60+ componentes e sistema de ilustrações.','p3.s3l0':'60+ componentes no Figma','p3.s3l1':'12 cenas de ilustrações','p3.s3l2':'Princípios de movimento',
+  'p3.m0':'Estados de tela','p3.m1':'Componentes UI','p3.m2':'Usuários no card sorting',
+  'p4.cat':'Identidade de Marca · Game UI · Design Visual','p4.title':'La Calera',
+  'p4.t0':'Estratégia','p4.t1':'Identidade','p4.t2':'Game UI','p4.t3':'Assets',
+  'p4.s0h':'Estratégia de Marca','p4.s0p':'Três direções reduzidas a uma identidade bold.','p4.s0l0':'Auditoria competitiva','p4.s0l1':'3 direções criativas','p4.s0l2':'Arquétipos e voz de marca',
+  'p4.s1h':'Logo e Identidade Visual','p4.s1p':'12+ explorações de logo em toda escala.','p4.s1l0':'12+ conceitos, 3 rodadas','p4.s1l1':'Paleta de cores completa','p4.s1l2':'Tipografia — display, UI e body',
+  'p4.s2h':'Design de Game UI','p4.s2p':'Sistema completo — HUD, menus, inventário e onboarding.','p4.s2l0':'Sistema HUD em tempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimento',
+  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art e brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para o lançamento','p4.s3l2':'Brand book e guias',
+  'p4.m0':'Conceitos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecossistema de marca',
+  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.proj':'Projetos'
 }
 };
 
 let lang='en';
 function setL(l){
   lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
   document.querySelectorAll('[data-t]').forEach(el=>{
     const v=T[l][el.dataset.t];
     if(v===undefined)return;
@@ -708,7 +764,8 @@ function setL(l){
   });
   document.querySelectorAll('.lb-en').forEach(b=>b.classList.toggle('on',l==='en'));
   document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
-  document.querySelectorAll('.lang').forEach(lt=>lt.classList.toggle('es',l==='es'));
+  document.querySelectorAll('.lb-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
+  document.querySelectorAll('.lang').forEach(lt=>{lt.classList.toggle('es',l==='es');lt.classList.toggle('pt',l==='pt');});
 }
 
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -815,7 +872,7 @@ if(procTabs){
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-setL('en');
+(function(){var s;try{s=localStorage.getItem('site-lang');}catch(e){}setL(['en','es','pt'].indexOf(s)>-1?s:'en');})();
 </script>
 </body>
 </html>
