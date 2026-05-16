@@ -86,16 +86,16 @@ nav.sc .ham span{background:var(--ink)}
 .tl{position:relative}
 .tl-ey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:2rem}
 .tl-track{position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(255,255,255,.15)}
-.tl-window{position:relative;height:360px;overflow:hidden}
-.tl-window::before,.tl-window::after{content:'';position:absolute;left:0;right:0;height:100px;z-index:2;pointer-events:none}
+.tl-window{--tl-fade:100px;position:relative;height:360px;overflow:hidden}
+.tl-window::before,.tl-window::after{content:'';position:absolute;left:0;right:0;height:var(--tl-fade);z-index:2;pointer-events:none}
 .tl-window::before{top:0;background:linear-gradient(to bottom,#1E1E21 10%,transparent 100%)}
 .tl-window::after{bottom:0;background:linear-gradient(to top,#1E1E21 10%,transparent 100%)}
-.tl-items{display:flex;flex-direction:column;padding-left:1.5rem;transition:transform .1s linear;will-change:transform}
+.tl-items{display:flex;flex-direction:column;padding-left:1.5rem;padding-top:var(--tl-fade);padding-bottom:var(--tl-fade);transition:transform .1s linear;will-change:transform}
 .tli{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,.06);opacity:1;transform:none;transition:none}
 .tli:last-child{border-bottom:none}
-.tli.faded .tli-role,.tli.faded .tli-co,.tli.faded .tli-desc,.tli.faded .tli-yr{opacity:.3}
+.tli.faded .tli-role,.tli.faded .tli-co,.tli.faded .tli-desc,.tli.faded .tli-yr{opacity:.62}
 .tli-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.7);flex-shrink:0;margin-top:.45rem;position:relative;z-index:1;box-shadow:0 0 0 2px rgba(255,255,255,.1)}
-.tli.faded .tli-dot{background:rgba(255,255,255,.2);box-shadow:none}
+.tli.faded .tli-dot{background:rgba(255,255,255,.45);box-shadow:none}
 .tli-yr{font-size:.68rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.35);margin-bottom:.3rem}
 .tli-role{font-size:.95rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.15rem;color:#fff}
 .tli-co{font-size:.82rem;color:rgba(255,255,255,.4);font-weight:500;margin-bottom:.4rem}
@@ -248,7 +248,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
           <div class="tl-items" id="tl-items">
             <div class="tli faded">
               <div class="tli-dot"></div>
-              <div><p class="tli-yr" data-t="tl0.yr">Present</p><p class="tli-role" data-t="tl0.role">Lead Designer</p><p class="tli-co" data-t="tl0.co">Kidgigs Startup</p></div>
+              <div><p class="tli-yr" data-t="tl0.yr">2025</p><p class="tli-role" data-t="tl0.role">Lead Designer</p><p class="tli-co" data-t="tl0.co">Kidgigs Startup</p><p class="tli-desc" data-t="tl0.desc">Oversaw the branding and UX work for the product.</p></div>
             </div>
             <div class="tli">
               <div class="tli-dot"></div>
@@ -380,7 +380,7 @@ const T={
     'nav.home':'Home','nav.projects':'Projects','nav.cv':'CV',
     'hero.avail':'OPEN TO WORK','hero.desc':'Crafting end-to-end digital experiences — UI-focused, systems-minded, and fluent in design variables and scalable component architecture.','hero.cta':'View Work →','hero.about':'About me',
     'about.ey':'About me','about.h':'More than <span style="color:rgba(255,255,255,.45)">six years</span> of experience <strong>creating digital products.</strong>','about.p1':'I focus on understanding user behaviors, identifying their journey, and incorporating all this background into the development of my designs.','about.p2':'Additionally, I have a <strong>solid foundation in creating Design Systems</strong> (components and variables), which allows me to ensure consistency in every product I have worked on over the years.','about.btn1':'About me →','about.btn2':'View full CV','about.tley':'Work Experience',
-    'tl0.yr':'Present','tl0.role':'Lead Designer','tl0.co':'Kidgigs Startup',
+    'tl0.yr':'2025','tl0.role':'Lead Designer','tl0.co':'Kidgigs Startup','tl0.desc':'Oversaw the branding and UX work for the product.',
     'tl1.yr':'2021 — 2025','tl1.role':'Ssr. Advanced Visual Designer','tl1.co':'Globant','tl1.desc':'Designed product interfaces for sports-tech and banking clients. Led visual system migrations to Webflow.',
     'tl2.yr':'2020 — 2021','tl2.role':'UI Designer','tl2.co':'Peru Apps','tl2.desc':'Crafted mobile-first UI for fintech and e-commerce apps. Established reusable component foundations.',
     'tl3.yr':'2019','tl3.role':'UX Intern','tl3.co':'San Fernando','tl3.desc':'User research, wireframing and usability testing for internal digital tools.',
@@ -397,7 +397,7 @@ const T={
     'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'CV',
     'hero.avail':'DISPONIBLE PARA TRABAJAR','hero.desc':'Creando experiencias digitales end-to-end — enfocado en UI, orientado a sistemas, y fluido en variables de diseño y arquitectura de componentes escalable.','hero.cta':'Ver Proyectos →','hero.about':'Sobre mí',
     'about.ey':'Sobre mí','about.h':'Más de <span style="color:rgba(255,255,255,.45)">seis años</span> de experiencia <strong>creando productos digitales.</strong>','about.p1':'Me enfoco en entender los comportamientos de los usuarios, identificar su recorrido, e incorporar todo este contexto en el desarrollo de mis diseños.','about.p2':'Además, tengo una <strong>base sólida en la creación de Sistemas de Diseño</strong> (componentes y variables), lo que me permite asegurar consistencia en cada producto en el que he trabajado.','about.btn1':'Sobre mí →','about.btn2':'Ver CV completo','about.tley':'Experiencia laboral',
-    'tl0.yr':'Presente','tl0.role':'Lead Designer','tl0.co':'Kidgigs Startup',
+    'tl0.yr':'2025','tl0.role':'Lead Designer','tl0.co':'Kidgigs Startup','tl0.desc':'Me encargué de supervisar el branding y también el trabajo de UX.',
     'tl1.yr':'2021 — 2025','tl1.role':'Ssr. Advanced Visual Designer','tl1.co':'Globant','tl1.desc':'Diseñé interfaces para clientes de sports-tech y banca. Lideré migraciones de sistemas visuales a Webflow.',
     'tl2.yr':'2020 — 2021','tl2.role':'UI Designer','tl2.co':'Peru Apps','tl2.desc':'UI mobile-first para apps de fintech y e-commerce. Establecí bases de componentes reutilizables.',
     'tl3.yr':'2019','tl3.role':'UX Intern','tl3.co':'San Fernando','tl3.desc':'Investigación de usuarios, wireframing y pruebas de usabilidad para herramientas internas.',
@@ -519,6 +519,8 @@ document.getElementById('acc-list').addEventListener('click',e=>{
   let maxShift=0;
   function calcMax(){maxShift=Math.max(0,items.scrollHeight-win.clientHeight);}
   calcMax();window.addEventListener('resize',calcMax,{passive:true});
+  window.addEventListener('load',calcMax);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(calcMax);}
   window.addEventListener('scroll',()=>{
     const rect=win.getBoundingClientRect(),wh=window.innerHeight;
     if(rect.bottom<0||rect.top>wh)return;
