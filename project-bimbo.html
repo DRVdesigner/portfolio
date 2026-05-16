@@ -203,13 +203,16 @@ nav.sc .nl a.act{color:var(--ink)}
 /* Market MAP Design System — showcase section */
 .nds{margin-top:4.5rem}
 .nds-title{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:2.5rem;color:#fff}
-.nds-section{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--w10)}
+.nds-section{margin-bottom:0;padding:0;border-bottom:1px solid var(--w10)}
 .nds-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.nds-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:none;cursor:default;font-family:var(--font);text-align:left;padding:0;color:inherit;margin-bottom:1.25rem}
+.nds-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:none;cursor:pointer;font-family:var(--font);text-align:left;padding:1.5rem 0;color:inherit;margin-bottom:0;-webkit-tap-highlight-color:transparent}
 .nds-label{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;color:#fff;line-height:1.2}
-.nds-plus{display:none}
-.nds-body{max-height:none;overflow:visible}
-.nds-content{display:flex;flex-direction:column;gap:1.5rem}
+.nds-plus{display:flex;width:2.2rem;height:2.2rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,.55);transition:transform .3s ease;line-height:1}
+.nds-section.op .nds-plus{transform:rotate(45deg)}
+.nds-head:hover .nds-plus{opacity:.7}
+.nds-body{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.19,1,.22,1)}
+.nds-section.op .nds-body{max-height:2600px}
+.nds-content{display:flex;flex-direction:column;gap:1.5rem;padding-bottom:1.75rem}
 .nds-desc{font-size:.95rem;line-height:1.78;color:var(--w60);max-width:780px}
 .nds-img{width:100%;aspect-ratio:16/9;border-radius:12px;background-color:transparent;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:zoom-in;transition:transform .35s ease,box-shadow .35s ease;position:relative}
 .nds-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
@@ -308,16 +311,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .pg-hero-inner{flex-direction:column;align-items:flex-start}
   .pia-grid{grid-template-columns:1fr}
   .ccg{grid-template-columns:1fr}
-  /* Market MAP Design System — switch to accordion (replicates index_1_.html pattern) */
-  .nds-section{margin-bottom:0;padding:0 0 0 0;border-bottom:1px solid var(--w10)}
-  .nds-section:last-child{border-bottom:none}
-  .nds-head{cursor:pointer;padding:1.5rem 0;margin-bottom:0;-webkit-tap-highlight-color:transparent}
-  .nds-plus{display:flex;width:2.2rem;height:2.2rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);align-items:center;justify-content:center;flex-shrink:0;color:rgba(255,255,255,.55);transition:transform .3s ease;line-height:1}
-  .nds-section.op .nds-plus{transform:rotate(45deg)}
-  .nds-head:hover .nds-plus{opacity:.7}
-  .nds-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.19,1,.22,1)}
-  .nds-section.op .nds-body{max-height:1400px}
-  .nds-content{padding-bottom:1.75rem}
 }
 @media(max-width:768px){
   .nl{display:none}
@@ -333,6 +326,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   .metrics{grid-template-columns:1fr}
   .proc-tabs{flex-wrap:wrap;border-radius:10px}
   .ptab{flex:calc(50% - 1px);border-bottom:1px solid var(--w10)}
+  .fi{flex-direction:column;justify-content:center;text-align:center}
+  .fl{justify-content:center}
 }
 
 /* Zoomable images — magnifying glass hint + cursor */
@@ -448,36 +443,36 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="pnum">02</div>
   <div class="ptitle-row rv">
     <div><p class="pcat" data-t="p2.cat">Design System</p><h2 class="pname" data-t="p2.title">Bimbo Mexico</h2></div>
-    <div class="tags"><span class="tag">Design System</span><span class="tag">Visual Design</span><span class="tag">Brand</span><span class="tag">Figma</span></div>
+    <div class="tags"><span class="tag" data-t="p2.tag0">Design System</span><span class="tag" data-t="p2.tag1">Visual Design</span><span class="tag" data-t="p2.tag2">Brand</span><span class="tag">Figma</span></div>
   </div>
 
   <!-- Desktop: 3-col grid -->
   <div class="ccg rv">
     <div class="ccg-block">
-      <p class="ccg-label">Context</p>
-      <p class="ccg-text">Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops. This not only offers wide access to customers but a logistic problem as well.</p>
+      <p class="ccg-label" data-t="p2.ctx_l">Context</p>
+      <p class="ccg-text" data-t="p2.ctx_p">Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops. This not only offers wide access to customers but a logistic problem as well.</p>
     </div>
     <div class="ccg-block">
-      <p class="ccg-label">Challenge</p>
-      <p class="ccg-text">To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app whose aim is to help the regular store seller and their supervisors in the work field. After many months of implementation, user feedback has proven that there are several UX and accessibility problems that need to be addressed.</p>
+      <p class="ccg-label" data-t="p2.cha_l">Challenge</p>
+      <p class="ccg-text" data-t="p2.cha_p">To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app whose aim is to help the regular store seller and their supervisors in the work field. After many months of implementation, user feedback has proven that there are several UX and accessibility problems that need to be addressed.</p>
     </div>
     <div class="ccg-block">
-      <p class="ccg-label">Goal</p>
-      <p class="ccg-text">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p>
+      <p class="ccg-label" data-t="p2.goal_l">Goal</p>
+      <p class="ccg-text" data-t="p2.goal_p">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p>
     </div>
   </div>
 
   <!-- Mobile: tabs -->
   <div class="ov-tabs-wrap">
-    <p class="proc-label">Project Overview</p>
+    <p class="proc-label" data-t="p2.ov_label">Project Overview</p>
     <div class="proc-tabs" id="ov-p2">
-      <button class="ptab act" data-step="0">Context</button>
-      <button class="ptab" data-step="1">Challenge</button>
-      <button class="ptab" data-step="2">Goal</button>
+      <button class="ptab act" data-step="0" data-t="p2.ctx_l">Context</button>
+      <button class="ptab" data-step="1" data-t="p2.cha_l">Challenge</button>
+      <button class="ptab" data-step="2" data-t="p2.goal_l">Goal</button>
     </div>
-    <div class="ocontent vis" data-op="p2" data-os="0"><p class="ov-text">Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops.</p></div>
-    <div class="ocontent" data-op="p2" data-os="1"><p class="ov-text">To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app to help store sellers and supervisors in the field. User feedback has proven several UX and accessibility problems that need to be addressed.</p></div>
-    <div class="ocontent" data-op="p2" data-os="2"><p class="ov-text">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p></div>
+    <div class="ocontent vis" data-op="p2" data-os="0"><p class="ov-text" data-t="p2.ctx_pm">Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops.</p></div>
+    <div class="ocontent" data-op="p2" data-os="1"><p class="ov-text" data-t="p2.cha_pm">To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app to help store sellers and supervisors in the field. User feedback has proven several UX and accessibility problems that need to be addressed.</p></div>
+    <div class="ocontent" data-op="p2" data-os="2"><p class="ov-text" data-t="p2.goal_p">Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.</p></div>
   </div>
 
   <p class="proc-label" style="margin-top:1rem" data-t="proc.label">Design Process</p>
@@ -718,8 +713,6 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="fi">
     <span class="fc" data-t="foot.copy">© 2026 David Rios — Ready from São Paulo, Brazil</span>
     <div class="fl">
-      <a href="index.html" data-t="foot.home">Home</a>
-      <a href="project-nissan.html" data-t="foot.proj">Projects</a>
       <a href="mailto:david.riosv03@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/david-rios-vidarte/" target="_blank">LinkedIn</a>
     </div>
@@ -751,6 +744,11 @@ en:{
   'p1.s3h':'Visual Design & Handoff','p1.s3p':'120+ screens and Figma component library across 6 language variants.','p1.s3l0':'120+ screens across 6 languages','p1.s3l1':'Component library with design tokens','p1.s3l2':'Figma handoff + QA support',
   'p1.m0':'Markets covered','p1.m1':'Screens delivered','p1.m2':'Chatbot flows',
   'p2.cat':'Design System','p2.title':'Bimbo Mexico',
+  'p2.tag0':'Design System','p2.tag1':'Visual Design','p2.tag2':'Brand',
+  'p2.ov_label':'Project Overview',
+  'p2.ctx_l':'Context','p2.ctx_p':'Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops. This not only offers wide access to customers but a logistic problem as well.','p2.ctx_pm':'Bimbo is a Mexican multinational food company with presence all around the American continent, Europe, Asia and Africa. Their main products are related to bakery and snacks which are sold in big supermarket chain stores and small neighborhood shops.',
+  'p2.cha_l':'Challenge','p2.cha_p':'To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app whose aim is to help the regular store seller and their supervisors in the work field. After many months of implementation, user feedback has proven that there are several UX and accessibility problems that need to be addressed.','p2.cha_pm':'To solve the distribution issues, Bimbo created Market Map (Motor Analítico de Potencial de Ventas) — a mobile app to help store sellers and supervisors in the field. User feedback has proven several UX and accessibility problems that need to be addressed.',
+  'p2.goal_l':'Goal','p2.goal_p':"Develop a design system aligned with Bimbo's brand identity with close consideration to accessibility in open environments and improve the user flow experience.",
   'p2.t0':'Users','p2.t1':'Research','p2.t2':'Audit','p2.t3':'Concept',
   'p2.s_res_h':'Research','p2.s_res_p':"Field research with sellers, supervisors, and managers across multiple regions. We rode delivery routes, observed the app in real outdoor conditions, and ran 1-on-1 interviews to surface the friction points that weren't visible from the office.",'p2.s_res_l0':'Field shadowing with 12 sellers across Ciudad de Mexico','p2.s_res_l1':'In-depth interviews with supervisors and the sellers','p2.s_res_l2':'Found issues with the accessibility of the interfaces when used in sunny environments and old equipment','p2.s_res_l3':'Mapped the screen specifications of the tablets and phones used by the sellers','p2.s_res_l4':'Pain points mapped, prioritized, and validated',
   'p2.usr.0r':'Business Manager','p2.usr.0d':'Tracks the demand of Bimbo products in the region and coordinates efforts on the factory output and product advertisement.',
@@ -809,6 +807,11 @@ es:{
   'p1.s3h':'Diseño Visual y Entrega','p1.s3p':'120+ pantallas y librería Figma en 6 idiomas.','p1.s3l0':'120+ pantallas en 6 idiomas','p1.s3l1':'Librería con design tokens','p1.s3l2':'Handoff Figma + QA',
   'p1.m0':'Mercados cubiertos','p1.m1':'Pantallas entregadas','p1.m2':'Flujos del chatbot',
   'p2.cat':'Sistema de Diseño','p2.title':'Bimbo Mexico',
+  'p2.tag0':'Sistema de Diseño','p2.tag1':'Diseño Visual','p2.tag2':'Marca',
+  'p2.ov_label':'Resumen del Proyecto',
+  'p2.ctx_l':'Contexto','p2.ctx_p':'Bimbo es una empresa multinacional mexicana de alimentos con presencia en todo el continente americano, Europa, Asia y África. Sus principales productos están relacionados con panadería y snacks que se venden en grandes cadenas de supermercados y pequeñas tiendas de barrio. Esto no solo ofrece un amplio acceso a los clientes, sino también un problema logístico.','p2.ctx_pm':'Bimbo es una empresa multinacional mexicana de alimentos con presencia en todo el continente americano, Europa, Asia y África. Sus principales productos están relacionados con panadería y snacks que se venden en grandes cadenas de supermercados y pequeñas tiendas de barrio.',
+  'p2.cha_l':'Desafío','p2.cha_p':'Para resolver los problemas de distribución, Bimbo creó Market Map (Motor Analítico de Potencial de Ventas) — una app móvil cuyo objetivo es ayudar al vendedor de tienda y a sus supervisores en el campo de trabajo. Tras muchos meses de implementación, el feedback de los usuarios ha demostrado que existen varios problemas de UX y accesibilidad que deben resolverse.','p2.cha_pm':'Para resolver los problemas de distribución, Bimbo creó Market Map (Motor Analítico de Potencial de Ventas) — una app móvil para ayudar a vendedores y supervisores en el campo. El feedback de los usuarios ha demostrado varios problemas de UX y accesibilidad que deben resolverse.',
+  'p2.goal_l':'Objetivo','p2.goal_p':'Desarrollar un sistema de diseño alineado con la identidad de marca de Bimbo, considerando de cerca la accesibilidad en entornos abiertos y mejorar la experiencia del flujo de usuario.',
   'p2.t0':'Usuarios','p2.t1':'Research','p2.t2':'Auditoría','p2.t3':'Concepto',
   'p2.s_res_h':'Research','p2.s_res_p':'Investigación de campo con vendedores, supervisores y gerentes en múltiples regiones. Acompañamos rutas de reparto, observamos la app en condiciones reales al aire libre y realizamos entrevistas 1 a 1 para identificar los puntos de fricción que no se veían desde la oficina.','p2.s_res_l0':'Field shadowing con 12 vendedores en Ciudad de México','p2.s_res_l1':'Entrevistas en profundidad con supervisores y vendedores','p2.s_res_l2':'Detectamos problemas de accesibilidad de las interfaces en ambientes soleados y con equipos antiguos','p2.s_res_l3':'Mapeo de las especificaciones de pantalla de las tablets y celulares utilizados por los vendedores','p2.s_res_l4':'Pain points mapeados, priorizados y validados',
   'p2.usr.0r':'Gerente de Negocio','p2.usr.0d':'Hace seguimiento de la demanda de productos Bimbo en la región y coordina los esfuerzos en la producción de la fábrica y la publicidad de los productos.',
@@ -852,7 +855,7 @@ es:{
   'p4.s2h':'Diseño de Game UI','p4.s2p':'Sistema completo — HUD, menús, inventario y onboarding.','p4.s2l0':'Sistema HUD en tiempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimiento',
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
-  'foot.copy':'© 2026 David Rios — Ready from São Paulo, Brazil','foot.home':'Inicio','foot.proj':'Proyectos'
+  'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
 }
 };
 
@@ -971,32 +974,19 @@ setL('en');
   });
 })();
 
-/* Market MAP Design System — accordion behavior on mobile (matches index_1_.html pattern) */
+/* Market MAP Design System — accordion active at all viewport sizes */
 (function(){
   const sections=document.querySelectorAll('.nds-section');
   if(!sections.length)return;
-  const mq=window.matchMedia('(max-width:900px)');
 
-  /* On mobile: only first item open. On desktop: all sections always open. */
-  function applyMode(){
-    if(mq.matches){
-      sections.forEach((s,i)=>{
-        s.classList.toggle('op',i===0);
-      });
-    } else {
-      sections.forEach(s=>s.classList.add('op'));
-    }
-  }
-  applyMode();
-  if(mq.addEventListener)mq.addEventListener('change',applyMode);
-  else if(mq.addListener)mq.addListener(applyMode);
+  /* First section open by default, on desktop and mobile */
+  sections.forEach((s,i)=>s.classList.toggle('op',i===0));
 
-  /* Click on .nds-head: close all then open clicked (or close if already open) — exactly like index_1_.html */
+  /* Click on .nds-head: close all then open clicked (or close if already open) */
   sections.forEach(s=>{
     const head=s.querySelector('.nds-head');
     if(!head)return;
     head.addEventListener('click',()=>{
-      if(!mq.matches)return; /* Desktop: no-op, everything is already visible via CSS */
       const isOpen=s.classList.contains('op');
       sections.forEach(i=>i.classList.remove('op'));
       if(!isOpen){
