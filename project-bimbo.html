@@ -982,17 +982,53 @@ setL('en');
   /* First section open by default, on desktop and mobile */
   sections.forEach((s,i)=>s.classList.toggle('op',i===0));
 
-  /* Click on .nds-head: close all then open clicked (or close if already open) */
+  const docEl=document.documentElement;
+
+  /* Click on .nds-head: close all then open clicked (or close if already open).
+     The clicked header is kept visually pinned in place: as the content above
+     it collapses/expands over the .55s max-height transition, we compensate the
+     scroll position frame-by-frame so the chosen section never jumps out of view. */
   sections.forEach(s=>{
     const head=s.querySelector('.nds-head');
     if(!head)return;
     head.addEventListener('click',()=>{
       const isOpen=s.classList.contains('op');
+
+      /* Remember where the clicked header sits in the viewport BEFORE any change */
+      const anchor=head.getBoundingClientRect().top;
+
       sections.forEach(i=>i.classList.remove('op'));
-      if(!isOpen){
-        s.classList.add('op');
-        setTimeout(()=>s.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+      if(!isOpen)s.classList.add('op');
+
+      /* Disable smooth scrolling so our per-frame correction is instant
+         (otherwise html{scroll-behavior:smooth} would fight the loop) */
+      const prevBehavior=docEl.style.scrollBehavior;
+      docEl.style.scrollBehavior='auto';
+
+      /* Bail out the moment the user takes over scrolling */
+      let interrupted=false;
+      const stop=()=>{interrupted=true;};
+      const opts={passive:true,once:true};
+      window.addEventListener('wheel',stop,opts);
+      window.addEventListener('touchmove',stop,opts);
+      window.addEventListener('keydown',stop,{once:true});
+
+      function done(){
+        docEl.style.scrollBehavior=prevBehavior;
+        window.removeEventListener('wheel',stop);
+        window.removeEventListener('touchmove',stop);
+        window.removeEventListener('keydown',stop);
       }
+
+      const t0=performance.now();
+      const DURATION=650; /* a touch longer than the .55s CSS transition */
+      (function pin(){
+        if(interrupted)return done();
+        const drift=head.getBoundingClientRect().top-anchor;
+        if(Math.abs(drift)>0.5)window.scrollBy(0,drift);
+        if(performance.now()-t0<DURATION)requestAnimationFrame(pin);
+        else done();
+      })();
     });
   });
 })();
