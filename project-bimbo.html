@@ -31,8 +31,9 @@ nav.sc .ham span{background:var(--ink)}
 .nl a:hover,.nl a.act{color:#fff}
 nav.sc .nl a.act{color:var(--ink)}
 .lang{display:flex;position:relative;align-items:center;background:#e0ded8;border-radius:100px;padding:3px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.13),inset -1px -1px 3px rgba(255,255,255,.6)}
-.lang-knob{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
+.lang-knob{position:absolute;top:3px;left:3px;width:calc(33.333% - 2px);height:calc(100% - 6px);border-radius:100px;background:#fff;box-shadow:2px 2px 6px rgba(0,0,0,.14),-1px -1px 3px rgba(255,255,255,.9);transition:transform .38s cubic-bezier(.34,1.4,.64,1);pointer-events:none;z-index:0}
 .lang.es .lang-knob{transform:translateX(100%)}
+.lang.pt .lang-knob{transform:translateX(200%)}
 .lb{padding:.3rem .85rem;color:rgba(30,30,33,.38);background:none;border:none;font-family:var(--font);cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.1em;z-index:1;position:relative;transition:color .25s;min-width:2.2rem;text-align:center}
 .lb.on{color:rgba(30,30,33,.82)}
 .ham{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1001;width:36px;height:36px}
@@ -398,7 +399,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
         <div class="lang" id="lang-nav">
           <div class="lang-knob"></div>
           <button class="lb lb-en on" onclick="setL('en')">EN</button>
-          <button class="lb lb-es" onclick="setL('es')">ES</button>
+          <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
         </div>
       </li>
     </ul>
@@ -415,7 +416,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="lang" id="lang-mob">
     <div class="lang-knob"></div>
     <button class="lb lb-en on" onclick="setL('en')">EN</button>
-    <button class="lb lb-es" onclick="setL('es')">ES</button>
+    <button class="lb lb-es" onclick="setL('es')">ES</button><button class="lb lb-pt" onclick="setL('pt')">PT</button>
   </div>
 </div>
 
@@ -856,16 +857,81 @@ es:{
   'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art y brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para el lanzamiento','p4.s3l2':'Brand book y guías',
   'p4.m0':'Conceptos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecosistema de marca',
   'foot.copy':'© 2026 David Rios — Hecho desde São Paulo, Brasil','foot.home':'Inicio','foot.proj':'Proyectos'
+},
+pt:{
+  'nav.home':'Início','nav.projects':'Projetos','nav.cv':'CV',
+  'page.ey':'Trabalhos Selecionados','page.title':'Projetos','page.sub':'Processo de design de ponta a ponta — da descoberta e pesquisa à entrega final.',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google',
+  'proc.label':'Processo de Design',
+  'p1.cat':'AI Chatbot · Manutenção de App','p1.title':'Nissan Latam',
+  'p1.t0':'Descoberta','p1.t1':'Pesquisa','p1.t2':'Wireframes','p1.t3':'Design Visual',
+  'p1.s0h':'Entendendo o Mercado','p1.s0p':'Auditamos os touchpoints da Nissan em 6 mercados LATAM.','p1.s0l0':'Benchmarking em 8 marcas','p1.s0l1':'Entrevistas com líderes regionais','p1.s0l2':'Avaliação heurística da plataforma',
+  'p1.s1h':'Mapeamento da Jornada','p1.s1p':'24 entrevistas no México, Brasil e Argentina.','p1.s1l0':'24 entrevistas em 3 mercados','p1.s1l1':'Journey maps e pain points','p1.s1l2':'3 arquétipos de usuário',
+  'p1.s2h':'IA & Fluxos do Chatbot','p1.s2p':'Arquitetura para o app e o chatbot — 30+ árvores de conversa.','p1.s2l0':'30+ fluxos do chatbot','p1.s2l1':'Wireframes validados com 12 usuários','p1.s2l2':'3 ciclos de sprints',
+  'p1.s3h':'Design Visual e Handoff','p1.s3p':'120+ telas e biblioteca Figma em 6 idiomas.','p1.s3l0':'120+ telas em 6 idiomas','p1.s3l1':'Biblioteca com design tokens','p1.s3l2':'Handoff Figma + QA',
+  'p1.m0':'Mercados cobertos','p1.m1':'Telas entregues','p1.m2':'Fluxos do chatbot',
+  'p2.cat':'Design System','p2.title':'Bimbo Mexico',
+  'p2.tag0':'Design System','p2.tag1':'Design Visual','p2.tag2':'Marca',
+  'p2.ov_label':'Resumo do Projeto',
+  'p2.ctx_l':'Contexto','p2.ctx_p':'A Bimbo é uma empresa multinacional mexicana de alimentos com presença em todo o continente americano, Europa, Ásia e África. Seus principais produtos estão relacionados a panificação e snacks, vendidos em grandes redes de supermercados e pequenas lojas de bairro. Isso oferece não só amplo acesso aos clientes, mas também um problema logístico.','p2.ctx_pm':'A Bimbo é uma empresa multinacional mexicana de alimentos com presença em todo o continente americano, Europa, Ásia e África. Seus principais produtos estão relacionados a panificação e snacks, vendidos em grandes redes de supermercados e pequenas lojas de bairro.',
+  'p2.cha_l':'Desafio','p2.cha_p':'Para resolver os problemas de distribuição, a Bimbo criou o Market Map (Motor Analítico de Potencial de Vendas) — um app móvel cujo objetivo é ajudar o vendedor de loja e seus supervisores no campo de trabalho. Após muitos meses de implementação, o feedback dos usuários comprovou que existem vários problemas de UX e acessibilidade que precisam ser resolvidos.','p2.cha_pm':'Para resolver os problemas de distribuição, a Bimbo criou o Market Map (Motor Analítico de Potencial de Vendas) — um app móvel para ajudar vendedores e supervisores no campo. O feedback dos usuários comprovou vários problemas de UX e acessibilidade que precisam ser resolvidos.',
+  'p2.goal_l':'Objetivo','p2.goal_p':'Desenvolver um design system alinhado à identidade de marca da Bimbo, com atenção especial à acessibilidade em ambientes abertos, e melhorar a experiência do fluxo do usuário.',
+  'p2.t0':'Usuários','p2.t1':'Research','p2.t2':'Auditoria','p2.t3':'Conceito',
+  'p2.s_res_h':'Research','p2.s_res_p':'Pesquisa de campo com vendedores, supervisores e gerentes em múltiplas regiões. Acompanhamos rotas de entrega, observamos o app em condições reais ao ar livre e realizamos entrevistas individuais para identificar os pontos de fricção que não eram visíveis a partir do escritório.','p2.s_res_l0':'Field shadowing com 12 vendedores na Cidade do México','p2.s_res_l1':'Entrevistas em profundidade com supervisores e vendedores','p2.s_res_l2':'Detectamos problemas de acessibilidade das interfaces em ambientes ensolarados e com equipamentos antigos','p2.s_res_l3':'Mapeamento das especificações de tela dos tablets e celulares usados pelos vendedores','p2.s_res_l4':'Pain points mapeados, priorizados e validados',
+  'p2.usr.0r':'Gerente de Negócio','p2.usr.0d':'Acompanha a demanda dos produtos Bimbo na região e coordena os esforços na produção da fábrica e na publicidade dos produtos.',
+  'p2.usr.1r':'Supervisor','p2.usr.1d':'Acompanha de perto o desempenho e os objetivos dos vendedores. Organiza a distribuição local dos produtos.',
+  'p2.usr.2r':'Vendedor','p2.usr.2d':'Equipe porta a porta encarregada de entregar os produtos da Bimbo às pequenas lojas de bairro em todo o México.',
+  'p2.whyds.title':'Por que um Design System?',
+  'p2.whyds.intro':'É um sistema abrangente que contém princípios de design, componentes, padrões de interação, organização e documentação para garantir a consistência e escalabilidade de um produto digital ou família de produtos.',
+  'p2.whyds.0t':'Consistência visual e funcionalidade','p2.whyds.0d':'Define regras claras para os componentes, garantindo que todos os elementos da interface sejam consistentes entre si.',
+  'p2.whyds.1t':'Colaboração da equipe','p2.whyds.1d':'Reduz mal-entendidos e garante que todos os membros do projeto trabalhem com as mesmas diretrizes.',
+  'p2.whyds.2t':'Economizar tempo e recursos','p2.whyds.2d':'A longo prazo, um DS reduz o tempo dedicado a decisões de design e desenvolvimento.',
+  'p2.s0h':'Auditoria de Plataforma','p2.s0p':'200+ padrões inconsistentes encontrados.','p2.s0l0':'200+ elementos catalogados','p2.s0l1':'Análise de guidelines e gaps','p2.s0l2':'Revisão WCAG 2.1 AA',
+  'p2.s1h':'Auditoria da Plataforma','p2.s1p':'Auditoria completa que revela padrões inconsistentes.','p2.s1l0':'Falta de consistência entre componentes','p2.s1l1':'Uso indevido de cores segundo o manual da Bimbo','p2.s1l2':'Sem hierarquia entre os elementos da interface','p2.s1l3':'Contraste ruim entre componentes','p2.s1l4':'Sem uma linguagem visual comum no design dos ícones',
+  'p2.s2p':'A camada base do Design System — um conjunto de tokens de fonte, espaçamento, tipografia e cor sobre o qual cada componente é construído.',
+  'p2.var.0t':'Cor','p2.var.0d':'Papéis de cor semânticos para superfícies, conteúdo, bordas e estados — derivados da paleta de marca da Bimbo e validados para acessibilidade.',
+  'p2.var.1t':'Tipografia','p2.var.1d':'Uma escala tipográfica definida que cobre estilos de display, heading, body e caption — cada um com seu tamanho, peso e line-height.',
+  'p2.var.2t':'Espaçamento','p2.var.2d':'Uma escala de espaçamento consistente que define margens, paddings e separações de layout para manter um ritmo vertical uniforme entre as telas.',
+  'p2.var.3t':'Borda','p2.var.3d':'Larguras de borda e raios de canto que dão forma às bordas e cantos arredondados de cada componente do sistema.',
+  'p2.s3p':'Uma nova identidade gráfica foi criada para se alinhar à linguagem visual da Bimbo, alcançando coesão entre este produto e o universo de marca mais amplo.',
+  'p2.nds.title':'Market MAP Design System',
+  'p2.nds.0t':'Variáveis','p2.nds.0d':'A camada base do Design System — um conjunto de tokens de cor, tipografia, espaçamento e borda sobre o qual cada componente é construído.',
+  'p2.nds.1t':'Ícones','p2.nds.1d':'Uma biblioteca de ícones personalizada criada especificamente para o Design System — mais de 900 ícones desenhados com uma linguagem visual compartilhada, espessura de traço consistente e significado claro em qualquer escala.',
+  'p2.nds.2t':'Componentes','p2.nds.2d':'Mais de 80 componentes prontos para produção que cobrem cada padrão de UI recorrente no produto — cada um com seus estados, variantes e specs de acessibilidade incorporados desde o início.',
+  'p2.nds.3t':'Branding','p2.nds.3d':'Uma nova identidade gráfica foi criada para se alinhar à linguagem visual da Bimbo, alcançando coesão entre este produto e o universo de marca mais amplo.',
+  'p2.show.label':'Showcase','p2.show.title':'Antes & Depois','p2.show.desc':'Uma comparação lado a lado de como o app era antes do Design System e como ele ficou depois — arraste o controle para revelar cada versão.','p2.show.before':'Antes','p2.show.after':'Depois',
+  'p2.m0':'Componentes construídos','p2.m1':'Ícones incluídos',
+  'p2.okr.label':'Objetivos e Resultados-Chave',
+  'p2.okr.0t':'Melhorar a satisfação e a eficiência','p2.okr.0c':'Desenvolver e implantar a primeira versão do Design System no app MarketMap até o fim do Q2 e alcançar um bom nível de satisfação entre seus usuários.','p2.okr.0k0':'System Usability Scale',
+  'p2.okr.1t':'Reduzir o time to market','p2.okr.1c':'Reduzir o tempo de desenvolvimento de novas features em 30% reutilizando componentes do design system, com a meta alcançada até o Q3 de 2025.','p2.okr.1k0':'Duração dos sprints','p2.okr.1k1':'Tempo de handoff',
+  'p2.okr.2t':'Gerar adoção e expandir o alcance','p2.okr.2c':'Escalar o uso do Design System para outras submarcas do Grupo Bimbo e expandir sua aplicação ao formato desktop.','p2.okr.2k0':'Adoção dos componentes','p2.okr.2k1':'Tempo de onboarding por novo integrante',
+  'p3.cat':'Dashboard Design · UX Architecture · UI Kit · Illustrations','p3.title':'Orion by Google',
+  'p3.t0':'Pesquisa','p3.t1':'IA & Arquitetura','p3.t2':'Dashboard','p3.t3':'UI Kit',
+  'p3.s0h':'Entendendo a Complexidade','p3.s0p':'Trabalhamos com engenharia e produto para entender 15+ tipos de métricas.','p3.s0l0':'Workshops com 4 grupos','p3.s0l1':'Taxonomia de dados e hierarquia','p3.s0l2':'Análise de dashboards',
+  'p3.s1h':'Arquitetura da Informação','p3.s1p':'Hierarquia de 3 níveis validada por card sorting.','p3.s1l0':'Card sorting com 18 usuários','p3.s1l1':'Hierarquia de 3 níveis','p3.s1l2':'Vinculação contextual entre métricas',
+  'p3.s2h':'Design do Dashboard','p3.s2p':'40+ estados em 6 domínios, testados em 3 rodadas.','p3.s2l0':'40+ telas em 6 domínios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rodadas de testes',
+  'p3.s3h':'UI Kit e Ilustrações','p3.s3p':'60+ componentes e sistema de ilustrações.','p3.s3l0':'60+ componentes no Figma','p3.s3l1':'12 cenas de ilustrações','p3.s3l2':'Princípios de movimento',
+  'p3.m0':'Estados de tela','p3.m1':'Componentes UI','p3.m2':'Usuários no card sorting',
+  'p4.cat':'Identidade de Marca · Game UI · Design Visual','p4.title':'La Calera',
+  'p4.t0':'Estratégia','p4.t1':'Identidade','p4.t2':'Game UI','p4.t3':'Assets',
+  'p4.s0h':'Estratégia de Marca','p4.s0p':'Três direções reduzidas a uma identidade bold.','p4.s0l0':'Auditoria competitiva','p4.s0l1':'3 direções criativas','p4.s0l2':'Arquétipos e voz de marca',
+  'p4.s1h':'Logo e Identidade Visual','p4.s1p':'12+ explorações de logo em toda escala.','p4.s1l0':'12+ conceitos, 3 rodadas','p4.s1l1':'Paleta de cores completa','p4.s1l2':'Tipografia — display, UI e body',
+  'p4.s2h':'Design de Game UI','p4.s2p':'Sistema completo — HUD, menus, inventário e onboarding.','p4.s2l0':'Sistema HUD em tempo real','p4.s2l1':'50+ componentes de game UI','p4.s2l2':'Specs de movimento',
+  'p4.s3h':'Assets de Marketing','p4.s3p':'Templates, key art e brand book completo.','p4.s3l0':'Templates — 8 formatos','p4.s3l1':'Key art para o lançamento','p4.s3l2':'Brand book e guias',
+  'p4.m0':'Conceitos de logo','p4.m1':'Componentes de game UI','p4.m2':'Ecossistema de marca',
+  'foot.copy':'© 2026 David Rios — Direto de São Paulo, Brasil','foot.home':'Início','foot.proj':'Projetos'
 }
 };
 
 let lang='en';
 function setL(l){
   lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
   document.querySelectorAll('[data-t]').forEach(el=>{const v=T[l][el.dataset.t];if(v!==undefined)el.textContent=v;});
   document.querySelectorAll('.lb-en').forEach(b=>b.classList.toggle('on',l==='en'));
   document.querySelectorAll('.lb-es').forEach(b=>b.classList.toggle('on',l==='es'));
-  document.querySelectorAll('.lang').forEach(lt=>lt.classList.toggle('es',l==='es'));
+  document.querySelectorAll('.lb-pt').forEach(b=>b.classList.toggle('on',l==='pt'));
+  document.querySelectorAll('.lang').forEach(lt=>{lt.classList.toggle('es',l==='es');lt.classList.toggle('pt',l==='pt');});
 }
 
 const ham=document.getElementById('ham'),mob=document.getElementById('mob');
@@ -903,7 +969,7 @@ if(procTabs){
 
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.01});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-setL('en');
+(function(){var s;try{s=localStorage.getItem('site-lang');}catch(e){}setL(['en','es','pt'].indexOf(s)>-1?s:'en');})();
 
 /* Lightbox — click on zoomable images to open full image */
 (function(){
