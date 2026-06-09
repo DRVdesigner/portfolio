@@ -358,8 +358,8 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
 @media(max-width:768px){
   .nl{display:none}
   .ham{display:flex}
-  .pnav-inner{padding:0 1.5rem}
-  .pnb{font-size:.62rem;padding:.75rem .25rem}
+  .pnav-inner{padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.pnav-inner::-webkit-scrollbar{display:none}
+  .pnb{font-size:.62rem;padding:.75rem .7rem;flex:none}
   /* swap overview: hide grid, show tabs */
   .ccg{display:none}
   .ov-tabs-wrap{display:block}
@@ -433,6 +433,9 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     <a href="project-nissan.html" class="pnb act" data-t="pn.p1">Nissan</a>
     <a href="project-bimbo.html" class="pnb" data-t="pn.p2">Bimbo</a>
     <a href="project-google.html" class="pnb" data-t="pn.p3">Google</a>
+    <a href="project-kidgigs.html" class="pnb" data-t="pn.p4">Kidgigs</a>
+    <a href="project-lacalera.html" class="pnb" data-t="pn.p5">La Calera</a>
+    <a href="project-one.html" class="pnb" data-t="pn.p6">ONE</a>
   </div>
 </div>
 
@@ -659,7 +662,7 @@ const T={
 en:{
   'nav.home':'Home','nav.projects':'Projects','nav.cv':'About me',
   'page.ey':'Selected Work','page.title':'Projects','page.sub':'End-to-end design process — from discovery and research to final delivery.',
-  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'Kidgigs','pn.p5':'La Calera','pn.p6':'ONE',
   'proc.label':'Design Process',
   'p1.cat':'AI Chatbot · App Maintenance','p1.title':'Nissan Latam',
   'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotive','p1.tag3':'AI Chatbot',
@@ -701,7 +704,7 @@ en:{
   'p3.s2h':'Dashboard Design','p3.s2p':'40+ screen states across 6 domains, tested in 3 rounds.','p3.s2l0':'40+ screens across 6 data domains','p3.s2l1':'8 chart types with responsive variants','p3.s2l2':'3 rounds of usability testing',
   'p3.s3h':'UI Kit & Illustrations','p3.s3p':'60+ data-specific components plus custom illustration system.','p3.s3l0':'60+ data-specific components','p3.s3l1':'Custom illustration library — 12 scenes','p3.s3l2':'Motion principles and transition specs',
   'p3.m0':'Screen states','p3.m1':'UI components','p3.m2':'Users in card sorting',
-  'p4.cat':'Brand Identity · Game UI · Visual Design','p4.title':'La Calera',
+  'p4.cat':'Innovation · User Interface Design','p4.title':'La Calera',
   'p4.t0':'Brand Strategy','p4.t1':'Identity','p4.t2':'Game UI','p4.t3':'Assets',
   'p4.s0h':'Brand Strategy & Direction','p4.s0p':'Three directions narrowed to a bold, high-contrast identity.','p4.s0l0':'Competitive landscape & positioning audit','p4.s0l1':'3 creative directions developed & tested','p4.s0l2':'Brand archetypes and voice definition',
   'p4.s1h':'Logo & Visual Identity','p4.s1p':'12+ logo explorations at every scale.','p4.s1l0':'12+ logo concepts, 3 presentation rounds','p4.s1l1':'Color palette — primary, accent & neutrals','p4.s1l2':'Typography — display, UI and body scales',
@@ -713,7 +716,7 @@ en:{
 es:{
   'nav.home':'Inicio','nav.projects':'Proyectos','nav.cv':'Sobre mí',
   'page.ey':'Trabajos Seleccionados','page.title':'Proyectos','page.sub':'Proceso end-to-end — desde el descubrimiento hasta la entrega final.',
-  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'Kidgigs','pn.p5':'La Calera','pn.p6':'ONE',
   'proc.label':'Proceso de Diseño',
   'p1.cat':'AI Chatbot · Mantenimiento App','p1.title':'Nissan Latam',
   'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotriz','p1.tag3':'AI Chatbot',
@@ -755,7 +758,7 @@ es:{
   'p3.s2h':'Diseño del Dashboard','p3.s2p':'40+ estados en 6 dominios, testeados en 3 rondas.','p3.s2l0':'40+ pantallas en 6 dominios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rondas de pruebas',
   'p3.s3h':'UI Kit e Ilustraciones','p3.s3p':'60+ componentes y sistema de ilustraciones.','p3.s3l0':'60+ componentes en Figma','p3.s3l1':'12 escenas de ilustraciones','p3.s3l2':'Principios de movimiento',
   'p3.m0':'Estados de pantalla','p3.m1':'Componentes UI','p3.m2':'Usuarios en card sorting',
-  'p4.cat':'Identidad de Marca · Game UI · Diseño Visual','p4.title':'La Calera',
+  'p4.cat':'Innovación · User Interface Design','p4.title':'La Calera',
   'p4.t0':'Estrategia','p4.t1':'Identidad','p4.t2':'Game UI','p4.t3':'Assets',
   'p4.s0h':'Estrategia de Marca','p4.s0p':'Tres direcciones reducidas a una identidad bold.','p4.s0l0':'Auditoría competitiva','p4.s0l1':'3 direcciones creativas','p4.s0l2':'Arquetipos y voz de marca',
   'p4.s1h':'Logo e Identidad Visual','p4.s1p':'12+ exploraciones de logo a toda escala.','p4.s1l0':'12+ conceptos, 3 rondas','p4.s1l1':'Paleta de color completa','p4.s1l2':'Tipografía — display, UI y body',
@@ -767,7 +770,7 @@ es:{
 pt:{
   'nav.home':'Início','nav.projects':'Projetos','nav.cv':'Sobre mim',
   'page.ey':'Trabalhos Selecionados','page.title':'Projetos','page.sub':'Processo de design de ponta a ponta — da descoberta e pesquisa à entrega final.',
-  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'La Calera',
+  'pn.p1':'Nissan','pn.p2':'Bimbo','pn.p3':'Google','pn.p4':'Kidgigs','pn.p5':'La Calera','pn.p6':'ONE',
   'proc.label':'Processo de Design',
   'p1.cat':'AI Chatbot · Manutenção de App','p1.title':'Nissan Latam',
   'p1.tag0':'UX Design','p1.tag1':'UI Design','p1.tag2':'Automotivo','p1.tag3':'AI Chatbot',
@@ -809,7 +812,7 @@ pt:{
   'p3.s2h':'Design do Dashboard','p3.s2p':'40+ estados em 6 domínios, testados em 3 rodadas.','p3.s2l0':'40+ telas em 6 domínios','p3.s2l1':'8 tipos de gráficos','p3.s2l2':'3 rodadas de testes',
   'p3.s3h':'UI Kit e Ilustrações','p3.s3p':'60+ componentes e sistema de ilustrações.','p3.s3l0':'60+ componentes no Figma','p3.s3l1':'12 cenas de ilustrações','p3.s3l2':'Princípios de movimento',
   'p3.m0':'Estados de tela','p3.m1':'Componentes UI','p3.m2':'Usuários no card sorting',
-  'p4.cat':'Identidade de Marca · Game UI · Design Visual','p4.title':'La Calera',
+  'p4.cat':'Inovação · User Interface Design','p4.title':'La Calera',
   'p4.t0':'Estratégia','p4.t1':'Identidade','p4.t2':'Game UI','p4.t3':'Assets',
   'p4.s0h':'Estratégia de Marca','p4.s0p':'Três direções reduzidas a uma identidade bold.','p4.s0l0':'Auditoria competitiva','p4.s0l1':'3 direções criativas','p4.s0l2':'Arquétipos e voz de marca',
   'p4.s1h':'Logo e Identidade Visual','p4.s1p':'12+ explorações de logo em toda escala.','p4.s1l0':'12+ conceitos, 3 rodadas','p4.s1l1':'Paleta de cores completa','p4.s1l2':'Tipografia — display, UI e body',
