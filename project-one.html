@@ -179,6 +179,7 @@ nav.sc .lang-dd-opt.on{color:var(--ink)}
 .dv-img:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(6,7,15,.12)}
 .dv-img::after{content:'';position:absolute;top:.75rem;right:.75rem;width:36px;height:36px;border-radius:50%;background-color:rgba(6,7,15,.72);background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.5' y2='16.5'/%3E%3Cline x1='11' y1='8' x2='11' y2='14'/%3E%3Cline x1='8' y1='11' x2='14' y2='11'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:18px 18px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:.85;transition:opacity .25s ease,transform .25s ease;pointer-events:none;border:1px solid rgba(255,255,255,.18)}
 .dv-img:hover::after{opacity:1;transform:scale(1.06)}
+.dv-img.no-zoom{cursor:default}.dv-img.no-zoom::after{display:none}.dv-img.no-zoom:hover{transform:none;box-shadow:none}
 
 /* Mobile screen mockup — portrait aspect */
 .dv-img.mobile-screen{aspect-ratio:9/19;border-radius:18px}
@@ -387,7 +388,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
   <div class="pcontent vis rv" data-p="p6" data-s="0">
     <div>
       <!-- ▼ IMAGENAQUI: 'imagenes/Onecliente.png' -->
-      <div class="pmock" style="margin-bottom:1.5rem"><div class="dv-img" style="background-image:url('imagenes/Onecliente.png');aspect-ratio:4/3"></div></div>
+      <div class="pmock" style="margin-bottom:1.5rem"><div class="dv-img no-zoom" style="background-image:url('imagenes/Onecliente.png');aspect-ratio:4/3"></div></div>
       <div class="pc-text">
         <h4 data-t="p6.s0.client_h">Client</h4>
         <p data-t="p6.s0.client_p">ONE customers are divided into two categories: buyers and sellers. The platform provides an e-commerce section with a specialized search filter, detailed vehicle safety information, and the ability to connect with an advisor via chat. The appraisal process is fully automated — clients follow a step-by-step workflow to upload vehicle photos and technical data, then track the status in the Appraisals section and schedule an in-person appointment if they qualify.</p>
@@ -400,7 +401,7 @@ footer{background:#00042F;padding:1.75rem var(--pad);border-top:none}
     </div>
     <div>
       <!-- ▼ IMAGENAQUI: 'imagenes/Oneasesor.png' -->
-      <div class="pmock" style="margin-bottom:1.5rem"><div class="dv-img" style="background-image:url('imagenes/Oneasesor.png');aspect-ratio:4/3"></div></div>
+      <div class="pmock" style="margin-bottom:1.5rem"><div class="dv-img no-zoom" style="background-image:url('imagenes/Oneasesor.png');aspect-ratio:4/3"></div></div>
       <div class="pc-text">
         <h4 data-t="p6.s0.advisor_h">ONE Advisor</h4>
         <p data-t="p6.s0.advisor_p">The ONE Advisor serves as the key intermediary in the sales force, responsible for receiving appraisals, reviewing submitted documents and vehicle photos, and coordinating meetings with buyers and sellers. The application keeps advisors informed through constant notifications and provides a calendar tool to select dates, times, and locations for client appointments upon completing the appraisal process.</p>
@@ -732,7 +733,7 @@ if(procTabs){
     lbImg.src='';
     document.body.style.overflow='';
   }
-  document.querySelectorAll('.dv-img').forEach(el=>{
+  document.querySelectorAll('.dv-img:not(.no-zoom)').forEach(el=>{
     el.addEventListener('click',()=>openLB(el));
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
